@@ -1,0 +1,478 @@
+---
+title: "carts: getting started"
+author: "Klaus K. Holst (KKZH) and Benedikt Sommer (BKTS)"
+output:
+  rmarkdown::html_vignette:
+    fig_caption: yes
+    fig_width: 6
+    fig_height: 6
+vignette: >
+  %\VignetteIndexEntry{carts: getting started}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+bibliography: ref.bib
+---
+<!-- tufte::tufte_html: default -->
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\var}{\mathbb{V}\!\!\operatorname{ar}}
+\newcommand{\pr}{\mathbb{P}}
+\newcommand{\distnb}{\operatorname{NB}}
+\newcommand{\distpois}{\operatorname{Pois}}
+\newcommand{\distbern}{\operatorname{Bernoulli}}
+\newcommand{\distgamma}{\Gamma}
+
+```{r config, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE, collapse=TRUE)
+```
+
+# Introduction
+
+The `carts` package is a clinical trial simulation tool for power and sample
+size estimation. A modular, building-block design allows the
+simulation of many common clinical trial designs with only a few lines of code. In
+addition, the package provides a range of estimators for continuous, count and
+survival endpoints. This vignette introduces the basic functionalities of the
+`carts` package and aims to familarize the reader with the package interface.
+The centerpiece of the interface is the [R6 reference
+class](https://r6.r-lib.org/) `Trial`, with the constructor and main methods
+visualized in Figure 1. To this end, we will consider a two-armed parallel trial
+design to introduce the `Trial` class and demonstrate how power and sample size
+estimation are carried out conveniently.
+
+\caption{
+}
+```{tikz ex1}
+%| engine: tikz
+%| out.width: 100%
+%| echo: false
+%| fig.ext: png
+%| cache: true
+%| fig.cap: >
+%|   The 'Trial' R6 reference class. The blue boxes define the
+%|   arguments to the constructor, and the red boxes the most
+%|   important class methods.
+\usetikzlibrary{arrows, calc, positioning, shapes.multipart}
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\tikzstyle{line} = [draw, -latex']
+
+\tikzstyle{proc} =%
+rounded corners,
+[rectangle split,
+rectangle split parts=2,
+rectangle split part fill={blue!20, none},
+rectangle split part align={center, left},
+text width=5cm, text centered,
+draw=black]
+
+\tikzstyle{method} =%
+rounded corners,
+[rectangle split,
+rectangle split parts=2,
+rectangle split part fill={red!20, none},
+rectangle split part align={center, left},
+text width=5cm, text centered,
+draw=black]
+
+\begin{tikzpicture}[node distance = 1.5cm and 1.5cm]
+
+\node (trial) [draw=black, rectangle, fill=orange!10, minimum width=5cm, minimum height=2cm] {\texttt{Trial} class};
+
+\node (covar) [proc, below left=of trial]  {
+    \textbf{\texttt{covariates}} \\
+    \nodepart{two}
+    \vspace*{-1.2em}
+    \begin{flushleft}
+      Function (arguments \texttt{n, ...}) that generates a list of \texttt{data.table}'s with covariates with each element representing a unique time-point.
+    \end{flushleft}
+  };
+
+\node (outcome) [proc, above=of trial]  {
+    \textbf{\texttt{outcome}} \\
+    \nodepart{two}
+    \vspace*{-1.2em}
+    \begin{flushleft}
+      Function (arguments \texttt{x}: covariate data.table, \texttt{...}: additional
+    arguments defining parameters of the outcome model) that generates the outcome given covariates.
+    \end{flushleft}
+  };
+
+\node (exclusion) [proc, above left=of trial]  {
+    \textbf{\texttt{exclusion}} \\
+    \nodepart{two}
+    \vspace*{-1.2em}
+    \begin{flushleft}
+      Function (arguments \texttt{data}: data.table, \texttt{...}) that defines exclusion / inclusion criterions for the trial.
+    \end{flushleft}
+  };
+
+\node (info) [proc, left=of trial]  {
+    \textbf{\texttt{info}} \\
+    \nodepart{two}
+    \vspace*{-1.2em}
+    \begin{flushleft}
+      Optional string describing the trial simulation.
+    \end{flushleft}
+  };
+
+
+\node (simulate) [method, above right=of trial]  {
+    \textbf{\$\texttt{simulate}} \\
+    \nodepart{two}
+    \vspace*{-1.2em}
+    \begin{flushleft}
+    \textit{Simulate data from the specified trial design.}
+      \textbf{Arguments} \texttt{n}: sample size, \text{...}: additional arguments controlling covariate and outcome parameters. \textbf{Returns} `data.table` as defined by the object initialization with default subject identifier `id` and observation period `num`.
+    \end{flushleft}
+  };
+
+\node (run) [method, right=of trial]  {
+    \textbf{\$\texttt{run}} \\
+    \nodepart{two}
+    \vspace*{-1.2em}
+    \begin{flushleft}
+    \textit{Simulate and estimate parameters several times.}
+      \textbf{Arguments} \texttt{R}: replications, \texttt{estimators}: list of estimators of the trial target parameter, \texttt{...} additional arguments to the simulation routine. \textbf{Returns} an object with the Monte Carlo simulation results which can be analyzed with the \texttt{summary} method.
+    \end{flushleft}
+  };
+
+\node (estimatepower) [method, below=of trial]  {
+    \textbf{\$\texttt{estimate\_power}} \\
+    \nodepart{two}
+    \vspace*{-1.2em}
+    \begin{flushleft}
+    \textit{Estimate the statistical power of an estimator in a given scenario using Monte Carlo simulations.}
+      \textbf{Arguments} \texttt{R}: number of replications, \texttt{estimators}: estimator to  consider,
+     \texttt{summary.args}: arguments to the summary method that defines the statistical null hypothesis,
+      \texttt{...} additional arguments to the simulation routine. \textbf{Returns} estimated power for the given trial scenario.
+    \end{flushleft}
+  };
+
+\node (estimatesamplesize) [method, below right=of trial]  {
+    \textbf{\$\texttt{estimate\_samplesize}} \\
+    \nodepart{two}
+    \vspace*{-1.2em}
+    \begin{flushleft}
+    \textit{Estimate the minimum sample size needed to achieve a desired statistical power of an estimator in a given scenario.}
+      \textbf{Arguments} \texttt{estimator}, \texttt{power}, \texttt{...} \\
+      \textbf{Returns} an integer with an attribute 'power' with the actual power estimate.
+    \end{flushleft}
+  };
+
+
+
+\draw [arrow, dashed] (covar) -- (trial);
+\draw [arrow, dashed] (info) -- (trial);
+\draw [arrow, dashed] (exclusion) -- (trial);
+\draw [arrow, dashed] (outcome) -- (trial);
+
+\draw [arrow] (trial) -- (simulate);
+\draw [arrow] (trial) -- (run);
+\draw [arrow] (trial) -- (estimatepower);
+\draw [arrow] (trial) -- (estimatesamplesize);
+
+\end{tikzpicture}
+```
+
+# Preliminaries
+
+## Setting up parallel computations
+The `carts` package is basing its power and sample size estimation on Monte
+Carlo integration techniques. To deal with the computationally intensive
+procedures, the package uses extensive parallel computations based on the
+[future](https://cran.r-project.org/package=future) package. To
+enable this, all that needs to be done is to define the desired parallel backend, i.e.
+```{r setupfuture}
+future::plan(future::multicore)
+```
+This enables parallelization on all available cores on the current machine. It
+is equally straight-forward to set up a parallel batch computations on a
+cluster (see for example [future.batchtools](https://cran.r-project.org/package=future.batchtools)).
+
+## Progress bars and logging information
+
+As some calculations can be time-consuming we recommend enabling progress-bars,
+which can be achieved with the following code.
+```{r, eval=FALSE}
+progressr::handlers(global = TRUE)
+progressr::handlers(progressr::handler_progress(times = 100))
+```
+We refer to the
+[progressr vignette](https://cran.r-project.org/package=progressr/vignettes/progressr-intro.html)
+for information on how to customize the progress bar appeareance.
+
+Most output in the `carts` package is handled by the
+[logger](https://daroczig.github.io/logger/) logging utility. We refer to the
+following
+[article](https://daroczig.github.io/logger/articles/customize_logger.html) for
+information on how to alter the logging level and how to change the destination
+of the log records, which can be useful when running the `carts` package as
+batch jobs on a cluster.
+
+## Reproducibility
+
+It is sufficient to use a top-level seed for reproducibility of simulations when
+the future package is used for parallelization on a local machine. Additional
+care must be taken for distributed computations on a compute cluster.
+
+```{r, message=FALSE}
+library("carts")
+set.seed(42)
+```
+
+
+# Two-armed parallel design
+
+We will consider a two-armed parallel design where the outcome of interest is
+\begin{align*}
+Y \mid W, A \sim N(\beta_0 + \beta_w W + \beta_a A, \sigma^2)
+\end{align*}
+with treatment variable $A\sim Bernoulli(0.5)$ which is independent of
+the baseline covariate $W \sim N(0, 1)$.
+
+## Trial model
+To simulate this trial we first define the random number generators for
+treatment indicator $A$ and baseline covariate $W$
+```{r}
+covariate <- function(n, p.a = 0.5) {
+  return(
+    data.frame(
+    a = rbinom(n, 1, p.a),
+    w = rnorm(n)
+  )
+  )
+}
+```
+which in the context of `carts` is a covariate model. The general rule for
+simulating trial designs with time-invariant outcomes, i.e. outcomes that are
+only a function of information that is available at baseline/randomization, is
+that the covariate model is a function with first argument `n` (sample size)
+that returns covariate data in tabulated form, either as a `data.frame` or
+`data.table`. Additional parameters of the covariate model can be added after
+the sample size argument `n`, being here the treatment probability `p.a`.
+
+The trial model for this design is completed with the help of
+`outcome_continuous`. This built-in function generates continuous outcomes from
+tabulated baseline covariates, i.e. the output of the covariate model. The
+default arguments of built-in functions can be updated conveniently with
+`setargs` to the desired parameters of the trial. Simulating the trial
+\begin{align*}
+Y \mid W, A \sim N(10 - 0.5 A - 1.2 W , 1.5)
+\end{align*}
+requires to update the default arguments of `outcome_continuous` as
+```{r}
+outcome <- setargs(
+  outcome_continuous,
+  mean = ~ 1 + a + w,
+  par = c(10, -0.5, -1.2), # coef order as defined by the above formula
+  sd = 1.5 ** 0.5
+)
+```
+
+Finally, we instantiate a model object from the R6 `Trial` class
+```{r}
+trial <- Trial$new(
+  covariates = covariate,
+  outcome = outcome,
+  exclusion = identity, # no exclusion criteria (default)
+  info = "Two-armed parallel design" # optional info
+)
+```
+where, by default, no exclusion model is used.
+
+## Trial simulation
+Simulating data from the defined model object is done via the simulate method
+```{r}
+dd <- trial$simulate(n = 1e4)
+```
+The method is a wrapper calling `carts:::trial_simulate` which combines
+sampling data from the covariate and outcome model, and the application of the
+exclusion model in an iterative process. First `n` subjects are sampled from the
+covariate model. The sampled tabulated data is then converted into a
+`data.table` and passed on to the outcome model. The sampled covariate and
+outcome data are then passed together as a single `data.table` to the exclusion
+model. Thus, the exclusion model allows for removing subjects based on both the
+covariate and outcome data. If subjects are removed, the remaining subjects are
+stored and the next iteration begins by sampling from the covariate model. The
+process repeats until a total of `n` subjects have been sampled.
+
+Without additional arguments, the method uses the assigned default arguments of
+the covariate and outcome model to generate the sample.
+```{r}
+table(dd$a)
+```
+
+Inspecting the simulated data
+```{r}
+head(dd, 2)
+```
+reveals that the package adds subject (`id`) and period (`num`) identifiers to
+the output of the method. This is the default behaviour that provides the
+functionality to follow subjects across multiple periods in within-subject trial
+designs.
+
+### Updating model parameters
+Additional arguments are accepted by the simulate method that allow for simulating
+from the same trial object while varying model parameters. This
+circumvents the instantiation of a new model object and provides an elegant way
+to carry out parameter sensitivity analyses or interactively use a trial
+model
+```{r}
+trial$simulate(n = 1e4, p.a = 0.9)$a |> table()
+```
+In fact, most public methods of the `Trial` class allow passing arguments to the
+underlying covariate, outcome and exclusion models via the optional argument of
+the `Trial` method.
+
+#### Safeguarding parameter clashes
+
+The simulate method passes all defined model parameters internally to the
+covariate, outcome and exclusion models. For the given example this means that
+each of the model component function calls receive `p.a = 0.9` as an optional
+argument. This enables updating shared parameters in all model
+components with a single value
+```{r}
+trial0 <- Trial$new(
+  covariates = covariate,
+  outcome = function(data, p.a = 0.1) rbinom(nrow(data), 1, p.a)
+)
+trial0$simulate(1e4)[, list(y = mean(y), a = mean(a))]
+trial0$simulate(1e4, p.a = 1)[, list(y = mean(y), a = mean(a))]
+```
+but also opens a pathway to accidentally overwriting default parameters of
+built-in functions. A simple solution for preventing this is achieved by using
+functional wrappers. This is shown here for the covariate model, where the default
+value of `p.a` cannot be changed dynamically anymore.
+```{r}
+trial0 <- Trial$new(
+  covariates = function(n) covariate(n),
+  outcome = function(data, p.a = 0.1) rbinom(nrow(data), 1, p.a)
+)
+trial0$simulate(1e4, p.a = 1)[, list(y = mean(y), a = mean(a))]
+```
+
+#### Updating default parameters of a trial model
+
+The `Trial` class also allows to set and update default arguments of covariate,
+outcome and exclusion models. Another way to utilise built-in functions is
+therefore to initialize a trial object as
+```{r}
+trial <- Trial$new(
+  covariates = covariate,
+  outcome = outcome_continuous
+)
+```
+and then set default values for the outcome model with
+```{r}
+trial$args_model(
+  mean = ~ 1 + a + w,
+  par = c(10, -0.5, -1.2)
+)
+```
+Using the `args_model` method updates the `model.args` attribute of the trial
+object, which are then used internally as the default option to simulate the
+trial data.
+```{r}
+trial$simulate(1e4)[, list(y = mean(y)), by = "a"]
+```
+However, the parameters in `trial$model.args` are overruled when parameters with
+matching names are passed to the simulate method.
+```{r}
+trial$simulate(1e4, par = c(0, 20, 0))[, list(y = mean(y)), by = "a"]
+```
+
+## Estimators
+
+The `carts` package provides a range of estimators for various trial designs.
+All built-in estimators are function generators that return an estimator, which
+is a function of data (first input argument). To be compatible with the package
+design, each estimator must return a named vector that includes the estimate
+(Estimate) and standard errors ("Std.Err"). The returned vector may include
+additional elements as they not interfere with any internal procedures. A crude
+(marginal) estimator can be defined by using `est_glm`, which is a function
+generator
+```{r}
+estimator <- est_glm(
+  response = "y", # default value
+  treatment = "a" # default value
+)
+data <- trial$simulate(n = 300)
+estimator(data)
+```
+
+Estimators can be assigned to a trial object either during its initialization
+via the `estimators` argument of `Trial$new` or after initialization
+
+```{r}
+trial$estimators(marginal = est_glm()) # using def. args. of est_glm
+```
+and all assigned estimators can be retrieved by calling the estimator method
+```{r}
+names(trial$estimators())
+```
+or printing the trial object
+```{r}
+print(trial)
+```
+
+## Power estimation
+
+Carrying out power estimations is straightforward once estimators are assigned
+to the trial model.
+
+```{r}
+trial$estimate_power(
+  n = 300, # sample size
+  R = 500 # number of Monte Carlo replicates
+)
+```
+
+### Hypothesis testing
+The method uses `carts:::summary.runtrials` internally to implement the
+hypothesis test for a given trial design. By default, a two-sided test is
+carried out for the null hypothesis of no treatment effect with 0.05 signifcance
+level. The test can be changed via the `summary.args` argument
+```{r}
+trial$estimate_power(n = 300, R = 500,
+  summary.args = list(alternative = ">") # one-sided test should
+  # have no power as a < 0
+)
+```
+
+### Updating model parameters
+Arguments to the covariate, outcome and exclusion models can be passed via the
+optional arguments of the method. The behavior is identical to the one of
+`Trial$simulate`. That is, passed arguments overwrite their default values in
+`Trial$model.args`.
+```{r}
+trial$estimate_power(n = 300, R = 500, p.a = 0.1)
+```
+One should note that the current interface does not pass on these optional
+arguments to estimators. As a consequence, all estimators must be initialized
+with values assigned to their optional arguments.
+
+### Multiple estimators
+
+The default settings of `carts` is to estimate the power of all estimators
+that are defined in `Trial$estimators`.
+```{r}
+trial$estimators(adjusted = est_glm(covariates = "w"))
+trial$estimate_power(n = 300, R = 500)
+```
+
+
+## Sample-size estimations
+
+Last, we estimate the sample size required to attain 90% power for the specified
+trial model and estimator
+```{r}
+trial$estimate_samplesize(
+  power = 0.9, # default
+  estimator = trial$estimators("adjusted")
+)
+```
+The method optimizes the sample size by internally calling the
+`Trial$estimate_power` method. Therefore, the behavior for updating model
+parameters and changing the default settings for the hypothesis test are
+identical. That is, model parameters are passed as optional arguments or set via
+the `args_model` method, and the `summary.args` argument is used to change the
+hypothesis test.

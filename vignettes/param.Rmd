@@ -1,0 +1,122 @@
+---
+title: "carts: parametrization of the negative binomial and gamma distribution"
+author: "Klaus K. Holst (KKZH)"
+output:
+  rmarkdown::html_vignette:
+    fig_caption: yes
+    fig_width: 6
+    fig_height: 4
+vignette: >
+  %\VignetteIndexEntry{carts: parametrization of the negative binomial and gamma distribution}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+bibliography: ref.bib
+---
+
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\var}{\mathbb{V}\!\!\operatorname{ar}}
+\newcommand{\pr}{\mathbb{P}}
+\newcommand{\distnb}{\operatorname{NB}}
+\newcommand{\distpois}{\operatorname{Pois}}
+\newcommand{\distbern}{\operatorname{Bernoulli}}
+\newcommand{\distgamma}{\Gamma}
+
+```{r config, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
+```
+
+The negative binomial distribution describes the probability of seeing a given
+number of failtures failures before obtaining \(r\) successes in iid Bernoulli
+trials with probability parameter \(p\). More generally, let \(X\sim
+\distnb(r, p)\) for real parameters
+\(r>0\), \(p\in(0,1)\), then \(X\) has distribution given by
+\begin{align*}
+\pr(X=x) = \frac{\Gamma(r+x)}{k!\Gamma(r)}(1-p)^x p^r, x\in\mathbb{N}_0.
+\end{align*}
+The `stats::rbinom` function uses this parametrization, and we have
+\begin{align*}
+\E X = r(1-p)p^{-1}, \quad
+\var(X) = r(1-p)p^{-2}.
+\end{align*}
+Further, if \(X_1\sim\distnb(r_{1}, p)\) and
+\(X_2\sim\distnb(r_{2}, p)\) are independent then
+\(X_1+X_2\sim\distnb(r_{1}+r_{2}, p)\).
+
+To simulate from a negative binomial distribution with specific mean and
+variance we can use the `carts::rnb` function
+```{r rnb1}
+x <- carts::rnb(1e4, mean = 1, variance = 2)
+c(mean(x), var(x))
+```
+
+The negative binomial distribution can also be constructed as a gamma-poisson
+mixture. We write \(Z\sim\distgamma(\alpha, \beta)\) when \(Z\) is
+gamma-distributed with *shape* \(\alpha>0\) and *rate* parameter \(\beta>0\),
+and the density function is given by \begin{align*} f(z) =
+\frac{\beta^\alpha}{\Gamma(\alpha)}z^{\alpha-1}\exp(-\beta z), \quad z>0.
+\end{align*}
+
+This parametrization leads to
+\begin{align*}
+\E Z= \alpha\beta^{-1}, \quad \var(Z) = \alpha\beta^{-2}.
+\end{align*}
+
+We will exploit that the gamma distribution is closed under both convolution and
+scaling. Let \(Z_{1}\sim\distgamma(\alpha_{1}, \beta)\) and
+\(Z_{2}\sim\distgamma(\alpha_{2}, \beta)\) be independent and \(\lambda>0\) then
+\begin{align*}
+Z_1 + Z_2 \sim \distgamma(\alpha_1+\alpha_2, \beta), \quad
+\lambda Z_1 \sim \distgamma(\alpha_1, \lambda^{-1}\beta).
+\end{align*}
+
+```{r gammaplot}
+b <- 2
+a1 <- 1
+a2 <- 3
+r <- 0.3
+n <- 1e4
+## Shape-rate parametrization
+z1 <- rgamma(n, a1, b)
+z2 <- rgamma(n, a2, b)
+## r(z1+z2) ~  gamma(a1+a2, b/r)
+plot(density(r * (z1 + z2)))
+curve(dgamma(x, a1 + a2, b / r), add = TRUE, col = "red", lty = 2)
+```
+
+The negative binomial distribution now appears as the gamma-poisson mixture in the
+following way. If we let
+\(X\mid\lambda\sim\distpois(\lambda)\) with stochastic rate
+\(\lambda\sim\distgamma(\alpha, \beta)\), then \(X\sim\distnb(\alpha, \beta(1+\beta)^{-1})\).
+
+Consider now \(Z\sim\distgamma(\nu, \nu)\), hence \(\E Z=1\) and
+\(\var(Z)=\nu^{-1}\), and let
+\(Y\mid Z\sim\distpois(\lambda_{0}Z)\) for some fixed \(\lambda_0>0\), then
+direct calculations shows that
+\(Y\sim\distnb(\nu, \nu(\nu + \lambda_{0})^{-1})\) and
+\begin{align*}
+\E Y = \lambda_0, \quad
+\var(Y) = \lambda_0^2\nu^{-1} + \lambda_0.
+\end{align*}
+
+```{r rnb.gamma}
+z <- carts::rnb(1e5,
+  mean = 2,
+  gamma.variance = 3
+)
+c(mean(z), var(z))
+```
+
+
+```{r rnbplot}
+x <- seq(0, 30)
+mf <- function(y, x) sapply(x, function(x) mean(y == x))
+plot(x, mf(z, x), type = "h", ylab = "p(x)")
+y <- rpois(length(z), 2 * rgamma(length(z), 1 / 3, 1 / 3))
+lines(x + 0.1, mf(y, x), type = "h", col = "red")
+```
+
+
+
+
+# Bibliography
+<div id="refs"></div>
