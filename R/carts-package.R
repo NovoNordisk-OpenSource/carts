@@ -10,7 +10,7 @@
 #' @importFrom stats glm poisson binomial gaussian rpois rnbinom pnbinom rbinom
 #'   rgamma nlminb na.omit coef update qnorm model.offset model.frame as.formula
 #'   formula delete.response predict terms model.matrix rnorm lm runif sd time
-#' @importFrom targeted ml_model cv predictor_glm
+#' @importFrom targeted ml_model cv learner_glm
 #' @importFrom utils head tail str capture.output
 #' @importFrom rlang abort call_match
 #' @import data.table

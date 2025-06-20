@@ -143,14 +143,14 @@ est_adj <- function(response = "y",
                     nfolds = 1,
                     ...) {
   if (inherits(response, "formula")) {
-    response <- targeted::predictor_glm(response, family = family)
+    response <- targeted::learner_glm(response, family = family)
   }
   if (!inherits(response, "ml_model")) {
     f <- make_formula(
       response = response, treatment = treatment,
       covariates = covariates, treatment.interaction = TRUE, offset = offset
     )
-    response <- targeted::predictor_glm(f, family = family, ...)
+    response <- targeted::learner_glm(f, family = family, ...)
   }
   nam <- "treatment effect"
   if (is.null(treatment.effect)) treatment.effect <- "absolute"
