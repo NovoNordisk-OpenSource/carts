@@ -139,11 +139,9 @@ print.trial.estimates <- function(x, ...) {
 }
 
 #' @export
-#' @description Summary method for the Monte Carlo studies of different
-#'   estimators for the treatment effect in a randomized clinical trial
-#'   (trial.estimates objects). The power of both a superiority test (one-sided
-#'   or two-sided) and a non-inferiority test are reported, together with the
-#'   summary statistics of the different estimators.
+#' @description [Deprecated] Summary method for the Monte Carlo studies of
+#'   different estimators for the treatment effect in a randomized clinical
+#'   trial. Please use Trial$summary() instead.
 #' @title Summary method for simulated trials (trial.estimates objects)
 #' @param object (trial.estimates)
 #' @param level significance level
@@ -171,91 +169,32 @@ summary.trial.estimates <- function(object,
                               true.value = NULL,
                               nominal.coverage = 0.9,
                               ...) {
-  alternative <- gsub(" ", "", tolower(alternative[1]))
-  q_alpha_cov <- qnorm(1 - (1 - nominal.coverage) / 2) # quantile for
-  # calculating the nominal coverage when true.value is supplied
-  q_alpha_rej <- qnorm(1 - level / 2) # quantile used for decision making about
-  # the null hypothesis (here two-sided test, below for one-sided test)
-
-  if (alternative %in% c("less", "<")) {
-    alternative <- "<"
-    q_alpha_rej <- qnorm(1 - level)
+  .Deprecated(
+    "Trial$summary",
+    msg = paste("summary.trial.estimates is deprecated.",
+                "Use Trial$summary() instead.")
+  )
+  m <- Trial$new(
+    outcome = object$outcome,
+    covariates = object$covariates,
+    exclusion = object$exclusion,
+    estimators = object$estimators,
+    info = object$info
+  )
+  m$estimates <- object
+  args <- list(
+    level = level,
+    null = null,
+    ni.margin = ni.margin,
+    alternative = alternative,
+    true.value = true.value,
+    nominal.coverage = nominal.coverage
+  )
+  # Only add reject.function to args if it's not NULL
+  if (!is.null(reject.function)) {
+    args$reject.function <- reject.function
   }
-  if (alternative %in% c("greater", ">")) {
-    alternative <- ">"
-    q_alpha_rej <- qnorm(1 - level)
-  }
-  if (!is.null(ni.margin)) {
-    q_alpha_rej <- qnorm(1 - level)
-    alternative <- ifelse(ni.margin >= 0, "<", ">")
-  }
-
-  runtrials_recalc <- function(estimates) {
-    est <- estimates[, c("Estimate", "Std.Err")] |>
-      as.data.frame()
-    point_est <- est[, "Estimate"]
-    est[, "z.score"] <- (point_est - null) / est[, "Std.Err"]
-    est[, "lower.CI"] <- point_est - q_alpha_rej * est[, "Std.Err"]
-    est[, "upper.CI"] <- point_est + q_alpha_rej * est[, "Std.Err"]
-    est[, "lower.CI.cov"] <- point_est - q_alpha_cov * est[, "Std.Err"]
-    est[, "upper.CI.cov"] <- point_est + q_alpha_cov * est[, "Std.Err"]
-    est[, "Reject"] <- reject.function(
-        estimate = est[, "Estimate"],
-        stderr = est[, "Std.Err"],
-        lower = est[, "lower.CI"],
-        upper = est[, "upper.CI"]
-      )
-    return(est)
-  }
-  runtrials_summarize <- function(estimates) {
-    estimates <- runtrials_recalc(estimates)
-    # add NAs to inform user about the number of runs in which a given estimator
-    # did not converge
-    out <- with(estimates, c(
-      estimate = mean(Estimate, na.rm=TRUE),
-      std.err = mean(Std.Err, na.rm=TRUE),
-      std.dev = sd(Estimate, na.rm=TRUE),
-      power = mean(Reject, na.rm=TRUE),
-      na = sum(is.na(Estimate))
-    ))
-    if (!is.null(true.value)) {
-      est_err <- estimates[, "Estimate"] - true.value
-      out[["bias"]] <- mean(est_err, na.rm = TRUE)
-      out[["rmse"]] <- mean(est_err ** 2, na.rm = TRUE) ** 0.5
-      out[["coverage"]] <- mean(
-        (estimates[, "lower.CI.cov"] <= true.value) &
-          (true.value <= estimates[, "upper.CI.cov"]), na.rm = TRUE)
-    }
-    return(out)
-  }
-  if (missing(reject.function)) {
-    # function in arguments: estimate, stderr, lower, upper, thus use optional
-    # arguments
-    reject.function <- function(lower, upper, ...) {
-      if (alternative == "<") { # one-sided, H0: b<null
-        if (!is.null(ni.margin)) {
-          return(upper < ni.margin)
-        }
-        return(upper < null)
-      }
-      if (alternative == ">") { # one-sided, H0: b>null
-        if (!is.null(ni.margin)) {
-          return(lower > ni.margin)
-        }
-        return(lower > null)
-      }
-      return((upper < null) | (lower > null))
-    }
-  } else {
-    # ensure that custom reject.function accepts optional arguments
-    reject.function <- add_dots(reject.function)
-  }
-  res <- lapply(object$estimates, function(est) {
-    return(runtrials_summarize(estimates = est))
-  })
-  res <- do.call(rbind, res)
-
-  return(res)
+  do.call(m$summary, c(args, list(...)))
 }
 
 #' @title trial.estimates class object

@@ -46,9 +46,7 @@ coverage for the central 90\% confidence interval.}
 matrix with results of each estimator stored in separate rows
 }
 \description{
-Summary method for the Monte Carlo studies of different
-estimators for the treatment effect in a randomized clinical trial
-(trial.estimates objects). The power of both a superiority test (one-sided
-or two-sided) and a non-inferiority test are reported, together with the
-summary statistics of the different estimators.
+\link{Deprecated} Summary method for the Monte Carlo studies of
+different estimators for the treatment effect in a randomized clinical
+trial. Please use Trial$summary() instead.
 }
