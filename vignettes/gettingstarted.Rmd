@@ -197,7 +197,7 @@ progressr::handlers(global = TRUE)
 progressr::handlers(progressr::handler_progress(times = 100))
 ```
 We refer to the
-[progressr vignette](https://cran.r-project.org/package=progressr/vignettes/progressr-intro.html)
+[progressr vignette](https://cran.r-project.org/web/packages/progressr/vignettes/progressr-01-intro.html)
 for information on how to customize the progress bar appeareance.
 
 Most output in the `carts` package is handled by the
