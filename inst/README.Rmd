@@ -29,7 +29,7 @@ Here we emulate a simple parallel trial design with both observed and unobserved
 covariates. The treatment effect is estimated using an estimator based on the
 efficient influence function (EIF) where we adjust for the observed covariate x.
 
-The necessary sample-size to achieve 90% power for a one-sided ~superiority test
+The necessary sample-size to achieve 90% power for a one-sided superiority test
 is estimated using a variation of a bisection and a Robbins-Monro stochastic
 approximation algorithm with parallelized computations
 ```{r carts1, cache=TRUE, output=FALSE}
@@ -77,7 +77,7 @@ upgrade all dependencies, followed by the installation of the package.
 ## Project organization
 
 We use the `dev` branch for development and the `main` branch for stable
-releases, which currently follow a frequency of about 4 weeks. All releases follow [semantic versioning](https://semver.org/), are [tagged](https://github.com/NovoNordisk-OpenSource/carts/tags) and notable changes are reported in a [changelog](https://github.com/NovoNordisk-OpenSource/carts/blob/main/CHANGELOD.md).
+releases. All releases follow [semantic versioning](https://semver.org/), are [tagged](https://github.com/NovoNordisk-OpenSource/carts/tags) and notable changes are reported in a [NEWS.md](https://github.com/NovoNordisk-OpenSource/carts/blob/main/NEWS.md) file.
 
 ## I Have a Question / I Want to Report a Bug
 
@@ -90,5 +90,5 @@ If you want to ask questions, require help or clarification, or report a bug, we
 We will then take care of the issue as soon as possible.
 
 ## Maintainers
-> Benedikt Sommer (bkts@novonordisk.com)\
-> Klaus Kähler Holst (kkzh@novonordisk.com)
+> Benedikt Sommer (benediktsommer92@gmail.com)\
+> Klaus Kähler Holst (klaus@holst.it)
