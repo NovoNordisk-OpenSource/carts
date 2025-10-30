@@ -8,9 +8,9 @@ knitr::opts_chunk$set(echo = TRUE)
 <!-- README.md is generated from inst/README.Rmd. Please edit that file -->
 
 <!-- badges: start -->
-[![complete-checks](https://github.com/NN-AI-Analytics/carts/actions/workflows/r-cmd-check.yaml/badge.svg)](https://github.com/NN-AI-Analytics/carts/actions/workflows/r-cmd-check.yaml)
-[![vignettes](https://github.com/NN-AI-Analytics/carts/actions/workflows/vignettes.yaml/badge.svg)](https://github.com/NN-AI-Analytics/carts/actions/workflows/vignettes.yaml)
-[![slowtests](https://github.com/NN-AI-Analytics/carts/actions/workflows/slow-tests.yaml/badge.svg)](https://github.com/NN-AI-Analytics/carts/actions/workflows/slow-tests.yaml)
+[![complete-checks](https://github.com/NovoNordisk-OpenSource/carts/actions/workflows/r-cmd-check.yaml/badge.svg)](https://github.com/NovoNordisk-OpenSource/carts/actions/workflows/r-cmd-check.yaml)
+[![vignettes](https://github.com/NovoNordisk-OpenSource/carts/actions/workflows/vignettes.yaml/badge.svg)](https://github.com/NovoNordisk-OpenSource/carts/actions/workflows/vignettes.yaml)
+[![slowtests](https://github.com/NovoNordisk-OpenSource/carts/actions/workflows/slow-tests.yaml/badge.svg)](https://github.com/NovoNordisk-OpenSource/carts/actions/workflows/slow-tests.yaml)
 <!-- badges: end -->
 
 # carts package
@@ -77,13 +77,13 @@ upgrade all dependencies, followed by the installation of the package.
 ## Project organization
 
 We use the `dev` branch for development and the `main` branch for stable
-releases, which currently follow a frequency of about 4 weeks. All releases follow [semantic versioning](https://semver.org/), are [tagged](https://github.com/NN-AI-Analytics/carts/tags) and notable changes are reported in a [changelog](https://github.com/NN-AI-Analytics/carts/blob/main/CHANGELOD.md).
+releases, which currently follow a frequency of about 4 weeks. All releases follow [semantic versioning](https://semver.org/), are [tagged](https://github.com/NovoNordisk-OpenSource/carts/tags) and notable changes are reported in a [changelog](https://github.com/NovoNordisk-OpenSource/carts/blob/main/CHANGELOD.md).
 
 ## I Have a Question / I Want to Report a Bug
 
 If you want to ask questions, require help or clarification, or report a bug, we recommend to either contact a maintainer directly or the following:
 
-- Open an [Issue](https://github.com/NN-AI-Analytics/carts/issues).
+- Open an [Issue](https://github.com/NovoNordisk-OpenSource/carts/issues).
 - Provide as much context as you can about what you're running into.
 - Provide project and platform versions, depending on what seems relevant.
 
