@@ -127,7 +127,7 @@ est_glmbin <- function(...) {
 #'   in log expected outcomes (x,y) -> log(y/x).
 #' @param nfolds Number of folds for estimating the conditional average
 #' treatment effect with double machine learning.
-#' @param ... Additional arguments to the [ml_model] method
+#' @param ... Additional arguments to [targeted::learner_glm]
 #' @return function
 #' @seealso [Trial] [est_glm]
 #' @author Klaus Kähler Holst
@@ -145,7 +145,7 @@ est_adj <- function(response = "y",
   if (inherits(response, "formula")) {
     response <- targeted::learner_glm(response, family = family)
   }
-  if (!inherits(response, "ml_model")) {
+  if (!inherits(response, "learner")) {
     f <- make_formula(
       response = response, treatment = treatment,
       covariates = covariates, treatment.interaction = TRUE, offset = offset

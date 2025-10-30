@@ -42,7 +42,7 @@ in log expected outcomes (x,y) -> log(y/x).}
 \item{nfolds}{Number of folds for estimating the conditional average
 treatment effect with double machine learning.}
 
-\item{...}{Additional arguments to the \link{ml_model} method}
+\item{...}{Additional arguments to \link[targeted:learner_glm]{targeted::learner_glm}}
 }
 \value{
 function
