@@ -22,8 +22,8 @@ d0 <- subset(d, num == 1)
 
 test_est1 <- function() {
   # verify that est_adj estimates the same average treatment effect with
-  # different argument types. That is, model (via our targeted::ML wrapper for
-  # glm) and formula specification (internally defaults to a targeted::ML model)
+  # different argument types. That is, by providing either a character or
+  # targeted::learning object to the response argument of `est_adj`
   est0 <- estimate(lm(y ~ a, data = d0), keep = "a")
   e1 <- est_adj(response = "y", treatment = "a", family = gaussian)
   est1 <- e1(d0)

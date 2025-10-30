@@ -57,7 +57,7 @@ outcome <- function(data, b = c(log(2.5), log(0.38)), ...) {
   data.table(y = rpois(length(rate), rate))
 }
 
-qmodel  <- targeted::ML(y ~ a * x, family = poisson)
+qmodel  <- targeted::learner_glm(y ~ a * x, family = poisson)
 m <- Trial$new(
   covariates = x0,
   outcome = outcome,
@@ -66,12 +66,12642 @@ m <- Trial$new(
 
 ## Sample-size estimation via Stochastic Approximation
 e <- m$estimate_samplesize(R = 1000)
+```
+
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+    ## Warning in cate_est(y = y, a = cbind(a), p = cbind(p[[x]]), q = cbind(q[[x]]),
+    ## : partial argument match of 'X.cat' to 'X.cate'
+
+``` r
 print(e)
 ```
 
     ## ── Estimated sample-size to reach 90% power ── 
     ## 
-    ## n = 92 (actual estimated power≈89.98%)
+    ## n = 91 (actual estimated power≈89.16%)
 
 ## Installation
 

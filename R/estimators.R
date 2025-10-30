@@ -230,14 +230,6 @@ adj1 <- function(qmodel, data, treatment = "a", nfolds = 1, ...) {
     response.model = qmodel, propensity.model = f, data = data,
     mc.cores = 1
   )
-  est <- with(ce, c(
-    "E[Y(0)]" = mean(scores[["0"]]),
-    "E[Y(1)]" = mean(scores[["1"]])
-  ))
-  IFs <- with(ce, cbind(
-    scores[["0"]] - mean(scores[["0"]]),
-    scores[["1"]] - mean(scores[["1"]])
-  ))
-  e <- lava::estimate(coef = est, IC = IFs)
-  return(e)
+
+  return(subset(ce, 2:1))
 }
