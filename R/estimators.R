@@ -127,7 +127,7 @@ est_glmbin <- function(...) {
 #'   in log expected outcomes (x,y) -> log(y/x).
 #' @param nfolds Number of folds for estimating the conditional average
 #' treatment effect with double machine learning.
-#' @param ... Additional arguments to the [ml_model] method
+#' @param ... Additional arguments to [targeted::learner_glm]
 #' @return function
 #' @seealso [Trial] [est_glm]
 #' @author Klaus Kähler Holst
@@ -143,14 +143,14 @@ est_adj <- function(response = "y",
                     nfolds = 1,
                     ...) {
   if (inherits(response, "formula")) {
-    response <- targeted::predictor_glm(response, family = family)
+    response <- targeted::learner_glm(response, family = family)
   }
-  if (!inherits(response, "ml_model")) {
+  if (!inherits(response, "learner")) {
     f <- make_formula(
       response = response, treatment = treatment,
       covariates = covariates, treatment.interaction = TRUE, offset = offset
     )
-    response <- targeted::predictor_glm(f, family = family, ...)
+    response <- targeted::learner_glm(f, family = family, ...)
   }
   nam <- "treatment effect"
   if (is.null(treatment.effect)) treatment.effect <- "absolute"
@@ -230,14 +230,6 @@ adj1 <- function(qmodel, data, treatment = "a", nfolds = 1, ...) {
     response.model = qmodel, propensity.model = f, data = data,
     mc.cores = 1
   )
-  est <- with(ce, c(
-    "E[Y(0)]" = mean(scores[["0"]]),
-    "E[Y(1)]" = mean(scores[["1"]])
-  ))
-  IFs <- with(ce, cbind(
-    scores[["0"]] - mean(scores[["0"]]),
-    scores[["1"]] - mean(scores[["1"]])
-  ))
-  e <- lava::estimate(coef = est, IC = IFs)
-  return(e)
+
+  return(subset(ce, 2:1))
 }

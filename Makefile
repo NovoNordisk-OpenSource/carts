@@ -27,7 +27,7 @@ rcpp:
 	@echo 'Rcpp::compileAttributes(".")' | $(R)
 
 readme:
-	@echo 'devtools::build_readme(".")' | $(R)
+	@echo 'options(warnPartialMatchArgs = FALSE); devtools::build_readme(".")' | $(R)
 	@cp inst/README.md README.md
 
 roxygen:

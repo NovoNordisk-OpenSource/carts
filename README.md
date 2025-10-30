@@ -3,9 +3,9 @@
 
 <!-- badges: start -->
 
-[![complete-checks](https://github.com/NN-AI-Analytics/carts/actions/workflows/r-cmd-check.yaml/badge.svg)](https://github.com/NN-AI-Analytics/carts/actions/workflows/r-cmd-check.yaml)
-[![vignettes](https://github.com/NN-AI-Analytics/carts/actions/workflows/vignettes.yaml/badge.svg)](https://github.com/NN-AI-Analytics/carts/actions/workflows/vignettes.yaml)
-[![slowtests](https://github.com/NN-AI-Analytics/carts/actions/workflows/slow-tests.yaml/badge.svg)](https://github.com/NN-AI-Analytics/carts/actions/workflows/slow-tests.yaml)
+[![complete-checks](https://github.com/NovoNordisk-OpenSource/carts/actions/workflows/r-cmd-check.yaml/badge.svg)](https://github.com/NovoNordisk-OpenSource/carts/actions/workflows/r-cmd-check.yaml)
+[![vignettes](https://github.com/NovoNordisk-OpenSource/carts/actions/workflows/vignettes.yaml/badge.svg)](https://github.com/NovoNordisk-OpenSource/carts/actions/workflows/vignettes.yaml)
+[![slowtests](https://github.com/NovoNordisk-OpenSource/carts/actions/workflows/slow-tests.yaml/badge.svg)](https://github.com/NovoNordisk-OpenSource/carts/actions/workflows/slow-tests.yaml)
 <!-- badges: end -->
 
 # carts package
@@ -57,7 +57,7 @@ outcome <- function(data, b = c(log(2.5), log(0.38)), ...) {
   data.table(y = rpois(length(rate), rate))
 }
 
-qmodel  <- targeted::ML(y ~ a * x, family = poisson)
+qmodel  <- targeted::learner_glm(y ~ a * x, family = poisson)
 m <- Trial$new(
   covariates = x0,
   outcome = outcome,
@@ -69,9 +69,9 @@ e <- m$estimate_samplesize(R = 1000)
 print(e)
 ```
 
-    ## ── Estimated sample-size to reach 90% power ── 
-    ## 
-    ## n = 92 (actual estimated power≈89.98%)
+    ## ── Estimated sample-size to reach 90% power ──
+    ##
+    ## n = 95 (actual estimated power≈90%)
 
 ## Installation
 
@@ -86,9 +86,9 @@ installation of the package.
 We use the `dev` branch for development and the `main` branch for stable
 releases, which currently follow a frequency of about 4 weeks. All
 releases follow [semantic versioning](https://semver.org/), are
-[tagged](https://github.com/NN-AI-Analytics/carts/tags) and notable
-changes are reported in a
-[changelog](https://github.com/NN-AI-Analytics/carts/blob/main/CHANGELOD.md).
+[tagged](https://github.com/NovoNordisk-OpenSource/carts/tags) and
+notable changes are reported in a
+[changelog](https://github.com/NovoNordisk-OpenSource/carts/blob/main/CHANGELOD.md).
 
 ## I Have a Question / I Want to Report a Bug
 
@@ -96,7 +96,8 @@ If you want to ask questions, require help or clarification, or report a
 bug, we recommend to either contact a maintainer directly or the
 following:
 
-- Open an [Issue](https://github.com/NN-AI-Analytics/carts/issues).
+- Open an
+  [Issue](https://github.com/NovoNordisk-OpenSource/carts/issues).
 - Provide as much context as you can about what you’re running into.
 - Provide project and platform versions, depending on what seems
   relevant.
@@ -105,5 +106,5 @@ We will then take care of the issue as soon as possible.
 
 ## Maintainers
 
-> Benedikt Sommer (<bkts@novonordisk.com>)  
+> Benedikt Sommer (<bkts@novonordisk.com>)
 > Klaus Kähler Holst (<kkzh@novonordisk.com>)
