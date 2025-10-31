@@ -29,6 +29,9 @@ Robbins-Monro stochastic approximation algorithm with parallelized
 computations
 
     library("carts")
+
+    ## Loading required package: lava
+
     library("data.table")
     future::plan(future::multicore)
     ## progressr::handlers(global = TRUE)
@@ -60,19 +63,9 @@ computations
     e <- m$estimate_samplesize(R = 1000)
     print(e)
 
-<<<<<<< HEAD
-    ## ── Estimated sample-size to reach 90% power ──
-    ##
-    ## n = 102 (actual estimated power≈91.52%)
-||||||| 21ac8c7
-    ## ── Estimated sample-size to reach 90% power ──
-    ##
-    ## n = 92 (actual estimated power≈89.98%)
-=======
-    ## ── Estimated sample-size to reach 90% power ──
-    ##
-    ## n = 95 (actual estimated power≈90%)
->>>>>>> 027d14737e625f45beff88dbf58fe162bc84800b
+    ## ── Estimated sample-size to reach 90% power ── 
+    ## 
+    ## n = 98 (actual estimated power≈91.18%)
 
 ## Installation
 
@@ -88,7 +81,7 @@ We use the `dev` branch for development and the `main` branch for stable
 releases. All releases follow [semantic
 versioning](https://semver.org/), are
 [tagged](https://github.com/NovoNordisk-OpenSource/carts/tags) and
-notable changes are reported in a
+notable changes are reported in the
 [NEWS.md](https://github.com/NovoNordisk-OpenSource/carts/blob/main/NEWS.md)
 file.
 
@@ -108,5 +101,5 @@ We will then take care of the issue as soon as possible.
 
 ## Maintainers
 
-> Benedikt Sommer (<benediktsommer92@gmail.com>)
+> Benedikt Sommer (<benediktsommer92@gmail.com>)  
 > Klaus Kähler Holst (<klaus@holst.it>)

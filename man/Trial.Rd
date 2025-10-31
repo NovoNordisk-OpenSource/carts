@@ -8,20 +8,20 @@ Simulation of RCT with flexible covariates distributions
 simulation.
 }
 \examples{
-x0 <- function(n, p.a = 0.5, gamma.var = 0.7, ...) { # Baseline covariates
-  data.table::data.table(
-    a = rbinom(n, 1, p.a),
-    z = log(rgamma(n, shape = 1 / gamma.var, rate = 1 / gamma.var))
-  )
-}
-m <- Trial$new(
-  covariates = x0,
-  outcome = outcome_count,
-  info = "Negative binomial model"
+\dontrun{
+trial <- Trial$new(
+  covariates = \(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n)),
+  outcome = setargs(outcome_count, par = c(1, 0.5, 1), overdispersion = 0.7)
 )
-d <- m$simulate(n = 100, par=list("1"=1, a=1, z=1))
-glm(y ~ a, data = d, family = poisson) |>
-  lava::estimate()
+
+trial$estimators(
+  unadjusted = est_glm(family = "poisson"),
+  adjusted = est_glm(family = "poisson", covariates = "x")
+)
+
+trial$run(n = 200, R = 100)
+trial$summary()
+}
 
 ## ------------------------------------------------
 ## Method `Trial$args_model`
