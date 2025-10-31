@@ -98,8 +98,11 @@ outcome_lp <- function(data,
 #' @description Simulate from count model with intensity \deqn{\lambda =
 #'   \text{exposure-time}\exp(\text{par}^\top X)} where \eqn{X} is the design
 #'   matrix specified by the formula
-#' @param data covariate matrix
-#' @param mean formula specifying design from 'x' or a function that maps x to
+#' @param data Covariate matrix. If NULL, then the function behaves as a
+#' function generator. The returned function expects `data` as a first argument
+#' and simulates outcomes from parameters that have been provided during the
+#' initial call (see examples).
+#' @param mean Formula specifying design from 'x' or a function that maps x to
 #'   the mean value. If NULL all main-effects of the covariates will be used.
 #' @param par Regression coefficients (default zero). Can be given as a named
 #'   list corresponding to the column names of `model.matrix`
@@ -118,8 +121,8 @@ outcome_lp <- function(data,
 #' @examples
 #' set.seed(24)
 #' covariates <- function(n) data.frame(a = rbinom(n, 1, 0.5))
-#' outcome <- setargs(
-#'   outcome_count,
+#' # returns function because no data argument is provided
+#' outcome <- outcome_count(
 #'   mean = ~ 1 + a,
 #'   par = log(c(2.5, 0.65)),
 #'   overdispersion = 1 / 2,
@@ -128,13 +131,11 @@ outcome_lp <- function(data,
 #' trial <- Trial$new(covariates = covariates, outcome = outcome)
 #' trial$simulate(5)
 #' # alternating exposure times between subjects
-#' trial$args_model(exposure = c(1, 2))
-#' trial$simulate(5)
+#' trial$simulate(5, exposure = c(1, 2))
 #' # treatment-dependent exposure times
-#' trial$args_model(exposure = function(dd) 1 - 0.5 * dd$a)
-#' trial$simulate(5)
+#' trial$simulate(5, exposure = function(dd) 1 - 0.5 * dd$a)
 #' @export
-outcome_count <- function(data,
+outcome_count <- function(data = NULL,
                           mean = NULL,
                           par = NULL,
                           outcome.name = "y",
@@ -143,6 +144,21 @@ outcome_count <- function(data,
                           zero.inflation = NULL,
                           overdispersion = NULL,
                           ...) {
+  call_args <- c(list(
+    mean = mean, par = par, outcome.name = outcome.name,
+    exposure = exposure, remove = remove, zero.inflation = zero.inflation,
+    overdispersion = overdispersion
+  ), list(...))
+  if (is.null(data)) {
+    fun <- \(data, ...) {
+      args <- call_args
+      args[...names()] <- list(...)
+      args$data <- data
+      do.call(outcome_count, args)
+    }
+    return(fun)
+  }
+
   lp <- outcome_lp(data,
     mean = mean,
     par = par,
@@ -213,8 +229,11 @@ outcome_binary <- function(data,
 #'   \deqn{g(\text{par}^\top X)} where \eqn{X} is the design matrix specified by
 #'   the formula, and \eqn{g} is the link function specified by the family
 #'   argument
-#' @param data covariate matrix
-#' @param mean formula specifying design from 'data' or a function that maps x
+#' @param data Covariate matrix. If NULL, then the function behaves as a
+#' function generator. The returned function expects `data` as a first argument
+#' and simulates outcomes from parameters that have been provided during the
+#' initial call (see examples).
+#' @param mean Formula specifying design from 'data' or a function that maps x
 #'   to the mean value. If NULL all main-effects of the covariates will be used
 #' @param par Regression coefficients (default zero). Can be given as a named
 #'   list corresponding to the column names of `model.matrix`
@@ -232,7 +251,14 @@ outcome_binary <- function(data,
 #' @return data.table
 #' @seealso [outcome_count] [outcome_binary] [outcome_lp]
 #' @export
-outcome_continuous <- function(data,
+#' @examples
+#' x <- data.frame(z = rnorm(1e2), v = rnorm(1e2))
+#' y1 <- outcome_continuous(x, mean = ~ v + z, par = c(1, 0.5, 0.25))
+#' fun <- outcome_continuous(mean = ~ v + z, par = c(1, 0.5, 0.25))
+#' y2 <- fun(x)
+#' # overwrite arguments used to generate the function
+#' y3 <- fun(x, outcome.name = "yy")
+outcome_continuous <- function(data = NULL,
                                mean = NULL,
                                par = NULL,
                                sd = 1.0,
@@ -241,6 +267,20 @@ outcome_continuous <- function(data,
                                remove = c("id", "num"),
                                family = gaussian(),
                                ...) {
+  call_args <- c(list(
+    mean = mean, par = par, sd = sd, het = het,
+    outcome.name = outcome.name, remove = remove, family = family
+  ), list(...))
+  if (is.null(data)) {
+    fun <- \(data, ...) {
+      args <- call_args
+      args[...names()] <- list(...)
+      args$data <- data
+      do.call(outcome_continuous, args)
+    }
+    return(fun)
+  }
+
   lp <- outcome_lp(data,
     mean = mean,
     par = par,

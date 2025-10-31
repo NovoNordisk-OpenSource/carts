@@ -2,7 +2,6 @@ library("tinytest")
 library("lava")
 library("data.table")
 
-
 set.seed(1)
 x <- data.table(z = rnorm(1e4), v = rnorm(1e4))
 
@@ -53,6 +52,24 @@ test_outcome_count <- function() {
     exposure = function(data, const) (data$z > 0) + const
   )
   expect_equal(dd$exposure, (x$z > 0) + 3)
+
+  # test as function generator
+  set.seed(42)
+  y1 <- outcome_count(x, mean = ~ v + z, par = c(1, 0.5, 0.25))
+  fun <- outcome_count(mean = ~ v + z, par = c(1, 0.5, 0.25))
+  set.seed(42)
+  y2 <- fun(x)
+  expect_equal(y1, y2)
+
+  # test with more complex exposure argument
+  fun <- outcome_count(mean = ~ 1,
+    exposure = function(data, const = 1) (data$z > 0) + const
+  )
+  yy <- fun(x)
+  expect_equal(yy$exposure, (x$z > 0) + 1)
+
+  yy <- fun(x, const = 2)
+  expect_equal(yy$exposure, (x$z > 0) + 2)
 }
 test_outcome_count()
 
@@ -77,6 +94,7 @@ test_outcome_continuous <- function() {
   pp <- c(1, 0.5, 0.25)
   dt <- outcome_continuous(x, mean = ~ v + z, par = pp) |>
     cbind(x)
+
   g <- glm(y ~ v + z, data = as.data.frame(dt), family = gaussian)
   eps <- 0.1
   expect_true(all(abs(coef(g) - pp) < eps))
@@ -105,6 +123,19 @@ test_outcome_continuous <- function() {
   dt <- cbind(y, x)
   g <- glm(y ~ v:z, data = as.data.frame(dt), family = gaussian)
   expect_true(all(abs(coef(g) - c(0, 1)) < eps))
+
+  # test functionality as function generator
+  set.seed(42)
+  dt0 <- outcome_continuous(x, mean = ~ v + z, par = pp)
+
+  fun <- outcome_continuous(mean = ~ v + z, par = pp)
+  set.seed(42)
+  dt1 <- fun(x)
+  expect_equal(dt0, dt1)
+
+  # previously defined arguments can be modified when calling generated function
+  dt1 <- fun(x, outcome.name = "yy")
+  expect_equal(colnames(dt1)[1], "yy")
 }
 test_outcome_continuous()
 
