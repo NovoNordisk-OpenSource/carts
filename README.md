@@ -60,9 +60,19 @@ computations
     e <- m$estimate_samplesize(R = 1000)
     print(e)
 
-    ## ── Estimated sample-size to reach 90% power ── 
-    ## 
+<<<<<<< HEAD
+    ## ── Estimated sample-size to reach 90% power ──
+    ##
     ## n = 102 (actual estimated power≈91.52%)
+||||||| 21ac8c7
+    ## ── Estimated sample-size to reach 90% power ──
+    ##
+    ## n = 92 (actual estimated power≈89.98%)
+=======
+    ## ── Estimated sample-size to reach 90% power ──
+    ##
+    ## n = 95 (actual estimated power≈90%)
+>>>>>>> 027d14737e625f45beff88dbf58fe162bc84800b
 
 ## Installation
 
@@ -98,5 +108,5 @@ We will then take care of the issue as soon as possible.
 
 ## Maintainers
 
-> Benedikt Sommer (<benediktsommer92@gmail.com>)  
+> Benedikt Sommer (<benediktsommer92@gmail.com>)
 > Klaus Kähler Holst (<klaus@holst.it>)

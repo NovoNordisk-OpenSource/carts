@@ -77,7 +77,7 @@ upgrade all dependencies, followed by the installation of the package.
 ## Project organization
 
 We use the `dev` branch for development and the `main` branch for stable
-releases. All releases follow [semantic versioning](https://semver.org/), are [tagged](https://github.com/NovoNordisk-OpenSource/carts/tags) and notable changes are reported in a [NEWS.md](https://github.com/NovoNordisk-OpenSource/carts/blob/main/NEWS.md) file.
+releases. All releases follow [semantic versioning](https://semver.org/), are [tagged](https://github.com/NovoNordisk-OpenSource/carts/tags) and notable changes are reported in the [NEWS.md](https://github.com/NovoNordisk-OpenSource/carts/blob/main/NEWS.md) file.
 
 ## I Have a Question / I Want to Report a Bug
 

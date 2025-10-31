@@ -175,14 +175,14 @@ print(trial$estimates) # trial$estimates == res
 
 # the basic usage is to apply the summary method to the generated
 # trial.estimates object.
-summary(trial$estimates)
+trial$summary()
 
 # combining Trial$run and summary is faster than using
 # Trial$estimate_power when modifying only the parameters of the
 # decision-making function
 sapply(
   c(0, 0.25, 0.5),
-  \(ni) summary(trial$estimates, ni.margin = ni)[, "power"]
+  \(ni) trial$summary(ni.margin = ni)[, "power"]
 )
 
 # changing the ate parameter value
@@ -288,8 +288,9 @@ flushed, i.e. set to its default value \emph{NULL}, when model arguments
 are modified.}
 
 \item{\code{summary.args}}{list of arguments that override default values in
-\link{summary.trial.estimates} when power and sample sizes are estimated with
-\link[=Trial]{Trial$estimate_power()} and \link[=Trial]{Trial$estimate_samplesize()}}
+\link[=Trial]{Trial$summary()} when power and sample sizes are
+estimated with \link[=Trial]{Trial$estimate_power()} and
+\link[=Trial]{Trial$estimate_samplesize()}}
 }
 \if{html}{\out{</div>}}
 }
@@ -304,6 +305,7 @@ are modified.}
 \item \href{#method-Trial-run}{\code{Trial$run()}}
 \item \href{#method-Trial-estimate_power}{\code{Trial$estimate_power()}}
 \item \href{#method-Trial-estimate_samplesize}{\code{Trial$estimate_samplesize()}}
+\item \href{#method-Trial-summary}{\code{Trial$summary()}}
 \item \href{#method-Trial-print}{\code{Trial$print()}}
 \item \href{#method-Trial-clone}{\code{Trial$clone()}}
 }
@@ -343,8 +345,9 @@ the function must return the subjects who are included in the trial)}
 function}
 
 \item{\code{summary.args}}{list of arguments that override default values in
-\link{summary.trial.estimates} when power and sample sizes are estimated with
-\link[=Trial]{Trial$estimate_power()} and \link[=Trial]{Trial$estimate_samplesize()}}
+\link[=Trial]{Trial$summary()} when power and sample sizes are
+estimated with \link[=Trial]{Trial$estimate_power()} and
+\link[=Trial]{Trial$estimate_samplesize()}}
 
 \item{\code{info}}{optional string describing the model}
 }
@@ -684,14 +687,14 @@ print(trial$estimates) # trial$estimates == res
 
 # the basic usage is to apply the summary method to the generated
 # trial.estimates object.
-summary(trial$estimates)
+trial$summary()
 
 # combining Trial$run and summary is faster than using
 # Trial$estimate_power when modifying only the parameters of the
 # decision-making function
 sapply(
   c(0, 0.25, 0.5),
-  \(ni) summary(trial$estimates, ni.margin = ni)[, "power"]
+  \(ni) trial$summary(ni.margin = ni)[, "power"]
 )
 
 # changing the ate parameter value
@@ -712,9 +715,9 @@ trial$run(n = 100, R = 50, estimators = est_glm(robust = FALSE))
 Estimates statistical power for a specified trial
 
 Convenience method that first runs \link[=Trial]{Trial$run()} and subsequently
-applies \link{summary.trial.estimates} to derive the power for each estimator.
-The behavior of passing arguments to lower level functions is identical
-to \link[=Trial]{Trial$run()}.
+applies \link[=Trial]{Trial$summary()} to derive the power for each
+estimator. The behavior of passing arguments to lower level functions is
+identical to \link[=Trial]{Trial$run()}.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Trial$estimate_power(n, R = 100, estimators = NULL, summary.args = list(), ...)}\if{html}{\out{</div>}}
 }
@@ -729,7 +732,7 @@ to \link[=Trial]{Trial$run()}.
 \item{\code{estimators}}{(list or function) List of estimators or a single unnamed
 estimator}
 
-\item{\code{summary.args}}{(list) Arguments passed on to \link{summary.trial.estimates}
+\item{\code{summary.args}}{(list) Arguments passed to summary method
 for decision-making}
 
 \item{\code{...}}{Arguments to covariate, outcome and exclusion model
@@ -840,7 +843,7 @@ refinement points will be used to estimate the power.}
 
 \item{\code{minimum}}{(integer) Minimum sample size.}
 
-\item{\code{summary.args}}{(list) Arguments passed on to \link{summary.trial.estimates}
+\item{\code{summary.args}}{(list) Arguments passed to summary method
 for decision-making}
 }
 \if{html}{\out{</div>}}
@@ -876,6 +879,61 @@ trial$estimate_samplesize(summary.args = list(level = 0.025))
 
 }
 
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-Trial-summary"></a>}}
+\if{latex}{\out{\hypertarget{method-Trial-summary}{}}}
+\subsection{Method \code{summary()}}{
+Summarize Monte Carlo studies of different estimators for
+the treatment effect in a randomized clinical trial. The method reports
+the power of both superiority tests (one-sided or two-sided) and
+non-inferiority tests, together with summary statistics of the
+different estimators.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Trial$summary(
+  level = 0.05,
+  null = 0,
+  ni.margin = NULL,
+  alternative = c("!=", "<", ">"),
+  reject.function = NULL,
+  true.value = NULL,
+  nominal.coverage = 0.9,
+  estimates = NULL,
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{level}}{significance level}
+
+\item{\code{null}}{null hypothesis to test}
+
+\item{\code{ni.margin}}{non-inferiority margin}
+
+\item{\code{alternative}}{alternative hypothesis (not equal !=, less <,
+greater >)}
+
+\item{\code{reject.function}}{Optional function calculating whether to reject
+the null hypothesis}
+
+\item{\code{true.value}}{Optional true parameter value}
+
+\item{\code{nominal.coverage}}{Width of confidence limits}
+
+\item{\code{estimates}}{Optional trial.estimates object. When provided, these
+estimates will be used instead of the object's stored estimates. This
+allows calculating summaries for different trial results without
+modifying the object's state.}
+
+\item{\code{...}}{additional arguments to lower level functions}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+matrix with results of each estimator stored in separate rows
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Trial-print"></a>}}

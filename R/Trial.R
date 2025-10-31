@@ -7,24 +7,24 @@
 #' @param n (integer) Number of observations (sample size)
 #' @param estimators (list or function) List of estimators or a single unnamed
 #' estimator
-#' @param summary.args (list) Arguments passed on to [summary.trial.estimates]
+#' @param summary.args (list) Arguments passed to summary method
 #' for decision-making
 #' @author Klaus Kähler Holst, Benedikt Sommer
 #' @examples
-#' x0 <- function(n, p.a = 0.5, gamma.var = 0.7, ...) { # Baseline covariates
-#'   data.table::data.table(
-#'     a = rbinom(n, 1, p.a),
-#'     z = log(rgamma(n, shape = 1 / gamma.var, rate = 1 / gamma.var))
-#'   )
-#' }
-#' m <- Trial$new(
-#'   covariates = x0,
-#'   outcome = outcome_count,
-#'   info = "Negative binomial model"
+#' \dontrun{
+#' trial <- Trial$new(
+#'   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n)),
+#'   outcome = setargs(outcome_count, par = c(1, 0.5, 1), overdispersion = 0.7)
 #' )
-#' d <- m$simulate(n = 100, par=list("1"=1, a=1, z=1))
-#' glm(y ~ a, data = d, family = poisson) |>
-#'   lava::estimate()
+#'
+#' trial$estimators(
+#'   unadjusted = est_glm(family = "poisson"),
+#'   adjusted = est_glm(family = "poisson", covariates = "x")
+#' )
+#'
+#' trial$run(n = 200, R = 100)
+#' trial$summary()
+#' }
 #' @export
 Trial <- R6::R6Class("Trial", #nolint
   public = list(
@@ -45,8 +45,9 @@ Trial <- R6::R6Class("Trial", #nolint
     #' are modified.
     estimates = NULL,
     #' @field summary.args list of arguments that override default values in
-    #' [summary.trial.estimates] when power and sample sizes are estimated with
-    #' [Trial$estimate_power()][Trial] and [Trial$estimate_samplesize()][Trial]
+    #' [Trial$summary()][Trial] when power and sample sizes are
+    #' estimated with [Trial$estimate_power()][Trial] and
+    #' [Trial$estimate_samplesize()][Trial]
     summary.args = list(),
 
     #' @description Initialize new Trial object
@@ -62,8 +63,9 @@ Trial <- R6::R6Class("Trial", #nolint
     #' @param estimators optional list of estimators or single estimator
     #' function
     #' @param summary.args list of arguments that override default values in
-    #' [summary.trial.estimates] when power and sample sizes are estimated with
-    #' [Trial$estimate_power()][Trial] and [Trial$estimate_samplesize()][Trial]
+    #' [Trial$summary()][Trial] when power and sample sizes are
+    #' estimated with [Trial$estimate_power()][Trial] and
+    #' [Trial$estimate_samplesize()][Trial]
     #' @param info optional string describing the model
     initialize = function(outcome,
                           covariates = NULL,
@@ -325,14 +327,14 @@ Trial <- R6::R6Class("Trial", #nolint
     #'
     #' # the basic usage is to apply the summary method to the generated
     #' # trial.estimates object.
-    #' summary(trial$estimates)
+    #' trial$summary()
     #'
     #' # combining Trial$run and summary is faster than using
     #' # Trial$estimate_power when modifying only the parameters of the
     #' # decision-making function
     #' sapply(
     #'   c(0, 0.25, 0.5),
-    #'   \(ni) summary(trial$estimates, ni.margin = ni)[, "power"]
+    #'   \(ni) trial$summary(ni.margin = ni)[, "power"]
     #' )
     #'
     #' # changing the ate parameter value
@@ -349,9 +351,9 @@ Trial <- R6::R6Class("Trial", #nolint
     #' @description Estimates statistical power for a specified trial
     #'
     #' Convenience method that first runs [Trial$run()][Trial] and subsequently
-    #' applies [summary.trial.estimates] to derive the power for each estimator.
-    #' The behavior of passing arguments to lower level functions is identical
-    #' to [Trial$run()][Trial].
+    #' applies [Trial$summary()][Trial] to derive the power for each
+    #' estimator. The behavior of passing arguments to lower level functions is
+    #' identical to [Trial$run()][Trial].
     #' @examples
     #' # toy examples with small number of Monte-Carlo replicates
     #' # future::plan("multicore")
@@ -386,7 +388,7 @@ Trial <- R6::R6Class("Trial", #nolint
 
       args <- c(list(...), list(n = n, R = R, estimators = estimators))
       r <- do.call(self$run, args)
-      sr <- do.call(summary, c(list(r), sum.args))
+      sr <- do.call(self$summary, c(list(estimates = r), sum.args))
       return(sr[, "power"])
     },
 
@@ -494,6 +496,94 @@ Trial <- R6::R6Class("Trial", #nolint
         return(res)
 
       },
+
+    #' @description Summarize Monte Carlo studies of different estimators for
+    #'   the treatment effect in a randomized clinical trial. The method reports
+    #'   the power of both superiority tests (one-sided or two-sided) and
+    #'   non-inferiority tests, together with summary statistics of the
+    #'   different estimators.
+    #' @param level significance level
+    #' @param null null hypothesis to test
+    #' @param ni.margin non-inferiority margin
+    #' @param alternative alternative hypothesis (not equal !=, less <,
+    #'   greater >)
+    #' @param reject.function Optional function calculating whether to reject
+    #'   the null hypothesis
+    #' @param true.value Optional true parameter value
+    #' @param nominal.coverage Width of confidence limits
+    #' @param estimates Optional trial.estimates object. When provided, these
+    #'   estimates will be used instead of the object's stored estimates. This
+    #'   allows calculating summaries for different trial results without
+    #'   modifying the object's state.
+    #' @param ... additional arguments to lower level functions
+    #' @return matrix with results of each estimator stored in separate rows
+    summary = function(level = .05,
+                          null = 0,
+                          ni.margin = NULL,
+                          alternative = c("!=", "<", ">"),
+                          reject.function = NULL,
+                          true.value = NULL,
+                          nominal.coverage = 0.9,
+                          estimates = NULL,
+                          ...) {
+      est <- if (!is.null(estimates)) estimates else self$estimates
+      if (is.null(est)) {
+        stop("No estimates available. Run trial first.")
+      }
+      alternative <- gsub(" ", "", tolower(alternative[1]))
+      q_alpha_cov <- qnorm(1 - (1 - nominal.coverage) / 2) # quantile for
+      # calculating the nominal coverage when true.value is supplied
+      q_alpha_rej <- qnorm(1 - level / 2) # quantile used for decision making
+      # about the null hypothesis (here two-sided test, below for one-sided
+      # test)
+      if (alternative %in% c("less", "<")) {
+        alternative <- "<"
+        q_alpha_rej <- qnorm(1 - level)
+      }
+      if (alternative %in% c("greater", ">")) {
+        alternative <- ">"
+        q_alpha_rej <- qnorm(1 - level)
+      }
+      if (!is.null(ni.margin)) {
+        q_alpha_rej <- qnorm(1 - level)
+        alternative <- ifelse(ni.margin >= 0, "<", ">")
+      }
+
+      if (missing(reject.function)) {
+        reject.function <- function(lower, upper, ...) {
+          if (alternative == "<") {
+            if (!is.null(ni.margin)) {
+              return(upper < ni.margin)
+            }
+            return(upper < null)
+          }
+          if (alternative == ">") {
+            if (!is.null(ni.margin)) {
+              return(lower > ni.margin)
+            }
+            return(lower > null)
+          }
+          return((upper < null) | (lower > null))
+        }
+      } else {
+        reject.function <- add_dots(reject.function)
+      }
+      res <- lapply(est$estimates, function(est) {
+        return(private$runtrials_summarize(
+          estimates = est,
+          q_alpha_rej = q_alpha_rej,
+          q_alpha_cov = q_alpha_cov,
+          null = null,
+          true_value = true.value,
+          reject_function = reject.function
+        ))
+      })
+      # res <- lapply(self$estimates$estimates, function(est) {
+      #   return(runtrials_summarize(estimates = est))
+      # })
+      res <- do.call(rbind, res)
+      return(res)
+    },
 
     #' @description Print method for Trial objects
     #' @param verbose (logical) By default, only print the
@@ -608,6 +698,51 @@ Trial <- R6::R6Class("Trial", #nolint
       private[[attr.name]][names(all_args)] <- all_args
       .flush()
       return(invisible())
+    },
+    runtrials_recalc = function(estimates, q_alpha_rej, q_alpha_cov, null,
+                              reject_function) {
+      est <- estimates[, c("Estimate", "Std.Err")] |>
+        as.data.frame()
+      point_est <- est[, "Estimate"]
+      est[, "z.score"] <- (point_est - null) / est[, "Std.Err"]
+      est[, "lower.CI"] <- point_est - q_alpha_rej * est[, "Std.Err"]
+      est[, "upper.CI"] <- point_est + q_alpha_rej * est[, "Std.Err"]
+      est[, "lower.CI.cov"] <- point_est - q_alpha_cov * est[, "Std.Err"]
+      est[, "upper.CI.cov"] <- point_est + q_alpha_cov * est[, "Std.Err"]
+      est[, "Reject"] <- reject_function(
+        estimate = est[, "Estimate"],
+        stderr = est[, "Std.Err"],
+        lower = est[, "lower.CI"],
+        upper = est[, "upper.CI"]
+      )
+      return(est)
+    },
+
+    runtrials_summarize = function(estimates, q_alpha_rej, q_alpha_cov, null,
+                                   true_value, reject_function) {
+      estimates <- private$runtrials_recalc(
+        estimates = estimates,
+        q_alpha_rej = q_alpha_rej,
+        q_alpha_cov = q_alpha_cov,
+        null = null,
+        reject_function = reject_function
+      )
+      out <- with(estimates, c(
+        estimate = mean(Estimate, na.rm=TRUE),
+        std.err = mean(Std.Err, na.rm=TRUE),
+        std.dev = sd(Estimate, na.rm=TRUE),
+        power = mean(Reject, na.rm=TRUE),
+        na = sum(is.na(Estimate))
+      ))
+      if (!is.null(true_value)) {
+        est_err <- estimates[, "Estimate"] - true_value
+        out[["bias"]] <- mean(est_err, na.rm = TRUE)
+        out[["rmse"]] <- mean(est_err ** 2, na.rm = TRUE) ** 0.5
+        out[["coverage"]] <- mean(
+          (estimates[, "lower.CI.cov"] <= true_value) &
+            (true_value <= estimates[, "upper.CI.cov"]), na.rm = TRUE)
+      }
+      return(out)
     }
   )
 )
