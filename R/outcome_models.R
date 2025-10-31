@@ -144,19 +144,13 @@ outcome_count <- function(data = NULL,
                           zero.inflation = NULL,
                           overdispersion = NULL,
                           ...) {
-  call_args <- c(list(
-    mean = mean, par = par, outcome.name = outcome.name,
-    exposure = exposure, remove = remove, zero.inflation = zero.inflation,
-    overdispersion = overdispersion
-  ), list(...))
+
   if (is.null(data)) {
-    fun <- \(data, ...) {
-      args <- call_args
-      args[...names()] <- list(...)
-      args$data <- data
-      do.call(outcome_count, args)
-    }
-    return(fun)
+    cl <- rlang::call_match(defaults = TRUE)
+    arg <- rlang::call_args(cl)
+    ff <- get(rlang::call_name(cl))
+    rlang::fn_fmls(ff) <- arg
+    return(ff)
   }
 
   lp <- outcome_lp(data,
