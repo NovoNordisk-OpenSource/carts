@@ -150,7 +150,7 @@ outcome_count <- function(data = NULL,
     arg <- rlang::call_args(cl)
     ff <- get(rlang::call_name(cl))
     rlang::fn_fmls(ff) <- arg
-    return(ff)
+    return(add_dots(ff))
   }
 
   lp <- outcome_lp(data,
