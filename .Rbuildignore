@@ -1,4 +1,5 @@
 ^misc$
+^.Rprofile$
 template.Rmd$
 ^CHANGELOG.md$
 ^CONTRIBUTING.md$
