@@ -1,6 +1,6 @@
 ---
 title: "carts: getting started"
-author: "Klaus K. Holst (KKZH) and Benedikt Sommer (BKTS)"
+author: "Klaus K. Holst and Benedikt Sommer"
 output:
   rmarkdown::html_vignette:
     fig_caption: yes
