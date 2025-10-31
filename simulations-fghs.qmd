@@ -1,0 +1,162 @@
+---
+
+---
+
+We want to simulate/investigate the following scenario for which we have historical data available:
+1. sample baseline covariates from historical trial + assign treatment variable of new trial
+2. sample outcomes from a linear model that has been estimated to the historical trial
+3. compare adjusted and unadjusted estimators
+
+
+My idea would be to go through this example and then explain the strengths of using carts.
+
+## Simulate historical data
+```{r}
+library("data.table")
+library("carts")
+
+sim_hist_data <- function(n) {
+  x <- data.frame(
+    ARM = rbinom(n, 1, 0.5),
+    SEX = rbinom(n, 1, 0.6),
+    AGE = rpois(n, 40 * rgamma(n, 20, 20)),
+    BMIBL = 25 + rlnorm(n, 0, 1.2)
+  )
+
+  # regression model on link scale (treatment interaction with BMIBL)
+  .coef <- c(-9.34527932, -1.74827254, 0.01556674, 0.5014802, 3.60655116)
+  mu <- with(x, .coef[1] + .coef[2] * ARM + .coef[3] * AGE + .coef[4] * BMIBL +
+    .coef[5] * SEX)
+
+  y <- with(x, rnorm(n, mu, ARM * 10 + (1 - ARM) * 6.5))
+  return(cbind(x, data.frame(PCHG = y)))
+}
+
+data <- sim_hist_data(1e3) |> as.data.table()
+data[, .(mean(PCHG), sd(PCHG)), ARM]
+```
+
+## Demonstrating the package
+
+I would first start out by explaining that the `Trial` R6 class is the centerpiece of the package. Then show the arguments and explain how they relate to the 3 building blocks (data generation, estimation and inference)
+
+```{r, eval = FALSE}
+Trial$new(
+  outcome,
+  covariates = NULL,
+  exclusion = identity,
+  estimators = list(),
+  summary.args = list(),
+  info = NULL
+)
+```
+
+Then I would continue by introducing the covariates and outcome arguments. Say that we focus in this talk on tabulated data, but we can also simulate data for different observation periods (then covariates and outcome functions return a list of data.tables).
+
+Generally, we are interested in simulating trials to estimate power, which is a function of the sample size `n`. Thus, a good starting point is to define a function that samples the treatment assignment as a function of `n`
+
+```{r}
+treatment_assign <- function(n) data.frame(a = rbinom(n, 1, 0.5))
+treatment_assign(5)
+```
+We use `a` here instead of `ARM` because of the package's default values.
+
+
+Next, we want to bootstrap baseline covariates from historical data
+```{r}
+baseline_covar <- covar_bootstrap(data, subset = c("SEX", "AGE", "BMIBL"))
+baseline_covar
+```
+covar_bootstrap is a function generator that returns a new function with first argument `n`. In fact, `carts` uses a lot of function generators, since data needs to be simulated for various values of `n`.
+
+Thus, calling
+```{r}
+baseline_covar(5)
+```
+will sample patients from the historical data.
+
+Let's now glue things together
+```{r}
+covariates <- treatment_assign %join% baseline_covar
+covariates(5)
+```
+
+Note, that we "abuse terminology" by referring to the treatment assignment as covariates. It's just to keep the interface of the package a bit leaner.
+
+Next, let's estimate an outcome model to the historical data.
+```{r}
+mod <- glm(PCHG ~ ARM + AGE + BMIBL + SEX, data = data)
+```
+
+We can use `outcome_continuous` to simulate from the fitted model
+```{r}
+outcome_continuous(
+  data = covariates(5),
+  mean = ~ a + AGE + BMIBL + SEX,
+  par = coef(mod),
+  sd = 7
+)
+```
+
+The general data flow is that we first simulate covariates and pass on the generated tabulated data to the outcome function
+
+```{r}
+trial <- Trial$new(
+  covariates = covariates,
+  outcome = setargs(outcome_continuous,
+    mean = ~ a + AGE + BMIBL + SEX,
+    par = unname(coef(mod)),
+    sd = 7
+  )
+)
+trial$simulate(10)
+```
+
+Show that we can pass on arguments to the covariate and outcome functions
+```{r}
+trial$simulate(10, sd = 100)
+```
+You may explain that we simply pass on the arguments provided to the simulate method to both covariates and outcome function. Thus, it's not possible to re-use the same named arguments in the outcome and covariates functions.
+
+## Estimation
+
+est_glm is again a function generator
+```{r}
+trial$estimators(list(
+  adj = est_glm(covariates = c("BMIBL", "SEX")),
+  unadj = est_glm()
+))
+
+```
+
+estimate the treatment effect in 1000 trials for each of the estimator.
+```{r}
+future::plan(future::multicore)
+trial$run(n = 300, R = 1000)
+```
+
+The simulation output is stored as an attribute
+```{r}
+trial$estimates
+```
+
+```{r}
+trial$estimates$estimates$adj
+```
+
+## Inference
+The default values are a two-sided test at 0.05 significance level for H0=0
+```{r}
+trial$summary()
+```
+
+One-sided test would look like this
+```{r}
+trial$summary(level = 0.025, alternative = "<")
+```
+
+## Estimate sample size
+
+```{r}
+trial$estimate_samplesize(R = 1000)
+```
