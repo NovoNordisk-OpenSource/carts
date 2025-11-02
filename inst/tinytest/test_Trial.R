@@ -68,7 +68,7 @@ test_estimate_samplesize <- function() {
   res <- trial$run(n = 50, R = 5, p = par, estimators = list(est_glm()))
   expect_equal(res$estimates$glm, trial$estimates$estimates$glm)
 
-  
+
   # use est prefix as name for unnamed list of estimators and fail
   # on first estimator
   trial$estimators(list(\(data) stop("error"), est_glm()), .reset = TRUE)
@@ -301,23 +301,49 @@ test_args_model()
 test_args_summary <- function() {
   trial <- Trial$new(
     covariates = function(n) data.frame(a = rbinom(n, 1, 0.5)),
-    outcome = function(data, ate) rnorm(nrow(data), data$a * ate)
+    outcome = function(data, ate) rnorm(nrow(data), data$a * ate),
+    summary.args = list(level = 0.025)
   )
 
-  summary.args <- list(level = 0.05)
-  # setting arguments with list works (i.e. first argument)
-  trial$args_summary(summary.args)
-  # return model.args when calling without arguments
-  expect_equal(trial$args_summary(), summary.args)
-  # all other tests are implemented in test_args_model
+  # arguments are set correctly when using summary.args / test getter
+  expect_equal(trial$args_summary(), list(level = 0.025))
+  expect_equal(trial$args_summary("level"), 0.025)
 
-  # updating summary.args won't flush estimates attribute
-  # TODO: tests need to be expanded once private$get_set_args_estimator
-  # is used inside args_summary
-  trial$summary.args <- list()
+  # update existing parameter
+  trial$args_summary(level = 0.05)
+  expect_equal(trial$args_summary("level"), 0.05)
+
+  # update 1 parameter and add 2 others
+  trial$args_summary(list(level = 0.025, aa = 1, bb = 2))
+  expect_equal(trial$args_summary(), list(level = 0.025, aa = 1, bb = 2))
+
+  # remove one parameter
+  trial$args_summary(.reset = "aa")
+  expect_equal(trial$args_summary(), list(level = 0.025, bb = 2))
+
+  # reset parameter that doesn't exist raises error
+  expect_error(
+    trial$args_summary(.reset = "aa"),
+    pattern = "Trying to reset parameter aa which has not been set yet"
+  )
+
+  # reset and set works
+  trial$args_summary(.reset = "bb", aa = 1)
+  expect_equal(trial$args_summary(), list(level = 0.025, aa = 1))
+
+  # same with list argument
+  trial$args_summary(.reset = "aa", list(aa = 1, bb = 2))
+  expect_equal(trial$args_summary(), list(level = 0.025, aa = 1, bb = 2))
+
+  # reset all parameters
+  trial$args_summary(.reset = TRUE)
+  expect_equal(trial$args_summary(), list())
+
+  # updating summary.args won't reset estimates
   trial$estimates <- 2
-  trial$args_summary(summary.args)
+  trial$args_summary(.reset = TRUE, aa = 2)
   expect_equal(trial$estimates, 2)
+
 }
 test_args_summary()
 
@@ -620,7 +646,7 @@ test_summary <- function() {
     ))
   }, estimators = list(mymodel = est_glm()))
   res <- m$run(n = 100, R = 500, p = c(0.5, 0.25))
-  
+
   # test that summary method calculates descriptive statistic and power
   # correctly for the estimates of a given estimator
   s <- m$summary()
@@ -628,52 +654,52 @@ test_summary <- function() {
   expect_equal(mean(res$estimates[[1]][, "Std.Err"]), s[1, "std.err"])
   expect_equal(sd(res$estimates[[1]][, "Estimate"]), s[1, "std.dev"])
   expect_equal(mean(res$estimates[[1]][, "P-value"] < 0.05), s[1, "power"])
-  
+
   p1 <- power.prop.test(n = 50, p1 = 0.5, p2 = 0.25) # n = obs. per group
   expect_equal(p1$power, s[1, "power"], tolerance = 0.2)
-  
+
   s2 <- m$summary(true.value = -.25, alternative = "<", level = 0.05)
   p2 <- power.prop.test(n = 50, p1 = 0.5, p2 = 0.25, alternative = "one.sided")
   expect_equal(p2$power, s2[1, "power"], tolerance = 0.1)
   expect_true(s[1, "power"] < s2[1, "power"])
-  
+
   # test that nominal coverage around true.value is correctly calculated
   s3 <- m$summary(true.value = -.25, nominal.coverage = 0.9)
   expect_equal(s3[, "coverage"], 0.9, tolerance = 0.05)
   s3 <- m$summary(true.value = -.25, nominal.coverage = 0.5)
   expect_equal(s3[, "coverage"], 0.5, tolerance = 0.05)
-  
+
   # test ni.margin; expect power around 5% since true value is -0.25
   s <- m$summary(ni.margin = -.25, alternative = ">")
   expect_equal(s[1, "power"], 0.05, tolerance = 0.1)
-  
+
   # power should go up to 10% when changing significance level to .1
   # implicitly verify that alternative hypothesis is derived correctly from
   # the margin
   s <- m$summary(ni.margin = -.25, level = 0.1)
   expect_equal(s[1, "power"], 0.1, tolerance = 0.1)
-  
+
   # test null value argument. power should equal significance level since
   # true value equals null hypothesis
   s <- m$summary(null = -.25, alternative = ">", level = 0.05)
   expect_equal(s[1, "power"], 0.05, tolerance = 0.1)
-  
+
   # test that alternative argument also works with "less" and "greater" values
   s <- m$summary(null = -.25, alternative = "greater", level = 0.05)
   s1 <- m$summary(null = -.25, alternative = ">", level = 0.05)
   expect_equal(s[1, "power"], s1[1, "power"])
-  
+
   s <- m$summary(null = -.25, alternative = "less", level = 0.05)
   s1 <- m$summary(null = -.25, alternative = "<", level = 0.05)
   expect_equal(s[1, "power"], s1[1, "power"])
-  
+
   # test that error occurs when no estimates are available
   m_new <- Trial$new(
     outcome = function(data) data.frame(y = rnorm(nrow(data))),
     estimators = list(mymodel = est_glm())
   )
   expect_error(m_new$summary(), "No estimates available")
-  
+
   # test that summary works as expected for estimates from more than one
   # estimator
   res1 <- m$run(n = 100, R = 10, p = c(0.5, 0.25),
@@ -688,16 +714,16 @@ test_summary <- function() {
   s1 <- m$summary()
   s2 <- m$summary(estimates = res2)
   expect_equal(s1, s2)
-  
+
   # Test that providing estimates doesn't modify the object's stored estimates
   original_estimates <- m$estimates
   m$summary(estimates = res2)
   expect_equal(m$estimates, original_estimates)
-  
+
   # Test that estimates parameter takes precedence over stored estimates
   different_res <- m$run(n = 200, R = 500, p = c(0.5, 0.25))  # Different n
   s3 <- m$summary(estimates = different_res)
-  expect_false(identical(s1, s3))  # Should be different due to different n  
+  expect_false(identical(s1, s3))  # Should be different due to different n
 }
 
 test_summary()

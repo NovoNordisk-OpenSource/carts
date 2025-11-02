@@ -44,11 +44,6 @@ Trial <- R6::R6Class("Trial", #nolint
     #' ([Trial$args_model()][Trial]) or estimators ([Trial$estimators()][Trial])
     #' are modified.
     estimates = NULL,
-    #' @field summary.args list of arguments that override default values in
-    #' [Trial$summary()][Trial] when power and sample sizes are
-    #' estimated with [Trial$estimate_power()][Trial] and
-    #' [Trial$estimate_samplesize()][Trial]
-    summary.args = list(),
 
     #' @description Initialize new Trial object
     #' @param covariates covariate simulation function (must have 'n' as first
@@ -81,8 +76,8 @@ Trial <- R6::R6Class("Trial", #nolint
       self$outcome_model <- add_dots(outcome)
       self$estimators(estimators)
       self$info <- as.list(info)
-      private$model.args <- list()
-      self$summary.args <- summary.args
+      if (length(summary.args) > 0) self$args_summary(summary.args)
+
       return(invisible(self))
 
     },
@@ -130,24 +125,38 @@ Trial <- R6::R6Class("Trial", #nolint
     },
 
     #' @description Get, specify or update the summary.args attribute.
-    #' @param summary.args list of arguments to update or set
-    #' @param ... arguments to update or set
+        #' @param .args (list or character) named list of arguments to update
+    #' or set. A single or subset of arguments can be retrieved by passing the
+    #' respective argument names as a character or character vector.
+    #' @param .reset (logical or character) Reset all or a subset of previously
+    #' set parameters. Can be combined with setting new parameters.
+    #' @param ... Alternative to using `.args` to update or set arguments
     #' @examples
     #' trial <- Trial$new(
-    #'   covariate = function(n) data.frame(a = rbinom(n, 1, 0.5)),
+    #'   covariates = function(n, p = 0.5) data.frame(a = rbinom(n, 1, p)),
     #'   outcome = function(data, ate, mu) rnorm(nrow(data), mu + data$a * ate)
     #' )
-    #' # set summary.args via optional arguments
-    #' trial$args_summary(level = 0.025)
-    #' # return summary_args
-    #' trial$args_summary()
-    #' # update summary_args parameter via summary.args argument
-    #' trial$args_summary(summary.args = list(level = 0.05))
-    #' trial$args_summary()
-    args_summary = function(summary.args = NULL, ...) {
+    #' # set and update parameters
+    #' trial$args_summary(list(level = 0.05, alternative = "<"))
+    #' trial$args_summary(level = 0.25) # update parameters
+    #'
+    #' # retrieve parameters
+    #' trial$args_summary() # return all set parameters
+    #' trial$args_summary("level") # select a single parameter
+    #' trial$args_summary(c("level", "alternative")) # multiple parameters
+    #'
+    #' # remove parameters
+    #' trial$args_summary(.reset = "level") # remove a single parameter
+    #' trial$args_summary(.reset = TRUE) # remove all parameters
+    #'
+    #' # remove and set/update parameters
+    #' trial$args_summary(alternative = "!=", level = 0.05, .reset = TRUE)
+    #' # removing alternative and setting level
+    #' trial$args_summary(level = 0.05, .reset = "alternative")
+    args_summary = function(.args = NULL, .reset = FALSE,  ...) {
       return(
-        trial_args_getter_setter(self = self, args = summary.args,
-        args.name = "summary.args", ...)
+        private$get_set_args_estimator(args = .args, reset = .reset, ...,
+          attr.name = "summary.args")
       )
     },
 
@@ -383,7 +392,7 @@ Trial <- R6::R6Class("Trial", #nolint
       summary.args = list(), ...) {
       # TODO: improve error message for failing estimators (see unit tests
       # test_estimate_power)
-      sum.args <- self$summary.args
+      sum.args <- self$args_summary()
       sum.args[names(summary.args)] <- summary.args
 
       args <- c(list(...), list(n = n, R = R, estimators = estimators))
@@ -578,9 +587,7 @@ Trial <- R6::R6Class("Trial", #nolint
           reject_function = reject.function
         ))
       })
-      # res <- lapply(self$estimates$estimates, function(est) {
-      #   return(runtrials_summarize(estimates = est))
-      # })
+
       res <- do.call(rbind, res)
       return(res)
     },
@@ -611,6 +618,7 @@ Trial <- R6::R6Class("Trial", #nolint
   private = list(
     state = list(estimate_samplesize = FALSE),
     model.args = list(),
+    summary.args = list(),
     .estimators = list(),
     # utility to set, update or retrieve parameters of model.args, summary.args
     # and estimators.
@@ -746,8 +754,6 @@ Trial <- R6::R6Class("Trial", #nolint
     }
   )
 )
-
-
 
 #' @export
 print.samplesize_estimate <- function(x, ...) {
@@ -967,7 +973,7 @@ trial_print <- function(self, verbose, ...) {
   cat("\n")
 
   cat("Summary arguments: ", "\n")
-  summary.args <- self$summary.args
+  summary.args <- self$args_summary()
   for (i in seq_along(summary.args)) {
     nam <- names(summary.args)[i]
     cat_bullet(paste0(nam, ": "))

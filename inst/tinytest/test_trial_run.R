@@ -98,10 +98,10 @@ test_summary.runtrials <- function() {
     ))
   }, estimators = list(mymodel = est_glm()))
   res <- m$run(n = 100, R = 500, p = c(0.5, 0.25))
-  
+
   # test that deprecation warning is shown
   expect_warning(s <- summary(res), "deprecated")
-  
+
   ## we should remove these tests after deprecation of this method
   suppressWarnings({
     # test that summary method calculates descriptive statistic and power
@@ -111,51 +111,51 @@ test_summary.runtrials <- function() {
     expect_equal(mean(res$estimates[[1]][, "Std.Err"]), s[1, "std.err"])
     expect_equal(sd(res$estimates[[1]][, "Estimate"]), s[1, "std.dev"])
     expect_equal(mean(res$estimates[[1]][, "P-value"] < 0.05), s[1, "power"])
-    
+
     p1 <- power.prop.test(n = 50, p1 = 0.5, p2 = 0.25) # n = obs. per group
     expect_equal(p1$power, s[1, "power"], tolerance = 0.2)
-    
+
     s2 <- summary(res, true.value = -.25, alternative = "<", level = 0.05)
     p2 <- power.prop.test(n = 50, p1 = 0.5, p2 = 0.25, alternative = "one.sided")
     expect_equal(p2$power, s2[1, "power"], tolerance = 0.1)
     expect_true(s[1, "power"] < s2[1, "power"])
-    
+
     # test that nominal coverage around true.value is correctly calculated
     s3 <- summary(res, true.value = -.25, nominal.coverage = 0.9)
     expect_equal(s3[, "coverage"], 0.9, tolerance = 0.05)
     s3 <- summary(res, true.value = -.25, nominal.coverage = 0.5)
     expect_equal(s3[, "coverage"], 0.5, tolerance = 0.05)
-    
+
     # test ni.margin; expect power around 5% since true value is -0.25
     s <- summary(res, ni.margin = -.25, alternative = ">")
     expect_equal(s[1, "power"], 0.05, tolerance = 0.1)
-    
+
     # power should go up to 10% when changing significance level to .1
     # implicitly verify that alternative hypothesis is derived correctly from
     # the margin
     s <- summary(res, ni.margin = -.25, level = 0.1)
     expect_equal(s[1, "power"], 0.1, tolerance = 0.1)
-    
+
     # test null value argument. power should equal significance level since
     # true value equals null hypothesis
     s <- summary(res, null = -.25, alternative = ">", level = 0.05)
     expect_equal(s[1, "power"], 0.05, tolerance = 0.1)
-    
+
     # test that alternative argument also works with "less" and "greater" values
     s <- summary(res, null = -.25, alternative = "greater", level = 0.05)
     s1 <- summary(res, null = -.25, alternative = ">", level = 0.05)
     expect_equal(s[1, "power"], s1[1, "power"])
-    
+
     s <- summary(res, null = -.25, alternative = "less", level = 0.05)
     s1 <- summary(res, null = -.25, alternative = "<", level = 0.05)
     expect_equal(s[1, "power"], s1[1, "power"])
-    
+
     # test that error occurs when estimates do not contain Estimate and Std.Err
     # columns
     res1 <- res
     res1$estimates[[1]] <- res1$estimates[[1]][, c("Estimate")]
     expect_error(summary(res1))
-    
+
     # test that summary works as expected for estimates from more than one
     # estimator
     res1 <- m$run(n = 100, R = 10, p = c(0.5, 0.25),

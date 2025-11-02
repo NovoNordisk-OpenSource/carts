@@ -55,16 +55,26 @@ trial$args_model(ate = 5, .reset = "p") # removing p and updating ate
 ## ------------------------------------------------
 
 trial <- Trial$new(
-  covariate = function(n) data.frame(a = rbinom(n, 1, 0.5)),
+  covariates = function(n, p = 0.5) data.frame(a = rbinom(n, 1, p)),
   outcome = function(data, ate, mu) rnorm(nrow(data), mu + data$a * ate)
 )
-# set summary.args via optional arguments
-trial$args_summary(level = 0.025)
-# return summary_args
-trial$args_summary()
-# update summary_args parameter via summary.args argument
-trial$args_summary(summary.args = list(level = 0.05))
-trial$args_summary()
+# set and update parameters
+trial$args_summary(list(level = 0.05, alternative = "<"))
+trial$args_summary(level = 0.25) # update parameters
+
+# retrieve parameters
+trial$args_summary() # return all set parameters
+trial$args_summary("level") # select a single parameter
+trial$args_summary(c("level", "alternative")) # multiple parameters
+
+# remove parameters
+trial$args_summary(.reset = "level") # remove a single parameter
+trial$args_summary(.reset = TRUE) # remove all parameters
+
+# remove and set/update parameters
+trial$args_summary(alternative = "!=", level = 0.05, .reset = TRUE)
+# removing alternative and setting level
+trial$args_summary(level = 0.05, .reset = "alternative")
 
 ## ------------------------------------------------
 ## Method `Trial$estimators`
@@ -286,11 +296,6 @@ Monte-Carlo simulations returned by \link[=Trial]{Trial$run()}. The field is
 flushed, i.e. set to its default value \emph{NULL}, when model arguments
 (\link[=Trial]{Trial$args_model()}) or estimators (\link[=Trial]{Trial$estimators()})
 are modified.}
-
-\item{\code{summary.args}}{list of arguments that override default values in
-\link[=Trial]{Trial$summary()} when power and sample sizes are
-estimated with \link[=Trial]{Trial$estimate_power()} and
-\link[=Trial]{Trial$estimate_samplesize()}}
 }
 \if{html}{\out{</div>}}
 }
@@ -415,31 +420,46 @@ trial$args_model(ate = 5, .reset = "p") # removing p and updating ate
 \subsection{Method \code{args_summary()}}{
 Get, specify or update the summary.args attribute.
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Trial$args_summary(summary.args = NULL, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{Trial$args_summary(.args = NULL, .reset = FALSE, ...)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{summary.args}}{list of arguments to update or set}
+\item{\code{.args}}{(list or character) named list of arguments to update
+or set. A single or subset of arguments can be retrieved by passing the
+respective argument names as a character or character vector.}
 
-\item{\code{...}}{arguments to update or set}
+\item{\code{.reset}}{(logical or character) Reset all or a subset of previously
+set parameters. Can be combined with setting new parameters.}
+
+\item{\code{...}}{Alternative to using \code{.args} to update or set arguments}
 }
 \if{html}{\out{</div>}}
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{trial <- Trial$new(
-  covariate = function(n) data.frame(a = rbinom(n, 1, 0.5)),
+  covariates = function(n, p = 0.5) data.frame(a = rbinom(n, 1, p)),
   outcome = function(data, ate, mu) rnorm(nrow(data), mu + data$a * ate)
 )
-# set summary.args via optional arguments
-trial$args_summary(level = 0.025)
-# return summary_args
-trial$args_summary()
-# update summary_args parameter via summary.args argument
-trial$args_summary(summary.args = list(level = 0.05))
-trial$args_summary()
+# set and update parameters
+trial$args_summary(list(level = 0.05, alternative = "<"))
+trial$args_summary(level = 0.25) # update parameters
+
+# retrieve parameters
+trial$args_summary() # return all set parameters
+trial$args_summary("level") # select a single parameter
+trial$args_summary(c("level", "alternative")) # multiple parameters
+
+# remove parameters
+trial$args_summary(.reset = "level") # remove a single parameter
+trial$args_summary(.reset = TRUE) # remove all parameters
+
+# remove and set/update parameters
+trial$args_summary(alternative = "!=", level = 0.05, .reset = TRUE)
+# removing alternative and setting level
+trial$args_summary(level = 0.05, .reset = "alternative")
 }
 \if{html}{\out{</div>}}
 
