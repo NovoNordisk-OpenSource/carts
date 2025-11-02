@@ -364,7 +364,7 @@ outcome_phreg <- function(data,
   return(structure(res, par = attr(rr, "par"), cens.par = attr(rr0, "par")))
 }
 
-#' @title UNDER DEVELOPMENT: Outcome model for recurrent events with terminal
+#' @title EXPERIMENTAL: Outcome model for recurrent events with terminal
 #' events end-points
 #' @description This function is still in an experimental state where the
 #' interface and functionality might change in the future
@@ -407,8 +407,6 @@ outcome_recurrent <- function(data,
   if (!is.null(death.model)) {
     deathmod <- proc_phreg(death.model)
     death.model <- deathmod$model
-  } else {
-    death.model <- NULL # TODO: isn't this superfluous?
   }
   ## censoring model
   if (is.null(cens.model)) {
