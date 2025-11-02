@@ -541,66 +541,11 @@ Trial <- R6::R6Class("Trial", #nolint
                        nominal.coverage = 0.9,
                        estimates = NULL,
                        ...) {
-      est <- if (!is.null(estimates)) estimates else self$estimates
-      if (is.null(est)) {
-        stop("No estimates available. Run trial first.")
-      }
-
-      if (!(alternative %in% c("!=", "<", ">"))) {
-        rlang::abort('alternative should be one of "!=", "<", ">"')
-      }
-
-      alternative <- gsub(" ", "", tolower(alternative[1]))
-      q_alpha_cov <- qnorm(1 - (1 - nominal.coverage) / 2) # quantile for
-      # calculating the nominal coverage when true.value is supplied
-      q_alpha_rej <- qnorm(1 - level / 2) # quantile used for decision making
-      # about the null hypothesis (here two-sided test, below for one-sided
-      # test)
-      if (alternative == "<") {
-        alternative <- "<"
-        q_alpha_rej <- qnorm(1 - level)
-      }
-      if (alternative == ">") {
-        alternative <- ">"
-        q_alpha_rej <- qnorm(1 - level)
-      }
-      if (!is.null(ni.margin)) {
-        q_alpha_rej <- qnorm(1 - level)
-        alternative <- ifelse(ni.margin >= 0, "<", ">")
-      }
-
-      if (is.null(reject.function)) {
-        reject.function <- function(lower, upper, ...) {
-          if (alternative == "<") {
-            if (!is.null(ni.margin)) {
-              return(upper < ni.margin)
-            }
-            return(upper < null)
-          }
-          if (alternative == ">") {
-            if (!is.null(ni.margin)) {
-              return(lower > ni.margin)
-            }
-            return(lower > null)
-          }
-          return((upper < null) | (lower > null))
-        }
-      } else {
-        reject.function <- add_dots(reject.function)
-      }
-      res <- lapply(est$estimates, function(est) {
-        return(private$runtrials_summarize(
-          estimates = est,
-          q_alpha_rej = q_alpha_rej,
-          q_alpha_cov = q_alpha_cov,
-          null = null,
-          true_value = true.value,
-          reject_function = reject.function
-        ))
-      })
-
-      res <- do.call(rbind, res)
-      return(res)
+    trial_summary(self = self, level = level, null = null,
+      ni.margin = ni.margin, alternative = alternative,
+      reject.function = reject.function, true.value = true.value,
+      nominal.coverage = nominal.coverage, estimates = estimates, ...
+    )
     },
 
     #' @description Print method for Trial objects
@@ -722,51 +667,6 @@ Trial <- R6::R6Class("Trial", #nolint
       private[[attr.name]][names(all_args)] <- all_args
       .flush()
       return(invisible())
-    },
-    runtrials_recalc = function(estimates, q_alpha_rej, q_alpha_cov, null,
-                              reject_function) {
-      est <- estimates[, c("Estimate", "Std.Err")] |>
-        as.data.frame()
-      point_est <- est[, "Estimate"]
-      est[, "z.score"] <- (point_est - null) / est[, "Std.Err"]
-      est[, "lower.CI"] <- point_est - q_alpha_rej * est[, "Std.Err"]
-      est[, "upper.CI"] <- point_est + q_alpha_rej * est[, "Std.Err"]
-      est[, "lower.CI.cov"] <- point_est - q_alpha_cov * est[, "Std.Err"]
-      est[, "upper.CI.cov"] <- point_est + q_alpha_cov * est[, "Std.Err"]
-      est[, "Reject"] <- reject_function(
-        estimate = est[, "Estimate"],
-        stderr = est[, "Std.Err"],
-        lower = est[, "lower.CI"],
-        upper = est[, "upper.CI"]
-      )
-      return(est)
-    },
-
-    runtrials_summarize = function(estimates, q_alpha_rej, q_alpha_cov, null,
-                                   true_value, reject_function) {
-      estimates <- private$runtrials_recalc(
-        estimates = estimates,
-        q_alpha_rej = q_alpha_rej,
-        q_alpha_cov = q_alpha_cov,
-        null = null,
-        reject_function = reject_function
-      )
-      out <- with(estimates, c(
-        estimate = mean(Estimate, na.rm=TRUE),
-        std.err = mean(Std.Err, na.rm=TRUE),
-        std.dev = sd(Estimate, na.rm=TRUE),
-        power = mean(Reject, na.rm=TRUE),
-        na = sum(is.na(Estimate))
-      ))
-      if (!is.null(true_value)) {
-        est_err <- estimates[, "Estimate"] - true_value
-        out[["bias"]] <- mean(est_err, na.rm = TRUE)
-        out[["rmse"]] <- mean(est_err ** 2, na.rm = TRUE) ** 0.5
-        out[["coverage"]] <- mean(
-          (estimates[, "lower.CI.cov"] <= true_value) &
-            (true_value <= estimates[, "upper.CI.cov"]), na.rm = TRUE)
-      }
-      return(out)
     }
   )
 )
@@ -786,6 +686,99 @@ print.samplesize_estimate <- function(x, ...) {
 #' @export
 coef.samplesize_estimate <- function(object, ...) {
   return(object$estimate)
+}
+
+trial_summary <- function(self, level, null, ni.margin, alternative,
+  reject.function, true.value, nominal.coverage, estimates, ...) {
+  est <- if (!is.null(estimates)) estimates else self$estimates
+  if (is.null(est)) {
+    stop("No estimates available. Run trial first.")
+  }
+
+  if (!(alternative %in% c("!=", "<", ">"))) {
+    rlang::abort('alternative should be one of "!=", "<", ">"')
+  }
+
+  alternative <- gsub(" ", "", tolower(alternative[1]))
+  q_alpha_cov <- qnorm(1 - (1 - nominal.coverage) / 2) # quantile for
+  # calculating the nominal coverage when true.value is supplied
+  q_alpha_rej <- qnorm(1 - level / 2) # quantile used for decision making
+  # about the null hypothesis (here two-sided test, below for one-sided
+  # test)
+  if (alternative == "<") {
+    alternative <- "<"
+    q_alpha_rej <- qnorm(1 - level)
+  }
+  if (alternative == ">") {
+    alternative <- ">"
+    q_alpha_rej <- qnorm(1 - level)
+  }
+  if (!is.null(ni.margin)) {
+    q_alpha_rej <- qnorm(1 - level)
+    alternative <- ifelse(ni.margin >= 0, "<", ">")
+  }
+
+  if (is.null(reject.function)) {
+    reject.function <- function(lower, upper, ...) {
+      if (alternative == "<") {
+        if (!is.null(ni.margin)) {
+          return(upper < ni.margin)
+        }
+        return(upper < null)
+      }
+      if (alternative == ">") {
+        if (!is.null(ni.margin)) {
+          return(lower > ni.margin)
+        }
+        return(lower > null)
+      }
+      return((upper < null) | (lower > null))
+    }
+  } else {
+    reject.function <- add_dots(reject.function)
+  }
+
+  inference <- function(estimates) {
+    recalc <- function(estimates) {
+      est <- estimates[, c("Estimate", "Std.Err")] |>
+          as.data.frame()
+      point_est <- est[, "Estimate"]
+      est[, "z.score"] <- (point_est - null) / est[, "Std.Err"]
+      est[, "lower.CI"] <- point_est - q_alpha_rej * est[, "Std.Err"]
+      est[, "upper.CI"] <- point_est + q_alpha_rej * est[, "Std.Err"]
+      est[, "lower.CI.cov"] <- point_est - q_alpha_cov * est[, "Std.Err"]
+      est[, "upper.CI.cov"] <- point_est + q_alpha_cov * est[, "Std.Err"]
+      est[, "Reject"] <- reject.function(
+        estimate = est[, "Estimate"],
+        stderr = est[, "Std.Err"],
+        lower = est[, "lower.CI"],
+        upper = est[, "upper.CI"]
+      )
+      return(est)
+    }
+      estimates <- recalc(estimates)
+      out <- with(estimates, c(
+        estimate = mean(Estimate, na.rm=TRUE),
+        std.err = mean(Std.Err, na.rm=TRUE),
+        std.dev = sd(Estimate, na.rm=TRUE),
+        power = mean(Reject, na.rm=TRUE),
+        na = sum(is.na(Estimate))
+      ))
+      if (!is.null(true.value)) {
+        est_err <- estimates[, "Estimate"] - true.value
+        out[["bias"]] <- mean(est_err, na.rm = TRUE)
+        out[["rmse"]] <- mean(est_err ** 2, na.rm = TRUE) ** 0.5
+        out[["coverage"]] <- mean(
+          (estimates[, "lower.CI.cov"] <= true.value) &
+            (true.value <= estimates[, "upper.CI.cov"]), na.rm = TRUE)
+      }
+      return(out)
+  }
+
+  res <- lapply(est$estimates, \(est) inference(estimates = est))
+
+  res <- do.call(rbind, res)
+  return(res)
 }
 
 trial_simulate <- function(self, n, .niter, ...) {

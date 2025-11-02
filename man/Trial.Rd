@@ -914,7 +914,7 @@ different estimators.
   level = 0.05,
   null = 0,
   ni.margin = NULL,
-  alternative = c("!=", "<", ">"),
+  alternative = "!=",
   reject.function = NULL,
   true.value = NULL,
   nominal.coverage = 0.9,
@@ -926,11 +926,11 @@ different estimators.
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{level}}{significance level}
+\item{\code{level}}{(numeric) significance level}
 
-\item{\code{null}}{null hypothesis to test}
+\item{\code{null}}{(numeric) null hypothesis to test}
 
-\item{\code{ni.margin}}{non-inferiority margin}
+\item{\code{ni.margin}}{(numeric) non-inferiority margin}
 
 \item{\code{alternative}}{alternative hypothesis (not equal !=, less <,
 greater >)}

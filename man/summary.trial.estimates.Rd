@@ -9,7 +9,7 @@
   level = 0.05,
   null = 0,
   ni.margin = NULL,
-  alternative = c("!=", "<", ">"),
+  alternative = "!=",
   reject.function = NULL,
   true.value = NULL,
   nominal.coverage = 0.9,
