@@ -164,37 +164,30 @@ summary.trial.estimates <- function(object,
                               level = .05,
                               null = 0,
                               ni.margin = NULL,
-                              alternative = c("!=", "<", ">"),
+                              alternative = "!=",
                               reject.function = NULL,
                               true.value = NULL,
                               nominal.coverage = 0.9,
                               ...) {
+
   .Deprecated(
     "Trial$summary",
     msg = paste("summary.trial.estimates is deprecated.",
                 "Use Trial$summary() instead.")
   )
-  m <- Trial$new(
-    outcome = object$outcome,
-    covariates = object$covariates,
-    exclusion = object$exclusion,
-    estimators = object$estimators,
-    info = object$info
-  )
-  m$estimates <- object
+
   args <- list(
     level = level,
     null = null,
     ni.margin = ni.margin,
     alternative = alternative,
     true.value = true.value,
-    nominal.coverage = nominal.coverage
+    nominal.coverage = nominal.coverage,
+    reject.function = reject.function,
+    estimates = object
   )
-  # Only add reject.function to args if it's not NULL
-  if (!is.null(reject.function)) {
-    args$reject.function <- reject.function
-  }
-  do.call(m$summary, c(args, list(...)))
+
+  do.call(object$model$summary, c(args, list(...)))
 }
 
 #' @title trial.estimates class object

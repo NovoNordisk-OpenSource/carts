@@ -141,15 +141,6 @@ test_summary.runtrials <- function() {
     s <- summary(res, null = -.25, alternative = ">", level = 0.05)
     expect_equal(s[1, "power"], 0.05, tolerance = 0.1)
 
-    # test that alternative argument also works with "less" and "greater" values
-    s <- summary(res, null = -.25, alternative = "greater", level = 0.05)
-    s1 <- summary(res, null = -.25, alternative = ">", level = 0.05)
-    expect_equal(s[1, "power"], s1[1, "power"])
-
-    s <- summary(res, null = -.25, alternative = "less", level = 0.05)
-    s1 <- summary(res, null = -.25, alternative = "<", level = 0.05)
-    expect_equal(s[1, "power"], s1[1, "power"])
-
     # test that error occurs when estimates do not contain Estimate and Std.Err
     # columns
     res1 <- res

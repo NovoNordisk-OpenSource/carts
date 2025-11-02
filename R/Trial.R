@@ -76,7 +76,13 @@ Trial <- R6::R6Class("Trial", #nolint
       self$outcome_model <- add_dots(outcome)
       self$estimators(estimators)
       self$info <- as.list(info)
-      if (length(summary.args) > 0) self$args_summary(summary.args)
+
+      args <- as.list(formals(self$summary))
+      args[c("...", "estimates")] <- NULL
+      private$summary.args_default <- args
+
+      args[names(summary.args)] <- summary.args
+      self$args_summary(args)
 
       return(invisible(self))
 
@@ -511,9 +517,9 @@ Trial <- R6::R6Class("Trial", #nolint
     #'   the power of both superiority tests (one-sided or two-sided) and
     #'   non-inferiority tests, together with summary statistics of the
     #'   different estimators.
-    #' @param level significance level
-    #' @param null null hypothesis to test
-    #' @param ni.margin non-inferiority margin
+    #' @param level (numeric) significance level
+    #' @param null (numeric) null hypothesis to test
+    #' @param ni.margin (numeric) non-inferiority margin
     #' @param alternative alternative hypothesis (not equal !=, less <,
     #'   greater >)
     #' @param reject.function Optional function calculating whether to reject
@@ -527,29 +533,34 @@ Trial <- R6::R6Class("Trial", #nolint
     #' @param ... additional arguments to lower level functions
     #' @return matrix with results of each estimator stored in separate rows
     summary = function(level = .05,
-                          null = 0,
-                          ni.margin = NULL,
-                          alternative = c("!=", "<", ">"),
-                          reject.function = NULL,
-                          true.value = NULL,
-                          nominal.coverage = 0.9,
-                          estimates = NULL,
-                          ...) {
+                       null = 0,
+                       ni.margin = NULL,
+                       alternative = "!=",
+                       reject.function = NULL,
+                       true.value = NULL,
+                       nominal.coverage = 0.9,
+                       estimates = NULL,
+                       ...) {
       est <- if (!is.null(estimates)) estimates else self$estimates
       if (is.null(est)) {
         stop("No estimates available. Run trial first.")
       }
+
+      if (!(alternative %in% c("!=", "<", ">"))) {
+        rlang::abort('alternative should be one of "!=", "<", ">"')
+      }
+
       alternative <- gsub(" ", "", tolower(alternative[1]))
       q_alpha_cov <- qnorm(1 - (1 - nominal.coverage) / 2) # quantile for
       # calculating the nominal coverage when true.value is supplied
       q_alpha_rej <- qnorm(1 - level / 2) # quantile used for decision making
       # about the null hypothesis (here two-sided test, below for one-sided
       # test)
-      if (alternative %in% c("less", "<")) {
+      if (alternative == "<") {
         alternative <- "<"
         q_alpha_rej <- qnorm(1 - level)
       }
-      if (alternative %in% c("greater", ">")) {
+      if (alternative == ">") {
         alternative <- ">"
         q_alpha_rej <- qnorm(1 - level)
       }
@@ -558,7 +569,7 @@ Trial <- R6::R6Class("Trial", #nolint
         alternative <- ifelse(ni.margin >= 0, "<", ">")
       }
 
-      if (missing(reject.function)) {
+      if (is.null(reject.function)) {
         reject.function <- function(lower, upper, ...) {
           if (alternative == "<") {
             if (!is.null(ni.margin)) {
@@ -617,6 +628,8 @@ Trial <- R6::R6Class("Trial", #nolint
   active = list(),
   private = list(
     state = list(estimate_samplesize = FALSE),
+    # default values of summary method arguments (see initialize method)
+    summary.args_default = list(),
     model.args = list(),
     summary.args = list(),
     .estimators = list(),
@@ -673,6 +686,9 @@ Trial <- R6::R6Class("Trial", #nolint
         if (length(all_args) == 0) {
           if (is.logical(reset)) {
             private[[attr.name]] <- list()
+            if (attr.name == "summary.args") {
+              private$summary.args <- private$summary.args_default
+            }
           } else {
             .exists <- sapply(c(reset), \(x) x %in% names(private[[attr.name]]))
             notfound <- names(.exists)[!.exists]

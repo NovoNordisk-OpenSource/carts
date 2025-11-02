@@ -305,8 +305,20 @@ test_args_summary <- function() {
     summary.args = list(level = 0.025)
   )
 
+  default_args <- list( # default values of Trial$summary method
+    level = .05,
+    null = 0,
+    ni.margin = NULL,
+    alternative = "!=",
+    reject.function = NULL,
+    true.value = NULL,
+    nominal.coverage = 0.9
+  )
+
   # arguments are set correctly when using summary.args / test getter
-  expect_equal(trial$args_summary(), list(level = 0.025))
+  args <- default_args
+  args$level <- 0.025
+  expect_equal(trial$args_summary(), args)
   expect_equal(trial$args_summary("level"), 0.025)
 
   # update existing parameter
@@ -315,11 +327,14 @@ test_args_summary <- function() {
 
   # update 1 parameter and add 2 others
   trial$args_summary(list(level = 0.025, aa = 1, bb = 2))
-  expect_equal(trial$args_summary(), list(level = 0.025, aa = 1, bb = 2))
+  expect_equal(
+    trial$args_summary(c("level", "aa", "bb")),
+    list(level = 0.025, aa = 1, bb = 2)
+  )
 
-  # remove one parameter
-  trial$args_summary(.reset = "aa")
-  expect_equal(trial$args_summary(), list(level = 0.025, bb = 2))
+  # remove two parameters
+  trial$args_summary(.reset = c("aa", "bb"))
+  expect_equal(trial$args_summary(), args)
 
   # reset parameter that doesn't exist raises error
   expect_error(
@@ -328,16 +343,20 @@ test_args_summary <- function() {
   )
 
   # reset and set works
-  trial$args_summary(.reset = "bb", aa = 1)
-  expect_equal(trial$args_summary(), list(level = 0.025, aa = 1))
+  trial$args_summary(.reset = "level", level = 0.1)
+  expect_equal(trial$args_summary("level"), 0.1)
 
   # same with list argument
-  trial$args_summary(.reset = "aa", list(aa = 1, bb = 2))
-  expect_equal(trial$args_summary(), list(level = 0.025, aa = 1, bb = 2))
+  trial$args_summary(.reset = "level", list(level = 0.2, null = 1))
+  expect_equal(
+    trial$args_summary(c("level", "null")),
+    list(level = 0.2, null = 1)
+  )
 
-  # reset all parameters
+  # reset all parameters. this reset parameters against the default values of
+  # the summary method
   trial$args_summary(.reset = TRUE)
-  expect_equal(trial$args_summary(), list())
+  expect_equal(trial$args_summary(), default_args)
 
   # updating summary.args won't reset estimates
   trial$estimates <- 2
@@ -624,7 +643,7 @@ test_run <- function() {
 
   # estimates attribute is flushed when changing the estimator (more tests
   # are implemented in test_args_model and test_estimators)
-  trial$estimators(est1 = est_adj(), est2 = est_glm())
+  trial$estimators(est1 = est_glm(), est2 = est_glm())
   expect_null(trial$estimates)
 
   # verify that estimates of both estimators are assigned to attribute
@@ -684,14 +703,11 @@ test_summary <- function() {
   s <- m$summary(null = -.25, alternative = ">", level = 0.05)
   expect_equal(s[1, "power"], 0.05, tolerance = 0.1)
 
-  # test that alternative argument also works with "less" and "greater" values
-  s <- m$summary(null = -.25, alternative = "greater", level = 0.05)
-  s1 <- m$summary(null = -.25, alternative = ">", level = 0.05)
-  expect_equal(s[1, "power"], s1[1, "power"])
-
-  s <- m$summary(null = -.25, alternative = "less", level = 0.05)
-  s1 <- m$summary(null = -.25, alternative = "<", level = 0.05)
-  expect_equal(s[1, "power"], s1[1, "power"])
+  # summary only supports !=, < and > for alternative argument
+  expect_error(
+    m$summary(alternative = "greater"),
+    pattern = 'alternative should be one of "!=", "<", ">"'
+  )
 
   # test that error occurs when no estimates are available
   m_new <- Trial$new(
@@ -706,7 +722,6 @@ test_summary <- function() {
     estimators = list(est1 = est_glm(), est2 = est_glm()))
   s <- m$summary()
   expect_equal(rownames(s), c("est1", "est2"))
-
 
   # Add new test block for estimates parameter
   # Test that providing estimates directly works the same as using stored estimates
@@ -725,5 +740,4 @@ test_summary <- function() {
   s3 <- m$summary(estimates = different_res)
   expect_false(identical(s1, s3))  # Should be different due to different n
 }
-
 test_summary()
