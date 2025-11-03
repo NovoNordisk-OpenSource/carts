@@ -1,5 +1,5 @@
 ---
-title: "carts: getting started"
+title: "Getting started"
 author: "Klaus K. Holst and Benedikt Sommer"
 output:
   rmarkdown::html_vignette:
@@ -7,7 +7,7 @@ output:
     fig_width: 6
     fig_height: 6
 vignette: >
-  %\VignetteIndexEntry{carts: getting started}
+  %\VignetteIndexEntry{Getting started}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 bibliography: ref.bib

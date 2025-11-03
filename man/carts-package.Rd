@@ -31,7 +31,9 @@ trial$summary()
 \seealso{
 Useful links:
 \itemize{
-  \item Report bugs at \url{https://github.com/NN-AI-Analytics/carts/issues}
+  \item \url{https://novonordisk-opensource.github.io/carts/}
+  \item \url{https://github.com/NovoNordisk-OpenSource/carts}
+  \item Report bugs at \url{https://github.com/NovoNordisk-OpenSource/carts/issues}
 }
 
 }
