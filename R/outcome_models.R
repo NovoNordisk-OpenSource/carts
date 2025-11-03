@@ -8,10 +8,10 @@
 #' @param formula (formula) Formula specifying response and design matrix.
 #' @param remove Variables that will be removed from input `data` (if formula is
 #'   not specified).
-#' @param lp (formula, function) formula specifying design from 'data' or a
-#'   function that maps `data` to the conditional mean value on the link scale
-#'   (see examples). If NULL all main-effects of the covariates will be used,
-#'   except columns that are defined via the `remove` argument.
+#' @param mean (formula, function) Either a formula specifying the design from
+#'   'data' or a function that maps `data` to the conditional mean value on the
+#'   link scale (see examples). If NULL all main-effects of the covariates will
+#'   be used, except columns that are defined via the `remove` argument.
 #' @param ... Additional arguments passed to `mean` function (see examples)
 #' @return data.table
 NULL
@@ -40,7 +40,6 @@ NULL
 #'   not specified)
 #' @seealso [outcome_count] [outcome_binary] [outcome_continuous]
 #'   [outcome_phreg]
-#' @export
 outcome_lp <- function(data,
                        mean = NULL,
                        par = NULL,
@@ -357,7 +356,6 @@ outcome_continuous <- function(data,
 #' pbc1 <- outcome(xx) |> cbind(xx)
 #' mets::phreg(Surv(time, status) ~ (age + sex) * trt, pbc1)
 #' rm(pbc1, xx)
-#'
 outcome_phreg <- function(data,
                           lp = NULL,
                           par = NULL,

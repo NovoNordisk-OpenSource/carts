@@ -18,6 +18,11 @@ outcome_binary(
 \item{data}{(data.table) Covariate data, usually the output of the covariate
 model of a \link{Trial} object.}
 
+\item{mean}{(formula, function) Either a formula specifying the design from
+'data' or a function that maps \code{data} to the conditional mean value on the
+link scale (see examples). If NULL all main-effects of the covariates will
+be used, except columns that are defined via the \code{remove} argument.}
+
 \item{par}{(numeric) Regression coefficients (default zero). Can be given as
 a named list corresponding to the column names of \code{model.matrix}}
 

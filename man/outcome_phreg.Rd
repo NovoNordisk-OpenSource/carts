@@ -85,7 +85,6 @@ attr(outcome(xx), "par")
 pbc1 <- outcome(xx) |> cbind(xx)
 mets::phreg(Surv(time, status) ~ (age + sex) * trt, pbc1)
 rm(pbc1, xx)
-
 }
 \seealso{
 \link{outcome_count} \link{outcome_lp} \link{outcome_binary} \link{outcome_continuous}
