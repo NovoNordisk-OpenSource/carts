@@ -55,16 +55,26 @@ trial$args_model(ate = 5, .reset = "p") # removing p and updating ate
 ## ------------------------------------------------
 
 trial <- Trial$new(
-  covariate = function(n) data.frame(a = rbinom(n, 1, 0.5)),
+  covariates = function(n, p = 0.5) data.frame(a = rbinom(n, 1, p)),
   outcome = function(data, ate, mu) rnorm(nrow(data), mu + data$a * ate)
 )
-# set summary.args via optional arguments
-trial$args_summary(level = 0.025)
-# return summary_args
-trial$args_summary()
-# update summary_args parameter via summary.args argument
-trial$args_summary(summary.args = list(level = 0.05))
-trial$args_summary()
+# set and update parameters
+trial$args_summary(list(level = 0.05, alternative = "<"))
+trial$args_summary(level = 0.25) # update parameters
+
+# retrieve parameters
+trial$args_summary() # return all set parameters
+trial$args_summary("level") # select a single parameter
+trial$args_summary(c("level", "alternative")) # multiple parameters
+
+# remove parameters
+trial$args_summary(.reset = "level") # remove a single parameter
+trial$args_summary(.reset = TRUE) # remove all parameters
+
+# remove and set/update parameters
+trial$args_summary(alternative = "!=", level = 0.05, .reset = TRUE)
+# removing alternative and setting level
+trial$args_summary(level = 0.05, .reset = "alternative")
 
 ## ------------------------------------------------
 ## Method `Trial$estimators`
@@ -246,6 +256,32 @@ trial$estimate_samplesize(summary.args = list(level = 0.025))
 }
 
 ## ------------------------------------------------
+## Method `Trial$summary`
+## ------------------------------------------------
+
+outcome <- function(data, p = c(0.5, 0.25)) {
+  a <- rbinom(nrow(data), 1, 0.5)
+  data.frame(a = a, y = rbinom(nrow(data), 1, p[1] * (1 - a) + p[2] * a)
+  )
+}
+trial <- Trial$new(outcome, estimators = est_glm())
+trial$run(n = 100, R = 100)
+# two-sided test with 0.05 significance level (alpha = 0.05) (default
+# values)
+trial$summary(level = 0.05, alternative = "!=")
+# on-sided test
+trial$summary(level = 0.025, alternative = "<")
+# non-inferiority test
+trial$summary(level = 0.025, ni.margin = -0.5)
+
+# provide simulation results to summary method via estimates argument
+res <- trial$run(n = 100, R = 100, p = c(0.5, 0.5))
+trial$summary(estimates = res)
+
+# calculate empirical bias, rmse and coverage for true target parameter
+trial$summary(estimates = res, true.value = 0)
+
+## ------------------------------------------------
 ## Method `Trial$print`
 ## ------------------------------------------------
 
@@ -286,11 +322,6 @@ Monte-Carlo simulations returned by \link[=Trial]{Trial$run()}. The field is
 flushed, i.e. set to its default value \emph{NULL}, when model arguments
 (\link[=Trial]{Trial$args_model()}) or estimators (\link[=Trial]{Trial$estimators()})
 are modified.}
-
-\item{\code{summary.args}}{list of arguments that override default values in
-\link[=Trial]{Trial$summary()} when power and sample sizes are
-estimated with \link[=Trial]{Trial$estimate_power()} and
-\link[=Trial]{Trial$estimate_samplesize()}}
 }
 \if{html}{\out{</div>}}
 }
@@ -415,31 +446,46 @@ trial$args_model(ate = 5, .reset = "p") # removing p and updating ate
 \subsection{Method \code{args_summary()}}{
 Get, specify or update the summary.args attribute.
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Trial$args_summary(summary.args = NULL, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{Trial$args_summary(.args = NULL, .reset = FALSE, ...)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{summary.args}}{list of arguments to update or set}
+\item{\code{.args}}{(list or character) named list of arguments to update
+or set. A single or subset of arguments can be retrieved by passing the
+respective argument names as a character or character vector.}
 
-\item{\code{...}}{arguments to update or set}
+\item{\code{.reset}}{(logical or character) Reset all or a subset of previously
+set parameters. Can be combined with setting new parameters.}
+
+\item{\code{...}}{Alternative to using \code{.args} to update or set arguments}
 }
 \if{html}{\out{</div>}}
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{trial <- Trial$new(
-  covariate = function(n) data.frame(a = rbinom(n, 1, 0.5)),
+  covariates = function(n, p = 0.5) data.frame(a = rbinom(n, 1, p)),
   outcome = function(data, ate, mu) rnorm(nrow(data), mu + data$a * ate)
 )
-# set summary.args via optional arguments
-trial$args_summary(level = 0.025)
-# return summary_args
-trial$args_summary()
-# update summary_args parameter via summary.args argument
-trial$args_summary(summary.args = list(level = 0.05))
-trial$args_summary()
+# set and update parameters
+trial$args_summary(list(level = 0.05, alternative = "<"))
+trial$args_summary(level = 0.25) # update parameters
+
+# retrieve parameters
+trial$args_summary() # return all set parameters
+trial$args_summary("level") # select a single parameter
+trial$args_summary(c("level", "alternative")) # multiple parameters
+
+# remove parameters
+trial$args_summary(.reset = "level") # remove a single parameter
+trial$args_summary(.reset = TRUE) # remove all parameters
+
+# remove and set/update parameters
+trial$args_summary(alternative = "!=", level = 0.05, .reset = TRUE)
+# removing alternative and setting level
+trial$args_summary(level = 0.05, .reset = "alternative")
 }
 \if{html}{\out{</div>}}
 
@@ -894,7 +940,7 @@ different estimators.
   level = 0.05,
   null = 0,
   ni.margin = NULL,
-  alternative = c("!=", "<", ">"),
+  alternative = "!=",
   reject.function = NULL,
   true.value = NULL,
   nominal.coverage = 0.9,
@@ -906,11 +952,11 @@ different estimators.
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{level}}{significance level}
+\item{\code{level}}{(numeric) significance level}
 
-\item{\code{null}}{null hypothesis to test}
+\item{\code{null}}{(numeric) null hypothesis to test}
 
-\item{\code{ni.margin}}{non-inferiority margin}
+\item{\code{ni.margin}}{(numeric) non-inferiority margin}
 
 \item{\code{alternative}}{alternative hypothesis (not equal !=, less <,
 greater >)}
@@ -934,6 +980,34 @@ modifying the object's state.}
 \subsection{Returns}{
 matrix with results of each estimator stored in separate rows
 }
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{outcome <- function(data, p = c(0.5, 0.25)) {
+  a <- rbinom(nrow(data), 1, 0.5)
+  data.frame(a = a, y = rbinom(nrow(data), 1, p[1] * (1 - a) + p[2] * a)
+  )
+}
+trial <- Trial$new(outcome, estimators = est_glm())
+trial$run(n = 100, R = 100)
+# two-sided test with 0.05 significance level (alpha = 0.05) (default
+# values)
+trial$summary(level = 0.05, alternative = "!=")
+# on-sided test
+trial$summary(level = 0.025, alternative = "<")
+# non-inferiority test
+trial$summary(level = 0.025, ni.margin = -0.5)
+
+# provide simulation results to summary method via estimates argument
+res <- trial$run(n = 100, R = 100, p = c(0.5, 0.5))
+trial$summary(estimates = res)
+
+# calculate empirical bias, rmse and coverage for true target parameter
+trial$summary(estimates = res, true.value = 0)
+}
+\if{html}{\out{</div>}}
+
+}
+
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Trial-print"></a>}}
@@ -947,7 +1021,7 @@ Print method for Trial objects
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{...}}{Additional arguments to lower level functions}
+\item{\code{...}}{Additional arguments to lower level functions (not used).}
 
 \item{\code{verbose}}{(logical) By default, only print the
 function arguments of the covariates, outcome and exclusion models. If
