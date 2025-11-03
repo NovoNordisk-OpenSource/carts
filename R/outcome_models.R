@@ -458,7 +458,6 @@ outcome_recurrent <- function(data,
       cens.model <- mets::phreg(fcens, data = model.frame(death.model))
       cens.lp <- ~fcens
     } else {
-      # TODO: this cannot happen because proc_phreg fails for model = NULL.
       if (is.null(model)) stop(
         "Need 'phreg' object (argument 'model') or specify parametric model"
       )

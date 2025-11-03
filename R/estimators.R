@@ -114,19 +114,19 @@ est_glmbin <- function(...) {
 #' @title Construct estimator for the treatment effect in RCT based on covariate
 #'   adjustment
 #' @param response Response variable (character)
-#' @param treatment Treatment variable (character)
-#' @param covariates Optional covariates (character)
-#' @param offset Optional offset (character)
-#' @param id Optional subject id variable (character)
-#' @param family Exponential family (default gaussian)
-#' @param level Confidence interval level
+#' @param treatment (character) Treatment variable
+#' @param covariates (character) List of covariates
+#' @param offset (character) Optional offset
+#' @param id (character) Subject id variable
+#' @param family (family) Exponential family
+#' @param level (numeric) Confidence interval level
 #' @param treatment.effect (optional) function describing treatment effect given
 #'   mean potential outcomes. Default is the average treatment effect
 #'   (difference in expected outcome, (x,y) -> (y-x)) unless the family is
 #'   binomial or poisson, in which case the treatment effect is the difference
 #'   in log expected outcomes (x,y) -> log(y/x).
-#' @param nfolds Number of folds for estimating the conditional average
-#' treatment effect with double machine learning.
+#' @param nfolds (integer) Number of folds for estimating the conditional
+#' average treatment effect with double machine learning.
 #' @param ... Additional arguments to [targeted::learner_glm]
 #' @return function
 #' @seealso [Trial] [est_glm]
