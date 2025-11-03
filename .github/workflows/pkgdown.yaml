@@ -12,6 +12,14 @@ permissions:
 jobs:
   pkgdown:
     runs-on: ${{ matrix.config.os }}
+    name: ${{ matrix.config.os }} (${{ matrix.config.r }})
+
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - {os: ubuntu-latest,  r: 'release'}
+
     concurrency:
       group: 'pkgdown-${{ github.event_name != ''pull_request'' || github.run_id }}'
     steps:
