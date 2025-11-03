@@ -247,9 +247,9 @@ outcome_binary <- function(data,
 #'   to the mean value. The response variable needs to be left undefined, i.e.
 #'   `~ x1 + x2` defines the mean as a linear function of covariates x1 and x2
 #'   (see examples). If NULL all main-effects of the covariates will be used.
-#' @param par Regression coefficients (default zero). Can be given as a named
-#'   list corresponding to the column names of `model.matrix`
-#' @param sd standard deviation of measurement error
+#' @param par (numeric) Regression coefficients (default zero). Can be given as
+#'   a named vector corresponding to the column names of `model.matrix`.
+#' @param sd (numeric) standard deviation of Gaussian measurement error
 #' @param het Introduce variance hetereogeneity by adding a residual term
 #'   \eqn{het \cdot \mu_x \cdot e}, where \eqn{\mu_x} is the mean given
 #'   covariates and \eqn{e} is an independent standard normal distributed
@@ -263,6 +263,31 @@ outcome_binary <- function(data,
 #' @return data.table
 #' @seealso [outcome_count] [outcome_binary] [outcome_lp]
 #' @export
+#' @examples
+#' trial <- Trial$new(
+#'   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n)),
+#'   outcome = outcome_continuous
+#' )
+#' est <- function(data) glm(y ~ a + x, data = data)
+#' trial$simulate(1e4, mean = ~ 1 + a + x, par = c(1, 0.5, 2)) |> est()
+#'
+#' # default behavior is to set all regression coefficients to 0
+#' trial$simulate(1e4, mean = ~ 1 + a + x) |> est()
+#'
+#' # intercept defaults to 0 and regression coef for a takes provided value
+#' trial$simulate(1e4, mean = ~ 1 + a, par = c(a = 0.5)) |> est()
+#' # trial$simulate(1e4, mean = ~ 1 + a, par = c("(Intercept)" = 0.5)) |> est()
+#'
+#' # define mean model that directly works on whole covariate data, incl id and
+#' # num columns
+#' trial$simulate(1e4, mean = \(x) with(x, -1 + a * 2 + x * -3)) |>
+#'   est()
+#'
+#' # par argument is not passed on to mean function
+#' trial$simulate(1e4,
+#'   mean = \(x,  reg.par) with(x, reg.par[1] + reg.par[2] * a),
+#'   reg.par = c(1, 5)
+#' ) |> est()
 outcome_continuous <- function(data,
                                mean = NULL,
                                par = NULL,
