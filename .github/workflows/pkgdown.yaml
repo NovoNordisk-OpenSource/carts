@@ -2,10 +2,7 @@ name: pkgdown
 on:
   push:
     branches:
-      - develop/package-down-and-rhub-workflows
-  pull_request:
-    branches:
-      - develop/package-down-and-rhub-workflows
+      - main
 permissions:
   contents: write
   pull-requests: write
