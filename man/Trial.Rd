@@ -256,6 +256,32 @@ trial$estimate_samplesize(summary.args = list(level = 0.025))
 }
 
 ## ------------------------------------------------
+## Method `Trial$summary`
+## ------------------------------------------------
+
+outcome <- function(data, p = c(0.5, 0.25)) {
+  a <- rbinom(nrow(data), 1, 0.5)
+  data.frame(a = a, y = rbinom(nrow(data), 1, p[1] * (1 - a) + p[2] * a)
+  )
+}
+trial <- Trial$new(outcome, estimators = est_glm())
+trial$run(n = 100, R = 100)
+# two-sided test with 0.05 significance level (alpha = 0.05) (default
+# values)
+trial$summary(level = 0.05, alternative = "!=")
+# on-sided test
+trial$summary(level = 0.025, alternative = "<")
+# non-inferiority test
+trial$summary(level = 0.025, ni.margin = -0.5)
+
+# provide simulation results to summary method via estimates argument
+res <- trial$run(n = 100, R = 100, p = c(0.5, 0.5))
+trial$summary(estimates = res)
+
+# calculate empirical bias, rmse and coverage for true target parameter
+trial$summary(estimates = res, true.value = 0)
+
+## ------------------------------------------------
 ## Method `Trial$print`
 ## ------------------------------------------------
 
@@ -954,6 +980,34 @@ modifying the object's state.}
 \subsection{Returns}{
 matrix with results of each estimator stored in separate rows
 }
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{outcome <- function(data, p = c(0.5, 0.25)) {
+  a <- rbinom(nrow(data), 1, 0.5)
+  data.frame(a = a, y = rbinom(nrow(data), 1, p[1] * (1 - a) + p[2] * a)
+  )
+}
+trial <- Trial$new(outcome, estimators = est_glm())
+trial$run(n = 100, R = 100)
+# two-sided test with 0.05 significance level (alpha = 0.05) (default
+# values)
+trial$summary(level = 0.05, alternative = "!=")
+# on-sided test
+trial$summary(level = 0.025, alternative = "<")
+# non-inferiority test
+trial$summary(level = 0.025, ni.margin = -0.5)
+
+# provide simulation results to summary method via estimates argument
+res <- trial$run(n = 100, R = 100, p = c(0.5, 0.5))
+trial$summary(estimates = res)
+
+# calculate empirical bias, rmse and coverage for true target parameter
+trial$summary(estimates = res, true.value = 0)
+}
+\if{html}{\out{</div>}}
+
+}
+
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Trial-print"></a>}}
@@ -967,7 +1021,7 @@ Print method for Trial objects
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{...}}{Additional arguments to lower level functions}
+\item{\code{...}}{Additional arguments to lower level functions (not used).}
 
 \item{\code{verbose}}{(logical) By default, only print the
 function arguments of the covariates, outcome and exclusion models. If

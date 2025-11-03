@@ -734,6 +734,7 @@ test_summary <- function() {
   s3 <- m$summary(estimates = res2, level = 0.1)
   expect_false(identical(s2, s3))
 
+
   # Test that providing estimates doesn't modify the object's stored estimates
   original_estimates <- m$estimates
   m$summary(estimates = res2)
