@@ -20,7 +20,7 @@
 #'   mean is given as a function)
 #' @param remove variables that will be removed from input data (if formula is
 #'   not specified)
-#' @param ... Additional arguments passed to lower level functions
+#' @param ... Additional arguments passed to `mean` function
 #' @return data.table
 #' @seealso [outcome_count] [outcome_binary] [outcome_continuous]
 #'   [outcome_phreg]
@@ -85,7 +85,7 @@ outcome_lp <- function(data,
     lp <- X %*% par
   } else {
     if (!is.function(mean)) stop("Expecting a function or a formula")
-    lp <- g(mean(data, ...))
+    lp <- g(add_dots(mean)(data, ...))
     if (is.data.table(lp)) {
       lp <- lp[[1]]
     }
@@ -100,7 +100,10 @@ outcome_lp <- function(data,
 #'   matrix specified by the formula
 #' @param data covariate matrix
 #' @param mean formula specifying design from 'x' or a function that maps x to
-#'   the mean value. If NULL all main-effects of the covariates will be used.
+#'   the mean value. The response variable needs to be left undefined, i.e. `~
+#'   x1 + x2` defines the mean on the link-scale as a linear function of
+#'   covariates x1 and x2 (see examples). If NULL all main-effects of the
+#'   covariates will be used.
 #' @param par Regression coefficients (default zero). Can be given as a named
 #'   list corresponding to the column names of `model.matrix`
 #' @param outcome.name Name of outcome variable ("y")
@@ -177,17 +180,43 @@ outcome_count <- function(data,
 #'   formula, and \eqn{g} is the link function specified by the family argument
 #' @param data covariate matrix
 #' @param mean formula specifying design from 'data' or a function that maps x
-#'   to the mean value. If NULL all main-effects of the covariates will be used
+#'   to the mean value (see examples). If NULL all
+#'   main-effects of the covariates will be used.
 #' @param par Regression coefficients (default zero). Can be given as a named
 #'   list corresponding to the column names of `model.matrix`
 #' @param outcome.name Name of outcome variable ("y")
 #' @param remove variables that will be removed from input x (if formula is not
 #'   specified)
 #' @param family exponential family (default `binomial(logit)`)
-#' @param ... Additional arguments passed to lower level functions
+#' @param ... Additional arguments passed to `mean` function (see examples)
 #' @return data.table
 #' @seealso [outcome_count] [outcome_lp] [outcome_continuous]
 #' @export
+#' @examples
+#' trial <- Trial$new(
+#'   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
+#'   outcome = outcome_binary
+#' )
+#' est <- function(data) glm(y ~ a, data = data, family = binomial(logit))
+#' trial$simulate(1e4, mean = ~ 1 + a, par = c(1, 0.5)) |> est()
+#'
+#' # default behavior is to set all regression coefficients to 0
+#' trial$simulate(1e4, mean = ~ 1 + a) |> est()
+#'
+#' # intercept defaults to 0 and regression coef for a takes provided value
+#' trial$simulate(1e4, mean = ~ 1 + a, par = c(a = 0.5)) |> est()
+#' # trial$simulate(1e4, mean = ~ 1 + a, par = c("(Intercept)" = 1))
+#'
+#' # define mean model that directly works on whole covariate data, incl id and
+#' # num columns
+#' trial$simulate(1e4, mean = \(x) with(x, lava::expit(1 + 0.5 * a))) |>
+#'   est()
+#'
+#' # par argument of outcome_binary is not passed on to mean function
+#' trial$simulate(1e4,
+#'   mean = \(x,  reg.par) with(x, lava::expit(reg.par[1] + reg.par[2] * a)),
+#'   reg.par = c(1, 0.8)
+#' ) |> est()
 outcome_binary <- function(data,
                            mean = NULL,
                            par = NULL,
@@ -215,7 +244,9 @@ outcome_binary <- function(data,
 #'   argument
 #' @param data covariate matrix
 #' @param mean formula specifying design from 'data' or a function that maps x
-#'   to the mean value. If NULL all main-effects of the covariates will be used
+#'   to the mean value. The response variable needs to be left undefined, i.e.
+#'   `~ x1 + x2` defines the mean as a linear function of covariates x1 and x2
+#'   (see examples). If NULL all main-effects of the covariates will be used.
 #' @param par Regression coefficients (default zero). Can be given as a named
 #'   list corresponding to the column names of `model.matrix`
 #' @param sd standard deviation of measurement error

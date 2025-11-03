@@ -18,7 +18,8 @@ outcome_binary(
 \item{data}{covariate matrix}
 
 \item{mean}{formula specifying design from 'data' or a function that maps x
-to the mean value. If NULL all main-effects of the covariates will be used}
+to the mean value (see examples). If NULL all
+main-effects of the covariates will be used.}
 
 \item{par}{Regression coefficients (default zero). Can be given as a named
 list corresponding to the column names of \code{model.matrix}}
@@ -30,7 +31,7 @@ specified)}
 
 \item{family}{exponential family (default \code{binomial(logit)})}
 
-\item{...}{Additional arguments passed to lower level functions}
+\item{...}{Additional arguments passed to \code{mean} function (see examples)}
 }
 \value{
 data.table
@@ -39,6 +40,32 @@ data.table
 Simulate from binary model with probability \deqn{\pi =
   g(\text{par}^\top X)} where \eqn{X} is the design matrix specified by the
 formula, and \eqn{g} is the link function specified by the family argument
+}
+\examples{
+trial <- Trial$new(
+  covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
+  outcome = outcome_binary
+)
+est <- function(data) glm(y ~ a, data = data, family = binomial(logit))
+trial$simulate(1e4, mean = ~ 1 + a, par = c(1, 0.5)) |> est()
+
+# default behavior is to set all regression coefficients to 0
+trial$simulate(1e4, mean = ~ 1 + a) |> est()
+
+# intercept defaults to 0 and regression coef for a takes provided value
+trial$simulate(1e4, mean = ~ 1 + a, par = c(a = 0.5)) |> est()
+# trial$simulate(1e4, mean = ~ 1 + a, par = c("(Intercept)" = 1))
+
+# define mean model that directly works on whole covariate data, incl id and
+# num columns
+trial$simulate(1e4, mean = \(x) with(x, lava::expit(1 + 0.5 * a))) |>
+  est()
+
+# par argument of outcome_binary is not passed on to mean function
+trial$simulate(1e4,
+  mean = \(x,  reg.par) with(x, lava::expit(reg.par[1] + reg.par[2] * a)),
+  reg.par = c(1, 0.8)
+) |> est()
 }
 \seealso{
 \link{outcome_count} \link{outcome_lp} \link{outcome_continuous}

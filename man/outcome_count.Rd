@@ -20,7 +20,9 @@ outcome_count(
 \item{data}{covariate matrix}
 
 \item{mean}{formula specifying design from 'x' or a function that maps x to
-the mean value. If NULL all main-effects of the covariates will be used.}
+the mean value. The response variable needs to be left undefined, i.e. \code{~ x1 + x2} defines the mean on the link-scale as a linear function of
+covariates x1 and x2 (see examples). If NULL all main-effects of the
+covariates will be used.}
 
 \item{par}{Regression coefficients (default zero). Can be given as a named
 list corresponding to the column names of \code{model.matrix}}

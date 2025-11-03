@@ -48,7 +48,7 @@ mean is given as a function)}
 \item{remove}{variables that will be removed from input data (if formula is
 not specified)}
 
-\item{...}{Additional arguments passed to lower level functions}
+\item{...}{Additional arguments passed to \code{mean} function}
 }
 \value{
 data.table
