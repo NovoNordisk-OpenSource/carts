@@ -1,6 +1,4 @@
-
 <!-- README.md is generated from inst/README.Rmd. Please edit that file -->
-
 <!-- badges: start -->
 
 [![complete-checks](https://github.com/NovoNordisk-OpenSource/carts/actions/workflows/r-cmd-check.yaml/badge.svg)](https://github.com/NovoNordisk-OpenSource/carts/actions/workflows/r-cmd-check.yaml)
@@ -26,52 +24,48 @@ estimator based on the efficient influence function (EIF) where we
 adjust for the observed covariate x.
 
 The necessary sample-size to achieve 90% power for a one-sided
-~superiority test is estimated using a variation of a bisection and a
+superiority test is estimated using a variation of a bisection and a
 Robbins-Monro stochastic approximation algorithm with parallelized
 computations
 
-``` r
-library("carts")
-```
+    library("carts")
 
     ## Loading required package: lava
 
-``` r
-library("data.table")
-future::plan(future::multicore)
-## progressr::handlers(global = TRUE)
-## progressr::handlers(progressr::handler_cli)
+    library("data.table")
+    future::plan(future::multicore)
+    ## progressr::handlers(global = TRUE)
+    ## progressr::handlers(progressr::handler_cli)
 
-## Covariates at baseline
-x0 <- function(n, pa = 0.5, gamma.var = 0.7, ...) {
-  data.table(
-    a = rbinom(n, 1, pa), ## Treatment
-    x = rnorm(n), ## Obs.
-    z = log(rgamma(n, shape = 1 / gamma.var, rate = 1 / gamma.var)) ## Unobs.
-  )
-}
-## Outcome model
-outcome <- function(data, b = c(log(2.5), log(0.38)), ...) {
-  X <- model.matrix(~ 1 + a, data)
-  rate <- exp(X %*% b + with(data, x + z))
-  data.table(y = rpois(length(rate), rate))
-}
+    ## Covariates at baseline
+    x0 <- function(n, pa = 0.5, gamma.var = 0.7, ...) {
+      data.table(
+        a = rbinom(n, 1, pa), ## Treatment
+        x = rnorm(n), ## Obs.
+        z = log(rgamma(n, shape = 1 / gamma.var, rate = 1 / gamma.var)) ## Unobs.
+      )
+    }
+    ## Outcome model
+    outcome <- function(data, b = c(log(2.5), log(0.38)), ...) {
+      X <- model.matrix(~ 1 + a, data)
+      rate <- exp(X %*% b + with(data, x + z))
+      data.table(y = rpois(length(rate), rate))
+    }
 
-qmodel  <- targeted::learner_glm(y ~ a * x, family = poisson)
-m <- Trial$new(
-  covariates = x0,
-  outcome = outcome,
-  estimators = list(adj = est_adj(qmodel))
-  )
+    qmodel  <- targeted::learner_glm(y ~ a * x, family = poisson)
+    m <- Trial$new(
+      covariates = x0,
+      outcome = outcome,
+      estimators = list(adj = est_adj(qmodel))
+      )
 
-## Sample-size estimation via Stochastic Approximation
-e <- m$estimate_samplesize(R = 1000)
-print(e)
-```
+    ## Sample-size estimation via Stochastic Approximation
+    e <- m$estimate_samplesize(R = 1000)
+    print(e)
 
-    ## ── Estimated sample-size to reach 90% power ──
-    ##
-    ## n = 95 (actual estimated power≈90%)
+    ## ── Estimated sample-size to reach 90% power ── 
+    ## 
+    ## n = 98 (actual estimated power≈91.18%)
 
 ## Installation
 
@@ -84,11 +78,12 @@ installation of the package.
 ## Project organization
 
 We use the `dev` branch for development and the `main` branch for stable
-releases, which currently follow a frequency of about 4 weeks. All
-releases follow [semantic versioning](https://semver.org/), are
+releases. All releases follow [semantic
+versioning](https://semver.org/), are
 [tagged](https://github.com/NovoNordisk-OpenSource/carts/tags) and
-notable changes are reported in a
-[changelog](https://github.com/NovoNordisk-OpenSource/carts/blob/main/CHANGELOD.md).
+notable changes are reported in the
+[NEWS.md](https://github.com/NovoNordisk-OpenSource/carts/blob/main/NEWS.md)
+file.
 
 ## I Have a Question / I Want to Report a Bug
 
@@ -106,5 +101,5 @@ We will then take care of the issue as soon as possible.
 
 ## Maintainers
 
-> Benedikt Sommer (<bkts@novonordisk.com>)
-> Klaus Kähler Holst (<kkzh@novonordisk.com>)
+> Benedikt Sommer (<benediktsommer92@gmail.com>)  
+> Klaus Kähler Holst (<klaus@holst.it>)

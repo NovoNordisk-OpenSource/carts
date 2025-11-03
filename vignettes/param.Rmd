@@ -1,13 +1,13 @@
 ---
-title: "carts: parametrization of the negative binomial and gamma distribution"
-author: "Klaus K. Holst (KKZH)"
+title: "Parametrization of the negative binomial and gamma distribution"
+author: "Klaus K. Holst"
 output:
   rmarkdown::html_vignette:
     fig_caption: yes
     fig_width: 6
     fig_height: 4
 vignette: >
-  %\VignetteIndexEntry{carts: parametrization of the negative binomial and gamma distribution}
+  %\VignetteIndexEntry{Parametrization of the negative binomial and gamma distribution}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 bibliography: ref.bib

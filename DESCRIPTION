@@ -1,15 +1,15 @@
 Package: carts
 Type: Package
-Title: Simulation-based assessment of Covariate Adjustment in Randomized Trials
-Version: 0.5.0
-Authors@R: c(person(given = "Klaus K.",
-                    family = "Holst",
-                    role = c("aut"),
-                    email = "klaus@holst.it"),
-             person(given = "Benedikt",
+Title: Simulation-Based Assessment of Covariate Adjustment in Randomized Trials
+Version: 0.1.0
+Authors@R: c(person(given = "Benedikt",
                     family = "Sommer",
                     role = c("aut", "cre"),
                     email = "benediktsommer92@gmail.com"),
+            person(given = "Klaus K.",
+                    family = "Holst",
+                    role = c("aut"),
+                    email = "klaus@holst.it"),
              person(given = "Foroogh",
                     family = "Shamsi",
                     role = c("aut"),
@@ -46,7 +46,8 @@ Suggests:
   magick,
   pwr,
   pwrss
-BugReports: https://github.com/NN-AI-Analytics/carts/issues
+BugReports: https://github.com/NovoNordisk-OpenSource/carts/issues
+URL: https://novonordisk-opensource.github.io/carts/, https://github.com/NovoNordisk-OpenSource/carts
 VignetteBuilder: knitr
 ByteCompile: yes
 Encoding: UTF-8
