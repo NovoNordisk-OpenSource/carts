@@ -2,7 +2,7 @@ PKG = $(shell cat DESCRIPTION | grep Package: | cut -d":" -f2 | tr -d '[:blank:]
 R = R --silent --no-save --no-echo
 RCMD := $(R) CMD
 CLIFF_CFG = .cliff.toml
-CHANGELOG = CHANGELOG.md
+CHANGELOG = NEWS.md
 
 BUILD_DIR = build
 make_build_dir = rm -Rf $(BUILD_DIR) && mkdir -p $(BUILD_DIR)
@@ -27,7 +27,7 @@ rcpp:
 	@echo 'Rcpp::compileAttributes(".")' | $(R)
 
 readme:
-	@echo 'options(warnPartialMatchArgs = FALSE); devtools::build_readme(".")' | $(R)
+	@echo 'options(warnPartialMatchArgs = FALSE); rmarkdown::render("inst/README.Rmd",output_format="md_document")' | $(R)
 	@cp inst/README.md README.md
 
 roxygen:

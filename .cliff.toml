@@ -5,8 +5,8 @@
 # prepend changelog entries (delta between v0.2.0 current commit; v0.2.0.. below)
 # the new entry will be for tag v0.3.0 (-t v0.3.0 below)
 # -c .cliff.toml points to this config file
-# -p CHANGELOG.md points to the changelog to which to prepend entries
-# git cliff v0.2.0.. -c .cliff.toml -p CHANGELOG.md -t v0.3.0;
+# -p NEWS.md points to the changelog to which to prepend entries
+# git cliff v0.2.0.. -c .cliff.toml -p NEWS.md -t v0.3.0;
 
 [changelog]
 # changelog header
@@ -18,7 +18,7 @@ All notable changes to this project will be documented in this file.\n
 # https://keats.github.io/tera/docs/#introduction
 body = """
 {%- macro remote_url() -%}
-  https://github.com/NN-AI-Analytics/carts
+  https://github.com/NovoNordisk-OpenSource/carts
 {%- endmacro -%}
 
 {% macro print_commit(commit) -%}
@@ -59,7 +59,7 @@ body = """
 # remove the leading and trailing whitespace from the templates
 trim = true
 postprocessors = [
-  { pattern = '<REPO>', replace = "https://github.com/NN-AI-Analytics/carts" }, # replace repository URL
+  { pattern = '<REPO>', replace = "https://github.com/NovoNordisk-OpenSource/carts" }, # replace repository URL
 ]
 
 [git]
