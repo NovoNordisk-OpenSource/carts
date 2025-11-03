@@ -37,7 +37,7 @@ doc: documentation
 documentation: roxygen rcpp readme
 
 pkgdown:
-	@echo 'pkgdown::build_site(override = list(destination = "docs", template = list(params = list(bootswatch = "s3"))))' | $(R)
+	@echo 'pkgdown::build_site(override = list(destination = "docs"))' | $(R)
 
 .PHONY: build
 build:

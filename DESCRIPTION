@@ -17,7 +17,7 @@ Authors@R: c(person(given = "Benedikt",
 Author: Benedikt Sommer [aut, cre], Klaus K. Holst [aut], Foroogh Shamsi [aut]
 Maintainer: Benedikt Sommer <benediktsommer92@gmail.com>
 Description: Monte Carlo simulation framework for different randomized clinical trial designs with a special emphasis on estimators based on covariate adjustment.
-License: file LICENSE
+License: MIT + file LICENSE
 Depends:
   R (>= 4.1),
   lava (>= 1.8.0)
