@@ -12,8 +12,6 @@ a named list corresponding to the column names of \code{model.matrix}}
 
 \item{outcome.name}{Name of outcome variable ("y")}
 
-\item{formula}{(formula) Formula specifying response and design matrix.}
-
 \item{remove}{Variables that will be removed from input \code{data} (if formula is
 not specified).}
 

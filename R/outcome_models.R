@@ -5,7 +5,6 @@
 #' @param par (numeric) Regression coefficients (default zero). Can be given as
 #'   a named list corresponding to the column names of `model.matrix`
 #' @param outcome.name Name of outcome variable ("y")
-#' @param formula (formula) Formula specifying response and design matrix.
 #' @param remove Variables that will be removed from input `data` (if formula is
 #'   not specified).
 #' @param mean (formula, function) Either a formula specifying the design from
@@ -318,6 +317,7 @@ outcome_continuous <- function(data,
 #' @author Klaus Kähler Holst
 #' @seealso [outcome_count] [outcome_lp] [outcome_binary] [outcome_continuous]
 #' @examples
+#' \dontrun{
 #' library("survival")
 #' data(pbc, package = "survival")
 #' pbc0 <- na.omit(pbc) |>
@@ -356,6 +356,7 @@ outcome_continuous <- function(data,
 #' pbc1 <- outcome(xx) |> cbind(xx)
 #' mets::phreg(Surv(time, status) ~ (age + sex) * trt, pbc1)
 #' rm(pbc1, xx)
+#' }
 outcome_phreg <- function(data,
                           lp = NULL,
                           par = NULL,
