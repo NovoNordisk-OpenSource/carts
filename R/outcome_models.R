@@ -8,12 +8,14 @@
 #' @param formula (formula) Formula specifying response and design matrix.
 #' @param remove Variables that will be removed from input `data` (if formula is
 #'   not specified).
-#' @param lp formula specifying design from 'data' or a function that maps x
-#'   to the conditional mean value on the link scale (see examples). If NULL all
-#'   main-effects of the covariates will be used.
+#' @param lp (formula, function) formula specifying design from 'data' or a
+#'   function that maps `data` to the conditional mean value on the link scale
+#'   (see examples). If NULL all main-effects of the covariates will be used,
+#'   except columns that are defined via the `remove` argument.
 #' @param ... Additional arguments passed to `mean` function (see examples)
 #' @return data.table
 NULL
+
 
 
 #' @inherit outcome_shared

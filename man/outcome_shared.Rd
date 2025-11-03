@@ -17,8 +17,8 @@ a named list corresponding to the column names of \code{model.matrix}}
 \item{remove}{Variables that will be removed from input \code{data} (if formula is
 not specified).}
 
-\item{mean}{formula specifying design from 'data' or a function that maps x
-to the mean value (see examples). If NULL all
+\item{lp}{formula specifying design from 'data' or a function that maps x
+to the conditional mean value on the link scale (see examples). If NULL all
 main-effects of the covariates will be used.}
 
 \item{...}{Additional arguments passed to \code{mean} function (see examples)}

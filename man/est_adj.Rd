@@ -21,17 +21,17 @@ est_adj(
 \arguments{
 \item{response}{Response variable (character)}
 
-\item{treatment}{Treatment variable (character)}
+\item{treatment}{(character) Treatment variable}
 
-\item{covariates}{Optional covariates (character)}
+\item{covariates}{(character) List of covariates}
 
-\item{offset}{Optional offset (character)}
+\item{offset}{(character) Optional offset}
 
-\item{id}{Optional subject id variable (character)}
+\item{id}{(character) Subject id variable}
 
-\item{family}{Exponential family (default gaussian)}
+\item{family}{(family) Exponential family}
 
-\item{level}{Confidence interval level}
+\item{level}{(numeric) Confidence interval level}
 
 \item{treatment.effect}{(optional) function describing treatment effect given
 mean potential outcomes. Default is the average treatment effect
@@ -39,8 +39,8 @@ mean potential outcomes. Default is the average treatment effect
 binomial or poisson, in which case the treatment effect is the difference
 in log expected outcomes (x,y) -> log(y/x).}
 
-\item{nfolds}{Number of folds for estimating the conditional average
-treatment effect with double machine learning.}
+\item{nfolds}{(integer) Number of folds for estimating the conditional
+average treatment effect with double machine learning.}
 
 \item{...}{Additional arguments to \link[targeted:learner_glm]{targeted::learner_glm}}
 }
