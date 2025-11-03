@@ -8,8 +8,8 @@
 #' @param formula (formula) Formula specifying response and design matrix.
 #' @param remove Variables that will be removed from input `data` (if formula is
 #'   not specified).
-#' @param mean formula specifying design from 'data' or a function that maps x
-#'   to the mean value (see examples). If NULL all
+#' @param lp formula specifying design from 'data' or a function that maps x
+#'   to the conditional mean value on the link scale (see examples). If NULL all
 #'   main-effects of the covariates will be used.
 #' @param ... Additional arguments passed to `mean` function (see examples)
 #' @return data.table
@@ -316,7 +316,6 @@ outcome_continuous <- function(data,
 #' @return function (random generator)
 #' @author Klaus Kähler Holst
 #' @seealso [outcome_count] [outcome_lp] [outcome_binary] [outcome_continuous]
-#' @export
 #' @examples
 #' library("survival")
 #' data(pbc, package = "survival")
@@ -430,7 +429,6 @@ outcome_phreg <- function(data,
 #' @return function (random generator)
 #' @seealso [outcome_count] [outcome_lp] [outcome_binary] [outcome_continuous]
 #' [outcome_phreg]
-#' @export
 outcome_recurrent <- function(data,
                               lp = NULL,
                               par = NULL,

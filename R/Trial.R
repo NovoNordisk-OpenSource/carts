@@ -757,6 +757,9 @@ coef.samplesize_estimate <- function(object, ...) {
 }
 
 trial_simulate <- function(self, n, .niter, ...) {
+  # TODO: rlang::warn frequency once. reference level should be control/comperator
+  # write test
+
   call.args <- self$args_model()
   # model.args is initialized as an empty list. thus we can just update
   # this list with arguments that are passed to this method
