@@ -725,10 +725,14 @@ test_summary <- function() {
 
   # Add new test block for estimates parameter
   # Test that providing estimates directly works the same as using stored estimates
-  res2 <- m$run(n = 100, R = 500, p = c(0.5, 0.25))
+  res2 <- m$run(n = 100, R = 100, p = c(0.5, 0.25))
   s1 <- m$summary()
   s2 <- m$summary(estimates = res2)
   expect_equal(s1, s2)
+
+  # supplying arguments also work when providing estimates object
+  s3 <- m$summary(estimates = res2, level = 0.1)
+  expect_false(identical(s2, s3))
 
   # Test that providing estimates doesn't modify the object's stored estimates
   original_estimates <- m$estimates
@@ -736,7 +740,7 @@ test_summary <- function() {
   expect_equal(m$estimates, original_estimates)
 
   # Test that estimates parameter takes precedence over stored estimates
-  different_res <- m$run(n = 200, R = 500, p = c(0.5, 0.25))  # Different n
+  different_res <- m$run(n = 200, R = 100, p = c(0.5, 0.25))  # Different n
   s3 <- m$summary(estimates = different_res)
   expect_false(identical(s1, s3))  # Should be different due to different n
 }
