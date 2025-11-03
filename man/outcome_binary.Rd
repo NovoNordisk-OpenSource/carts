@@ -15,19 +15,20 @@ outcome_binary(
 )
 }
 \arguments{
-\item{data}{covariate matrix}
+\item{data}{(data.table) Covariate data, usually the output of the covariate
+model of a \link{Trial} object.}
 
 \item{mean}{formula specifying design from 'data' or a function that maps x
 to the mean value (see examples). If NULL all
 main-effects of the covariates will be used.}
 
-\item{par}{Regression coefficients (default zero). Can be given as a named
-list corresponding to the column names of \code{model.matrix}}
+\item{par}{(numeric) Regression coefficients (default zero). Can be given as
+a named list corresponding to the column names of \code{model.matrix}}
 
 \item{outcome.name}{Name of outcome variable ("y")}
 
-\item{remove}{variables that will be removed from input x (if formula is not
-specified)}
+\item{remove}{Variables that will be removed from input \code{data} (if formula is
+not specified).}
 
 \item{family}{exponential family (default \code{binomial(logit)})}
 

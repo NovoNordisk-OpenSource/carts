@@ -18,7 +18,8 @@ outcome_phreg(
 )
 }
 \arguments{
-\item{data}{data.frame (covariates)}
+\item{data}{(data.table) Covariate data, usually the output of the covariate
+model of a \link{Trial} object.}
 
 \item{lp}{linear predictor (formula or function)}
 
@@ -26,8 +27,8 @@ outcome_phreg(
 
 \item{outcome.name}{names of outcome (time and censoring status)}
 
-\item{remove}{variables that will be removed from input data (if formula is
-not specified)}
+\item{remove}{Variables that will be removed from input \code{data} (if formula is
+not specified).}
 
 \item{model}{optional \link[mets:phreg]{mets::phreg} object}
 

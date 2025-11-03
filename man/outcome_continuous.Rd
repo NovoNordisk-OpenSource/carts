@@ -17,15 +17,15 @@ outcome_continuous(
 )
 }
 \arguments{
-\item{data}{covariate matrix}
+\item{data}{(data.table) Covariate data, usually the output of the covariate
+model of a \link{Trial} object.}
 
 \item{mean}{formula specifying design from 'data' or a function that maps x
-to the mean value. The response variable needs to be left undefined, i.e.
-\code{~ x1 + x2} defines the mean as a linear function of covariates x1 and x2
-(see examples). If NULL all main-effects of the covariates will be used.}
+to the mean value (see examples). If NULL all
+main-effects of the covariates will be used.}
 
 \item{par}{(numeric) Regression coefficients (default zero). Can be given as
-a named vector corresponding to the column names of \code{model.matrix}.}
+a named list corresponding to the column names of \code{model.matrix}}
 
 \item{sd}{(numeric) standard deviation of Gaussian measurement error}
 
@@ -37,12 +37,12 @@ the \code{sd} argument.}
 
 \item{outcome.name}{Name of outcome variable ("y")}
 
-\item{remove}{variables that will be removed from input x (if formula is not
-specified)}
+\item{remove}{Variables that will be removed from input \code{data} (if formula is
+not specified).}
 
 \item{family}{exponential family (default \code{gaussian(identity)})}
 
-\item{...}{Additional arguments passed to lower level functions}
+\item{...}{Additional arguments passed to \code{mean} function (see examples)}
 }
 \value{
 data.table

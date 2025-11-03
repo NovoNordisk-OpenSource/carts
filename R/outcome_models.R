@@ -1,11 +1,27 @@
+#' @name outcome_shared
+#' @title Outcome model
+#' @param data (data.table) Covariate data, usually the output of the covariate
+#' model of a [Trial] object.
+#' @param par (numeric) Regression coefficients (default zero). Can be given as
+#'   a named list corresponding to the column names of `model.matrix`
+#' @param outcome.name Name of outcome variable ("y")
+#' @param formula (formula) Formula specifying response and design matrix.
+#' @param remove Variables that will be removed from input `data` (if formula is
+#'   not specified).
+#' @param mean formula specifying design from 'data' or a function that maps x
+#'   to the mean value (see examples). If NULL all
+#'   main-effects of the covariates will be used.
+#' @param ... Additional arguments passed to `mean` function (see examples)
+#' @return data.table
+NULL
+
+
+#' @inherit outcome_shared
 #' @title Calculate linear predictor from covariates
 #' @description Calculate linear predictor \deqn{\text{par}^\top X} where
 #'   \eqn{X} is the design matrix specified by the formula
-#' @param data covariate matrix
 #' @param mean formula specifying design from 'data' or a function that maps x
 #'   to the mean value. If NULL all main-effects of the covariates will be used
-#' @param par Regression coefficients (default zero). Can be given as a named
-#'   list corresponding to the column names of `model.matrix`
 #' @param model Optional model object ([glm], [mets::phreg], ...)
 #' @param offset Optional offset variable name
 #' @param treatment Optional name of treatment variable
@@ -20,8 +36,6 @@
 #'   mean is given as a function)
 #' @param remove variables that will be removed from input data (if formula is
 #'   not specified)
-#' @param ... Additional arguments passed to `mean` function
-#' @return data.table
 #' @seealso [outcome_count] [outcome_binary] [outcome_continuous]
 #'   [outcome_phreg]
 #' @export
@@ -94,30 +108,19 @@ outcome_lp <- function(data,
   return(structure(lp, family = family, par = par))
 }
 
+#' @inherit outcome_shared
 #' @title Simulate from count model given covariates
 #' @description Simulate from count model with intensity \deqn{\lambda =
 #'   \text{exposure-time}\exp(\text{par}^\top X)} where \eqn{X} is the design
 #'   matrix specified by the formula
-#' @param data covariate matrix
-#' @param mean formula specifying design from 'x' or a function that maps x to
-#'   the mean value. The response variable needs to be left undefined, i.e. `~
-#'   x1 + x2` defines the mean on the link-scale as a linear function of
-#'   covariates x1 and x2 (see examples). If NULL all main-effects of the
-#'   covariates will be used.
-#' @param par Regression coefficients (default zero). Can be given as a named
-#'   list corresponding to the column names of `model.matrix`
-#' @param outcome.name Name of outcome variable ("y")
 #' @param exposure Exposure times. Either a scalar, vector or function.
-#' @param remove Variables that will be removed from input x (if formula is not
-#'   specified)
 #' @param zero.inflation vector of probabilities or a function of the covariates
 #'   'x' including an extra column 'rate' with the rate parameter.
 #' @param overdispersion variance of gamma-frailty either given as a numeric
 #'   vector or a function of the covariates 'x' with an extra column 'rate'
 #'   holding the rate parameter 'rate'
-#' @param ... Additional arguments passed to lower level functions
+#' @param ... Additional arguments passed to `mean` and `exposure` function
 #' @seealso [outcome_binary] [outcome_continuous] [outcome_lp]
-#' @return data.table with added exposure column
 #' @examples
 #' covariates <- function(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n))
 #' trial <- Trial$new(covariates = covariates, outcome = outcome_count)
@@ -183,22 +186,12 @@ outcome_count <- function(data,
   ))
 }
 
+#' @inherit outcome_shared
 #' @title Simulate from binary model given covariates
 #' @description Simulate from binary model with probability \deqn{\pi =
 #'   g(\text{par}^\top X)} where \eqn{X} is the design matrix specified by the
 #'   formula, and \eqn{g} is the link function specified by the family argument
-#' @param data covariate matrix
-#' @param mean formula specifying design from 'data' or a function that maps x
-#'   to the mean value (see examples). If NULL all
-#'   main-effects of the covariates will be used.
-#' @param par Regression coefficients (default zero). Can be given as a named
-#'   list corresponding to the column names of `model.matrix`
-#' @param outcome.name Name of outcome variable ("y")
-#' @param remove variables that will be removed from input x (if formula is not
-#'   specified)
 #' @param family exponential family (default `binomial(logit)`)
-#' @param ... Additional arguments passed to `mean` function (see examples)
-#' @return data.table
 #' @seealso [outcome_count] [outcome_lp] [outcome_continuous]
 #' @export
 #' @examples
@@ -246,30 +239,19 @@ outcome_binary <- function(data,
   return(res)
 }
 
+#' @inherit outcome_shared
 #' @title Simulate from continuous outcome model given covariates
 #' @description Simulate from continuous outcome model with mean
 #'   \deqn{g(\text{par}^\top X)} where \eqn{X} is the design matrix specified by
 #'   the formula, and \eqn{g} is the link function specified by the family
 #'   argument
-#' @param data covariate matrix
-#' @param mean formula specifying design from 'data' or a function that maps x
-#'   to the mean value. The response variable needs to be left undefined, i.e.
-#'   `~ x1 + x2` defines the mean as a linear function of covariates x1 and x2
-#'   (see examples). If NULL all main-effects of the covariates will be used.
-#' @param par (numeric) Regression coefficients (default zero). Can be given as
-#'   a named vector corresponding to the column names of `model.matrix`.
 #' @param sd (numeric) standard deviation of Gaussian measurement error
 #' @param het Introduce variance hetereogeneity by adding a residual term
 #'   \eqn{het \cdot \mu_x \cdot e}, where \eqn{\mu_x} is the mean given
 #'   covariates and \eqn{e} is an independent standard normal distributed
 #'   variable. This term is in addition to the measurement error introduced by
 #'   the `sd` argument.
-#' @param outcome.name Name of outcome variable ("y")
-#' @param remove variables that will be removed from input x (if formula is not
-#'   specified)
 #' @param family exponential family (default `gaussian(identity)`)
-#' @param ... Additional arguments passed to lower level functions
-#' @return data.table
 #' @seealso [outcome_count] [outcome_binary] [outcome_lp]
 #' @export
 #' @examples
@@ -321,15 +303,11 @@ outcome_continuous <- function(data,
   return(res)
 }
 
-# TODO:  need more documentation if we aim to reuse this function across
-# several projects
+#' @inherit outcome_shared
 #' @title Outcome model for time-to-event end-points (proportional hazards)
-#' @param data data.frame (covariates)
 #' @param lp linear predictor (formula or function)
 #' @param par optional list of model parameter
 #' @param outcome.name names of outcome (time and censoring status)
-#' @param remove variables that will be removed from input data (if formula is
-#'   not specified)
 #' @param model optional [mets::phreg] object
 #' @param cens.model optional model for censoring mechanism
 #' @param cens.lp censoring linear predictor argument (formula or function)

@@ -19,13 +19,14 @@ outcome_lp(
 )
 }
 \arguments{
-\item{data}{covariate matrix}
+\item{data}{(data.table) Covariate data, usually the output of the covariate
+model of a \link{Trial} object.}
 
 \item{mean}{formula specifying design from 'data' or a function that maps x
 to the mean value. If NULL all main-effects of the covariates will be used}
 
-\item{par}{Regression coefficients (default zero). Can be given as a named
-list corresponding to the column names of \code{model.matrix}}
+\item{par}{(numeric) Regression coefficients (default zero). Can be given as
+a named list corresponding to the column names of \code{model.matrix}}
 
 \item{model}{Optional model object (\link{glm}, \link[mets:phreg]{mets::phreg}, ...)}
 
@@ -48,7 +49,7 @@ mean is given as a function)}
 \item{remove}{variables that will be removed from input data (if formula is
 not specified)}
 
-\item{...}{Additional arguments passed to \code{mean} function}
+\item{...}{Additional arguments passed to \code{mean} function (see examples)}
 }
 \value{
 data.table
