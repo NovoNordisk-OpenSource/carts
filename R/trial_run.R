@@ -138,64 +138,6 @@ print.trial.estimates <- function(x, ...) {
   print(x$sample.data)
 }
 
-#' @export
-#' @description [Deprecated] Summary method for the Monte Carlo studies of
-#'   different estimators for the treatment effect in a randomized clinical
-#'   trial. Please use Trial$summary() instead.
-#' @title Summary method for simulated trials (trial.estimates objects)
-#' @param object (trial.estimates)
-#' @param level significance level
-#' @param null null hypothesis to test
-#' @param ni.margin non-inferiority margin
-#' @param alternative alternative hypothesis (not equal !=, less <, greater >)
-#' @param reject.function Optional function calculating whether to reject the
-#'   null hypothesis. Should be a function of one or more of the following
-#'   arguments: estimate (parameter estimate), stderr (Standard error of the
-#'   estimate), lower (lower confidence limit), upper (upper confidence limit)
-#' @param ... additional arguments to lower level functions
-#' @param true.value Optional true parameter value. When provided the root-mean
-#'   square error (RMSE) and coverage of the estimated confidence limits will
-#'   also be calculated.
-#' @param nominal.coverage Width of confidence limits used to calculate the
-#' empirical coverage around `true.value`. The default value calculates the
-#' coverage for the central 90% confidence interval.
-#' @return matrix with results of each estimator stored in separate rows
-summary.trial.estimates <- function(object,
-                              level = .05,
-                              null = 0,
-                              ni.margin = NULL,
-                              alternative = c("!=", "<", ">"),
-                              reject.function = NULL,
-                              true.value = NULL,
-                              nominal.coverage = 0.9,
-                              ...) {
-  .Deprecated(
-    "Trial$summary",
-    msg = paste("summary.trial.estimates is deprecated.",
-                "Use Trial$summary() instead.")
-  )
-  m <- Trial$new(
-    outcome = object$outcome,
-    covariates = object$covariates,
-    exclusion = object$exclusion,
-    estimators = object$estimators,
-    info = object$info
-  )
-  m$estimates <- object
-  args <- list(
-    level = level,
-    null = null,
-    ni.margin = ni.margin,
-    alternative = alternative,
-    true.value = true.value,
-    nominal.coverage = nominal.coverage
-  )
-  # Only add reject.function to args if it's not NULL
-  if (!is.null(reject.function)) {
-    args$reject.function <- reject.function
-  }
-  do.call(m$summary, c(args, list(...)))
-}
 
 #' @title trial.estimates class object
 #'
