@@ -52,23 +52,32 @@ Simulate from count model with intensity \deqn{\lambda =
 matrix specified by the formula
 }
 \examples{
-set.seed(24)
-covariates <- function(n) data.frame(a = rbinom(n, 1, 0.5))
-outcome <- setargs(
-  outcome_count,
-  mean = ~ 1 + a,
-  par = log(c(2.5, 0.65)),
+covariates <- function(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n))
+trial <- Trial$new(covariates = covariates, outcome = outcome_count)
+trial$args_model(
+  mean = ~ 1 + a + x,
+  par = c(2.5, 0.65, 0),
   overdispersion = 1 / 2,
   exposure = 2 # identical exposure time for all subjects
 )
-trial <- Trial$new(covariates = covariates, outcome = outcome)
-trial$simulate(5)
-# alternating exposure times between subjects
-trial$args_model(exposure = c(1, 2))
-trial$simulate(5)
+est <- function(data) {
+  glm(y ~ a + x + offset(log(exposure)), data, family = poisson())
+}
+trial$simulate(1e4) |> est()
+
+# intercept + coef for x default to 0 and regression coef for a takes
+# the provided value
+trial$simulate(1e4, par = c(a = 0.65)) |> est()
+# trial$simulate(1e4, mean = ~ 1 + a, par = c("(Intercept)" = 1))
+
+# define mean model that directly works on whole covariate data, incl id and
+# num columns
+trial$simulate(1e4, mean = \(x) with(x, exp(1 + 0.5 * a))) |>
+  est()
+
 # treatment-dependent exposure times
-trial$args_model(exposure = function(dd) 1 - 0.5 * dd$a)
-trial$simulate(5)
+trial$simulate(1e4, exposure = function(dd) 1 - 0.5 * dd$a) |>
+  head()
 }
 \seealso{
 \link{outcome_binary} \link{outcome_continuous} \link{outcome_lp}

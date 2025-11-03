@@ -64,7 +64,7 @@ trial$simulate(1e4, mean = ~ 1 + a + x, par = c(1, 0.5, 2)) |> est()
 # default behavior is to set all regression coefficients to 0
 trial$simulate(1e4, mean = ~ 1 + a + x) |> est()
 
-# intercept defaults to 0 and regression coef for a takes provided value
+# intercept defaults to 0 and regression coef for a takes the provided value
 trial$simulate(1e4, mean = ~ 1 + a, par = c(a = 0.5)) |> est()
 # trial$simulate(1e4, mean = ~ 1 + a, par = c("(Intercept)" = 0.5)) |> est()
 
