@@ -1,7 +1,7 @@
 library("tinytest")
 library("lava")
 library("data.table")
-
+outcome_phreg <- carts:::outcome_phreg
 
 set.seed(1)
 x <- data.table(z = rnorm(1e4), v = rnorm(1e4))
