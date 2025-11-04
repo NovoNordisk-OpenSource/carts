@@ -85,11 +85,10 @@ methods visualized in Figure 1. To this end, we will consider a
 two-armed parallel trial design to introduce the <code>Trial</code>
 class and demonstrate how power and sample size estimation are carried
 out conveniently.</p>
-<div class="figure">
-<img src="gettingstarted_files/figure-html/ex1-1.png" alt="The 'Trial' R6 reference class. The blue boxes define the arguments to the constructor, and the red boxes the most important class methods." width="100%"><p class="caption">
-The ‘Trial’ R6 reference class. The blue boxes define the arguments to
-the constructor, and the red boxes the most important class methods.
-</p>
+<div class="float">
+<img src="figs/trial-class.png" style="width:100.0%" alt="The ‘Trial’ R6 reference class. The blue boxes define the arguments to the constructor, and the red boxes the most important class methods."><div class="figcaption">The ‘Trial’ R6 reference class. The blue boxes
+define the arguments to the constructor, and the red boxes the most
+important class methods.</div>
 </div>
 </div>
 <div class="section level2">
@@ -453,30 +452,10 @@ of all estimators that are defined in <code>Trial$estimators</code>.</p>
 <p>Last, we estimate the sample size required to attain 90% power for
 the specified trial model and estimator</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">trial</span><span class="op">$</span><span class="fu">estimate_samplesize</span><span class="op">(</span></span>
-<span>  power <span class="op">=</span> <span class="fl">0.9</span>, <span class="co"># default</span></span>
-<span>  estimator <span class="op">=</span> <span class="va">trial</span><span class="op">$</span><span class="fu">estimators</span><span class="op">(</span><span class="st">"adjusted"</span><span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span><span class="co">## INFO [2025-11-04 12:48:40] Finding initial sample-size with bisection algorithm</span></span>
-<span><span class="co">## INFO [2025-11-04 12:48:40] Evaluating left point: 50</span></span>
-<span><span class="co">## INFO [2025-11-04 12:48:41] Evaluating right point: 10000</span></span>
-<span><span class="co">## INFO [2025-11-04 12:48:48] Evaluating mid point: 5025  [iteration 1/6]</span></span>
-<span><span class="co">## INFO [2025-11-04 12:48:54] Evaluating mid point: 2537.5  [iteration 2/6]</span></span>
-<span><span class="co">## INFO [2025-11-04 12:48:55] Evaluating mid point: 1293.75  [iteration 3/6]</span></span>
-<span><span class="co">## INFO [2025-11-04 12:48:57] Evaluating mid point: 671.875  [iteration 4/6]</span></span>
-<span><span class="co">## INFO [2025-11-04 12:48:58] Evaluating mid point: 360.9375  [iteration 5/6]</span></span>
-<span><span class="co">## INFO [2025-11-04 12:48:59] Evaluating mid point: 205.46875  [iteration 6/6]</span></span>
-<span><span class="co">## INFO [2025-11-04 12:49:00] Running stochastic approximation algorithm</span></span>
-<span><span class="co">## INFO [2025-11-04 12:50:08] Refining estimate and calculating power</span></span>
-<span><span class="co">## INFO [2025-11-04 12:50:17] [1/5] - power(155) = 0.882</span></span>
-<span><span class="co">## INFO [2025-11-04 12:50:26] [2/5] - power(160) = 0.878</span></span>
-<span><span class="co">## INFO [2025-11-04 12:50:34] [3/5] - power(165) = 0.885</span></span>
-<span><span class="co">## INFO [2025-11-04 12:50:43] [4/5] - power(170) = 0.906</span></span>
-<span><span class="co">## INFO [2025-11-04 12:50:52] [5/5] - power(175) = 0.914</span></span>
-<span><span class="co">## INFO [2025-11-04 12:50:52] Estimated sample size: 169</span></span>
-<span><span class="co">## ── Estimated sample-size to reach 90% power ── </span></span>
-<span><span class="co">## </span></span>
-<span><span class="co">## n = 169 (actual estimated power≈89.99%)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># trial$estimate_samplesize(</span></span>
+<span><span class="co">#   power = 0.9, # default</span></span>
+<span><span class="co">#   estimator = trial$estimators("adjusted")</span></span>
+<span><span class="co"># )</span></span></code></pre></div>
 <p>The method optimizes the sample size by internally calling the
 <code>Trial$estimate_power</code> method. Therefore, the behavior for
 updating model parameters and changing the default settings for the
