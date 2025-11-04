@@ -24,7 +24,7 @@
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/NN-AI-Analytics/carts/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/NovoNordisk-OpenSource/carts/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul></div>
 
 
@@ -34,7 +34,7 @@
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Outcome model for time-to-event end-points (proportional hazards)</h1>
-      <small class="dont-index">Source: <a href="https://github.com/NN-AI-Analytics/carts/blob/develop/package-down-and-rhub-workflows/R/outcome_models.R" class="external-link"><code>R/outcome_models.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/NovoNordisk-OpenSource/carts/blob/main/R/outcome_models.R" class="external-link"><code>R/outcome_models.R</code></a></small>
       <div class="d-none name"><code>outcome_phreg.Rd</code></div>
     </div>
 
@@ -63,7 +63,8 @@
 
 
 <dl><dt id="arg-data">data<a class="anchor" aria-label="anchor" href="#arg-data"></a></dt>
-<dd><p>data.frame (covariates)</p></dd>
+<dd><p>(data.table) Covariate data, usually the output of the covariate
+model of a <a href="Trial.html">Trial</a> object.</p></dd>
 
 
 <dt id="arg-lp">lp<a class="anchor" aria-label="anchor" href="#arg-lp"></a></dt>
@@ -79,8 +80,8 @@
 
 
 <dt id="arg-remove">remove<a class="anchor" aria-label="anchor" href="#arg-remove"></a></dt>
-<dd><p>variables that will be removed from input data (if formula is
-not specified)</p></dd>
+<dd><p>Variables that will be removed from input <code>data</code> (if formula is
+not specified).</p></dd>
 
 
 <dt id="arg-model">model<a class="anchor" aria-label="anchor" href="#arg-model"></a></dt>
@@ -118,12 +119,8 @@ not specified)</p></dd>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/therneau/survival" class="external-link">"survival"</a></span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Attaching package: ‘survival’</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> The following object is masked from ‘package:future’:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     cluster</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/therneau/survival" class="external-link">"survival"</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">pbc</span>, package <span class="op">=</span> <span class="st">"survival"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">pbc0</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html" class="external-link">na.omit</a></span><span class="op">(</span><span class="va">pbc</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/transform.html" class="external-link">transform</a></span><span class="op">(</span>trt <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">trt</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Active"</span>, <span class="st">"Placebo"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
@@ -143,25 +140,6 @@ not specified)</p></dd>
 <span class="r-in"><span><span class="va">xx</span> <span class="op">&lt;-</span> <span class="fu">covar</span><span class="op">(</span><span class="fl">5e3</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">pbc1</span> <span class="op">&lt;-</span> <span class="fu">outcome</span><span class="op">(</span><span class="va">xx</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">xx</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">mets</span><span class="fu">::</span><span class="fu"><a href="https://kkholst.github.io/mets/reference/phreg.html" class="external-link">phreg</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/formula.html" class="external-link">formula</a></span><span class="op">(</span><span class="va">fit1</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">pbc1</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> mets::phreg(formula = formula(fit1), data = pbc1)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     n events</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  5000   1729</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> coeffients:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                  Estimate       S.E.    dU^-1/2 P-value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> age             0.0254403  0.0023480  0.0023641  0.0000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sexf            0.1898428  0.0964509  0.0942417  0.0490</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> trtActive       0.0231832  0.1233657  0.1225163  0.8509</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sexf:trtActive -1.0955251  0.1360572  0.1354915  0.0000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> exp(coeffients):</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                Estimate    2.5%  97.5%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> age             1.02577 1.02106 1.0305</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sexf            1.20906 1.00080 1.4607</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> trtActive       1.02345 0.80364 1.3034</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sexf:trtActive  0.33436 0.25610 0.4365</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Introducing additional interactions</span></span></span>
@@ -177,34 +155,10 @@ not specified)</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">xx</span> <span class="op">&lt;-</span> <span class="fu">covar</span><span class="op">(</span><span class="fl">1e4</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="fu">outcome</span><span class="op">(</span><span class="va">xx</span><span class="op">)</span>, <span class="st">"par"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            age           sexf      trtActive  age:trtActive sexf:trtActive </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     0.02465763    -0.39648365    -0.50000000     0.00000000    -0.20000000 </span>
 <span class="r-in"><span><span class="va">pbc1</span> <span class="op">&lt;-</span> <span class="fu">outcome</span><span class="op">(</span><span class="va">xx</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">xx</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">mets</span><span class="fu">::</span><span class="fu"><a href="https://kkholst.github.io/mets/reference/phreg.html" class="external-link">phreg</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/survival/man/Surv.html" class="external-link">Surv</a></span><span class="op">(</span><span class="va">time</span>, <span class="va">status</span><span class="op">)</span> <span class="op">~</span> <span class="op">(</span><span class="va">age</span> <span class="op">+</span> <span class="va">sex</span><span class="op">)</span> <span class="op">*</span> <span class="va">trt</span>, <span class="va">pbc1</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> mets::phreg(formula = Surv(time, status) ~ (age + sex) * trt, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     data = pbc1)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      n events</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  10000   3752</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> coeffients:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                  Estimate       S.E.    dU^-1/2 P-value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> age             0.0223054  0.0019773  0.0019862  0.0000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sexf           -0.4395915  0.0589518  0.0578643  0.0000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> trtActive      -0.4478356  0.2063221  0.2044322  0.0300</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> age:trtActive  -0.0018865  0.0032907  0.0032679  0.5665</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sexf:trtActive -0.0811949  0.0925068  0.0918015  0.3801</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> exp(coeffients):</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                Estimate    2.5%  97.5%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> age             1.02256 1.01860 1.0265</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sexf            0.64430 0.57399 0.7232</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> trtActive       0.63901 0.42647 0.9575</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> age:trtActive   0.99812 0.99170 1.0046</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sexf:trtActive  0.92201 0.76912 1.1053</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/rm.html" class="external-link">rm</a></span><span class="op">(</span><span class="va">pbc1</span>, <span class="va">xx</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

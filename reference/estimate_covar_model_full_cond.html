@@ -34,7 +34,7 @@ derive_covar_distribution) or specified by cond.dist."></head><body>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/NN-AI-Analytics/carts/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/NovoNordisk-OpenSource/carts/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul></div>
 
 
@@ -44,7 +44,7 @@ derive_covar_distribution) or specified by cond.dist."></head><body>
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Full conditional covariate simulation model</h1>
-      <small class="dont-index">Source: <a href="https://github.com/NN-AI-Analytics/carts/blob/develop/package-down-and-rhub-workflows/R/covar_sim.R" class="external-link"><code>R/covar_sim.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/NovoNordisk-OpenSource/carts/blob/main/R/covar_sim.R" class="external-link"><code>R/covar_sim.R</code></a></small>
       <div class="d-none name"><code>estimate_covar_model_full_cond.Rd</code></div>
     </div>
 
@@ -94,7 +94,7 @@ distribution of each covariate</p></dd>
 <span class="r-in"><span><span class="va">m.est</span> <span class="op">&lt;-</span> <span class="fu">estimate_covar_model_full_cond</span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="sample_covar_parametric_model.html">sample_covar_parametric_model</a></span><span class="op">(</span><span class="fl">1e4</span>, <span class="va">m.est</span><span class="op">)</span><span class="op">$</span><span class="va">y</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">as.integer</a></span><span class="op">(</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.0931</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.1119</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># specify distribution of y</span></span></span>
 <span class="r-in"><span><span class="va">m.est</span> <span class="op">&lt;-</span> <span class="fu">estimate_covar_model_full_cond</span><span class="op">(</span></span></span>
@@ -102,7 +102,7 @@ distribution of each covariate</p></dd>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="sample_covar_parametric_model.html">sample_covar_parametric_model</a></span><span class="op">(</span><span class="fl">1e4</span>, <span class="va">m.est</span><span class="op">)</span><span class="op">$</span><span class="va">y</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">as.integer</a></span><span class="op">(</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.0938</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.1122</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

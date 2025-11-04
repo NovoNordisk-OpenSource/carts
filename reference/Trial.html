@@ -26,7 +26,7 @@ simulation."></head><body>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/NN-AI-Analytics/carts/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/NovoNordisk-OpenSource/carts/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul></div>
 
 
@@ -36,7 +36,7 @@ simulation."></head><body>
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>R6 class for power and sample-size calculations for a clinical trial</h1>
-      <small class="dont-index">Source: <a href="https://github.com/NN-AI-Analytics/carts/blob/develop/package-down-and-rhub-workflows/R/Trial.R" class="external-link"><code>R/Trial.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/NovoNordisk-OpenSource/carts/blob/main/R/Trial.R" class="external-link"><code>R/Trial.R</code></a></small>
       <div class="d-none name"><code>Trial.Rd</code></div>
     </div>
 
@@ -78,13 +78,6 @@ Monte-Carlo simulations returned by Trial$run(). The field is
 flushed, i.e. set to its default value <em>NULL</em>, when model arguments
 (Trial$args_model()) or estimators (Trial$estimators())
 are modified.</p></dd>
-
-
-<dt><code>summary.args</code></dt>
-<dd><p>list of arguments that override default values in
-Trial$summary() when power and sample sizes are
-estimated with Trial$estimate_power() and
-Trial$estimate_samplesize()</p></dd>
 
 
 </dl><p></p></div>
@@ -218,17 +211,24 @@ set parameters. Can be combined with setting new parameters.</p></dd>
 <h3 id="method-args-summary-">Method <code>args_summary()</code><a class="anchor" aria-label="anchor" href="#method-args-summary-"></a></h3>
 <p>Get, specify or update the summary.args attribute.</p><div class="section">
 <h4 id="usage-2">Usage<a class="anchor" aria-label="anchor" href="#usage-2"></a></h4>
-<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">Trial</span><span class="op">$</span><span class="fu">args_summary</span><span class="op">(</span>summary.args <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div><p></p></div>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">Trial</span><span class="op">$</span><span class="fu">args_summary</span><span class="op">(</span>.args <span class="op">=</span> <span class="cn">NULL</span>, .reset <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 <div class="section">
 <h4 id="arguments-2">Arguments<a class="anchor" aria-label="anchor" href="#arguments-2"></a></h4>
-<p></p><div class="arguments"><dl><dt><code>summary.args</code></dt>
-<dd><p>list of arguments to update or set</p></dd>
+<p></p><div class="arguments"><dl><dt><code>.args</code></dt>
+<dd><p>(list or character) named list of arguments to update
+or set. A single or subset of arguments can be retrieved by passing the
+respective argument names as a character or character vector.</p></dd>
+
+
+<dt><code>.reset</code></dt>
+<dd><p>(logical or character) Reset all or a subset of previously
+set parameters. Can be combined with setting new parameters.</p></dd>
 
 
 <dt><code>...</code></dt>
-<dd><p>arguments to update or set</p></dd>
+<dd><p>Alternative to using <code>.args</code> to update or set arguments</p></dd>
 
 
 </dl><p></p></div>
@@ -236,16 +236,26 @@ set parameters. Can be combined with setting new parameters.</p></dd>
 <div class="section">
 <h4 id="examples-1">Examples<a class="anchor" aria-label="anchor" href="#examples-1"></a></h4>
 <p></p><div class="r example copy"><div class="sourceCode"><pre><code><span><span class="va">trial</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/Trial.html">Trial</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
-<span>  covariate <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">rbinom</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">1</span>, <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  covariates <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">n</span>, <span class="va">p</span> <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">rbinom</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">1</span>, <span class="va">p</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>  outcome <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">data</span>, <span class="va">ate</span>, <span class="va">mu</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>, <span class="va">mu</span> <span class="op">+</span> <span class="va">data</span><span class="op">$</span><span class="va">a</span> <span class="op">*</span> <span class="va">ate</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
-<span><span class="co"># set summary.args via optional arguments</span></span>
-<span><span class="va">trial</span><span class="op">$</span><span class="fu">args_summary</span><span class="op">(</span>level <span class="op">=</span> <span class="fl">0.025</span><span class="op">)</span></span>
-<span><span class="co"># return summary_args</span></span>
-<span><span class="va">trial</span><span class="op">$</span><span class="fu">args_summary</span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co"># update summary_args parameter via summary.args argument</span></span>
-<span><span class="va">trial</span><span class="op">$</span><span class="fu">args_summary</span><span class="op">(</span>summary.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>level <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">trial</span><span class="op">$</span><span class="fu">args_summary</span><span class="op">(</span><span class="op">)</span></span></code></pre></div><p></p></div>
+<span><span class="co"># set and update parameters</span></span>
+<span><span class="va">trial</span><span class="op">$</span><span class="fu">args_summary</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>level <span class="op">=</span> <span class="fl">0.05</span>, alternative <span class="op">=</span> <span class="st">"&lt;"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">trial</span><span class="op">$</span><span class="fu">args_summary</span><span class="op">(</span>level <span class="op">=</span> <span class="fl">0.25</span><span class="op">)</span> <span class="co"># update parameters</span></span>
+<span></span>
+<span><span class="co"># retrieve parameters</span></span>
+<span><span class="va">trial</span><span class="op">$</span><span class="fu">args_summary</span><span class="op">(</span><span class="op">)</span> <span class="co"># return all set parameters</span></span>
+<span><span class="va">trial</span><span class="op">$</span><span class="fu">args_summary</span><span class="op">(</span><span class="st">"level"</span><span class="op">)</span> <span class="co"># select a single parameter</span></span>
+<span><span class="va">trial</span><span class="op">$</span><span class="fu">args_summary</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"level"</span>, <span class="st">"alternative"</span><span class="op">)</span><span class="op">)</span> <span class="co"># multiple parameters</span></span>
+<span></span>
+<span><span class="co"># remove parameters</span></span>
+<span><span class="va">trial</span><span class="op">$</span><span class="fu">args_summary</span><span class="op">(</span>.reset <span class="op">=</span> <span class="st">"level"</span><span class="op">)</span> <span class="co"># remove a single parameter</span></span>
+<span><span class="va">trial</span><span class="op">$</span><span class="fu">args_summary</span><span class="op">(</span>.reset <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="co"># remove all parameters</span></span>
+<span></span>
+<span><span class="co"># remove and set/update parameters</span></span>
+<span><span class="va">trial</span><span class="op">$</span><span class="fu">args_summary</span><span class="op">(</span>alternative <span class="op">=</span> <span class="st">"!="</span>, level <span class="op">=</span> <span class="fl">0.05</span>, .reset <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co"># removing alternative and setting level</span></span>
+<span><span class="va">trial</span><span class="op">$</span><span class="fu">args_summary</span><span class="op">(</span>level <span class="op">=</span> <span class="fl">0.05</span>, .reset <span class="op">=</span> <span class="st">"alternative"</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 
@@ -719,7 +729,7 @@ different estimators.</p><div class="section">
 <span>  level <span class="op">=</span> <span class="fl">0.05</span>,</span>
 <span>  null <span class="op">=</span> <span class="fl">0</span>,</span>
 <span>  ni.margin <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  alternative <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"!="</span>, <span class="st">"&lt;"</span>, <span class="st">"&gt;"</span><span class="op">)</span>,</span>
+<span>  alternative <span class="op">=</span> <span class="st">"!="</span>,</span>
 <span>  reject.function <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  true.value <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  nominal.coverage <span class="op">=</span> <span class="fl">0.9</span>,</span>
@@ -731,15 +741,15 @@ different estimators.</p><div class="section">
 <div class="section">
 <h4 id="arguments-8">Arguments<a class="anchor" aria-label="anchor" href="#arguments-8"></a></h4>
 <p></p><div class="arguments"><dl><dt><code>level</code></dt>
-<dd><p>significance level</p></dd>
+<dd><p>(numeric) significance level</p></dd>
 
 
 <dt><code>null</code></dt>
-<dd><p>null hypothesis to test</p></dd>
+<dd><p>(numeric) null hypothesis to test</p></dd>
 
 
 <dt><code>ni.margin</code></dt>
-<dd><p>non-inferiority margin</p></dd>
+<dd><p>(numeric) non-inferiority margin</p></dd>
 
 
 <dt><code>alternative</code></dt>
@@ -777,6 +787,31 @@ modifying the object's state.</p></dd>
 <h4 id="returns-4">Returns<a class="anchor" aria-label="anchor" href="#returns-4"></a></h4>
 <p>matrix with results of each estimator stored in separate rows</p>
 </div>
+<div class="section">
+<h4 id="examples-7">Examples<a class="anchor" aria-label="anchor" href="#examples-7"></a></h4>
+<p></p><div class="r example copy"><div class="sourceCode"><pre><code><span><span class="va">outcome</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">data</span>, <span class="va">p</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">0.25</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">rbinom</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>, <span class="fl">1</span>, <span class="fl">0.5</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="va">a</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">rbinom</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>, <span class="fl">1</span>, <span class="va">p</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">*</span> <span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="va">a</span><span class="op">)</span> <span class="op">+</span> <span class="va">p</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span> <span class="op">*</span> <span class="va">a</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span><span class="va">trial</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/Trial.html">Trial</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="va">outcome</span>, estimators <span class="op">=</span> <span class="fu"><a href="../reference/est_glm.html">est_glm</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">trial</span><span class="op">$</span><span class="fu">run</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, R <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span>
+<span><span class="co"># two-sided test with 0.05 significance level (alpha = 0.05) (default</span></span>
+<span><span class="co"># values)</span></span>
+<span><span class="va">trial</span><span class="op">$</span><span class="fu">summary</span><span class="op">(</span>level <span class="op">=</span> <span class="fl">0.05</span>, alternative <span class="op">=</span> <span class="st">"!="</span><span class="op">)</span></span>
+<span><span class="co"># on-sided test</span></span>
+<span><span class="va">trial</span><span class="op">$</span><span class="fu">summary</span><span class="op">(</span>level <span class="op">=</span> <span class="fl">0.025</span>, alternative <span class="op">=</span> <span class="st">"&lt;"</span><span class="op">)</span></span>
+<span><span class="co"># non-inferiority test</span></span>
+<span><span class="va">trial</span><span class="op">$</span><span class="fu">summary</span><span class="op">(</span>level <span class="op">=</span> <span class="fl">0.025</span>, ni.margin <span class="op">=</span> <span class="op">-</span><span class="fl">0.5</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># provide simulation results to summary method via estimates argument</span></span>
+<span><span class="va">res</span> <span class="op">&lt;-</span> <span class="va">trial</span><span class="op">$</span><span class="fu">run</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, R <span class="op">=</span> <span class="fl">100</span>, p <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">trial</span><span class="op">$</span><span class="fu">summary</span><span class="op">(</span>estimates <span class="op">=</span> <span class="va">res</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># calculate empirical bias, rmse and coverage for true target parameter</span></span>
+<span><span class="va">trial</span><span class="op">$</span><span class="fu">summary</span><span class="op">(</span>estimates <span class="op">=</span> <span class="va">res</span>, true.value <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span></code></pre></div><p></p></div>
+</div>
+
 
 </div><p></p><hr><a id="method-Trial-print"></a><div class="section">
 <h3 id="method-print-">Method <code><a href="https://rdrr.io/r/base/print.html" class="external-link">print()</a></code><a class="anchor" aria-label="anchor" href="#method-print-"></a></h3>
@@ -788,7 +823,7 @@ modifying the object's state.</p></dd>
 <div class="section">
 <h4 id="arguments-9">Arguments<a class="anchor" aria-label="anchor" href="#arguments-9"></a></h4>
 <p></p><div class="arguments"><dl><dt><code>...</code></dt>
-<dd><p>Additional arguments to lower level functions</p></dd>
+<dd><p>Additional arguments to lower level functions (not used).</p></dd>
 
 
 <dt><code>verbose</code></dt>
@@ -800,7 +835,7 @@ function arguments of the covariates, outcome and exclusion models. If
 </dl><p></p></div>
 </div>
 <div class="section">
-<h4 id="examples-7">Examples<a class="anchor" aria-label="anchor" href="#examples-7"></a></h4>
+<h4 id="examples-8">Examples<a class="anchor" aria-label="anchor" href="#examples-8"></a></h4>
 <p></p><div class="r example copy"><div class="sourceCode"><pre><code><span><span class="va">trial</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/Trial.html">Trial</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
 <span>  covariates <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">rbinom</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">1</span>, <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>  outcome <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">data</span>, <span class="va">sd</span> <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>, <span class="va">data</span><span class="op">$</span><span class="va">a</span> <span class="op">*</span> <span class="op">-</span><span class="fl">1</span>, <span class="va">sd</span><span class="op">)</span>,</span>
@@ -900,23 +935,54 @@ function arguments of the covariates, outcome and exclusion models. If
 <span class="r-in"><span><span class="co">## ------------------------------------------------</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">trial</span> <span class="op">&lt;-</span> <span class="va">Trial</span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  covariate <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">rbinom</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">1</span>, <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  covariates <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">n</span>, <span class="va">p</span> <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">rbinom</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">1</span>, <span class="va">p</span><span class="op">)</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  outcome <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">data</span>, <span class="va">ate</span>, <span class="va">mu</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>, <span class="va">mu</span> <span class="op">+</span> <span class="va">data</span><span class="op">$</span><span class="va">a</span> <span class="op">*</span> <span class="va">ate</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>partial argument match of 'covariate' to 'covariates'</span>
-<span class="r-in"><span><span class="co"># set summary.args via optional arguments</span></span></span>
-<span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">args_summary</span><span class="op">(</span>level <span class="op">=</span> <span class="fl">0.025</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="co"># return summary_args</span></span></span>
-<span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">args_summary</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># set and update parameters</span></span></span>
+<span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">args_summary</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>level <span class="op">=</span> <span class="fl">0.05</span>, alternative <span class="op">=</span> <span class="st">"&lt;"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">args_summary</span><span class="op">(</span>level <span class="op">=</span> <span class="fl">0.25</span><span class="op">)</span> <span class="co"># update parameters</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># retrieve parameters</span></span></span>
+<span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">args_summary</span><span class="op">(</span><span class="op">)</span> <span class="co"># return all set parameters</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $level</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.025</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.25</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span><span class="co"># update summary_args parameter via summary.args argument</span></span></span>
-<span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">args_summary</span><span class="op">(</span>summary.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>level <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">args_summary</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $null</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ni.margin</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $alternative</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "&lt;"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $reject.function</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $true.value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $nominal.coverage</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">args_summary</span><span class="op">(</span><span class="st">"level"</span><span class="op">)</span> <span class="co"># select a single parameter</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.25</span>
+<span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">args_summary</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"level"</span>, <span class="st">"alternative"</span><span class="op">)</span><span class="op">)</span> <span class="co"># multiple parameters</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $level</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.05</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.25</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $alternative</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "&lt;"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># remove parameters</span></span></span>
+<span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">args_summary</span><span class="op">(</span>.reset <span class="op">=</span> <span class="st">"level"</span><span class="op">)</span> <span class="co"># remove a single parameter</span></span></span>
+<span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">args_summary</span><span class="op">(</span>.reset <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="co"># remove all parameters</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># remove and set/update parameters</span></span></span>
+<span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">args_summary</span><span class="op">(</span>alternative <span class="op">=</span> <span class="st">"!="</span>, level <span class="op">=</span> <span class="fl">0.05</span>, .reset <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># removing alternative and setting level</span></span></span>
+<span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">args_summary</span><span class="op">(</span>level <span class="op">=</span> <span class="fl">0.05</span>, .reset <span class="op">=</span> <span class="st">"alternative"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## ------------------------------------------------</span></span></span>
 <span class="r-in"><span><span class="co">## Method `Trial$estimators`</span></span></span>
@@ -1229,6 +1295,42 @@ function arguments of the covariates, outcome and exclusion models. If
 <span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## ------------------------------------------------</span></span></span>
+<span class="r-in"><span><span class="co">## Method `Trial$summary`</span></span></span>
+<span class="r-in"><span><span class="co">## ------------------------------------------------</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">outcome</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">data</span>, <span class="va">p</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">0.25</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">rbinom</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>, <span class="fl">1</span>, <span class="fl">0.5</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="va">a</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">rbinom</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>, <span class="fl">1</span>, <span class="va">p</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">*</span> <span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="va">a</span><span class="op">)</span> <span class="op">+</span> <span class="va">p</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span> <span class="op">*</span> <span class="va">a</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="va">trial</span> <span class="op">&lt;-</span> <span class="va">Trial</span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="va">outcome</span>, estimators <span class="op">=</span> <span class="fu"><a href="est_glm.html">est_glm</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">run</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, R <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># two-sided test with 0.05 significance level (alpha = 0.05) (default</span></span></span>
+<span class="r-in"><span><span class="co"># values)</span></span></span>
+<span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">summary</span><span class="op">(</span>level <span class="op">=</span> <span class="fl">0.05</span>, alternative <span class="op">=</span> <span class="st">"!="</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        estimate    std.err   std.dev power na</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> est1 -0.2630348 0.09251181 0.1006106  0.78  0</span>
+<span class="r-in"><span><span class="co"># on-sided test</span></span></span>
+<span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">summary</span><span class="op">(</span>level <span class="op">=</span> <span class="fl">0.025</span>, alternative <span class="op">=</span> <span class="st">"&lt;"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        estimate    std.err   std.dev power na</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> est1 -0.2630348 0.09251181 0.1006106  0.78  0</span>
+<span class="r-in"><span><span class="co"># non-inferiority test</span></span></span>
+<span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">summary</span><span class="op">(</span>level <span class="op">=</span> <span class="fl">0.025</span>, ni.margin <span class="op">=</span> <span class="op">-</span><span class="fl">0.5</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        estimate    std.err   std.dev power na</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> est1 -0.2630348 0.09251181 0.1006106  0.74  0</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># provide simulation results to summary method via estimates argument</span></span></span>
+<span class="r-in"><span><span class="va">res</span> <span class="op">&lt;-</span> <span class="va">trial</span><span class="op">$</span><span class="fu">run</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, R <span class="op">=</span> <span class="fl">100</span>, p <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">summary</span><span class="op">(</span>estimates <span class="op">=</span> <span class="va">res</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         estimate    std.err   std.dev power na</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> est1 0.003507001 0.09952529 0.1045488  0.08  0</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># calculate empirical bias, rmse and coverage for true target parameter</span></span></span>
+<span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">summary</span><span class="op">(</span>estimates <span class="op">=</span> <span class="va">res</span>, true.value <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         estimate    std.err   std.dev power na        bias      rmse coverage</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> est1 0.003507001 0.09952529 0.1045488  0.08  0 0.003507001 0.1040838     0.89</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## ------------------------------------------------</span></span></span>
 <span class="r-in"><span><span class="co">## Method `Trial$print`</span></span></span>
 <span class="r-in"><span><span class="co">## ------------------------------------------------</span></span></span>
 <span class="r-in"><span></span></span>
@@ -1250,6 +1352,12 @@ function arguments of the covariates, outcome and exclusion models. If
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Summary arguments:  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  • level:  num 0.025</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  • null:  num 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  • ni.margin:  NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  • alternative:  chr "!="</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  • reject.function:  NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  • true.value:  NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  • nominal.coverage:  num 0.9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Covariates:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  function (n, ...)   </span>
@@ -1272,6 +1380,12 @@ function arguments of the covariates, outcome and exclusion models. If
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Summary arguments:  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  • level:  num 0.025</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  • null:  num 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  • ni.margin:  NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  • alternative:  chr "!="</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  • reject.function:  NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  • true.value:  NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  • nominal.coverage:  num 0.9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Covariates:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   function (n, ...)  </span>

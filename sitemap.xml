@@ -2,6 +2,7 @@
 <url><loc>https://novonordisk-opensource.github.io/carts/404.html</loc></url>
 <url><loc>https://novonordisk-opensource.github.io/carts/CONTRIBUTING.html</loc></url>
 <url><loc>https://novonordisk-opensource.github.io/carts/LICENSE-text.html</loc></url>
+<url><loc>https://novonordisk-opensource.github.io/carts/LICENSE.html</loc></url>
 <url><loc>https://novonordisk-opensource.github.io/carts/articles/gettingstarted.html</loc></url>
 <url><loc>https://novonordisk-opensource.github.io/carts/articles/index.html</loc></url>
 <url><loc>https://novonordisk-opensource.github.io/carts/articles/param.html</loc></url>
@@ -32,11 +33,11 @@
 <url><loc>https://novonordisk-opensource.github.io/carts/reference/outcome_lp.html</loc></url>
 <url><loc>https://novonordisk-opensource.github.io/carts/reference/outcome_phreg.html</loc></url>
 <url><loc>https://novonordisk-opensource.github.io/carts/reference/outcome_recurrent.html</loc></url>
+<url><loc>https://novonordisk-opensource.github.io/carts/reference/outcome_shared.html</loc></url>
 <url><loc>https://novonordisk-opensource.github.io/carts/reference/rmvn.html</loc></url>
 <url><loc>https://novonordisk-opensource.github.io/carts/reference/rnb.html</loc></url>
 <url><loc>https://novonordisk-opensource.github.io/carts/reference/sample_covar_parametric_model.html</loc></url>
 <url><loc>https://novonordisk-opensource.github.io/carts/reference/setargs.html</loc></url>
-<url><loc>https://novonordisk-opensource.github.io/carts/reference/summary.trial.estimates.html</loc></url>
 <url><loc>https://novonordisk-opensource.github.io/carts/reference/trial.estimates-class.html</loc></url>
 </urlset>
 

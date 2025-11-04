@@ -43,7 +43,7 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
 </form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/NN-AI-Analytics/carts/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/NovoNordisk-OpenSource/carts/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
 
@@ -62,7 +62,7 @@
 and Benedikt Sommer</h4>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/NN-AI-Analytics/carts/blob/develop/package-down-and-rhub-workflows/vignettes/gettingstarted.Rmd" class="external-link"><code>vignettes/gettingstarted.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/NovoNordisk-OpenSource/carts/blob/main/vignettes/gettingstarted.Rmd" class="external-link"><code>vignettes/gettingstarted.Rmd</code></a></small>
       <div class="d-none name"><code>gettingstarted.Rmd</code></div>
     </div>
 
@@ -135,7 +135,7 @@ simulations when the future package is used for parallelization on a
 local machine. Additional care must be taken for distributed
 computations on a compute cluster.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st">"carts"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://novonordisk-opensource.github.io/carts/">"carts"</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">42</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
@@ -373,6 +373,13 @@ method</p>
 <span><span class="co">##  • par:  num [1:3] 10 -0.5 -1.2</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## Summary arguments:  </span></span>
+<span><span class="co">##  • level:  num 0.05</span></span>
+<span><span class="co">##  • null:  num 0</span></span>
+<span><span class="co">##  • ni.margin:  NULL</span></span>
+<span><span class="co">##  • alternative:  chr "!="</span></span>
+<span><span class="co">##  • reject.function:  NULL</span></span>
+<span><span class="co">##  • true.value:  NULL</span></span>
+<span><span class="co">##  • nominal.coverage:  num 0.9</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## Covariates:</span></span>
 <span><span class="co">##  function (n, p.a = 0.5, ...)   </span></span>
@@ -450,23 +457,23 @@ the specified trial model and estimator</p>
 <span>  power <span class="op">=</span> <span class="fl">0.9</span>, <span class="co"># default</span></span>
 <span>  estimator <span class="op">=</span> <span class="va">trial</span><span class="op">$</span><span class="fu">estimators</span><span class="op">(</span><span class="st">"adjusted"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
-<span><span class="co">## INFO [2025-11-03 11:38:55] Finding initial sample-size with bisection algorithm</span></span>
-<span><span class="co">## INFO [2025-11-03 11:38:55] Evaluating left point: 50</span></span>
-<span><span class="co">## INFO [2025-11-03 11:38:56] Evaluating right point: 10000</span></span>
-<span><span class="co">## INFO [2025-11-03 11:39:04] Evaluating mid point: 5025  [iteration 1/6]</span></span>
-<span><span class="co">## INFO [2025-11-03 11:39:10] Evaluating mid point: 2537.5  [iteration 2/6]</span></span>
-<span><span class="co">## INFO [2025-11-03 11:39:12] Evaluating mid point: 1293.75  [iteration 3/6]</span></span>
-<span><span class="co">## INFO [2025-11-03 11:39:13] Evaluating mid point: 671.875  [iteration 4/6]</span></span>
-<span><span class="co">## INFO [2025-11-03 11:39:14] Evaluating mid point: 360.9375  [iteration 5/6]</span></span>
-<span><span class="co">## INFO [2025-11-03 11:39:16] Evaluating mid point: 205.46875  [iteration 6/6]</span></span>
-<span><span class="co">## INFO [2025-11-03 11:39:17] Running stochastic approximation algorithm</span></span>
-<span><span class="co">## INFO [2025-11-03 11:40:26] Refining estimate and calculating power</span></span>
-<span><span class="co">## INFO [2025-11-03 11:40:37] [1/5] - power(155) = 0.882</span></span>
-<span><span class="co">## INFO [2025-11-03 11:40:47] [2/5] - power(160) = 0.878</span></span>
-<span><span class="co">## INFO [2025-11-03 11:40:57] [3/5] - power(165) = 0.885</span></span>
-<span><span class="co">## INFO [2025-11-03 11:41:06] [4/5] - power(170) = 0.906</span></span>
-<span><span class="co">## INFO [2025-11-03 11:41:16] [5/5] - power(175) = 0.914</span></span>
-<span><span class="co">## INFO [2025-11-03 11:41:16] Estimated sample size: 169</span></span>
+<span><span class="co">## INFO [2025-11-04 12:48:40] Finding initial sample-size with bisection algorithm</span></span>
+<span><span class="co">## INFO [2025-11-04 12:48:40] Evaluating left point: 50</span></span>
+<span><span class="co">## INFO [2025-11-04 12:48:41] Evaluating right point: 10000</span></span>
+<span><span class="co">## INFO [2025-11-04 12:48:48] Evaluating mid point: 5025  [iteration 1/6]</span></span>
+<span><span class="co">## INFO [2025-11-04 12:48:54] Evaluating mid point: 2537.5  [iteration 2/6]</span></span>
+<span><span class="co">## INFO [2025-11-04 12:48:55] Evaluating mid point: 1293.75  [iteration 3/6]</span></span>
+<span><span class="co">## INFO [2025-11-04 12:48:57] Evaluating mid point: 671.875  [iteration 4/6]</span></span>
+<span><span class="co">## INFO [2025-11-04 12:48:58] Evaluating mid point: 360.9375  [iteration 5/6]</span></span>
+<span><span class="co">## INFO [2025-11-04 12:48:59] Evaluating mid point: 205.46875  [iteration 6/6]</span></span>
+<span><span class="co">## INFO [2025-11-04 12:49:00] Running stochastic approximation algorithm</span></span>
+<span><span class="co">## INFO [2025-11-04 12:50:08] Refining estimate and calculating power</span></span>
+<span><span class="co">## INFO [2025-11-04 12:50:17] [1/5] - power(155) = 0.882</span></span>
+<span><span class="co">## INFO [2025-11-04 12:50:26] [2/5] - power(160) = 0.878</span></span>
+<span><span class="co">## INFO [2025-11-04 12:50:34] [3/5] - power(165) = 0.885</span></span>
+<span><span class="co">## INFO [2025-11-04 12:50:43] [4/5] - power(170) = 0.906</span></span>
+<span><span class="co">## INFO [2025-11-04 12:50:52] [5/5] - power(175) = 0.914</span></span>
+<span><span class="co">## INFO [2025-11-04 12:50:52] Estimated sample size: 169</span></span>
 <span><span class="co">## ── Estimated sample-size to reach 90% power ── </span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## n = 169 (actual estimated power≈89.99%)</span></span></code></pre></div>
