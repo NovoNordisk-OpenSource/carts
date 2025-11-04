@@ -1,7 +1,7 @@
 library("tinytest")
 library("lava")
 library("data.table")
-
+outcome_phreg <- carts:::outcome_phreg
 
 set.seed(1)
 x <- data.table(z = rnorm(1e4), v = rnorm(1e4))
@@ -64,9 +64,15 @@ test_outcome_binary <- function() {
   eps <- 0.1
   expect_true(all(abs(coef(g) - pp) < eps))
 
-  y <- outcome_binary(x, function(x, ...) {
-    with(x, lava::expit(z * v))
-  })
+  # providing a subset of parameters via a named vector sets the remaining
+  # regression parameters to 0
+  y <- outcome_binary(x, mean = ~ v + z, par = c("(Intercept)" = 1))
+  dt <- cbind(y, x)
+  g <- glm(y ~ v + z, data = as.data.frame(dt), family = binomial)
+  expect_equivalent(coef(g), c(1, 0, 0), tolerance = 1e-1)
+
+  # the mean can also be provided as a function
+  y <- outcome_binary(x, function(x) with(x, lava::expit(z * v)))
   dt <- cbind(y, x)
   g <- glm(y ~ v:z, data = as.data.frame(dt), family = binomial)
   expect_true(all(abs(coef(g) - c(0, 1)) < eps))

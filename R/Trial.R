@@ -7,24 +7,24 @@
 #' @param n (integer) Number of observations (sample size)
 #' @param estimators (list or function) List of estimators or a single unnamed
 #' estimator
-#' @param summary.args (list) Arguments passed on to [summary.trial.estimates]
+#' @param summary.args (list) Arguments passed to summary method
 #' for decision-making
 #' @author Klaus Kähler Holst, Benedikt Sommer
 #' @examples
-#' x0 <- function(n, p.a = 0.5, gamma.var = 0.7, ...) { # Baseline covariates
-#'   data.table::data.table(
-#'     a = rbinom(n, 1, p.a),
-#'     z = log(rgamma(n, shape = 1 / gamma.var, rate = 1 / gamma.var))
-#'   )
-#' }
-#' m <- Trial$new(
-#'   covariates = x0,
-#'   outcome = outcome_count,
-#'   info = "Negative binomial model"
+#' \dontrun{
+#' trial <- Trial$new(
+#'   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n)),
+#'   outcome = setargs(outcome_count, par = c(1, 0.5, 1), overdispersion = 0.7)
 #' )
-#' d <- m$simulate(n = 100, par=list("1"=1, a=1, z=1))
-#' glm(y ~ a, data = d, family = poisson) |>
-#'   lava::estimate()
+#'
+#' trial$estimators(
+#'   unadjusted = est_glm(family = "poisson"),
+#'   adjusted = est_glm(family = "poisson", covariates = "x")
+#' )
+#'
+#' trial$run(n = 200, R = 100)
+#' trial$summary()
+#' }
 #' @export
 Trial <- R6::R6Class("Trial", #nolint
   public = list(
@@ -44,10 +44,6 @@ Trial <- R6::R6Class("Trial", #nolint
     #' ([Trial$args_model()][Trial]) or estimators ([Trial$estimators()][Trial])
     #' are modified.
     estimates = NULL,
-    #' @field summary.args list of arguments that override default values in
-    #' [summary.trial.estimates] when power and sample sizes are estimated with
-    #' [Trial$estimate_power()][Trial] and [Trial$estimate_samplesize()][Trial]
-    summary.args = list(),
 
     #' @description Initialize new Trial object
     #' @param covariates covariate simulation function (must have 'n' as first
@@ -62,8 +58,9 @@ Trial <- R6::R6Class("Trial", #nolint
     #' @param estimators optional list of estimators or single estimator
     #' function
     #' @param summary.args list of arguments that override default values in
-    #' [summary.trial.estimates] when power and sample sizes are estimated with
-    #' [Trial$estimate_power()][Trial] and [Trial$estimate_samplesize()][Trial]
+    #' [Trial$summary()][Trial] when power and sample sizes are
+    #' estimated with [Trial$estimate_power()][Trial] and
+    #' [Trial$estimate_samplesize()][Trial]
     #' @param info optional string describing the model
     initialize = function(outcome,
                           covariates = NULL,
@@ -79,8 +76,14 @@ Trial <- R6::R6Class("Trial", #nolint
       self$outcome_model <- add_dots(outcome)
       self$estimators(estimators)
       self$info <- as.list(info)
-      private$model.args <- list()
-      self$summary.args <- summary.args
+
+      args <- as.list(formals(self$summary))
+      args[c("...", "estimates")] <- NULL
+      private$summary.args_default <- args
+
+      args[names(summary.args)] <- summary.args
+      self$args_summary(args)
+
       return(invisible(self))
 
     },
@@ -128,24 +131,38 @@ Trial <- R6::R6Class("Trial", #nolint
     },
 
     #' @description Get, specify or update the summary.args attribute.
-    #' @param summary.args list of arguments to update or set
-    #' @param ... arguments to update or set
+        #' @param .args (list or character) named list of arguments to update
+    #' or set. A single or subset of arguments can be retrieved by passing the
+    #' respective argument names as a character or character vector.
+    #' @param .reset (logical or character) Reset all or a subset of previously
+    #' set parameters. Can be combined with setting new parameters.
+    #' @param ... Alternative to using `.args` to update or set arguments
     #' @examples
     #' trial <- Trial$new(
-    #'   covariate = function(n) data.frame(a = rbinom(n, 1, 0.5)),
+    #'   covariates = function(n, p = 0.5) data.frame(a = rbinom(n, 1, p)),
     #'   outcome = function(data, ate, mu) rnorm(nrow(data), mu + data$a * ate)
     #' )
-    #' # set summary.args via optional arguments
-    #' trial$args_summary(level = 0.025)
-    #' # return summary_args
-    #' trial$args_summary()
-    #' # update summary_args parameter via summary.args argument
-    #' trial$args_summary(summary.args = list(level = 0.05))
-    #' trial$args_summary()
-    args_summary = function(summary.args = NULL, ...) {
+    #' # set and update parameters
+    #' trial$args_summary(list(level = 0.05, alternative = "<"))
+    #' trial$args_summary(level = 0.25) # update parameters
+    #'
+    #' # retrieve parameters
+    #' trial$args_summary() # return all set parameters
+    #' trial$args_summary("level") # select a single parameter
+    #' trial$args_summary(c("level", "alternative")) # multiple parameters
+    #'
+    #' # remove parameters
+    #' trial$args_summary(.reset = "level") # remove a single parameter
+    #' trial$args_summary(.reset = TRUE) # remove all parameters
+    #'
+    #' # remove and set/update parameters
+    #' trial$args_summary(alternative = "!=", level = 0.05, .reset = TRUE)
+    #' # removing alternative and setting level
+    #' trial$args_summary(level = 0.05, .reset = "alternative")
+    args_summary = function(.args = NULL, .reset = FALSE,  ...) {
       return(
-        trial_args_getter_setter(self = self, args = summary.args,
-        args.name = "summary.args", ...)
+        private$get_set_args_estimator(args = .args, reset = .reset, ...,
+          attr.name = "summary.args")
       )
     },
 
@@ -191,12 +208,6 @@ Trial <- R6::R6Class("Trial", #nolint
     #' trial$estimators(.reset = "est1")
     #' trial$estimators(est_glm()) # replaces removed est1
     estimators = function(.estimators = NULL, .reset = FALSE, ...) {
-      # TODO: we can implement some type checking, i.e. that each estimator
-      # is a function here. though not sure how useful this really is
-      # allow adding a single unnamed estimator
-      # TODO: we could also implement the option to order the estimators in
-      # alphabetical order. this would ensure that unnamed estimators are always
-      # in order
       trial_estimators(private, .estimators = .estimators, .reset = .reset, ...)
     },
 
@@ -325,14 +336,14 @@ Trial <- R6::R6Class("Trial", #nolint
     #'
     #' # the basic usage is to apply the summary method to the generated
     #' # trial.estimates object.
-    #' summary(trial$estimates)
+    #' trial$summary()
     #'
     #' # combining Trial$run and summary is faster than using
     #' # Trial$estimate_power when modifying only the parameters of the
     #' # decision-making function
     #' sapply(
     #'   c(0, 0.25, 0.5),
-    #'   \(ni) summary(trial$estimates, ni.margin = ni)[, "power"]
+    #'   \(ni) trial$summary(ni.margin = ni)[, "power"]
     #' )
     #'
     #' # changing the ate parameter value
@@ -349,9 +360,9 @@ Trial <- R6::R6Class("Trial", #nolint
     #' @description Estimates statistical power for a specified trial
     #'
     #' Convenience method that first runs [Trial$run()][Trial] and subsequently
-    #' applies [summary.trial.estimates] to derive the power for each estimator.
-    #' The behavior of passing arguments to lower level functions is identical
-    #' to [Trial$run()][Trial].
+    #' applies [Trial$summary()][Trial] to derive the power for each
+    #' estimator. The behavior of passing arguments to lower level functions is
+    #' identical to [Trial$run()][Trial].
     #' @examples
     #' # toy examples with small number of Monte-Carlo replicates
     #' # future::plan("multicore")
@@ -379,14 +390,12 @@ Trial <- R6::R6Class("Trial", #nolint
     #' @return numeric
     estimate_power = function(n,  R = 100, estimators = NULL,
       summary.args = list(), ...) {
-      # TODO: improve error message for failing estimators (see unit tests
-      # test_estimate_power)
-      sum.args <- self$summary.args
+      sum.args <- self$args_summary()
       sum.args[names(summary.args)] <- summary.args
 
       args <- c(list(...), list(n = n, R = R, estimators = estimators))
       r <- do.call(self$run, args)
-      sr <- do.call(summary, c(list(r), sum.args))
+      sr <- do.call(self$summary, c(list(estimates = r), sum.args))
       return(sr[, "power"])
     },
 
@@ -495,11 +504,69 @@ Trial <- R6::R6Class("Trial", #nolint
 
       },
 
+    #' @description Summarize Monte Carlo studies of different estimators for
+    #'   the treatment effect in a randomized clinical trial. The method reports
+    #'   the power of both superiority tests (one-sided or two-sided) and
+    #'   non-inferiority tests, together with summary statistics of the
+    #'   different estimators.
+    #' @param level (numeric) significance level
+    #' @param null (numeric) null hypothesis to test
+    #' @param ni.margin (numeric) non-inferiority margin
+    #' @param alternative alternative hypothesis (not equal !=, less <,
+    #'   greater >)
+    #' @param reject.function Optional function calculating whether to reject
+    #'   the null hypothesis
+    #' @param true.value Optional true parameter value
+    #' @param nominal.coverage Width of confidence limits
+    #' @param estimates Optional trial.estimates object. When provided, these
+    #'   estimates will be used instead of the object's stored estimates. This
+    #'   allows calculating summaries for different trial results without
+    #'   modifying the object's state.
+    #' @param ... additional arguments to lower level functions
+    #' @return matrix with results of each estimator stored in separate rows
+    #' @examples
+    #' outcome <- function(data, p = c(0.5, 0.25)) {
+    #'   a <- rbinom(nrow(data), 1, 0.5)
+    #'   data.frame(a = a, y = rbinom(nrow(data), 1, p[1] * (1 - a) + p[2] * a)
+    #'   )
+    #' }
+    #' trial <- Trial$new(outcome, estimators = est_glm())
+    #' trial$run(n = 100, R = 100)
+    #' # two-sided test with 0.05 significance level (alpha = 0.05) (default
+    #' # values)
+    #' trial$summary(level = 0.05, alternative = "!=")
+    #' # on-sided test
+    #' trial$summary(level = 0.025, alternative = "<")
+    #' # non-inferiority test
+    #' trial$summary(level = 0.025, ni.margin = -0.5)
+    #'
+    #' # provide simulation results to summary method via estimates argument
+    #' res <- trial$run(n = 100, R = 100, p = c(0.5, 0.5))
+    #' trial$summary(estimates = res)
+    #'
+    #' # calculate empirical bias, rmse and coverage for true target parameter
+    #' trial$summary(estimates = res, true.value = 0)
+    summary = function(level = .05,
+                       null = 0,
+                       ni.margin = NULL,
+                       alternative = "!=",
+                       reject.function = NULL,
+                       true.value = NULL,
+                       nominal.coverage = 0.9,
+                       estimates = NULL,
+                       ...) {
+    trial_summary(self = self, level = level, null = null,
+      ni.margin = ni.margin, alternative = alternative,
+      reject.function = reject.function, true.value = true.value,
+      nominal.coverage = nominal.coverage, estimates = estimates, ...
+    )
+    },
+
     #' @description Print method for Trial objects
     #' @param verbose (logical) By default, only print the
     #' function arguments of the covariates, outcome and exclusion models. If
     #' *TRUE*, then also print the function body.
-    #' @param ... Additional arguments to lower level functions
+    #' @param ... Additional arguments to lower level functions (not used).
     #' @examples
     #' trial <- Trial$new(
     #'   covariates = function(n) data.frame(a = rbinom(n, 1, 0.5)),
@@ -520,7 +587,10 @@ Trial <- R6::R6Class("Trial", #nolint
   active = list(),
   private = list(
     state = list(estimate_samplesize = FALSE),
+    # default values of summary method arguments (see initialize method)
+    summary.args_default = list(),
     model.args = list(),
+    summary.args = list(),
     .estimators = list(),
     # utility to set, update or retrieve parameters of model.args, summary.args
     # and estimators.
@@ -546,8 +616,6 @@ Trial <- R6::R6Class("Trial", #nolint
 
       # first handle getter for a subset of parameters
       if (is.character(args)) {
-        # TODO: we could add a warning when trying to retrieve parameters that
-        # have not been set yet
         res <- private[[attr.name]][c(args)]
         # only return parameters that exist in the attribute
         res <- res[!is.na(names(res))]
@@ -575,6 +643,9 @@ Trial <- R6::R6Class("Trial", #nolint
         if (length(all_args) == 0) {
           if (is.logical(reset)) {
             private[[attr.name]] <- list()
+            if (attr.name == "summary.args") {
+              private$summary.args <- private$summary.args_default
+            }
           } else {
             .exists <- sapply(c(reset), \(x) x %in% names(private[[attr.name]]))
             notfound <- names(.exists)[!.exists]
@@ -612,8 +683,6 @@ Trial <- R6::R6Class("Trial", #nolint
   )
 )
 
-
-
 #' @export
 print.samplesize_estimate <- function(x, ...) {
   pow <- formatC(x$power * 100, ...)
@@ -629,6 +698,99 @@ print.samplesize_estimate <- function(x, ...) {
 #' @export
 coef.samplesize_estimate <- function(object, ...) {
   return(object$estimate)
+}
+
+trial_summary <- function(self, level, null, ni.margin, alternative,
+  reject.function, true.value, nominal.coverage, estimates, ...) {
+  est <- if (!is.null(estimates)) estimates else self$estimates
+  if (is.null(est)) {
+    stop("No estimates available. Run trial first.")
+  }
+
+  if (!(alternative %in% c("!=", "<", ">"))) {
+    rlang::abort('alternative should be one of "!=", "<", ">"')
+  }
+
+  alternative <- gsub(" ", "", tolower(alternative[1]))
+  q_alpha_cov <- qnorm(1 - (1 - nominal.coverage) / 2) # quantile for
+  # calculating the nominal coverage when true.value is supplied
+  q_alpha_rej <- qnorm(1 - level / 2) # quantile used for decision making
+  # about the null hypothesis (here two-sided test, below for one-sided
+  # test)
+  if (alternative == "<") {
+    alternative <- "<"
+    q_alpha_rej <- qnorm(1 - level)
+  }
+  if (alternative == ">") {
+    alternative <- ">"
+    q_alpha_rej <- qnorm(1 - level)
+  }
+  if (!is.null(ni.margin)) {
+    q_alpha_rej <- qnorm(1 - level)
+    alternative <- ifelse(ni.margin >= 0, "<", ">")
+  }
+
+  if (is.null(reject.function)) {
+    reject.function <- function(lower, upper, ...) {
+      if (alternative == "<") {
+        if (!is.null(ni.margin)) {
+          return(upper < ni.margin)
+        }
+        return(upper < null)
+      }
+      if (alternative == ">") {
+        if (!is.null(ni.margin)) {
+          return(lower > ni.margin)
+        }
+        return(lower > null)
+      }
+      return((upper < null) | (lower > null))
+    }
+  } else {
+    reject.function <- add_dots(reject.function)
+  }
+
+  inference <- function(estimates) {
+    recalc <- function(estimates) {
+      est <- estimates[, c("Estimate", "Std.Err")] |>
+          as.data.frame()
+      point_est <- est[, "Estimate"]
+      est[, "z.score"] <- (point_est - null) / est[, "Std.Err"]
+      est[, "lower.CI"] <- point_est - q_alpha_rej * est[, "Std.Err"]
+      est[, "upper.CI"] <- point_est + q_alpha_rej * est[, "Std.Err"]
+      est[, "lower.CI.cov"] <- point_est - q_alpha_cov * est[, "Std.Err"]
+      est[, "upper.CI.cov"] <- point_est + q_alpha_cov * est[, "Std.Err"]
+      est[, "Reject"] <- reject.function(
+        estimate = est[, "Estimate"],
+        stderr = est[, "Std.Err"],
+        lower = est[, "lower.CI"],
+        upper = est[, "upper.CI"]
+      )
+      return(est)
+    }
+      estimates <- recalc(estimates)
+      out <- with(estimates, c(
+        estimate = mean(Estimate, na.rm=TRUE),
+        std.err = mean(Std.Err, na.rm=TRUE),
+        std.dev = sd(Estimate, na.rm=TRUE),
+        power = mean(Reject, na.rm=TRUE),
+        na = sum(is.na(Estimate))
+      ))
+      if (!is.null(true.value)) {
+        est_err <- estimates[, "Estimate"] - true.value
+        out[["bias"]] <- mean(est_err, na.rm = TRUE)
+        out[["rmse"]] <- mean(est_err ** 2, na.rm = TRUE) ** 0.5
+        out[["coverage"]] <- mean(
+          (estimates[, "lower.CI.cov"] <= true.value) &
+            (true.value <= estimates[, "upper.CI.cov"]), na.rm = TRUE)
+      }
+      return(out)
+  }
+
+  res <- lapply(est$estimates, \(est) inference(estimates = est))
+
+  res <- do.call(rbind, res)
+  return(res)
 }
 
 trial_simulate <- function(self, n, .niter, ...) {
@@ -701,8 +863,6 @@ trial_estimate_samplesize <- function(self, power, estimator, interval,
   .call$estimator <- NULL
   .call[[1]] <- estimate_samplesize_1estimator
 
-  # FIXME: this won't show the correct method call when using do.call to call
-  # the estimate_samplesize method
   method_call <- rev(sys.calls())[[3]]
   .stop <- function(msg) rlang::abort(msg, call = method_call)
 
@@ -832,7 +992,7 @@ trial_print <- function(self, verbose, ...) {
   cat("\n")
 
   cat("Summary arguments: ", "\n")
-  summary.args <- self$summary.args
+  summary.args <- self$args_summary()
   for (i in seq_along(summary.args)) {
     nam <- names(summary.args)[i]
     cat_bullet(paste0(nam, ": "))

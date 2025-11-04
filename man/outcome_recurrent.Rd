@@ -2,7 +2,7 @@
 % Please edit documentation in R/outcome_models.R
 \name{outcome_recurrent}
 \alias{outcome_recurrent}
-\title{UNDER DEVELOPMENT: Outcome model for recurrent events with terminal
+\title{EXPERIMENTAL: Outcome model for recurrent events with terminal
 events end-points}
 \usage{
 outcome_recurrent(

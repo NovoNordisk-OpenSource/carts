@@ -13,36 +13,50 @@ est_adj(
   id = NULL,
   family = gaussian(),
   level = 0.95,
-  treatment.effect = NULL,
+  treatment.effect = "absolute",
   nfolds = 1,
   ...
 )
 }
 \arguments{
-\item{response}{Response variable (character)}
+\item{response}{(character, formula, \link[targeted:learner]{targeted::learner}) The default
+behavior when providing a character is to use a \link{glm} with
+treatment-covariate interactions for the Q-model. The covariates are
+specified via the \code{covariates} argument, where the default behavior is to use
+no covariates. When providing a formula, a \link{glm} is used for the Q-model,
+where the design matrix is specified by the formula. The last option is to
+provide a \link[targeted:learner]{targeted::learner} object that specifies the Q-model (see
+examples).}
 
-\item{treatment}{Treatment variable (character)}
+\item{treatment}{(character) Treatment variable. Additional care must be
+taken when the treatment variable is encoded as a factor (see examples).}
 
-\item{covariates}{Optional covariates (character)}
+\item{covariates}{(character) List of covariates. Only applicable when
+\code{response} is a character.}
 
-\item{offset}{Optional offset (character)}
+\item{offset}{(character) Optional offset to include in the \link{glm} model when
+\code{response} is a character.}
 
-\item{id}{Optional subject id variable (character)}
+\item{id}{(character) Subject id variable}
 
-\item{family}{Exponential family (default gaussian)}
+\item{family}{(family) Family argument used in the \link{glm} when \code{response} is a
+character or formula.}
 
-\item{level}{Confidence interval level}
+\item{level}{(numeric) Confidence interval level}
 
-\item{treatment.effect}{(optional) function describing treatment effect given
-mean potential outcomes. Default is the average treatment effect
-(difference in expected outcome, (x,y) -> (y-x)) unless the family is
-binomial or poisson, in which case the treatment effect is the difference
-in log expected outcomes (x,y) -> log(y/x).}
+\item{treatment.effect}{(character, function) Default is the average
+treatment effect, i.e. difference in expected outcomes (x, y) -> x - y,
+with x = E[Y(1)] and y = E[Y(0)]). Other options are "logrr" (x, y) ->
+log(x / y) ) and "logor" (x, y) -> log(x / (1 - x) * y / (1 - y)). A
+user-defined function can alternatively be provided to target a population
+parameter other than the absolute difference, log rate ratio or log odds
+ratio (see details).}
 
-\item{nfolds}{Number of folds for estimating the conditional average
-treatment effect with double machine learning.}
+\item{nfolds}{(integer) Number of folds for estimating the conditional
+average treatment effect with double machine learning.}
 
-\item{...}{Additional arguments to the \link{ml_model} method}
+\item{...}{Additional arguments to \link[targeted:learner_glm]{targeted::learner_glm} when \code{response} is
+a character or formula.}
 }
 \value{
 function
@@ -50,10 +64,62 @@ function
 \description{
 Efficient estimator of the treatment effect based on the
 efficient influence function. This involves a model for the conditional
-mean of the outcome variable given covariates.
+mean of the outcome variable given covariates (Q-model).
 }
 \details{
-...
+The user-defined function for \code{treatment.effect} needs to accept a
+single argument \code{x} of estimates of (E[Y(1)],E[Y(0)]). The estimates are
+a vector, where the order of E[Y(1)] and E[Y(0)] depends on the encoding
+of the \code{treatment} variable. E[Y(0)] is the first element when the
+treatment variable is drawn from a Bernoulli distribution and kept as a
+numeric variable or corresponds to the first level when the treatment
+variable is encoded as a factor.
+}
+\examples{
+trial <- Trial$new(
+    covariates = function(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n)),
+    outcome = setargs(outcome_count,
+      mean = ~ 1 + a*x,
+      par = c(1, -0.1, 0.5, 0.2),
+      overdispersion = 2)
+)
+dd <- trial$simulate(1e4)
+
+# equivalent specifications to estimate log(E[Y(1)] / E[Y(0)])
+estimators <- list(
+  est_adj(family = poisson, treatment.effect = "logrr"),
+  est_glm(family = poisson),
+  est_adj(response = y ~ a, family = poisson, treatment.effect = "logrr"),
+  est_adj(response = targeted::learner_glm(y ~ a, family = poisson),
+    treatment.effect = "logrr"
+  )
+)
+lapply(estimators, \(est) est(dd))
+
+
+# now with covariates, estimating E[Y(1)] - E[Y(0)]
+estimators <- list(
+  est_adj(covariates = "x", family = poisson),
+  est_adj(response = y ~ a * x, family = poisson),
+  est_adj(response = targeted::learner_glm(y ~ a * x, family = poisson))
+)
+lapply(estimators, \(est) est(dd))
+
+# custom treatment.effect function
+estimator <- est_adj(response = y ~ a * x, family = poisson,
+  treatment.effect = \(x) x[2] - x[1] # x[1] contains the estimate of E[Y(0)]
+)
+estimator(dd)
+
+dd_factor <- dd
+# when using factors, the control/comparator treatment needs to be the first
+# level to estimate the contrasts defined by the `treatment.level` argument
+estimator <- est_adj(response = y ~ a * x, family = poisson)
+dd_factor$a <- factor(dd_factor$a, levels = c(0, 1))
+estimator(dd_factor) # E[Y(1)] - E[Y(0)]
+
+dd_factor$a <- factor(dd_factor$a, levels = c(1, 0))
+estimator(dd_factor) # E[Y(1)] - E[Y(0)]
 }
 \seealso{
 \link{Trial} \link{est_glm}

@@ -1,0 +1,5 @@
+url: https://novonordisk-opensource.github.io/carts/
+destination: docs
+
+template:
+  bootstrap: 5

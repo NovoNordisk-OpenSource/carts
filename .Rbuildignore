@@ -1,5 +1,7 @@
 ^misc$
+^.Rprofile$
 template.Rmd$
+^LICENSE\.md$
 ^CHANGELOG.md$
 ^CONTRIBUTING.md$
 ^TODO$

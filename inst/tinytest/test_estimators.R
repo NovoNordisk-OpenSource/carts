@@ -3,7 +3,7 @@
 library("tinytest")
 library("data.table")
 library("lava")
-predictor_glm <- targeted::predictor_glm
+learner_glm <- targeted::learner_glm
 
 set.seed(1)
 m <- lvm() |>
@@ -22,13 +22,13 @@ d0 <- subset(d, num == 1)
 
 test_est1 <- function() {
   # verify that est_adj estimates the same average treatment effect with
-  # different argument types. That is, model (via our targeted::ML wrapper for
-  # glm) and formula specification (internally defaults to a targeted::ML model)
+  # different argument types. That is, by providing either a character or
+  # targeted::learning object to the response argument of `est_adj`
   est0 <- estimate(lm(y ~ a, data = d0), keep = "a")
   e1 <- est_adj(response = "y", treatment = "a", family = gaussian)
   est1 <- e1(d0)
   expect_equivalent(parameter(est0), parameter(est1))
-  e2 <- est_adj(response = predictor_glm(y ~ a, family = gaussian))
+  e2 <- est_adj(response = learner_glm(y ~ a, family = gaussian))
   est2 <- e2(d0)
   expect_equivalent(parameter(est0), parameter(est2))
 
@@ -38,26 +38,33 @@ test_est1 <- function() {
   colnames(dr)[which(colnames(dr) == "a")] <- "A"
   est0r <- est_adj(response = "Y", treatment = "A")(dr)
   est1r <- est_adj(
-    predictor_glm(Y ~ A, family = gaussian),
+    learner_glm(Y ~ A, family = gaussian),
     treatment = "A")(dr)
   expect_equivalent(parameter(est0), parameter(est0r))
   expect_equivalent(parameter(est0), parameter(est1r))
 
   # Relative risk
   rr <- with(d0, mean(y[a == 1]) / mean(y[a == 0]))
-  e1 <- est_adj(family = binomial(), treatment.effect = "rr")
+  e1 <- est_adj(family = binomial(), treatment.effect = "logrr")
   expect_equal(rr, exp(parameter(e1(d0))[1]))
   e2 <- est_adj(
-    response = predictor_glm(y ~ a, family = gaussian),
-    treatment.effect = "rr"
+    response = learner_glm(y ~ a, family = gaussian),
+    treatment.effect = "logrr"
   )
   expect_equal(rr, exp(parameter(e2(d0))[1]))
+
+  # supplying function for treatment.effect argument works
+  e3 <- est_adj(response = learner_glm(y ~ a, family = gaussian),
+    treatment.effect = \(x) log(x[2] / x[1])
+  )
+  expect_equal(rr, exp(parameter(e3(d0))[1]))
+
 }
 test_est1()
 
 # Adjustment for baseline covariates
 test_est_adj1 <- function() {
-  e1 <- est_adj(predictor_glm(y ~ a * w, family = gaussian))
+  e1 <- est_adj(learner_glm(y ~ a * w, family = gaussian))
   est1 <- e1(d0)
   l <- lm(y ~ a * w, data = d0)
 
@@ -76,7 +83,7 @@ test_est_adj1 <- function() {
   )
 
   # Link function
-  e2 <- est_adj(predictor_glm(y ~ a * w, family = binomial))
+  e2 <- est_adj(learner_glm(y ~ a * w, family = binomial))
   est2 <- e2(d0)
   expect_equal(coef(est2), coef(est1), tolerance = 0.1)
 
@@ -99,7 +106,7 @@ test_est_adj1()
 
 # Confidence limits
 test_est_adj2 <- function() {
-  est <- est_adj(predictor_glm(y ~ a * w, family = gaussian), level = 0.8)(d0)
+  est <- est_adj(learner_glm(y ~ a * w, family = gaussian), level = 0.8)(d0)
   l <- lm(y ~ a * w, data = d0)
   q1 <- predict(l, newdata = transform(d0, a = 1))
   q0 <- predict(l, newdata = transform(d0, a = 0))
@@ -118,7 +125,7 @@ test_est_adj2()
 
 # Non-iid case
 test_est_gee <- function() {
-  est <- est_adj(predictor_glm(y ~ a, family = gaussian), id = "id")(d)
+  est <- est_adj(learner_glm(y ~ a, family = gaussian), id = "id")(d)
   g <- geepack::geeglm(y ~ a,
     data = d, id = d$id,
     corstr = "independence", family = gaussian

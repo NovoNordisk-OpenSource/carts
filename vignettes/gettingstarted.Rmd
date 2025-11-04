@@ -1,13 +1,13 @@
 ---
-title: "carts: getting started"
-author: "Klaus K. Holst (KKZH) and Benedikt Sommer (BKTS)"
+title: "Getting started"
+author: "Klaus K. Holst and Benedikt Sommer"
 output:
   rmarkdown::html_vignette:
     fig_caption: yes
     fig_width: 6
     fig_height: 6
 vignette: >
-  %\VignetteIndexEntry{carts: getting started}
+  %\VignetteIndexEntry{Getting started}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 bibliography: ref.bib
@@ -197,7 +197,7 @@ progressr::handlers(global = TRUE)
 progressr::handlers(progressr::handler_progress(times = 100))
 ```
 We refer to the
-[progressr vignette](https://cran.r-project.org/package=progressr/vignettes/progressr-intro.html)
+[progressr vignette](https://cran.r-project.org/package=progressr/vignettes/progressr-01-intro.html)
 for information on how to customize the progress bar appeareance.
 
 Most output in the `carts` package is handled by the

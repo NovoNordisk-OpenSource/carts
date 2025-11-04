@@ -4,7 +4,7 @@
 \name{carts-package}
 \alias{carts-package}
 \alias{carts}
-\title{carts: Simulation-based assessment of Covariate Adjustment in Randomized Trials}
+\title{carts: Simulation-Based Assessment of Covariate Adjustment in Randomized Trials}
 \description{
 Monte Carlo simulation framework for different randomized clinical trial designs with a special emphasis on estimators based on covariate adjustment.
 
@@ -13,12 +13,27 @@ clinical trial designs with a special emphasis on estimators based on
 covariate adjustment.
 }
 \examples{
-rnb(10, 1, 1)
+\dontrun{
+trial <- Trial$new(
+  covariates = \(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n)),
+  outcome = setargs(outcome_count, par = c(1, 0.5, 1), overdispersion = 0.7)
+)
+
+trial$estimators(
+  unadjusted = est_glm(family = "poisson"),
+  adjusted = est_glm(family = "poisson", covariates = "x")
+)
+
+trial$run(n = 200, R = 100)
+trial$summary()
+}
 }
 \seealso{
 Useful links:
 \itemize{
-  \item Report bugs at \url{https://github.com/NN-AI-Analytics/carts/issues}
+  \item \url{https://novonordisk-opensource.github.io/carts/}
+  \item \url{https://github.com/NovoNordisk-OpenSource/carts}
+  \item Report bugs at \url{https://github.com/NovoNordisk-OpenSource/carts/issues}
 }
 
 }

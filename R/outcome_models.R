@@ -1,11 +1,28 @@
+#' @name outcome_shared
+#' @title Outcome model
+#' @param data (data.table) Covariate data, usually the output of the covariate
+#' model of a [Trial] object.
+#' @param par (numeric) Regression coefficients (default zero). Can be given as
+#'   a named list corresponding to the column names of `model.matrix`
+#' @param outcome.name Name of outcome variable ("y")
+#' @param remove Variables that will be removed from input `data` (if formula is
+#'   not specified).
+#' @param mean (formula, function) Either a formula specifying the design from
+#'   'data' or a function that maps `data` to the conditional mean value on the
+#'   link scale (see examples). If NULL all main-effects of the covariates will
+#'   be used, except columns that are defined via the `remove` argument.
+#' @param ... Additional arguments passed to `mean` function (see examples)
+#' @return data.table
+NULL
+
+
+
+#' @inherit outcome_shared
 #' @title Calculate linear predictor from covariates
 #' @description Calculate linear predictor \deqn{\text{par}^\top X} where
 #'   \eqn{X} is the design matrix specified by the formula
-#' @param data covariate matrix
 #' @param mean formula specifying design from 'data' or a function that maps x
 #'   to the mean value. If NULL all main-effects of the covariates will be used
-#' @param par Regression coefficients (default zero). Can be given as a named
-#'   list corresponding to the column names of `model.matrix`
 #' @param model Optional model object ([glm], [mets::phreg], ...)
 #' @param offset Optional offset variable name
 #' @param treatment Optional name of treatment variable
@@ -20,11 +37,8 @@
 #'   mean is given as a function)
 #' @param remove variables that will be removed from input data (if formula is
 #'   not specified)
-#' @param ... Additional arguments passed to lower level functions
-#' @return data.table
 #' @seealso [outcome_count] [outcome_binary] [outcome_continuous]
 #'   [outcome_phreg]
-#' @export
 outcome_lp <- function(data,
                        mean = NULL,
                        par = NULL,
@@ -85,7 +99,7 @@ outcome_lp <- function(data,
     lp <- X %*% par
   } else {
     if (!is.function(mean)) stop("Expecting a function or a formula")
-    lp <- g(mean(data, ...))
+    lp <- g(add_dots(mean)(data, ...))
     if (is.data.table(lp)) {
       lp <- lp[[1]]
     }
@@ -94,45 +108,46 @@ outcome_lp <- function(data,
   return(structure(lp, family = family, par = par))
 }
 
+#' @inherit outcome_shared
 #' @title Simulate from count model given covariates
 #' @description Simulate from count model with intensity \deqn{\lambda =
 #'   \text{exposure-time}\exp(\text{par}^\top X)} where \eqn{X} is the design
 #'   matrix specified by the formula
-#' @param data covariate matrix
-#' @param mean formula specifying design from 'x' or a function that maps x to
-#'   the mean value. If NULL all main-effects of the covariates will be used.
-#' @param par Regression coefficients (default zero). Can be given as a named
-#'   list corresponding to the column names of `model.matrix`
-#' @param outcome.name Name of outcome variable ("y")
 #' @param exposure Exposure times. Either a scalar, vector or function.
-#' @param remove Variables that will be removed from input x (if formula is not
-#'   specified)
 #' @param zero.inflation vector of probabilities or a function of the covariates
 #'   'x' including an extra column 'rate' with the rate parameter.
 #' @param overdispersion variance of gamma-frailty either given as a numeric
 #'   vector or a function of the covariates 'x' with an extra column 'rate'
 #'   holding the rate parameter 'rate'
-#' @param ... Additional arguments passed to lower level functions
+#' @param ... Additional arguments passed to `mean` and `exposure` function
 #' @seealso [outcome_binary] [outcome_continuous] [outcome_lp]
-#' @return data.table with added exposure column
 #' @examples
-#' set.seed(24)
-#' covariates <- function(n) data.frame(a = rbinom(n, 1, 0.5))
-#' outcome <- setargs(
-#'   outcome_count,
-#'   mean = ~ 1 + a,
-#'   par = log(c(2.5, 0.65)),
+#' covariates <- function(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n))
+#' trial <- Trial$new(covariates = covariates, outcome = outcome_count)
+#' trial$args_model(
+#'   mean = ~ 1 + a + x,
+#'   par = c(2.5, 0.65, 0),
 #'   overdispersion = 1 / 2,
 #'   exposure = 2 # identical exposure time for all subjects
 #' )
-#' trial <- Trial$new(covariates = covariates, outcome = outcome)
-#' trial$simulate(5)
-#' # alternating exposure times between subjects
-#' trial$args_model(exposure = c(1, 2))
-#' trial$simulate(5)
+#' est <- function(data) {
+#'   glm(y ~ a + x + offset(log(exposure)), data, family = poisson())
+#' }
+#' trial$simulate(1e4) |> est()
+#'
+#' # intercept + coef for x default to 0 and regression coef for a takes
+#' # the provided value
+#' trial$simulate(1e4, par = c(a = 0.65)) |> est()
+#' # trial$simulate(1e4, mean = ~ 1 + a, par = c("(Intercept)" = 1))
+#'
+#' # define mean model that directly works on whole covariate data, incl id and
+#' # num columns
+#' trial$simulate(1e4, mean = \(x) with(x, exp(1 + 0.5 * a))) |>
+#'   est()
+#'
 #' # treatment-dependent exposure times
-#' trial$args_model(exposure = function(dd) 1 - 0.5 * dd$a)
-#' trial$simulate(5)
+#' trial$simulate(1e4, exposure = function(dd) 1 - 0.5 * dd$a) |>
+#'   head()
 #' @export
 outcome_count <- function(data,
                           mean = NULL,
@@ -171,23 +186,39 @@ outcome_count <- function(data,
   ))
 }
 
+#' @inherit outcome_shared
 #' @title Simulate from binary model given covariates
 #' @description Simulate from binary model with probability \deqn{\pi =
 #'   g(\text{par}^\top X)} where \eqn{X} is the design matrix specified by the
 #'   formula, and \eqn{g} is the link function specified by the family argument
-#' @param data covariate matrix
-#' @param mean formula specifying design from 'data' or a function that maps x
-#'   to the mean value. If NULL all main-effects of the covariates will be used
-#' @param par Regression coefficients (default zero). Can be given as a named
-#'   list corresponding to the column names of `model.matrix`
-#' @param outcome.name Name of outcome variable ("y")
-#' @param remove variables that will be removed from input x (if formula is not
-#'   specified)
 #' @param family exponential family (default `binomial(logit)`)
-#' @param ... Additional arguments passed to lower level functions
-#' @return data.table
 #' @seealso [outcome_count] [outcome_lp] [outcome_continuous]
 #' @export
+#' @examples
+#' trial <- Trial$new(
+#'   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
+#'   outcome = outcome_binary
+#' )
+#' est <- function(data) glm(y ~ a, data = data, family = binomial(logit))
+#' trial$simulate(1e4, mean = ~ 1 + a, par = c(1, 0.5)) |> est()
+#'
+#' # default behavior is to set all regression coefficients to 0
+#' trial$simulate(1e4, mean = ~ 1 + a) |> est()
+#'
+#' # intercept defaults to 0 and regression coef for a takes the provided value
+#' trial$simulate(1e4, mean = ~ 1 + a, par = c(a = 0.5)) |> est()
+#' # trial$simulate(1e4, mean = ~ 1 + a, par = c("(Intercept)" = 1))
+#'
+#' # define mean model that directly works on whole covariate data, incl id and
+#' # num columns
+#' trial$simulate(1e4, mean = \(x) with(x, lava::expit(1 + 0.5 * a))) |>
+#'   est()
+#'
+#' # par argument of outcome_binary is not passed on to mean function
+#' trial$simulate(1e4,
+#'   mean = \(x,  reg.par) with(x, lava::expit(reg.par[1] + reg.par[2] * a)),
+#'   reg.par = c(1, 0.8)
+#' ) |> est()
 outcome_binary <- function(data,
                            mean = NULL,
                            par = NULL,
@@ -208,30 +239,46 @@ outcome_binary <- function(data,
   return(res)
 }
 
+#' @inherit outcome_shared
 #' @title Simulate from continuous outcome model given covariates
 #' @description Simulate from continuous outcome model with mean
 #'   \deqn{g(\text{par}^\top X)} where \eqn{X} is the design matrix specified by
 #'   the formula, and \eqn{g} is the link function specified by the family
 #'   argument
-#' @param data covariate matrix
-#' @param mean formula specifying design from 'data' or a function that maps x
-#'   to the mean value. If NULL all main-effects of the covariates will be used
-#' @param par Regression coefficients (default zero). Can be given as a named
-#'   list corresponding to the column names of `model.matrix`
-#' @param sd standard deviation of measurement error
+#' @param sd (numeric) standard deviation of Gaussian measurement error
 #' @param het Introduce variance hetereogeneity by adding a residual term
 #'   \eqn{het \cdot \mu_x \cdot e}, where \eqn{\mu_x} is the mean given
 #'   covariates and \eqn{e} is an independent standard normal distributed
 #'   variable. This term is in addition to the measurement error introduced by
 #'   the `sd` argument.
-#' @param outcome.name Name of outcome variable ("y")
-#' @param remove variables that will be removed from input x (if formula is not
-#'   specified)
 #' @param family exponential family (default `gaussian(identity)`)
-#' @param ... Additional arguments passed to lower level functions
-#' @return data.table
 #' @seealso [outcome_count] [outcome_binary] [outcome_lp]
 #' @export
+#' @examples
+#' trial <- Trial$new(
+#'   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n)),
+#'   outcome = outcome_continuous
+#' )
+#' est <- function(data) glm(y ~ a + x, data = data)
+#' trial$simulate(1e4, mean = ~ 1 + a + x, par = c(1, 0.5, 2)) |> est()
+#'
+#' # default behavior is to set all regression coefficients to 0
+#' trial$simulate(1e4, mean = ~ 1 + a + x) |> est()
+#'
+#' # intercept defaults to 0 and regression coef for a takes the provided value
+#' trial$simulate(1e4, mean = ~ 1 + a, par = c(a = 0.5)) |> est()
+#' # trial$simulate(1e4, mean = ~ 1 + a, par = c("(Intercept)" = 0.5)) |> est()
+#'
+#' # define mean model that directly works on whole covariate data, incl id and
+#' # num columns
+#' trial$simulate(1e4, mean = \(x) with(x, -1 + a * 2 + x * -3)) |>
+#'   est()
+#'
+#' # par argument is not passed on to mean function
+#' trial$simulate(1e4,
+#'   mean = \(x,  reg.par) with(x, reg.par[1] + reg.par[2] * a),
+#'   reg.par = c(1, 5)
+#' ) |> est()
 outcome_continuous <- function(data,
                                mean = NULL,
                                par = NULL,
@@ -256,15 +303,11 @@ outcome_continuous <- function(data,
   return(res)
 }
 
-# TODO:  need more documentation if we aim to reuse this function across
-# several projects
+#' @inherit outcome_shared
 #' @title Outcome model for time-to-event end-points (proportional hazards)
-#' @param data data.frame (covariates)
 #' @param lp linear predictor (formula or function)
 #' @param par optional list of model parameter
 #' @param outcome.name names of outcome (time and censoring status)
-#' @param remove variables that will be removed from input data (if formula is
-#'   not specified)
 #' @param model optional [mets::phreg] object
 #' @param cens.model optional model for censoring mechanism
 #' @param cens.lp censoring linear predictor argument (formula or function)
@@ -273,8 +316,8 @@ outcome_continuous <- function(data,
 #' @return function (random generator)
 #' @author Klaus Kähler Holst
 #' @seealso [outcome_count] [outcome_lp] [outcome_binary] [outcome_continuous]
-#' @export
 #' @examples
+#' \dontrun{
 #' library("survival")
 #' data(pbc, package = "survival")
 #' pbc0 <- na.omit(pbc) |>
@@ -313,7 +356,7 @@ outcome_continuous <- function(data,
 #' pbc1 <- outcome(xx) |> cbind(xx)
 #' mets::phreg(Surv(time, status) ~ (age + sex) * trt, pbc1)
 #' rm(pbc1, xx)
-#'
+#' }
 outcome_phreg <- function(data,
                           lp = NULL,
                           par = NULL,
@@ -364,7 +407,7 @@ outcome_phreg <- function(data,
   return(structure(res, par = attr(rr, "par"), cens.par = attr(rr0, "par")))
 }
 
-#' @title UNDER DEVELOPMENT: Outcome model for recurrent events with terminal
+#' @title EXPERIMENTAL: Outcome model for recurrent events with terminal
 #' events end-points
 #' @description This function is still in an experimental state where the
 #' interface and functionality might change in the future
@@ -387,7 +430,6 @@ outcome_phreg <- function(data,
 #' @return function (random generator)
 #' @seealso [outcome_count] [outcome_lp] [outcome_binary] [outcome_continuous]
 #' [outcome_phreg]
-#' @export
 outcome_recurrent <- function(data,
                               lp = NULL,
                               par = NULL,
@@ -407,8 +449,6 @@ outcome_recurrent <- function(data,
   if (!is.null(death.model)) {
     deathmod <- proc_phreg(death.model)
     death.model <- deathmod$model
-  } else {
-    death.model <- NULL # TODO: isn't this superfluous?
   }
   ## censoring model
   if (is.null(cens.model)) {
@@ -417,7 +457,6 @@ outcome_recurrent <- function(data,
       cens.model <- mets::phreg(fcens, data = model.frame(death.model))
       cens.lp <- ~fcens
     } else {
-      # TODO: this cannot happen because proc_phreg fails for model = NULL.
       if (is.null(model)) stop(
         "Need 'phreg' object (argument 'model') or specify parametric model"
       )
