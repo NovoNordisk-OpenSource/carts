@@ -6,6 +6,8 @@
 \alias{carts}
 \title{carts: Simulation-Based Assessment of Covariate Adjustment in Randomized Trials}
 \description{
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
+
 Monte Carlo simulation framework for different randomized clinical trial designs with a special emphasis on estimators based on covariate adjustment.
 
 Monte Carlo simulation framework for different randomized
