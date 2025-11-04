@@ -1,4 +1,6 @@
 ^misc$
+^vignettes/figs/Makefile$
+^vignettes/figs/trial-class.tex$
 ^.Rprofile$
 template.Rmd$
 ^LICENSE\.md$

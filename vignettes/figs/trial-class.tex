@@ -1,0 +1,140 @@
+\documentclass[tikz,margin=2mm]{standalone}
+% \documentclass[border=0mm]{standalone}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A, T1]{fontenc}
+
+
+
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\var}{\mathbb{V}\!\!\operatorname{ar}}
+\newcommand{\pr}{\mathbb{P}}
+\newcommand{\distnb}{\operatorname{NB}}
+\newcommand{\distpois}{\operatorname{Pois}}
+\newcommand{\distbern}{\operatorname{Bernoulli}}
+\newcommand{\distgamma}{\Gamma}
+
+\usetikzlibrary{arrows, calc, positioning, shapes.multipart}
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\tikzstyle{line} = [draw, -latex']
+
+\tikzstyle{proc} =%
+rounded corners,
+[rectangle split,
+rectangle split parts=2,
+rectangle split part fill={blue!20, none},
+rectangle split part align={center, left},
+text width=5cm, text centered,
+draw=black]
+
+\tikzstyle{method} =%
+rounded corners,
+[rectangle split,
+rectangle split parts=2,
+rectangle split part fill={red!20, none},
+rectangle split part align={center, left},
+text width=5cm, text centered,
+draw=black]
+
+\begin{document}
+
+\begin{tikzpicture}[node distance = 1.5cm and 1.5cm]
+
+\node (trial) [draw=black, rectangle, fill=orange!10, minimum width=5cm, minimum height=2cm] {\texttt{Trial} class};
+
+\node (covar) [proc, below left=of trial]  {
+    \textbf{\texttt{covariates}} \\
+    \nodepart{two}
+    \vspace*{-1.2em}
+    \begin{flushleft}
+      Function (arguments \texttt{n, ...}) that generates a list of \texttt{data.table}'s with covariates with each element representing a unique time-point.
+    \end{flushleft}
+  };
+
+\node (outcome) [proc, above=of trial]  {
+    \textbf{\texttt{outcome}} \\
+    \nodepart{two}
+    \vspace*{-1.2em}
+    \begin{flushleft}
+      Function (arguments \texttt{x}: covariate data.table, \texttt{...}: additional
+    arguments defining parameters of the outcome model) that generates the outcome given covariates.
+    \end{flushleft}
+  };
+
+\node (exclusion) [proc, above left=of trial]  {
+    \textbf{\texttt{exclusion}} \\
+    \nodepart{two}
+    \vspace*{-1.2em}
+    \begin{flushleft}
+      Function (arguments \texttt{data}: data.table, \texttt{...}) that defines exclusion / inclusion criterions for the trial.
+    \end{flushleft}
+  };
+
+\node (info) [proc, left=of trial]  {
+    \textbf{\texttt{info}} \\
+    \nodepart{two}
+    \vspace*{-1.2em}
+    \begin{flushleft}
+      Optional string describing the trial simulation.
+    \end{flushleft}
+  };
+
+
+\node (simulate) [method, above right=of trial]  {
+    \textbf{\$\texttt{simulate}} \\
+    \nodepart{two}
+    \vspace*{-1.2em}
+    \begin{flushleft}
+    \textit{Simulate data from the specified trial design.}
+      \textbf{Arguments} \texttt{n}: sample size, \text{...}: additional arguments controlling covariate and outcome parameters. \textbf{Returns} `data.table` as defined by the object initialization with default subject identifier `id` and observation period `num`.
+    \end{flushleft}
+  };
+
+\node (run) [method, right=of trial]  {
+    \textbf{\$\texttt{run}} \\
+    \nodepart{two}
+    \vspace*{-1.2em}
+    \begin{flushleft}
+    \textit{Simulate and estimate parameters several times.}
+      \textbf{Arguments} \texttt{R}: replications, \texttt{estimators}: list of estimators of the trial target parameter, \texttt{...} additional arguments to the simulation routine. \textbf{Returns} an object with the Monte Carlo simulation results which can be analyzed with the \texttt{summary} method.
+    \end{flushleft}
+  };
+
+\node (estimatepower) [method, below=of trial]  {
+    \textbf{\$\texttt{estimate\_power}} \\
+    \nodepart{two}
+    \vspace*{-1.2em}
+    \begin{flushleft}
+    \textit{Estimate the statistical power of an estimator in a given scenario using Monte Carlo simulations.}
+      \textbf{Arguments} \texttt{R}: number of replications, \texttt{estimators}: estimator to  consider,
+     \texttt{summary.args}: arguments to the summary method that defines the statistical null hypothesis,
+      \texttt{...} additional arguments to the simulation routine. \textbf{Returns} estimated power for the given trial scenario.
+    \end{flushleft}
+  };
+
+\node (estimatesamplesize) [method, below right=of trial]  {
+    \textbf{\$\texttt{estimate\_samplesize}} \\
+    \nodepart{two}
+    \vspace*{-1.2em}
+    \begin{flushleft}
+    \textit{Estimate the minimum sample size needed to achieve a desired statistical power of an estimator in a given scenario.}
+      \textbf{Arguments} \texttt{estimator}, \texttt{power}, \texttt{...} \\
+      \textbf{Returns} an integer with an attribute 'power' with the actual power estimate.
+    \end{flushleft}
+  };
+
+
+
+\draw [arrow, dashed] (covar) -- (trial);
+\draw [arrow, dashed] (info) -- (trial);
+\draw [arrow, dashed] (exclusion) -- (trial);
+\draw [arrow, dashed] (outcome) -- (trial);
+
+\draw [arrow] (trial) -- (simulate);
+\draw [arrow] (trial) -- (run);
+\draw [arrow] (trial) -- (estimatepower);
+\draw [arrow] (trial) -- (estimatesamplesize);
+
+\end{tikzpicture}
+\end{document}
