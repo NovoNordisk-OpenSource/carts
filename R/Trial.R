@@ -208,12 +208,6 @@ Trial <- R6::R6Class("Trial", #nolint
     #' trial$estimators(.reset = "est1")
     #' trial$estimators(est_glm()) # replaces removed est1
     estimators = function(.estimators = NULL, .reset = FALSE, ...) {
-      # TODO: we can implement some type checking, i.e. that each estimator
-      # is a function here. though not sure how useful this really is
-      # allow adding a single unnamed estimator
-      # TODO: we could also implement the option to order the estimators in
-      # alphabetical order. this would ensure that unnamed estimators are always
-      # in order
       trial_estimators(private, .estimators = .estimators, .reset = .reset, ...)
     },
 
@@ -396,8 +390,6 @@ Trial <- R6::R6Class("Trial", #nolint
     #' @return numeric
     estimate_power = function(n,  R = 100, estimators = NULL,
       summary.args = list(), ...) {
-      # TODO: improve error message for failing estimators (see unit tests
-      # test_estimate_power)
       sum.args <- self$args_summary()
       sum.args[names(summary.args)] <- summary.args
 
@@ -624,8 +616,6 @@ Trial <- R6::R6Class("Trial", #nolint
 
       # first handle getter for a subset of parameters
       if (is.character(args)) {
-        # TODO: we could add a warning when trying to retrieve parameters that
-        # have not been set yet
         res <- private[[attr.name]][c(args)]
         # only return parameters that exist in the attribute
         res <- res[!is.na(names(res))]
@@ -873,8 +863,6 @@ trial_estimate_samplesize <- function(self, power, estimator, interval,
   .call$estimator <- NULL
   .call[[1]] <- estimate_samplesize_1estimator
 
-  # FIXME: this won't show the correct method call when using do.call to call
-  # the estimate_samplesize method
   method_call <- rev(sys.calls())[[3]]
   .stop <- function(msg) rlang::abort(msg, call = method_call)
 

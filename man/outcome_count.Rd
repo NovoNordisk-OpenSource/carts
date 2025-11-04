@@ -17,20 +17,23 @@ outcome_count(
 )
 }
 \arguments{
-\item{data}{covariate matrix}
+\item{data}{(data.table) Covariate data, usually the output of the covariate
+model of a \link{Trial} object.}
 
-\item{mean}{formula specifying design from 'x' or a function that maps x to
-the mean value. If NULL all main-effects of the covariates will be used.}
+\item{mean}{(formula, function) Either a formula specifying the design from
+'data' or a function that maps \code{data} to the conditional mean value on the
+link scale (see examples). If NULL all main-effects of the covariates will
+be used, except columns that are defined via the \code{remove} argument.}
 
-\item{par}{Regression coefficients (default zero). Can be given as a named
-list corresponding to the column names of \code{model.matrix}}
+\item{par}{(numeric) Regression coefficients (default zero). Can be given as
+a named list corresponding to the column names of \code{model.matrix}}
 
 \item{outcome.name}{Name of outcome variable ("y")}
 
 \item{exposure}{Exposure times. Either a scalar, vector or function.}
 
-\item{remove}{Variables that will be removed from input x (if formula is not
-specified)}
+\item{remove}{Variables that will be removed from input \code{data} (if formula is
+not specified).}
 
 \item{zero.inflation}{vector of probabilities or a function of the covariates
 'x' including an extra column 'rate' with the rate parameter.}
@@ -39,10 +42,10 @@ specified)}
 vector or a function of the covariates 'x' with an extra column 'rate'
 holding the rate parameter 'rate'}
 
-\item{...}{Additional arguments passed to lower level functions}
+\item{...}{Additional arguments passed to \code{mean} and \code{exposure} function}
 }
 \value{
-data.table with added exposure column
+data.table
 }
 \description{
 Simulate from count model with intensity \deqn{\lambda =
@@ -50,23 +53,32 @@ Simulate from count model with intensity \deqn{\lambda =
 matrix specified by the formula
 }
 \examples{
-set.seed(24)
-covariates <- function(n) data.frame(a = rbinom(n, 1, 0.5))
-outcome <- setargs(
-  outcome_count,
-  mean = ~ 1 + a,
-  par = log(c(2.5, 0.65)),
+covariates <- function(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n))
+trial <- Trial$new(covariates = covariates, outcome = outcome_count)
+trial$args_model(
+  mean = ~ 1 + a + x,
+  par = c(2.5, 0.65, 0),
   overdispersion = 1 / 2,
   exposure = 2 # identical exposure time for all subjects
 )
-trial <- Trial$new(covariates = covariates, outcome = outcome)
-trial$simulate(5)
-# alternating exposure times between subjects
-trial$args_model(exposure = c(1, 2))
-trial$simulate(5)
+est <- function(data) {
+  glm(y ~ a + x + offset(log(exposure)), data, family = poisson())
+}
+trial$simulate(1e4) |> est()
+
+# intercept + coef for x default to 0 and regression coef for a takes
+# the provided value
+trial$simulate(1e4, par = c(a = 0.65)) |> est()
+# trial$simulate(1e4, mean = ~ 1 + a, par = c("(Intercept)" = 1))
+
+# define mean model that directly works on whole covariate data, incl id and
+# num columns
+trial$simulate(1e4, mean = \(x) with(x, exp(1 + 0.5 * a))) |>
+  est()
+
 # treatment-dependent exposure times
-trial$args_model(exposure = function(dd) 1 - 0.5 * dd$a)
-trial$simulate(5)
+trial$simulate(1e4, exposure = function(dd) 1 - 0.5 * dd$a) |>
+  head()
 }
 \seealso{
 \link{outcome_binary} \link{outcome_continuous} \link{outcome_lp}
