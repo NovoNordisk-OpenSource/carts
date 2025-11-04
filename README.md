@@ -6,7 +6,7 @@
 [![slowtests](https://github.com/NovoNordisk-OpenSource/carts/actions/workflows/slow-tests.yaml/badge.svg)](https://github.com/NovoNordisk-OpenSource/carts/actions/workflows/slow-tests.yaml)
 <!-- badges: end -->
 
-# carts package <img src="data/extdata/logo.png" align="right" height="250" style="float:right; height:250px;" alt="carts website" />
+# carts package <img src="man/figures/logo.png" align="right" height="250" style="float:right; height:250px;" alt="carts website" />
 
 The `carts` R package is a simulation tool for exploring various
 estimators within a clinical trial context under differing assumptions.
