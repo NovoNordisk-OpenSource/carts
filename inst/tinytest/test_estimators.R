@@ -45,13 +45,20 @@ test_est1 <- function() {
 
   # Relative risk
   rr <- with(d0, mean(y[a == 1]) / mean(y[a == 0]))
-  e1 <- est_adj(family = binomial(), treatment.effect = "rr")
+  e1 <- est_adj(family = binomial(), treatment.effect = "logrr")
   expect_equal(rr, exp(parameter(e1(d0))[1]))
   e2 <- est_adj(
     response = learner_glm(y ~ a, family = gaussian),
-    treatment.effect = "rr"
+    treatment.effect = "logrr"
   )
   expect_equal(rr, exp(parameter(e2(d0))[1]))
+
+  # supplying function for treatment.effect argument works
+  e3 <- est_adj(response = learner_glm(y ~ a, family = gaussian),
+    treatment.effect = \(x) log(x[2] / x[1])
+  )
+  expect_equal(rr, exp(parameter(e3(d0))[1]))
+
 }
 test_est1()
 

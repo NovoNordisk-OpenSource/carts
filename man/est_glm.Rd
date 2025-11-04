@@ -22,7 +22,8 @@ est_glm(
 \arguments{
 \item{response}{(character) Response variable}
 
-\item{treatment}{(character) Treatment variable}
+\item{treatment}{(character) Treatment variable. Additional care must be
+taken when the treatment variable is encoded as a factor (see examples).}
 
 \item{covariates}{(character; optional) Single or vector of covariates}
 
@@ -79,6 +80,13 @@ estimators <- list(
 res <- do.call(rbind, lapply(estimators, \(est) est(dd)$coefmat))
 rownames(res) <- names(estimators)
 res
+
+dd_factor <- dd
+dd_factor$a <- as.factor(dd_factor$a)
+# target parameter needs to be changed because the name of the estimated
+# regression coefficient changes when encoding the treatment variable as a
+# factor
+est_glm(family = poisson, target.parameter = "a1")(dd_factor)
 }
 \seealso{
 \link{Trial}
