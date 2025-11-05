@@ -11,7 +11,7 @@
 #' for decision-making
 #' @author Klaus Kähler Holst, Benedikt Sommer
 #' @examples
-#' \dontrun{
+#' \dontrun{ # don't run because of high computational time
 #' trial <- Trial$new(
 #'   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n)),
 #'   outcome = setargs(outcome_count, par = c(1, 0.5, 1), overdispersion = 0.7)
@@ -320,6 +320,7 @@ Trial <- R6::R6Class("Trial", #nolint
     #' the simulation. The return object is also assigned to the `estimates`
     #' field of this Trial class object (see examples).
     #' @examples
+    #' \dontrun{ # don't run because of high computational time
     #' # future::plan("multicore")
     #' trial <- Trial$new(
     #'   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
@@ -351,6 +352,7 @@ Trial <- R6::R6Class("Trial", #nolint
     #'
     #' # supplying another estimator
     #' trial$run(n = 100, R = 50, estimators = est_glm(robust = FALSE))
+    #' }
     run = function(n, R = 100, estimators = NULL, ...) {
       return(trial_run(self, .private = private, n = n, R = R,
         estimators = estimators, ...)
@@ -364,6 +366,7 @@ Trial <- R6::R6Class("Trial", #nolint
     #' estimator. The behavior of passing arguments to lower level functions is
     #' identical to [Trial$run()][Trial].
     #' @examples
+    #' \dontrun{ # don't run because of high computational time
     #' # toy examples with small number of Monte-Carlo replicates
     #' # future::plan("multicore")
     #' trial <- Trial$new(
@@ -387,6 +390,7 @@ Trial <- R6::R6Class("Trial", #nolint
     #' # supplying estimators to overrule previously set estimators
     #' trial$estimate_power(n = 100, R = 20,
     #'  estimators = list(est_glm(), est_adj()))
+    #' }
     #' @return numeric
     estimate_power = function(n,  R = 100, estimators = NULL,
       summary.args = list(), ...) {
@@ -434,7 +438,7 @@ Trial <- R6::R6Class("Trial", #nolint
     #' @return samplesize_estimate S3 object
     #' @author Klaus Kähler Holst
     #' @examples
-    #' \dontrun{
+    #' \dontrun{ # don't run because of high computational time
     #' trial <- Trial$new(
     #'   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
     #'   outcome = \(data, ate, sd) with(data, rnorm(nrow(data), a * ate, sd)),
@@ -449,11 +453,11 @@ Trial <- R6::R6Class("Trial", #nolint
     #'
     #' # reduce number of iterations for bisection step but keep R = 100
     #' # (default value)
-    #' trial$estimate_samplesize(bisection.control = list(niter = 2))
+    #' # trial$estimate_samplesize(bisection.control = list(niter = 2))
     #'
     #' # reduce significance level from 0.05 to 0.025, but keep alternative as
     #' # before
-    #' trial$estimate_samplesize(summary.args = list(level = 0.025))
+    #' # trial$estimate_samplesize(summary.args = list(level = 0.025))
     #' }
     estimate_samplesize = function(
       ...,

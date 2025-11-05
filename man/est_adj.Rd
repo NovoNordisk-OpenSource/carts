@@ -76,6 +76,7 @@ numeric variable or corresponds to the first level when the treatment
 variable is encoded as a factor.
 }
 \examples{
+\dontrun{ # don't run because of high computational time
 trial <- Trial$new(
     covariates = function(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n)),
     outcome = setargs(outcome_count,
@@ -120,6 +121,7 @@ estimator(dd_factor) # E[Y(1)] - E[Y(0)]
 
 dd_factor$a <- factor(dd_factor$a, levels = c(1, 0))
 estimator(dd_factor) # E[Y(1)] - E[Y(0)]
+}
 }
 \seealso{
 \link{Trial} \link{est_glm}

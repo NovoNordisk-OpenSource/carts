@@ -3,7 +3,7 @@ on:
   pull_request:
     branches: [main, dev]
 
-name: r-cmd-check
+name: check package
 
 jobs:
   r-cmd-check:
@@ -36,11 +36,38 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::rcmdcheck
-          needs: check
+          extra-packages: |
+            any::lintr
+            any::devtools
+            any::rcmdcheck
+          needs: check, lint
 
       - uses: r-lib/actions/check-r-package@v2
         with:
           upload-snapshots: true
           args: 'c("--ignore-vignettes")'
           build_args: 'c("--no-build-vignettes")'
+
+      # test that committed man pages and namespace are up to date
+      - name: build roxygen documentation
+        run: |
+          cp -r man .man
+          cp -r NAMESPACE .NAMESPACE
+          make roxygen
+
+      - name: Check man pages
+        run: diff -r man .man
+
+      - name: Check NAMESPACE
+        run: diff -r NAMESPACE .NAMESPACE
+
+      - name: Lint package
+        run: lintr::lint_package()
+        shell: Rscript {0}
+        env:
+          LINTR_ERROR_ON_LINT: true
+
+      # test examples that have not been tested with r cmd check because of
+      # \donttest
+      - name: check examples
+        run: make check-examples

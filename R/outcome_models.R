@@ -318,6 +318,7 @@ outcome_continuous <- function(data,
 #' @seealso [outcome_count] [outcome_lp] [outcome_binary] [outcome_continuous]
 #' @examples
 #' \dontrun{
+#' outcome_phreg <- carts:::outcome_phreg
 #' library("survival")
 #' data(pbc, package = "survival")
 #' pbc0 <- na.omit(pbc) |>

@@ -8,7 +8,7 @@ Simulation of RCT with flexible covariates distributions
 simulation.
 }
 \examples{
-\dontrun{
+\dontrun{ # don't run because of high computational time
 trial <- Trial$new(
   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n)),
   outcome = setargs(outcome_count, par = c(1, 0.5, 1), overdispersion = 0.7)
@@ -169,6 +169,7 @@ trial$simulate(n)
 ## Method `Trial$run`
 ## ------------------------------------------------
 
+\dontrun{ # don't run because of high computational time
 # future::plan("multicore")
 trial <- Trial$new(
   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
@@ -200,11 +201,13 @@ trial$run(n = 100, R = 50, ate = -0.2)
 
 # supplying another estimator
 trial$run(n = 100, R = 50, estimators = est_glm(robust = FALSE))
+}
 
 ## ------------------------------------------------
 ## Method `Trial$estimate_power`
 ## ------------------------------------------------
 
+\dontrun{ # don't run because of high computational time
 # toy examples with small number of Monte-Carlo replicates
 # future::plan("multicore")
 trial <- Trial$new(
@@ -228,12 +231,13 @@ trial$estimate_power(n = 100, R = 20, ate = -100,
 # supplying estimators to overrule previously set estimators
 trial$estimate_power(n = 100, R = 20,
  estimators = list(est_glm(), est_adj()))
+}
 
 ## ------------------------------------------------
 ## Method `Trial$estimate_samplesize`
 ## ------------------------------------------------
 
-\dontrun{
+\dontrun{ # don't run because of high computational time
 trial <- Trial$new(
   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
   outcome = \(data, ate, sd) with(data, rnorm(nrow(data), a * ate, sd)),
@@ -248,11 +252,11 @@ trial$estimate_samplesize(ate = -2, estimator = est_glm())
 
 # reduce number of iterations for bisection step but keep R = 100
 # (default value)
-trial$estimate_samplesize(bisection.control = list(niter = 2))
+# trial$estimate_samplesize(bisection.control = list(niter = 2))
 
 # reduce significance level from 0.05 to 0.025, but keep alternative as
 # before
-trial$estimate_samplesize(summary.args = list(level = 0.025))
+# trial$estimate_samplesize(summary.args = list(level = 0.025))
 }
 
 ## ------------------------------------------------
@@ -717,7 +721,8 @@ field of this Trial class object (see examples).
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{# future::plan("multicore")
+\preformatted{\dontrun{ # don't run because of high computational time
+# future::plan("multicore")
 trial <- Trial$new(
   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
   outcome = \(data, ate = 0) with(data, rnorm(nrow(data), a * ate)),
@@ -748,6 +753,7 @@ trial$run(n = 100, R = 50, ate = -0.2)
 
 # supplying another estimator
 trial$run(n = 100, R = 50, estimators = est_glm(robust = FALSE))
+}
 }
 \if{html}{\out{</div>}}
 
@@ -791,7 +797,8 @@ numeric
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{# toy examples with small number of Monte-Carlo replicates
+\preformatted{\dontrun{ # don't run because of high computational time
+# toy examples with small number of Monte-Carlo replicates
 # future::plan("multicore")
 trial <- Trial$new(
   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
@@ -814,6 +821,7 @@ trial$estimate_power(n = 100, R = 20, ate = -100,
 # supplying estimators to overrule previously set estimators
 trial$estimate_power(n = 100, R = 20,
  estimators = list(est_glm(), est_adj()))
+}
 }
 \if{html}{\out{</div>}}
 
@@ -899,7 +907,7 @@ samplesize_estimate S3 object
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
+\preformatted{\dontrun{ # don't run because of high computational time
 trial <- Trial$new(
   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
   outcome = \(data, ate, sd) with(data, rnorm(nrow(data), a * ate, sd)),
@@ -914,11 +922,11 @@ trial$estimate_samplesize(ate = -2, estimator = est_glm())
 
 # reduce number of iterations for bisection step but keep R = 100
 # (default value)
-trial$estimate_samplesize(bisection.control = list(niter = 2))
+# trial$estimate_samplesize(bisection.control = list(niter = 2))
 
 # reduce significance level from 0.05 to 0.025, but keep alternative as
 # before
-trial$estimate_samplesize(summary.args = list(level = 0.025))
+# trial$estimate_samplesize(summary.args = list(level = 0.025))
 }
 }
 \if{html}{\out{</div>}}
