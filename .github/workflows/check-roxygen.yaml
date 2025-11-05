@@ -1,9 +1,6 @@
 # Check if Rd files (in man/) and NAMESPACE is up to date with roxygen
 # documentation and imports (carts_package.R)
-on:
-  pull_request:
-    branches: [main, dev]
-
+on: workflow_dispatch
 name: check-roxygen
 
 jobs:

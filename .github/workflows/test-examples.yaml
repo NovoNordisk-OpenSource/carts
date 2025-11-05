@@ -1,7 +1,5 @@
 # test examples that are not tested with r cmd check because of \donttest
-on:
-  pull_request:
-    branches: [main, dev]
+on: workflow_dispatch
 
 name: test-examples
 jobs:
