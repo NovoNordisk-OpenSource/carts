@@ -51,7 +51,6 @@ treatment effect estimate, which is estimated with \link[lava:estimate.default]{
 }
 \examples{
 \donttest{
-aaaa
 trial <- Trial$new(
     covariates = function(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n)),
     outcome = setargs(outcome_count,

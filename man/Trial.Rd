@@ -252,11 +252,11 @@ trial$estimate_samplesize(ate = -2, estimator = est_glm())
 
 # reduce number of iterations for bisection step but keep R = 100
 # (default value)
-trial$estimate_samplesize(bisection.control = list(niter = 2))
+# trial$estimate_samplesize(bisection.control = list(niter = 2))
 
 # reduce significance level from 0.05 to 0.025, but keep alternative as
 # before
-trial$estimate_samplesize(summary.args = list(level = 0.025))
+# trial$estimate_samplesize(summary.args = list(level = 0.025))
 }
 
 ## ------------------------------------------------
@@ -924,11 +924,11 @@ trial$estimate_samplesize(ate = -2, estimator = est_glm())
 
 # reduce number of iterations for bisection step but keep R = 100
 # (default value)
-trial$estimate_samplesize(bisection.control = list(niter = 2))
+# trial$estimate_samplesize(bisection.control = list(niter = 2))
 
 # reduce significance level from 0.05 to 0.025, but keep alternative as
 # before
-trial$estimate_samplesize(summary.args = list(level = 0.025))
+# trial$estimate_samplesize(summary.args = list(level = 0.025))
 }
 }
 \if{html}{\out{</div>}}
