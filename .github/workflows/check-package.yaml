@@ -3,7 +3,7 @@ on:
   pull_request:
     branches: [main, dev]
 
-name: r-cmd-check
+name: check package
 
 jobs:
   r-cmd-check:
@@ -48,12 +48,7 @@ jobs:
           args: 'c("--ignore-vignettes")'
           build_args: 'c("--no-build-vignettes")'
 
-      # test examples that have not been tested with r cmd check because of
-      # \donttest
-      - name: check examples
-        run: make check-examples
-
-      # test that committed man pages and namespace are up-to-date
+      # test that committed man pages and namespace are up to date
       - name: build roxygen documentation
         run: |
           cp -r man .man
@@ -71,3 +66,8 @@ jobs:
         shell: Rscript {0}
         env:
           LINTR_ERROR_ON_LINT: true
+
+      # test examples that have not been tested with r cmd check because of
+      # \donttest
+      - name: check examples
+        run: make check-examples
