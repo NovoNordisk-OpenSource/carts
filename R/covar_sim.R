@@ -247,7 +247,6 @@ covar_normal <- function(n,
 #' @return matching format of covariates in `covars`
 #' @author Klaus Kähler Holst
 #' @examples
-#' aaaaa
 #' # adding "fixed" treatment indicator in each period
 #' n <- 5
 #' xt <- function(n, ...) {

@@ -24,7 +24,6 @@ possible to easily add additional covariates to an existing list of
 covariates (in the form of a data.frame or data.table).
 }
 \examples{
-aaaaa
 # adding "fixed" treatment indicator in each period
 n <- 5
 xt <- function(n, ...) {
