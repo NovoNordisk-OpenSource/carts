@@ -20,6 +20,7 @@
 #' @author Klaus Kähler Holst
 #' @export
 #' @examples
+#' \donttest{
 #' trial <- Trial$new(
 #'     covariates = function(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n)),
 #'     outcome = setargs(outcome_count,
@@ -57,6 +58,7 @@
 #' # regression coefficient changes when encoding the treatment variable as a
 #' # factor
 #' est_glm(family = poisson, target.parameter = "a1")(dd_factor)
+#' }
 est_glm <- function(response = "y",
                     treatment = "a",
                     covariates = NULL,
@@ -164,6 +166,7 @@ est_glmbin <- function(...) {
 #' @author Klaus Kähler Holst
 #' @export
 #' @examples
+#' \donttest{
 #' trial <- Trial$new(
 #'     covariates = function(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n)),
 #'     outcome = setargs(outcome_count,
@@ -208,6 +211,7 @@ est_glmbin <- function(...) {
 #'
 #' dd_factor$a <- factor(dd_factor$a, levels = c(1, 0))
 #' estimator(dd_factor) # E[Y(1)] - E[Y(0)]
+#' }
 est_adj <- function(response = "y",
                     treatment = "a",
                     covariates = NULL,

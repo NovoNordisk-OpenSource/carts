@@ -34,6 +34,7 @@ estimator.}
 }
 
 \examples{
+\donttest{
 trial <- Trial$new(
   covariates = function(n) data.frame(a = rbinom(n, 1, 0.5)),
   outcome = function(data) rnorm(nrow(data), data$a * -1)
@@ -48,4 +49,5 @@ res2 <- do.call(
   c(list(R = 20, estimators = res$estimators), res$sim.args)
 )
 print(res2)
+}
 }

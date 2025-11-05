@@ -50,6 +50,7 @@ estimator is a function with a single argument (data) and returns the
 treatment effect estimate, which is estimated with \link[lava:estimate.default]{lava::estimate}
 }
 \examples{
+\donttest{
 trial <- Trial$new(
     covariates = function(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n)),
     outcome = setargs(outcome_count,
@@ -87,6 +88,7 @@ dd_factor$a <- as.factor(dd_factor$a)
 # regression coefficient changes when encoding the treatment variable as a
 # factor
 est_glm(family = poisson, target.parameter = "a1")(dd_factor)
+}
 }
 \seealso{
 \link{Trial}
