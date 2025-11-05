@@ -24,7 +24,7 @@
 #' @useDynLib carts, .registration=TRUE
 #' @author Benedikt Sommer, Klaus Holst, Foroogh Shamsi
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' trial <- Trial$new(
 #'   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n)),
 #'   outcome = setargs(outcome_count, par = c(1, 0.5, 1), overdispersion = 0.7)

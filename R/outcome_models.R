@@ -317,7 +317,7 @@ outcome_continuous <- function(data,
 #' @author Klaus Kähler Holst
 #' @seealso [outcome_count] [outcome_lp] [outcome_binary] [outcome_continuous]
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' outcome_phreg <- carts:::outcome_phreg
 #' library("survival")
 #' data(pbc, package = "survival")

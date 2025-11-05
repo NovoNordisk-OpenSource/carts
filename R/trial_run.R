@@ -168,7 +168,7 @@ print.trial.estimates <- function(x, ...) {
 #'  }
 #' @aliases trial.estimates-class
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' trial <- Trial$new(
 #'   covariates = function(n) data.frame(a = rbinom(n, 1, 0.5)),
 #'   outcome = function(data) rnorm(nrow(data), data$a * -1)

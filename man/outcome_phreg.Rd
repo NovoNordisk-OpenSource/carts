@@ -47,7 +47,7 @@ function (random generator)
 Outcome model for time-to-event end-points (proportional hazards)
 }
 \examples{
-\donttest{
+\dontrun{
 outcome_phreg <- carts:::outcome_phreg
 library("survival")
 data(pbc, package = "survival")

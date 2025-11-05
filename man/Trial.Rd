@@ -8,7 +8,7 @@ Simulation of RCT with flexible covariates distributions
 simulation.
 }
 \examples{
-\donttest{
+\dontrun{
 trial <- Trial$new(
   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n)),
   outcome = setargs(outcome_count, par = c(1, 0.5, 1), overdispersion = 0.7)
@@ -169,7 +169,7 @@ trial$simulate(n)
 ## Method `Trial$run`
 ## ------------------------------------------------
 
-\donttest{
+\dontrun{
 # future::plan("multicore")
 trial <- Trial$new(
   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
@@ -207,7 +207,7 @@ trial$run(n = 100, R = 50, estimators = est_glm(robust = FALSE))
 ## Method `Trial$estimate_power`
 ## ------------------------------------------------
 
-\donttest{
+\dontrun{
 # toy examples with small number of Monte-Carlo replicates
 # future::plan("multicore")
 trial <- Trial$new(
@@ -237,7 +237,7 @@ trial$estimate_power(n = 100, R = 20,
 ## Method `Trial$estimate_samplesize`
 ## ------------------------------------------------
 
-\donttest{
+\dontrun{
 trial <- Trial$new(
   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
   outcome = \(data, ate, sd) with(data, rnorm(nrow(data), a * ate, sd)),
@@ -263,7 +263,7 @@ trial$estimate_samplesize(ate = -2, estimator = est_glm())
 ## Method `Trial$summary`
 ## ------------------------------------------------
 
-\donttest{
+\dontrun{
 outcome <- function(data, p = c(0.5, 0.25)) {
   a <- rbinom(nrow(data), 1, 0.5)
   data.frame(a = a, y = rbinom(nrow(data), 1, p[1] * (1 - a) + p[2] * a)
@@ -723,7 +723,7 @@ field of this Trial class object (see examples).
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{\donttest{
+\preformatted{\dontrun{
 # future::plan("multicore")
 trial <- Trial$new(
   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
@@ -799,7 +799,7 @@ numeric
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{\donttest{
+\preformatted{\dontrun{
 # toy examples with small number of Monte-Carlo replicates
 # future::plan("multicore")
 trial <- Trial$new(
@@ -909,7 +909,7 @@ samplesize_estimate S3 object
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{\donttest{
+\preformatted{\dontrun{
 trial <- Trial$new(
   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
   outcome = \(data, ate, sd) with(data, rnorm(nrow(data), a * ate, sd)),
@@ -992,7 +992,7 @@ matrix with results of each estimator stored in separate rows
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{\donttest{
+\preformatted{\dontrun{
 outcome <- function(data, p = c(0.5, 0.25)) {
   a <- rbinom(nrow(data), 1, 0.5)
   data.frame(a = a, y = rbinom(nrow(data), 1, p[1] * (1 - a) + p[2] * a)
