@@ -166,7 +166,7 @@ est_glmbin <- function(...) {
 #' @author Klaus Kähler Holst
 #' @export
 #' @examples
-#' \dontrun{
+#' \dontrun{ # don't run because of high computational time
 #' trial <- Trial$new(
 #'     covariates = function(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n)),
 #'     outcome = setargs(outcome_count,

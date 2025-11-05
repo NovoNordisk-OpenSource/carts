@@ -11,7 +11,7 @@
 #' for decision-making
 #' @author Klaus Kähler Holst, Benedikt Sommer
 #' @examples
-#' \dontrun{
+#' \dontrun{ # don't run because of high computational time
 #' trial <- Trial$new(
 #'   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n)),
 #'   outcome = setargs(outcome_count, par = c(1, 0.5, 1), overdispersion = 0.7)
@@ -320,7 +320,7 @@ Trial <- R6::R6Class("Trial", #nolint
     #' the simulation. The return object is also assigned to the `estimates`
     #' field of this Trial class object (see examples).
     #' @examples
-    #' \dontrun{
+    #' \dontrun{ # don't run because of high computational time
     #' # future::plan("multicore")
     #' trial <- Trial$new(
     #'   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
@@ -366,7 +366,7 @@ Trial <- R6::R6Class("Trial", #nolint
     #' estimator. The behavior of passing arguments to lower level functions is
     #' identical to [Trial$run()][Trial].
     #' @examples
-    #' \dontrun{
+    #' \dontrun{ # don't run because of high computational time
     #' # toy examples with small number of Monte-Carlo replicates
     #' # future::plan("multicore")
     #' trial <- Trial$new(
@@ -438,7 +438,7 @@ Trial <- R6::R6Class("Trial", #nolint
     #' @return samplesize_estimate S3 object
     #' @author Klaus Kähler Holst
     #' @examples
-    #' \dontrun{
+    #' \dontrun{ # don't run because of high computational time
     #' trial <- Trial$new(
     #'   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
     #'   outcome = \(data, ate, sd) with(data, rnorm(nrow(data), a * ate, sd)),
@@ -529,7 +529,6 @@ Trial <- R6::R6Class("Trial", #nolint
     #' @param ... additional arguments to lower level functions
     #' @return matrix with results of each estimator stored in separate rows
     #' @examples
-    #' \dontrun{
     #' outcome <- function(data, p = c(0.5, 0.25)) {
     #'   a <- rbinom(nrow(data), 1, 0.5)
     #'   data.frame(a = a, y = rbinom(nrow(data), 1, p[1] * (1 - a) + p[2] * a)
@@ -551,7 +550,6 @@ Trial <- R6::R6Class("Trial", #nolint
     #'
     #' # calculate empirical bias, rmse and coverage for true target parameter
     #' trial$summary(estimates = res, true.value = 0)
-    #' }
     summary = function(level = .05,
                        null = 0,
                        ni.margin = NULL,
