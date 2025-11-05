@@ -5,7 +5,7 @@ estimator is a function with a single argument (data) and returns the
 treatment effect estimate, which is estimated with lava::estimate"><meta property="og:description" content="Returns an estimator for the estimation of a treatment effect
 with parametric models (stats::glm and MASS::glm.nb). The returned
 estimator is a function with a single argument (data) and returns the
-treatment effect estimate, which is estimated with lava::estimate"></head><body>
+treatment effect estimate, which is estimated with lava::estimate"><meta property="og:image" content="https://novonordisk-opensource.github.io/carts/logo.png"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -38,8 +38,7 @@ treatment effect estimate, which is estimated with lava::estimate"></head><body>
 </nav><div class="container template-reference-topic">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-
-      <h1>Construct estimator for the treatment effect in RCT</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>Construct estimator for the treatment effect in RCT</h1>
       <small class="dont-index">Source: <a href="https://github.com/NovoNordisk-OpenSource/carts/blob/main/R/estimators.R" class="external-link"><code>R/estimators.R</code></a></small>
       <div class="d-none name"><code>est_glm.Rd</code></div>
     </div>
@@ -123,7 +122,8 @@ taken when the treatment variable is encoded as a factor (see examples).</p></dd
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">trial</span> <span class="op">&lt;-</span> <span class="va"><a href="Trial.html">Trial</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span><span class="va">trial</span> <span class="op">&lt;-</span> <span class="va"><a href="Trial.html">Trial</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span></span>
 <span class="r-in"><span>    covariates <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">rbinom</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">1</span>, <span class="fl">0.5</span><span class="op">)</span>, x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>    outcome <span class="op">=</span> <span class="fu"><a href="setargs.html">setargs</a></span><span class="op">(</span><span class="va">outcome_count</span>,</span></span>
 <span class="r-in"><span>      mean <span class="op">=</span> <span class="op">~</span> <span class="fl">1</span> <span class="op">+</span> <span class="va">a</span><span class="op">*</span><span class="va">x</span>,</span></span>
@@ -135,22 +135,14 @@ taken when the treatment variable is encoded as a factor (see examples).</p></dd
 <span class="r-in"><span><span class="co"># crude mean comparison between arms (default behavior; y ~ a)</span></span></span>
 <span class="r-in"><span><span class="va">est</span> <span class="op">&lt;-</span> <span class="fu">est_glm</span><span class="op">(</span>family <span class="op">=</span> <span class="va">poisson</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">est</span><span class="op">(</span><span class="va">dd</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Estimate Std.Err    2.5%  97.5% P-value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> a -0.05591  0.2133 -0.4739 0.3621  0.7932</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># linear adjustment with one covariate (y ~ a + x)</span></span></span>
 <span class="r-in"><span><span class="va">est</span> <span class="op">&lt;-</span> <span class="fu">est_glm</span><span class="op">(</span>family <span class="op">=</span> <span class="va">poisson</span>, covariates <span class="op">=</span> <span class="st">"x"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">est</span><span class="op">(</span><span class="va">dd</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Estimate Std.Err    2.5%  97.5% P-value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> a -0.03663  0.2058 -0.4401 0.3668  0.8588</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># return estimates of all linear coefficients (useful for debugging)</span></span></span>
 <span class="r-in"><span><span class="va">est</span> <span class="op">&lt;-</span> <span class="fu">est_glm</span><span class="op">(</span>family <span class="op">=</span> <span class="va">poisson</span>, covariates <span class="op">=</span> <span class="st">"x"</span>, target.parameter <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">est</span><span class="op">(</span><span class="va">dd</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             Estimate Std.Err    2.5%  97.5%   P-value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)  1.10672 0.13951  0.8333 1.3802 2.140e-15</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> a           -0.03663 0.20583 -0.4401 0.3668 8.588e-01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> x            0.53642 0.08946  0.3611 0.7118 2.024e-09</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># comparing robust and non-robust standard errors of poisson estimator by</span></span></span>
 <span class="r-in"><span><span class="co"># passing robust argument via ... to lava::estimate</span></span></span>
@@ -161,9 +153,6 @@ taken when the treatment variable is encoded as a factor (see examples).</p></dd
 <span class="r-in"><span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/do.call.html" class="external-link">do.call</a></span><span class="op">(</span><span class="va">rbind</span>, <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">estimators</span>, \<span class="op">(</span><span class="va">est</span><span class="op">)</span> <span class="fu">est</span><span class="op">(</span><span class="va">dd</span><span class="op">)</span><span class="op">$</span><span class="va">coefmat</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">estimators</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">res</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               Estimate    Std.Err       2.5%      97.5%   P-value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> robust     -0.05591095 0.21326429 -0.4739013 0.36207938 0.7931924</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> non.robust -0.05591095 0.06246512 -0.1783403 0.06651844 0.3707472</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">dd_factor</span> <span class="op">&lt;-</span> <span class="va">dd</span></span></span>
 <span class="r-in"><span><span class="va">dd_factor</span><span class="op">$</span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">as.factor</a></span><span class="op">(</span><span class="va">dd_factor</span><span class="op">$</span><span class="va">a</span><span class="op">)</span></span></span>
@@ -171,8 +160,7 @@ taken when the treatment variable is encoded as a factor (see examples).</p></dd
 <span class="r-in"><span><span class="co"># regression coefficient changes when encoding the treatment variable as a</span></span></span>
 <span class="r-in"><span><span class="co"># factor</span></span></span>
 <span class="r-in"><span><span class="fu">est_glm</span><span class="op">(</span>family <span class="op">=</span> <span class="va">poisson</span>, target.parameter <span class="op">=</span> <span class="st">"a1"</span><span class="op">)</span><span class="op">(</span><span class="va">dd_factor</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    Estimate Std.Err    2.5%  97.5% P-value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> a1 -0.05591  0.2133 -0.4739 0.3621  0.7932</span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

@@ -3,7 +3,7 @@
 possible to easily add additional covariates to an existing list of
 covariates (in the form of a data.frame or data.table)."><meta property="og:description" content="For use with Trial objects, this function makes it
 possible to easily add additional covariates to an existing list of
-covariates (in the form of a data.frame or data.table)."></head><body>
+covariates (in the form of a data.frame or data.table)."><meta property="og:image" content="https://novonordisk-opensource.github.io/carts/logo.png"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -36,8 +36,7 @@ covariates (in the form of a data.frame or data.table)."></head><body>
 </nav><div class="container template-reference-topic">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-
-      <h1>Add additional covariates to existing list of covariates</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>Add additional covariates to existing list of covariates</h1>
       <small class="dont-index">Source: <a href="https://github.com/NovoNordisk-OpenSource/carts/blob/main/R/covar_sim.R" class="external-link"><code>R/covar_sim.R</code></a></small>
       <div class="d-none name"><code>covar_add.Rd</code></div>
     </div>
@@ -92,22 +91,22 @@ covariates (in the form of a data.frame or data.table).</p>
 <span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span><span class="fu">xt</span><span class="op">(</span><span class="va">n</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`0`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              z     a</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          &lt;num&gt; &lt;num&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1:  0.29435563     0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2: -2.29972187     0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3:  0.44394815     0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4: -0.06710537     0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5: -1.49056897     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             z     a</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;num&gt; &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1: -0.4516861     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2: -2.1892365     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3: -2.6154933     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4:  0.5078047     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5: -1.7551775     0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`1`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             z     a</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;num&gt; &lt;num&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1: -0.1380958     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2: -0.6265172     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3: -0.3322617     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4: -2.0997144     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5:  0.9869468     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1: -0.8288163     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2: -3.6019418     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3: -0.4412044     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4:  0.6409044     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5:  0.4852669     1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="co"># adding randomized treatment indicator</span></span></span>
 <span class="r-in"><span><span class="va">xt</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">n</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span></span></span>
@@ -118,20 +117,20 @@ covariates (in the form of a data.frame or data.table).</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`0`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             z     a</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;num&gt; &lt;int&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1: -6.0815583     0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2: -1.0477387     0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3: -3.3741042     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4:  0.5022604     0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5:  0.1889490     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1: -0.9950625     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2:  0.3403022     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3: -0.2265323     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4:  0.0303355     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5: -1.1902159     0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`1`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             z     a</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;num&gt; &lt;int&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1: -2.1259081     0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2:  0.5361905     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3: -0.9354774     0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4: -1.8021426     0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5: -1.2888957     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1: -1.3981285     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2: -0.9163669     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3: -0.8012435     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4:  0.5819330     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5:  1.1173551     0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="co"># adding baseline covariates</span></span></span>
 <span class="r-in"><span><span class="va">xt</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">n</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span></span></span>
@@ -144,22 +143,22 @@ covariates (in the form of a data.frame or data.table).</p>
 <span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span><span class="fu">xt</span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`0`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             z         w1         w2         w3          w4          w5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;num&gt;      &lt;num&gt;      &lt;num&gt;      &lt;num&gt;       &lt;num&gt;       &lt;num&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1:  1.5245136 -0.1914628 -0.1913677 -1.7366992 -0.91754935  0.31547913</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2: -0.2345076 -0.3722715 -0.2783235 -0.2403841  0.10268885  0.03216748</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3: -0.3040777 -1.4572977 -0.6531821  1.0478576  0.07783576  0.15585690</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4: -3.2503643  0.1286329 -0.1153339 -1.0352725 -0.54841718 -1.62969131</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5:  1.2444897 -1.3407480 -0.4129104 -0.5445270  2.20743416  0.41692239</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             z         w1         w2          w3          w4         w5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;num&gt;      &lt;num&gt;      &lt;num&gt;       &lt;num&gt;       &lt;num&gt;      &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1:  0.8195252  1.6229452 -1.0305073  0.18822825 -0.69553077 -1.5869430</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2:  0.1850486 -0.7080310  0.7704762  1.95150653 -0.89125131  0.6758453</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3: -2.2238584  0.3308867 -1.2894581 -1.10794783 -0.24231246 -0.4758486</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4: -1.5360723  0.6711626  1.5771846 -0.04758160  1.77474338 -0.4963323</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5:  1.0351734  0.8351916 -0.1139907 -0.09504016  0.05588728  0.1729910</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`1`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             z         w1         w2         w3          w4          w5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;num&gt;      &lt;num&gt;      &lt;num&gt;      &lt;num&gt;       &lt;num&gt;       &lt;num&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1:  0.6719074 -0.1914628 -0.1913677 -1.7366992 -0.91754935  0.31547913</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2: -5.2106768 -0.3722715 -0.2783235 -0.2403841  0.10268885  0.03216748</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3: -0.3668836 -1.4572977 -0.6531821  1.0478576  0.07783576  0.15585690</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4: -1.1808717  0.1286329 -0.1153339 -1.0352725 -0.54841718 -1.62969131</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5: -1.5563875 -1.3407480 -0.4129104 -0.5445270  2.20743416  0.41692239</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             z         w1         w2          w3          w4         w5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;num&gt;      &lt;num&gt;      &lt;num&gt;       &lt;num&gt;       &lt;num&gt;      &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1:  0.1261988  1.6229452 -1.0305073  0.18822825 -0.69553077 -1.5869430</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2:  0.2678649 -0.7080310  0.7704762  1.95150653 -0.89125131  0.6758453</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3: -1.3207321  0.3308867 -1.2894581 -1.10794783 -0.24231246 -0.4758486</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4: -2.2563337  0.6711626  1.5771846 -0.04758160  1.77474338 -0.4963323</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5:  0.9176566  0.8351916 -0.1139907 -0.09504016  0.05588728  0.1729910</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 </code></pre></div>
     </div>

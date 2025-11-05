@@ -3,7 +3,7 @@
   g(\text{par}^\top X)$$ where \(X\) is the design matrix specified by the
 formula, and \(g\) is the link function specified by the family argument"><meta property="og:description" content="Simulate from binary model with probability $$\pi =
   g(\text{par}^\top X)$$ where \(X\) is the design matrix specified by the
-formula, and \(g\) is the link function specified by the family argument"></head><body>
+formula, and \(g\) is the link function specified by the family argument"><meta property="og:image" content="https://novonordisk-opensource.github.io/carts/logo.png"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -36,8 +36,7 @@ formula, and \(g\) is the link function specified by the family argument"></head
 </nav><div class="container template-reference-topic">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-
-      <h1>Simulate from binary model given covariates</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>Simulate from binary model given covariates</h1>
       <small class="dont-index">Source: <a href="https://github.com/NovoNordisk-OpenSource/carts/blob/main/R/outcome_models.R" class="external-link"><code>R/outcome_models.R</code></a></small>
       <div class="d-none name"><code>outcome_binary.Rd</code></div>
     </div>
@@ -121,11 +120,11 @@ not specified).</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)            a  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      0.9572       0.5290  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       1.002        0.549  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Degrees of Freedom: 9999 Total (i.e. Null);  9998 Residual</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    10820 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 10700 	AIC: 10700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    10580 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 10450 	AIC: 10460</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># default behavior is to set all regression coefficients to 0</span></span></span>
 <span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">simulate</span><span class="op">(</span><span class="fl">1e4</span>, mean <span class="op">=</span> <span class="op">~</span> <span class="fl">1</span> <span class="op">+</span> <span class="va">a</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">est</span><span class="op">(</span><span class="op">)</span></span></span>
@@ -134,7 +133,7 @@ not specified).</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)            a  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    0.007101    -0.026574  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     0.02405     -0.00329  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Degrees of Freedom: 9999 Total (i.e. Null);  9998 Residual</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    13860 </span>
@@ -147,11 +146,11 @@ not specified).</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)            a  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   -0.004424     0.488285  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    -0.01192      0.52361  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Degrees of Freedom: 9999 Total (i.e. Null);  9998 Residual</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    13720 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 13580 	AIC: 13580</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 13550 	AIC: 13550</span>
 <span class="r-in"><span><span class="co"># trial$simulate(1e4, mean = ~ 1 + a, par = c("(Intercept)" = 1))</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># define mean model that directly works on whole covariate data, incl id and</span></span></span>
@@ -163,11 +162,11 @@ not specified).</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)            a  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      0.9783       0.6027  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      0.9921       0.4917  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Degrees of Freedom: 9999 Total (i.e. Null);  9998 Residual</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    10590 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 10440 	AIC: 10440</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    10740 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 10640 	AIC: 10640</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># par argument of outcome_binary is not passed on to mean function</span></span></span>
 <span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">simulate</span><span class="op">(</span><span class="fl">1e4</span>,</span></span>
@@ -179,11 +178,11 @@ not specified).</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)            a  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      0.9894       0.8733  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      1.0232       0.7589  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Degrees of Freedom: 9999 Total (i.e. Null);  9998 Residual</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    10080 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 9786 	AIC: 9790</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    10100 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 9876 	AIC: 9880</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

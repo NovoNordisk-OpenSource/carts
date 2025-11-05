@@ -3,7 +3,7 @@
 efficient influence function. This involves a model for the conditional
 mean of the outcome variable given covariates (Q-model)."><meta property="og:description" content="Efficient estimator of the treatment effect based on the
 efficient influence function. This involves a model for the conditional
-mean of the outcome variable given covariates (Q-model)."></head><body>
+mean of the outcome variable given covariates (Q-model)."><meta property="og:image" content="https://novonordisk-opensource.github.io/carts/logo.png"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -36,8 +36,7 @@ mean of the outcome variable given covariates (Q-model)."></head><body>
 </nav><div class="container template-reference-topic">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-
-      <h1>Construct estimator for the treatment effect in RCT based on covariate adjustment</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>Construct estimator for the treatment effect in RCT based on covariate adjustment</h1>
       <small class="dont-index">Source: <a href="https://github.com/NovoNordisk-OpenSource/carts/blob/main/R/estimators.R" class="external-link"><code>R/estimators.R</code></a></small>
       <div class="d-none name"><code>est_adj.Rd</code></div>
     </div>
@@ -152,7 +151,8 @@ variable is encoded as a factor.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">trial</span> <span class="op">&lt;-</span> <span class="va"><a href="Trial.html">Trial</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span>  <span class="co"># don't run because of high computational time</span></span></span>
+<span class="r-in"><span><span class="va">trial</span> <span class="op">&lt;-</span> <span class="va"><a href="Trial.html">Trial</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span></span>
 <span class="r-in"><span>    covariates <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">rbinom</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">1</span>, <span class="fl">0.5</span><span class="op">)</span>, x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>    outcome <span class="op">=</span> <span class="fu"><a href="setargs.html">setargs</a></span><span class="op">(</span><span class="va">outcome_count</span>,</span></span>
 <span class="r-in"><span>      mean <span class="op">=</span> <span class="op">~</span> <span class="fl">1</span> <span class="op">+</span> <span class="va">a</span><span class="op">*</span><span class="va">x</span>,</span></span>
@@ -160,6 +160,7 @@ variable is encoded as a factor.</p>
 <span class="r-in"><span>      overdispersion <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">dd</span> <span class="op">&lt;-</span> <span class="va">trial</span><span class="op">$</span><span class="fu">simulate</span><span class="op">(</span><span class="fl">1e4</span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'trial' not found</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># equivalent specifications to estimate log(E[Y(1)] / E[Y(0)])</span></span></span>
 <span class="r-in"><span><span class="va">estimators</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
@@ -171,25 +172,7 @@ variable is encoded as a factor.</p>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">estimators</span>, \<span class="op">(</span><span class="va">est</span><span class="op">)</span> <span class="fu">est</span><span class="op">(</span><span class="va">dd</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>partial argument match of 'X.cat' to 'X.cate'</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>partial argument match of 'X.cat' to 'X.cate'</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>partial argument match of 'X.cat' to 'X.cate'</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       Estimate Std.Err    2.5%   97.5% P-value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> logRR -0.02426 0.03706 -0.0969 0.04838  0.5127</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [[2]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Estimate Std.Err    2.5%   97.5% P-value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> a -0.02426 0.03706 -0.0969 0.04838  0.5127</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [[3]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       Estimate Std.Err    2.5%   97.5% P-value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> logRR -0.02426 0.03706 -0.0969 0.04838  0.5127</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [[4]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       Estimate Std.Err    2.5%   97.5% P-value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> logRR -0.02426 0.03706 -0.0969 0.04838  0.5127</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in FUN(X[[i]], ...):</span> object 'dd' not found</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># now with covariates, estimating E[Y(1)] - E[Y(0)]</span></span></span>
@@ -199,46 +182,30 @@ variable is encoded as a factor.</p>
 <span class="r-in"><span>  <span class="fu">est_adj</span><span class="op">(</span>response <span class="op">=</span> <span class="fu">targeted</span><span class="fu">::</span><span class="fu"><a href="https://kkholst.github.io/targeted/reference/learner_glm.html" class="external-link">learner_glm</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">a</span> <span class="op">*</span> <span class="va">x</span>, family <span class="op">=</span> <span class="va">poisson</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">estimators</span>, \<span class="op">(</span><span class="va">est</span><span class="op">)</span> <span class="fu">est</span><span class="op">(</span><span class="va">dd</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>partial argument match of 'X.cat' to 'X.cate'</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>partial argument match of 'X.cat' to 'X.cate'</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>partial argument match of 'X.cat' to 'X.cate'</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     Estimate Std.Err    2.5%  97.5% P-value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ATE  0.00906  0.1058 -0.1984 0.2165  0.9318</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [[2]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     Estimate Std.Err    2.5%  97.5% P-value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ATE  0.00906  0.1058 -0.1984 0.2165  0.9318</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [[3]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     Estimate Std.Err    2.5%  97.5% P-value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ATE  0.00906  0.1058 -0.1984 0.2165  0.9318</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in FUN(X[[i]], ...):</span> object 'dd' not found</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># custom treatment.effect function</span></span></span>
 <span class="r-in"><span><span class="va">estimator</span> <span class="op">&lt;-</span> <span class="fu">est_adj</span><span class="op">(</span>response <span class="op">=</span> <span class="va">y</span> <span class="op">~</span> <span class="va">a</span> <span class="op">*</span> <span class="va">x</span>, family <span class="op">=</span> <span class="va">poisson</span>,</span></span>
 <span class="r-in"><span>  treatment.effect <span class="op">=</span> \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span> <span class="op">-</span> <span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="co"># x[1] contains the estimate of E[Y(0)]</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">estimator</span><span class="op">(</span><span class="va">dd</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>partial argument match of 'X.cat' to 'X.cate'</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                  Estimate Std.Err    2.5%  97.5% P-value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> treatment effect  0.00906  0.1058 -0.1984 0.2165  0.9318</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'dd' not found</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">dd_factor</span> <span class="op">&lt;-</span> <span class="va">dd</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'dd' not found</span>
 <span class="r-in"><span><span class="co"># when using factors, the control/comparator treatment needs to be the first</span></span></span>
 <span class="r-in"><span><span class="co"># level to estimate the contrasts defined by the `treatment.level` argument</span></span></span>
 <span class="r-in"><span><span class="va">estimator</span> <span class="op">&lt;-</span> <span class="fu">est_adj</span><span class="op">(</span>response <span class="op">=</span> <span class="va">y</span> <span class="op">~</span> <span class="va">a</span> <span class="op">*</span> <span class="va">x</span>, family <span class="op">=</span> <span class="va">poisson</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">dd_factor</span><span class="op">$</span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">dd_factor</span><span class="op">$</span><span class="va">a</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'dd_factor' not found</span>
 <span class="r-in"><span><span class="fu">estimator</span><span class="op">(</span><span class="va">dd_factor</span><span class="op">)</span> <span class="co"># E[Y(1)] - E[Y(0)]</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>partial argument match of 'X.cat' to 'X.cate'</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     Estimate Std.Err    2.5%  97.5% P-value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ATE  0.00906  0.1058 -0.1984 0.2165  0.9318</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'dd_factor' not found</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">dd_factor</span><span class="op">$</span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">dd_factor</span><span class="op">$</span><span class="va">a</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'dd_factor' not found</span>
 <span class="r-in"><span><span class="fu">estimator</span><span class="op">(</span><span class="va">dd_factor</span><span class="op">)</span> <span class="co"># E[Y(1)] - E[Y(0)]</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>partial argument match of 'X.cat' to 'X.cate'</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     Estimate Std.Err    2.5%  97.5% P-value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ATE -0.00906  0.1058 -0.2165 0.1984  0.9318</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'dd_factor' not found</span>
+<span class="r-in"><span> <span class="co"># \dontrun{}</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
