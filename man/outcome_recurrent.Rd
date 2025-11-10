@@ -58,7 +58,3 @@ function (random generator)
 This function is still in an experimental state where the
 interface and functionality might change in the future
 }
-\seealso{
-\link{outcome_count} \link{outcome_lp} \link{outcome_binary} \link{outcome_continuous}
-\link{outcome_phreg}
-}

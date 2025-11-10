@@ -28,8 +28,6 @@ The following S3 generic functions are available for an object
 of class \code{trial.estimates}:
 \describe{
 \item{\code{print}}{Basic print method.}
-\item{\code{summary}}{Apply decision-making to estimates of each run and
-estimator.}
 }
 }
 

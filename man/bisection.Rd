@@ -28,7 +28,3 @@ numeric specifying the root
 \description{
 Root finding by bisection
 }
-\examples{
-testf <- function(x) (x - sqrt(2))
-carts:::bisection(testf, c(0, 1000), niter = 30)
-}

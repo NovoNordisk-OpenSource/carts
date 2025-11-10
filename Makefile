@@ -67,10 +67,10 @@ check: lint
 	@_R_CHECK_FORCE_SUGGESTS_=0 echo 'future::plan("multicore"); res <- rcmdcheck::rcmdcheck(".", build_args=c("--no-build-vignettes"), args=c("--ignore-vignettes"))' | $(R)
 
 check-examples:
-	@_R_CHECK_FORCE_SUGGESTS_=0 echo 'future::plan("multicore"); devtools::run_examples(".", run_donttest = TRUE, run_dontrun = FALSE)' | $(R)
+	@_R_CHECK_FORCE_SUGGESTS_=0 echo 'future::plan("multicore"); devtools::run_examples(".", run_donttest = TRUE, run_dontrun = TRUE)' | $(R)
 
 check-cran: build
-	@$(R) CMD check $(BUILD_DIR)/$(PKG)_$(GETVER).tar.gz --timings --as-cran --no-multiarch --run-donttest
+	@$(R) CMD check $(BUILD_DIR)/$(PKG)_$(GETVER).tar.gz --timings --as-cran --no-multiarch
 
 in: install
 install:

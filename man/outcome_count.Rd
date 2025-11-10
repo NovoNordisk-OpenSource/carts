@@ -81,5 +81,5 @@ trial$simulate(1e4, exposure = function(dd) 1 - 0.5 * dd$a) |>
   head()
 }
 \seealso{
-\link{outcome_binary} \link{outcome_continuous} \link{outcome_lp}
+\link{outcome_binary} \link{outcome_continuous}
 }
