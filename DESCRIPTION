@@ -29,7 +29,7 @@ Description: Monte Carlo simulation framework for different randomized clinical
     (Robbins-Monro (1951) <doi:10.1214/aoms/1177729586>) to improve the
     estimate, and finally, a grid search to refine the estimate in the
     neighborhood of the current best solution.
-License: MIT + file LICENSE
+License: Apache License (>= 2)
 Depends:
   R (>= 4.1),
   lava (>= 1.8.0)

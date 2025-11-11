@@ -81,3 +81,10 @@ upgrade:
 
 install-deps:
 	@echo 'devtools::install_deps(".", dependencies = TRUE)' | $(R)
+
+cran-build:
+	@$(make_build_dir)
+	@echo 'devtools::build(".", path="$(BUILD_DIR)")' | $(R) --slave
+
+cran-prep:
+	@cd $(BUILD_DIR); _R_CHECK_FORCE_SUGGESTS_=0 $(R) CMD check $(PKG)_$(GETVER)".tar.gz" --as-cran
