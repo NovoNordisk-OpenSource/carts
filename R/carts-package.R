@@ -3,9 +3,6 @@
 
 #' @title Simulation-Based Assessment of Covariate Adjustment in Randomized
 #' Trials
-#' @description Monte Carlo simulation framework for different randomized
-#'   clinical trial designs with a special emphasis on estimators based on
-#'   covariate adjustment.
 #' @name carts-package
 #' @importFrom stats glm poisson binomial gaussian rpois rnbinom pnbinom rbinom
 #'   rgamma nlminb na.omit coef update qnorm model.offset model.frame as.formula
@@ -20,9 +17,8 @@
 #' @importFrom methods formalArgs
 #' @importFrom R6 R6Class
 #' @aliases carts-package carts
-#' @keywords package
 #' @useDynLib carts, .registration=TRUE
-#' @author Benedikt Sommer, Klaus Holst, Foroogh Shamsi
+#' @keywords package
 #' @examples
 #' \donttest{
 #' trial <- Trial$new(

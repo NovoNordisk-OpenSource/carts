@@ -1,8 +1,9 @@
 #' @title Construct estimator for the treatment effect in RCT
-#' @description Returns an estimator for the estimation of a treatment effect
-#' with parametric models ([stats::glm] and [MASS::glm.nb]). The returned
-#' estimator is a function with a single argument (data) and returns the
-#' treatment effect estimate, which is estimated with [lava::estimate]
+#' @description Regression-based covariate adjustment as described by Rosenblum
+#' & van der Laan (2010). Standard errors are estimated with the Hubert-White
+#' sandwich estimator, instead using the efficient influence function as
+#' described in the paper. Available parametric models are ([stats::glm] and
+#' [MASS::glm.nb]).
 #' @param response (character) Response variable
 #' @param treatment (character) Treatment variable. Additional care must be
 #' taken when the treatment variable is encoded as a factor (see examples).
@@ -16,6 +17,9 @@
 #' @param ... Additional arguments to [lava::estimate]
 #' @return function
 #' @seealso [Trial]
+#' @references Rosenblum & van der Laan (2010) Simple, Efficient Estimators of
+#' Treatment Effects in Randomized Trials Using Generalized Linear Models to
+#' Leverage Baseline Variables, The International Journal of Biostatistics
 #' @aliases est_glm est_gee est_geebin est_glmbin
 #' @author Klaus Kähler Holst
 #' @export
@@ -122,7 +126,11 @@ est_glmbin <- function(...) {
 
 #' @description Efficient estimator of the treatment effect based on the
 #'   efficient influence function. This involves a model for the conditional
-#'   mean of the outcome variable given covariates (Q-model).
+#'   mean of the outcome variable given covariates (Q-model). The implementation
+#'   is a one-step estimator as described by Van Lancker et al (2024).
+#' @references Van Lancker et al (2024) Automated, efficient and model-free
+#' inference for randomized clinical trials via data-driven covariate
+#' adjustment, arXiv:2404.11150
 #' @title Construct estimator for the treatment effect in RCT based on covariate
 #'   adjustment
 #' @param response (character, formula, [targeted::learner]) The default
