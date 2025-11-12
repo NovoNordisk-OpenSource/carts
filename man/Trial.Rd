@@ -8,7 +8,7 @@ Simulation of RCT with flexible covariates distributions
 simulation.
 }
 \examples{
-\dontrun{ # don't run because of high computational time
+\donttest{
 trial <- Trial$new(
   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n)),
   outcome = setargs(outcome_count, par = c(1, 0.5, 1), overdispersion = 0.7)
@@ -169,7 +169,7 @@ trial$simulate(n)
 ## Method `Trial$run`
 ## ------------------------------------------------
 
-\dontrun{ # don't run because of high computational time
+\donttest{
 # future::plan("multicore")
 trial <- Trial$new(
   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
@@ -207,7 +207,7 @@ trial$run(n = 100, R = 50, estimators = est_glm(robust = FALSE))
 ## Method `Trial$estimate_power`
 ## ------------------------------------------------
 
-\dontrun{ # don't run because of high computational time
+\donttest{
 # toy examples with small number of Monte-Carlo replicates
 # future::plan("multicore")
 trial <- Trial$new(
@@ -237,7 +237,7 @@ trial$estimate_power(n = 100, R = 20,
 ## Method `Trial$estimate_samplesize`
 ## ------------------------------------------------
 
-\dontrun{ # don't run because of high computational time
+\donttest{
 trial <- Trial$new(
   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
   outcome = \(data, ate, sd) with(data, rnorm(nrow(data), a * ate, sd)),
@@ -721,7 +721,7 @@ field of this Trial class object (see examples).
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{ # don't run because of high computational time
+\preformatted{\donttest{
 # future::plan("multicore")
 trial <- Trial$new(
   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
@@ -797,7 +797,7 @@ numeric
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{ # don't run because of high computational time
+\preformatted{\donttest{
 # toy examples with small number of Monte-Carlo replicates
 # future::plan("multicore")
 trial <- Trial$new(
@@ -836,7 +836,7 @@ Estimate the minimum sample-size required to reach a desired
 statistical power with a specified estimator. An initial rough estimate
 is obtained via bisection, followed by a
 stochastic approximation (Robbins-Monro) algorithm, and finally, a grid
-search (refinement step) in the neighbourhood of the current best
+search (refinement step) in the neighborhood of the current best
 solution.
 
 Note that the estimation procedure for the sample size will not populate
@@ -907,7 +907,7 @@ samplesize_estimate S3 object
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{ # don't run because of high computational time
+\preformatted{\donttest{
 trial <- Trial$new(
   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
   outcome = \(data, ate, sd) with(data, rnorm(nrow(data), a * ate, sd)),

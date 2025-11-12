@@ -41,56 +41,10 @@ not specified).}
 \item{...}{Additional arguments to \link{outcome_lp}}
 }
 \value{
-function (random generator)
+data.table
 }
 \description{
 Outcome model for time-to-event end-points (proportional hazards)
-}
-\examples{
-\dontrun{
-outcome_phreg <- carts:::outcome_phreg
-library("survival")
-data(pbc, package = "survival")
-pbc0 <- na.omit(pbc) |>
-  transform(trt = factor(trt, labels = c("Active", "Placebo")) |>
-    relevel(ref = "Placebo"))
-
-fit1 <- mets::phreg(Surv(time, status > 0) ~ age + sex * trt, data = pbc0)
-
-covar <- covar_bootstrap(pbc0, subset = c("age", "sex")) \%join\%
-  function(n, ...) data.frame(trt = sample(pbc0$trt, n, replace = TRUE))
-
-outcome <- setargs(
-  outcome_phreg,
-  model = fit1,
-  par = list("trtActive" = 0)
-)
-
-xx <- covar(5e3)
-pbc1 <- outcome(xx) |> cbind(xx)
-mets::phreg(formula(fit1), data = pbc1)
-
-
-## Introducing additional interactions
-fit2 <- mets::phreg(Surv(time, status > 0) ~ age + sex + trt, data = pbc0)
-
-outcome <- setallargs(
-  outcome_phreg,
-  model = fit2,
-  par = list("trtActive" = -.5, "age:trtActive" = 0),
-  treatment = "trt",
-  default.parameter = -0.2
-)
-
-xx <- covar(1e4)
-attr(outcome(xx), "par")
-pbc1 <- outcome(xx) |> cbind(xx)
-mets::phreg(Surv(time, status) ~ (age + sex) * trt, pbc1)
-rm(pbc1, xx)
-}
-}
-\seealso{
-\link{outcome_count} \link{outcome_lp} \link{outcome_binary} \link{outcome_continuous}
 }
 \author{
 Klaus Kähler Holst

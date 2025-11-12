@@ -81,5 +81,5 @@ trial$simulate(1e4,
 ) |> est()
 }
 \seealso{
-\link{outcome_count} \link{outcome_binary} \link{outcome_lp}
+\link{outcome_count} \link{outcome_binary}
 }

@@ -64,7 +64,8 @@ function
 \description{
 Efficient estimator of the treatment effect based on the
 efficient influence function. This involves a model for the conditional
-mean of the outcome variable given covariates (Q-model).
+mean of the outcome variable given covariates (Q-model). The implementation
+is a one-step estimator as described by Van Lancker et al (2024).
 }
 \details{
 The user-defined function for \code{treatment.effect} needs to accept a
@@ -76,7 +77,7 @@ numeric variable or corresponds to the first level when the treatment
 variable is encoded as a factor.
 }
 \examples{
-\dontrun{ # don't run because of high computational time
+\donttest{
 trial <- Trial$new(
     covariates = function(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n)),
     outcome = setargs(outcome_count,
@@ -122,6 +123,11 @@ estimator(dd_factor) # E[Y(1)] - E[Y(0)]
 dd_factor$a <- factor(dd_factor$a, levels = c(1, 0))
 estimator(dd_factor) # E[Y(1)] - E[Y(0)]
 }
+}
+\references{
+Van Lancker et al (2024) Automated, efficient and model-free
+inference for randomized clinical trials via data-driven covariate
+adjustment, arXiv:2404.11150
 }
 \seealso{
 \link{Trial} \link{est_glm}

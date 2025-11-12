@@ -67,10 +67,10 @@ check: lint
 	@_R_CHECK_FORCE_SUGGESTS_=0 echo 'future::plan("multicore"); res <- rcmdcheck::rcmdcheck(".", build_args=c("--no-build-vignettes"), args=c("--ignore-vignettes"))' | $(R)
 
 check-examples:
-	@_R_CHECK_FORCE_SUGGESTS_=0 echo 'future::plan("multicore"); devtools::run_examples(".", run_donttest = TRUE, run_dontrun = FALSE)' | $(R)
+	@_R_CHECK_FORCE_SUGGESTS_=0 echo 'future::plan("multicore"); devtools::run_examples(".", run_donttest = TRUE, run_dontrun = TRUE)' | $(R)
 
 check-cran: build
-	@$(R) CMD check $(BUILD_DIR)/$(PKG)_$(GETVER).tar.gz --timings --as-cran --no-multiarch --run-donttest
+	@$(R) CMD check $(BUILD_DIR)/$(PKG)_$(GETVER).tar.gz --timings --as-cran --no-multiarch
 
 in: install
 install:
@@ -81,3 +81,10 @@ upgrade:
 
 install-deps:
 	@echo 'devtools::install_deps(".", dependencies = TRUE)' | $(R)
+
+cran-build:
+	@$(make_build_dir)
+	@echo 'devtools::build(".", path="$(BUILD_DIR)")' | $(R) --slave
+
+cran-prep:
+	@cd $(BUILD_DIR); _R_CHECK_FORCE_SUGGESTS_=0 $(R) CMD check $(PKG)_$(GETVER)".tar.gz" --as-cran

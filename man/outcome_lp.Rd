@@ -58,7 +58,3 @@ data.table
 Calculate linear predictor \deqn{\text{par}^\top X} where
 \eqn{X} is the design matrix specified by the formula
 }
-\seealso{
-\link{outcome_count} \link{outcome_binary} \link{outcome_continuous}
-\link{outcome_phreg}
-}

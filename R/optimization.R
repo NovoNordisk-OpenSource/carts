@@ -10,9 +10,9 @@
 #'   optimization
 #' @param ... additional arguments passed to `f`
 #' @return numeric specifying the root
-#' @examples
-#' testf <- function(x) (x - sqrt(2))
-#' carts:::bisection(testf, c(0, 1000), niter = 30)
+# #' @examples
+# #' testf <- function(x) (x - sqrt(2))
+# #' bisection(testf, c(0, 1000), niter = 30)
 bisection <- function(f, interval, niter = 6, tol = 1e-12,
                       verbose = TRUE, ...) {
   interval <- sort(interval)
@@ -98,11 +98,11 @@ bisection <- function(f, interval, niter = 6, tol = 1e-12,
 #'
 #' Dupač, V., & Herkenrath, U. (1984). On integer stochastic approximation.
 #' Aplikace matematiky, 29(5), 372-383.
-#' @examples
-#' # Finding approximate median u, P(X<=u) = .5, of X~Exp(1):
-#' f <- function(x) mean(rexp(10) <= x) - 0.5
-#' res <- carts:::optim_sa(f, 0, control=list(niter=2000, alpha=.5))
-#' res$estimate
+# #' @examples
+# #' # Finding approximate median u, P(X<=u) = .5, of X~Exp(1):
+# #' f <- function(x) mean(rexp(10) <= x) - 0.5
+# #' res <- optim_sa(f, 0, control=list(niter=2000, alpha=.5))
+# #' res$estimate
 optim_sa <- function(f, init = 0, #nolint
                      function.args = list(),
                      ...,

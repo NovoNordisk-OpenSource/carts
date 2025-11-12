@@ -70,5 +70,5 @@ trial$simulate(1e4,
 ) |> est()
 }
 \seealso{
-\link{outcome_count} \link{outcome_lp} \link{outcome_continuous}
+\link{outcome_count} \link{outcome_continuous}
 }

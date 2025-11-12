@@ -79,9 +79,3 @@ approximation method is then applied directly on \eqn{g}.
 Dupač, V., & Herkenrath, U. (1984). On integer stochastic approximation.
 Aplikace matematiky, 29(5), 372-383.
 }
-\examples{
-# Finding approximate median u, P(X<=u) = .5, of X~Exp(1):
-f <- function(x) mean(rexp(10) <= x) - 0.5
-res <- carts:::optim_sa(f, 0, control=list(niter=2000, alpha=.5))
-res$estimate
-}

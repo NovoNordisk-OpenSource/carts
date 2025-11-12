@@ -11,7 +11,7 @@
 #' for decision-making
 #' @author Klaus Kähler Holst, Benedikt Sommer
 #' @examples
-#' \dontrun{ # don't run because of high computational time
+#' \donttest{
 #' trial <- Trial$new(
 #'   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n)),
 #'   outcome = setargs(outcome_count, par = c(1, 0.5, 1), overdispersion = 0.7)
@@ -320,7 +320,7 @@ Trial <- R6::R6Class("Trial", #nolint
     #' the simulation. The return object is also assigned to the `estimates`
     #' field of this Trial class object (see examples).
     #' @examples
-    #' \dontrun{ # don't run because of high computational time
+    #' \donttest{
     #' # future::plan("multicore")
     #' trial <- Trial$new(
     #'   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
@@ -366,7 +366,7 @@ Trial <- R6::R6Class("Trial", #nolint
     #' estimator. The behavior of passing arguments to lower level functions is
     #' identical to [Trial$run()][Trial].
     #' @examples
-    #' \dontrun{ # don't run because of high computational time
+    #' \donttest{
     #' # toy examples with small number of Monte-Carlo replicates
     #' # future::plan("multicore")
     #' trial <- Trial$new(
@@ -407,7 +407,7 @@ Trial <- R6::R6Class("Trial", #nolint
     #'   statistical power with a specified estimator. An initial rough estimate
     #'   is obtained via bisection, followed by a
     #'   stochastic approximation (Robbins-Monro) algorithm, and finally, a grid
-    #'   search (refinement step) in the neighbourhood of the current best
+    #'   search (refinement step) in the neighborhood of the current best
     #'   solution.
     #'
     #' Note that the estimation procedure for the sample size will not populate
@@ -438,7 +438,7 @@ Trial <- R6::R6Class("Trial", #nolint
     #' @return samplesize_estimate S3 object
     #' @author Klaus Kähler Holst
     #' @examples
-    #' \dontrun{ # don't run because of high computational time
+    #' \donttest{
     #' trial <- Trial$new(
     #'   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
     #'   outcome = \(data, ate, sd) with(data, rnorm(nrow(data), a * ate, sd)),

@@ -8,14 +8,10 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Monte Carlo simulation framework for different randomized clinical trial designs with a special emphasis on estimators based on covariate adjustment.
-
-Monte Carlo simulation framework for different randomized
-clinical trial designs with a special emphasis on estimators based on
-covariate adjustment.
+Monte Carlo simulation framework for different randomized clinical trial designs with a special emphasis on estimators based on covariate adjustment. The package implements regression-based covariate adjustment (Rosenblum & van der Laan (2010) \doi{10.2202/1557-4679.1138}) and a one-step estimator (Van Lancker et al (2024) \doi{10.48550/arXiv.2404.11150}) for trials with continuous, binary and count outcomes. The estimation of the minimum sample-size required to reach a specified statistical power for a given estimator uses bisection to find an initial rough estimate, followed by stochastic approximation (Robbins-Monro (1951) \doi{10.1214/aoms/1177729586}) to improve the estimate, and finally, a grid search to refine the estimate in the neighborhood of the current best solution.
 }
 \examples{
-\dontrun{ # don't run because of high computational time
+\donttest{
 trial <- Trial$new(
   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n)),
   outcome = setargs(outcome_count, par = c(1, 0.5, 1), overdispersion = 0.7)
@@ -48,8 +44,11 @@ Authors:
   \item Foroogh Shamsi \email{foroogh.shamsi1@gmail.com}
 }
 
+Other contributors:
+\itemize{
+  \item Novo Nordisk A/S [copyright holder]
+}
 
-Benedikt Sommer, Klaus Holst, Foroogh Shamsi
 }
 \keyword{internal}
 \keyword{package}

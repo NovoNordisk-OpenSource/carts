@@ -37,8 +37,6 @@ NULL
 #'   mean is given as a function)
 #' @param remove variables that will be removed from input data (if formula is
 #'   not specified)
-#' @seealso [outcome_count] [outcome_binary] [outcome_continuous]
-#'   [outcome_phreg]
 outcome_lp <- function(data,
                        mean = NULL,
                        par = NULL,
@@ -120,7 +118,7 @@ outcome_lp <- function(data,
 #'   vector or a function of the covariates 'x' with an extra column 'rate'
 #'   holding the rate parameter 'rate'
 #' @param ... Additional arguments passed to `mean` and `exposure` function
-#' @seealso [outcome_binary] [outcome_continuous] [outcome_lp]
+#' @seealso [outcome_binary] [outcome_continuous]
 #' @examples
 #' covariates <- function(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n))
 #' trial <- Trial$new(covariates = covariates, outcome = outcome_count)
@@ -192,7 +190,7 @@ outcome_count <- function(data,
 #'   g(\text{par}^\top X)} where \eqn{X} is the design matrix specified by the
 #'   formula, and \eqn{g} is the link function specified by the family argument
 #' @param family exponential family (default `binomial(logit)`)
-#' @seealso [outcome_count] [outcome_lp] [outcome_continuous]
+#' @seealso [outcome_count] [outcome_continuous]
 #' @export
 #' @examples
 #' trial <- Trial$new(
@@ -252,7 +250,7 @@ outcome_binary <- function(data,
 #'   variable. This term is in addition to the measurement error introduced by
 #'   the `sd` argument.
 #' @param family exponential family (default `gaussian(identity)`)
-#' @seealso [outcome_count] [outcome_binary] [outcome_lp]
+#' @seealso [outcome_count] [outcome_binary]
 #' @export
 #' @examples
 #' trial <- Trial$new(
@@ -313,51 +311,49 @@ outcome_continuous <- function(data,
 #' @param cens.lp censoring linear predictor argument (formula or function)
 #' @param cens.par list of censoring model parameters
 #' @param ... Additional arguments to [outcome_lp]
-#' @return function (random generator)
 #' @author Klaus Kähler Holst
-#' @seealso [outcome_count] [outcome_lp] [outcome_binary] [outcome_continuous]
-#' @examples
-#' \dontrun{
-#' outcome_phreg <- carts:::outcome_phreg
-#' library("survival")
-#' data(pbc, package = "survival")
-#' pbc0 <- na.omit(pbc) |>
-#'   transform(trt = factor(trt, labels = c("Active", "Placebo")) |>
-#'     relevel(ref = "Placebo"))
-#'
-#' fit1 <- mets::phreg(Surv(time, status > 0) ~ age + sex * trt, data = pbc0)
-#'
-#' covar <- covar_bootstrap(pbc0, subset = c("age", "sex")) %join%
-#'   function(n, ...) data.frame(trt = sample(pbc0$trt, n, replace = TRUE))
-#'
-#' outcome <- setargs(
-#'   outcome_phreg,
-#'   model = fit1,
-#'   par = list("trtActive" = 0)
-#' )
-#'
-#' xx <- covar(5e3)
-#' pbc1 <- outcome(xx) |> cbind(xx)
-#' mets::phreg(formula(fit1), data = pbc1)
-#'
-#'
-#' ## Introducing additional interactions
-#' fit2 <- mets::phreg(Surv(time, status > 0) ~ age + sex + trt, data = pbc0)
-#'
-#' outcome <- setallargs(
-#'   outcome_phreg,
-#'   model = fit2,
-#'   par = list("trtActive" = -.5, "age:trtActive" = 0),
-#'   treatment = "trt",
-#'   default.parameter = -0.2
-#' )
-#'
-#' xx <- covar(1e4)
-#' attr(outcome(xx), "par")
-#' pbc1 <- outcome(xx) |> cbind(xx)
-#' mets::phreg(Surv(time, status) ~ (age + sex) * trt, pbc1)
-#' rm(pbc1, xx)
-#' }
+# #' @examples
+# #' \donttest{
+# #' outcome_phreg <- carts:::outcome_phreg
+# #' library("survival")
+# #' data(pbc, package = "survival")
+# #' pbc0 <- na.omit(pbc) |>
+# #'   transform(trt = factor(trt, labels = c("Active", "Placebo")) |>
+# #'     relevel(ref = "Placebo"))
+# #'
+# #' fit1 <- mets::phreg(Surv(time, status > 0) ~ age + sex * trt, data = pbc0)
+# #'
+# #' covar <- covar_bootstrap(pbc0, subset = c("age", "sex")) %join%
+# #'   function(n, ...) data.frame(trt = sample(pbc0$trt, n, replace = TRUE))
+# #'
+# #' outcome <- setargs(
+# #'   outcome_phreg,
+# #'   model = fit1,
+# #'   par = list("trtActive" = 0)
+# #' )
+# #'
+# #' xx <- covar(5e3)
+# #' pbc1 <- outcome(xx) |> cbind(xx)
+# #' mets::phreg(formula(fit1), data = pbc1)
+# #'
+# #'
+# #' ## Introducing additional interactions
+# #' fit2 <- mets::phreg(Surv(time, status > 0) ~ age + sex + trt, data = pbc0)
+# #'
+# #' outcome <- setallargs(
+# #'   outcome_phreg,
+# #'   model = fit2,
+# #'   par = list("trtActive" = -.5, "age:trtActive" = 0),
+# #'   treatment = "trt",
+# #'   default.parameter = -0.2
+# #' )
+# #'
+# #' xx <- covar(1e4)
+# #' attr(outcome(xx), "par")
+# #' pbc1 <- outcome(xx) |> cbind(xx)
+# #' mets::phreg(Surv(time, status) ~ (age + sex) * trt, pbc1)
+# #' rm(pbc1, xx)
+# #' }
 outcome_phreg <- function(data,
                           lp = NULL,
                           par = NULL,
@@ -429,8 +425,6 @@ outcome_phreg <- function(data,
 #' @param cens.par optional list of censoring model parameters
 #' @param ... Additional arguments to [outcome_lp]
 #' @return function (random generator)
-#' @seealso [outcome_count] [outcome_lp] [outcome_binary] [outcome_continuous]
-#' [outcome_phreg]
 outcome_recurrent <- function(data,
                               lp = NULL,
                               par = NULL,

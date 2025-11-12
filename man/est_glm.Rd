@@ -44,13 +44,14 @@ taken when the treatment variable is encoded as a factor (see examples).}
 function
 }
 \description{
-Returns an estimator for the estimation of a treatment effect
-with parametric models (\link[stats:glm]{stats::glm} and \link[MASS:glm.nb]{MASS::glm.nb}). The returned
-estimator is a function with a single argument (data) and returns the
-treatment effect estimate, which is estimated with \link[lava:estimate.default]{lava::estimate}
+Regression-based covariate adjustment as described by Rosenblum
+& van der Laan (2010). Standard errors are estimated with the Hubert-White
+sandwich estimator, instead using the efficient influence function as
+described in the paper. Available parametric models are (\link[stats:glm]{stats::glm} and
+\link[MASS:glm.nb]{MASS::glm.nb}).
 }
 \examples{
-\dontrun{
+\donttest{
 trial <- Trial$new(
     covariates = function(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n)),
     outcome = setargs(outcome_count,
@@ -89,6 +90,11 @@ dd_factor$a <- as.factor(dd_factor$a)
 # factor
 est_glm(family = poisson, target.parameter = "a1")(dd_factor)
 }
+}
+\references{
+Rosenblum & van der Laan (2010) Simple, Efficient Estimators of
+Treatment Effects in Randomized Trials Using Generalized Linear Models to
+Leverage Baseline Variables, The International Journal of Biostatistics
 }
 \seealso{
 \link{Trial}
