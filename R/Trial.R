@@ -819,7 +819,7 @@ trial_simulate <- function(self, n, .niter, ...) {
       }
       xt <- lapply(xt, data.table)
       if (count == 0) nsim <- n * length(xt)
-      for (i in seq_len(length(xt))) {
+      for (i in seq_along(xt)) {
         ## Append subject id and period variable
         xt[[i]][, `:=`(id = ids, num = i - 1)]
       }
