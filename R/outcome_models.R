@@ -367,12 +367,15 @@ outcome_phreg <- function(data,
   timemod <- proc_phreg(model)
   model <- timemod$model
   if (is.null(cens.model)) {
-    if (is.null(model)) stop(
+    if (is.null(model)) {
+      stop(
         "Need 'phreg' object (argument 'model') or specify parametric model"
-    )
-    fcens <- with(model, Surv(time, !status) ~ 1)
-    cens.model <- mets::phreg(fcens, data = model.frame(model))
-    cens.lp <- ~fcens
+      )
+    }
+    fcens <- Surv(time, !status) ~ 1
+    newd <- with(model, data.frame(time, status))
+    cens.model <- mets::phreg(fcens, data = newd)
+    cens.lp <- fcens
   }
   censmod <- proc_phreg(cens.model)
   cens.model <- censmod$model
