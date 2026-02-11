@@ -285,6 +285,13 @@ trial$summary(estimates = res)
 # calculate empirical bias, rmse and coverage for true target parameter
 trial$summary(estimates = res, true.value = 0)
 
+# use args_summary to set default values
+trial$args_summary(true.value = 0)
+trial$summary(estimates = res)
+# arguments to method call preceed arguments that have been set via
+# args_summary method
+trial$summary(estimates = res, true.value = 1)
+
 ## ------------------------------------------------
 ## Method `Trial$print`
 ## ------------------------------------------------
@@ -943,6 +950,10 @@ the treatment effect in a randomized clinical trial. The method reports
 the power of both superiority tests (one-sided or two-sided) and
 non-inferiority tests, together with summary statistics of the
 different estimators.
+
+Arguments provided to this method call take precedence over argument
+values that have been previously set via (\link[=Trial]{Trial$args_summary()}).
+See the examples for more details.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Trial$summary(
   level = 0.05,
@@ -951,7 +962,7 @@ different estimators.
   alternative = "!=",
   reject.function = NULL,
   true.value = NULL,
-  nominal.coverage = 0.9,
+  nominal.coverage = NULL,
   estimates = NULL,
   ...
 )}\if{html}{\out{</div>}}
@@ -966,15 +977,16 @@ different estimators.
 
 \item{\code{ni.margin}}{(numeric) non-inferiority margin}
 
-\item{\code{alternative}}{alternative hypothesis (not equal !=, less <,
-greater >)}
+\item{\code{alternative}}{(character) alternative hypothesis (not equal !=, less
+<, greater >)}
 
 \item{\code{reject.function}}{Optional function calculating whether to reject
 the null hypothesis}
 
-\item{\code{true.value}}{Optional true parameter value}
+\item{\code{true.value}}{(numeric) Optional true parameter value}
 
-\item{\code{nominal.coverage}}{Width of confidence limits}
+\item{\code{nominal.coverage}}{(numeric) Width of confidence limits. The default
+behavior is to calculate the coverage for the 1 - \code{level} CI.}
 
 \item{\code{estimates}}{Optional trial.estimates object. When provided, these
 estimates will be used instead of the object's stored estimates. This
@@ -1011,6 +1023,13 @@ trial$summary(estimates = res)
 
 # calculate empirical bias, rmse and coverage for true target parameter
 trial$summary(estimates = res, true.value = 0)
+
+# use args_summary to set default values
+trial$args_summary(true.value = 0)
+trial$summary(estimates = res)
+# arguments to method call preceed arguments that have been set via
+# args_summary method
+trial$summary(estimates = res, true.value = 1)
 }
 \if{html}{\out{</div>}}
 
