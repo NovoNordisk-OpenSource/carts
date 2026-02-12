@@ -116,7 +116,7 @@ test_outcome_continuous()
 
 test_outcome_phreg <- function() {
   phreg <- mets::phreg
-  phreg.par <- mets::phreg.par
+  phreg_weibull <- mets::phreg_weibull
   Surv <- survival::Surv #nolint
 
   par1 <- list(scale = 1 / 100, shape = 2)
@@ -183,11 +183,14 @@ test_outcome_phreg <- function() {
     xx0 <- covar(1e4)
     dd <- outcome(xx0) |> cbind(xx0)
 
-    cox1 <- phreg.par(Surv(time, status) ~ a + x, data = dd)
-    expect_equivalent(coef(cox1), c(log(unlist(par1)), 0, 0),
-                      tolerance = 0.2)
+    cox1 <- phreg_weibull(Surv(time, status) ~ a + x, data = dd)
+    expect_equivalent(
+      coef(cox1),
+      c(log(par1$scale), 0, 0, log(par1$shape)),
+      tolerance = 0.2
+    )
 
-    cox0 <- phreg.par(Surv(time, status) ~ a + x, data = dd)
+    cox0 <- phreg_weibull(Surv(time, status) ~ a + x, data = dd)
     expect_equivalent(coef(cox0), c(log(unlist(par0)), 0, 0),
                       tolerance = 0.2)
 
@@ -200,11 +203,11 @@ test_outcome_phreg <- function() {
     )
     dd <- outcome(xx0) |> cbind(xx0)
 
-    cox1 <- phreg.par(Surv(time, status) ~ a + x, data = dd)
+    cox1 <- phreg_weibull(Surv(time, status) ~ a + x, data = dd)
     expect_equivalent(coef(cox1), c(log(unlist(par1)), coef(fit1)),
                       tolerance = 0.2)
 
-    cox0 <- phreg.par(Surv(time, status) ~ a + x, data = dd)
+    cox0 <- phreg_weibull(Surv(time, status) ~ a + x, data = dd)
     expect_equivalent(coef(cox0), c(log(unlist(par0)), coef(fit1)),
                       tolerance = 0.2)
 
