@@ -78,6 +78,7 @@ Trial <- R6::R6Class("Trial", #nolint
       self$info <- as.list(info)
 
       args <- as.list(formals(self$summary))
+
       args[c("...", "estimates")] <- NULL
       private$summary.args_default <- args
 
@@ -131,7 +132,7 @@ Trial <- R6::R6Class("Trial", #nolint
     },
 
     #' @description Get, specify or update the summary.args attribute.
-        #' @param .args (list or character) named list of arguments to update
+    #' @param .args (list or character) named list of arguments to update
     #' or set. A single or subset of arguments can be retrieved by passing the
     #' respective argument names as a character or character vector.
     #' @param .reset (logical or character) Reset all or a subset of previously
@@ -513,15 +514,20 @@ Trial <- R6::R6Class("Trial", #nolint
     #'   the power of both superiority tests (one-sided or two-sided) and
     #'   non-inferiority tests, together with summary statistics of the
     #'   different estimators.
+    #'
+    #' Arguments provided to this method call take precedence over argument
+    #' values that have been previously set via ([Trial$args_summary()][Trial]).
+    #' See the examples for more details.
     #' @param level (numeric) significance level
     #' @param null (numeric) null hypothesis to test
     #' @param ni.margin (numeric) non-inferiority margin
-    #' @param alternative alternative hypothesis (not equal !=, less <,
-    #'   greater >)
+    #' @param alternative (character) alternative hypothesis (not equal !=, less
+    #'   <, greater >)
     #' @param reject.function Optional function calculating whether to reject
     #'   the null hypothesis
-    #' @param true.value Optional true parameter value
-    #' @param nominal.coverage Width of confidence limits
+    #' @param true.value (numeric) Optional true parameter value
+    #' @param nominal.coverage (numeric) Width of confidence limits. The default
+    #' behavior is to calculate the coverage for the 1 - `level` CI.
     #' @param estimates Optional trial.estimates object. When provided, these
     #'   estimates will be used instead of the object's stored estimates. This
     #'   allows calculating summaries for different trial results without
@@ -550,20 +556,37 @@ Trial <- R6::R6Class("Trial", #nolint
     #'
     #' # calculate empirical bias, rmse and coverage for true target parameter
     #' trial$summary(estimates = res, true.value = 0)
+    #'
+    #' # use args_summary to set default values
+    #' trial$args_summary(true.value = 0)
+    #' trial$summary(estimates = res)
+    #' # arguments to method call preceed arguments that have been set via
+    #' # args_summary method
+    #' trial$summary(estimates = res, true.value = 1)
     summary = function(level = .05,
                        null = 0,
                        ni.margin = NULL,
                        alternative = "!=",
                        reject.function = NULL,
                        true.value = NULL,
-                       nominal.coverage = 0.9,
+                       nominal.coverage = NULL,
                        estimates = NULL,
                        ...) {
-    trial_summary(self = self, level = level, null = null,
-      ni.margin = ni.margin, alternative = alternative,
-      reject.function = reject.function, true.value = true.value,
-      nominal.coverage = nominal.coverage, estimates = estimates, ...
-    )
+    mc_supplied <- as.list(match.call(expand.dots = FALSE))[-1]
+    nm_formals_supplied <- setdiff(names(mc_supplied), "...")
+    call_args <- if (length(nm_formals_supplied)) {
+      mget(nm_formals_supplied, inherits = FALSE)
+    } else {
+      list()
+    }
+    if ("..." %in% names(mc_supplied)) call_args <- c(call_args, list(...))
+
+    args <- self$args_summary()
+    args[names(call_args)] <- call_args
+
+    if (!("estimates" %in% names(args))) args <- c(args, list(estimates = NULL))
+
+    do.call(trial_summary, c(list(self = self), args))
     },
 
     #' @description Print method for Trial objects
@@ -714,6 +737,7 @@ trial_summary <- function(self, level, null, ni.margin, alternative,
   if (!(alternative %in% c("!=", "<", ">"))) {
     rlang::abort('alternative should be one of "!=", "<", ">"')
   }
+  if (is.null(nominal.coverage)) nominal.coverage <- 1 - level
 
   alternative <- gsub(" ", "", tolower(alternative[1]))
   q_alpha_cov <- qnorm(1 - (1 - nominal.coverage) / 2) # quantile for

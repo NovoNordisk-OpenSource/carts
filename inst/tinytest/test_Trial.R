@@ -312,7 +312,7 @@ test_args_summary <- function() {
     alternative = "!=",
     reject.function = NULL,
     true.value = NULL,
-    nominal.coverage = 0.9
+    nominal.coverage = NULL
   )
 
   # arguments are set correctly when using summary.args / test getter
@@ -683,10 +683,14 @@ test_summary <- function() {
   expect_true(s[1, "power"] < s2[1, "power"])
 
   # test that nominal coverage around true.value is correctly calculated
-  s3 <- m$summary(true.value = -.25, nominal.coverage = 0.9)
-  expect_equal(s3[, "coverage"], 0.9, tolerance = 0.05)
+  # default behavior is to obtain the coverage for 1 - level
+  s3 <- m$summary(true.value = -.25)
+  expect_equal((ss <- s3[, "coverage"]), 0.95, tolerance = 0.05)
+  s3 <- m$summary(true.value = -.25, nominal.coverage = 0.95)
+  expect_equal(ss, s3[, "coverage"])
   s3 <- m$summary(true.value = -.25, nominal.coverage = 0.5)
   expect_equal(s3[, "coverage"], 0.5, tolerance = 0.05)
+
 
   # test ni.margin; expect power around 5% since true value is -0.25
   s <- m$summary(ni.margin = -.25, alternative = ">")
@@ -723,8 +727,8 @@ test_summary <- function() {
   s <- m$summary()
   expect_equal(rownames(s), c("est1", "est2"))
 
-  # Add new test block for estimates parameter
-  # Test that providing estimates directly works the same as using stored estimates
+  # Test that providing estimates directly works the same as using stored
+  # estimates
   res2 <- m$run(n = 100, R = 100, p = c(0.5, 0.25))
   s1 <- m$summary()
   s2 <- m$summary(estimates = res2)
@@ -733,7 +737,6 @@ test_summary <- function() {
   # supplying arguments also work when providing estimates object
   s3 <- m$summary(estimates = res2, level = 0.1)
   expect_false(identical(s2, s3))
-
 
   # Test that providing estimates doesn't modify the object's stored estimates
   original_estimates <- m$estimates
@@ -744,5 +747,30 @@ test_summary <- function() {
   different_res <- m$run(n = 200, R = 100, p = c(0.5, 0.25))  # Different n
   s3 <- m$summary(estimates = different_res)
   expect_false(identical(s1, s3))  # Should be different due to different n
+
+  # tests for setting default values for summary method with args_summary method
+  outcome <- function(data, p = c(0.5, 0.25)) {
+    a <- rbinom(nrow(data), 1, 0.5)
+    data.frame(a = a, y = rbinom(nrow(data), 1, p[1] * (1 - a) + p[2] * a)
+    )
+  }
+  trial <- Trial$new(outcome, estimators = est_glm())
+  trial$args_summary(level = 0)
+  trial$run(n = 100, R = 10)
+  # verify that method picks up arguments that are set via args_summary
+  expect_equal(trial$summary()[1, "power"], 0) # needs to be 0 because level = 0
+  # verify that arguments to method take precedence over set arguments
+  expect_equal(
+    (pp <- trial$summary(level = 1)[1, "power"]),
+    1
+  ) # needs to be 0 because level = 0
+  # verify that default value of argument can be used
+  expect_true(pp != trial$summary(level = 0.05)[1, "power"])
+  # also works with do.call
+  expect_equal(
+    pp,
+    do.call(trial$summary, list(level = 1))[1, "power"]
+  )
+
 }
 test_summary()
