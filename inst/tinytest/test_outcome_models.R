@@ -184,15 +184,19 @@ test_outcome_phreg <- function() {
     dd <- outcome(xx0) |> cbind(xx0)
 
     cox1 <- phreg_weibull(Surv(time, status) ~ a + x, data = dd)
+    # par1$scale ** par1$shape because of transformation in coxWeibull.lvm
     expect_equivalent(
       coef(cox1),
-      c(log(par1$scale), 0, 0, log(par1$shape)),
+      c(log(par1$scale ** par1$shape), 0, 0, log(par1$shape)),
       tolerance = 0.2
     )
 
     cox0 <- phreg_weibull(Surv(time, status) ~ a + x, data = dd)
-    expect_equivalent(coef(cox0), c(log(unlist(par0)), 0, 0),
-                      tolerance = 0.2)
+    expect_equivalent(
+      coef(cox0),
+      c(log(par1$scale ** par1$shape), 0, 0, log(par1$shape)),
+      tolerance = 0.2
+    )
 
     ## Specify parameters
     outcome <- setargs(outcome_phreg,
@@ -204,13 +208,18 @@ test_outcome_phreg <- function() {
     dd <- outcome(xx0) |> cbind(xx0)
 
     cox1 <- phreg_weibull(Surv(time, status) ~ a + x, data = dd)
-    expect_equivalent(coef(cox1), c(log(unlist(par1)), coef(fit1)),
-                      tolerance = 0.2)
+    expect_equivalent(
+      coef(cox1),
+      c(log(par1$scale ** par1$shape), coef(fit1), log(par1$shape)),
+      tolerance = 0.2
+    )
 
     cox0 <- phreg_weibull(Surv(time, status) ~ a + x, data = dd)
-    expect_equivalent(coef(cox0), c(log(unlist(par0)), coef(fit1)),
-                      tolerance = 0.2)
-
+    expect_equivalent(
+      coef(cox0),
+      c(log(par0$scale ** par1$shape), coef(fit1), log(par0$shape)),
+      tolerance = 0.2
+    )
 
     # Specify design via `lp` argument
     outcome <- setallargs(
