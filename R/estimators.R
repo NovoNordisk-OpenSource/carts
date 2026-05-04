@@ -320,7 +320,7 @@ adj1 <- function(qmodel, data, treatment = "a", nfolds = 1, ...) {
 
   ce <- targeted::cate(f,
     silent = TRUE, nfolds = nfolds, ...,
-    response.model = qmodel, propensity.model = f, data = data,
+    response.model = qmodel, treatment.model = f, data = data,
     mc.cores = 1
   )
 
