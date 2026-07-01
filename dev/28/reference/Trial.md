@@ -42,7 +42,7 @@ Klaus Kähler Holst
 
 ### Public methods
 
-- [`Trial$new()`](#method-Trial-new)
+- [`Trial$new()`](#method-Trial-initialize)
 
 - [`Trial$args_model()`](#method-Trial-args_model)
 
@@ -66,7 +66,7 @@ Klaus Kähler Holst
 
 ------------------------------------------------------------------------
 
-### Method `new()`
+### `Trial$new()`
 
 Initialize new Trial object
 
@@ -117,7 +117,7 @@ Initialize new Trial object
 
 ------------------------------------------------------------------------
 
-### Method `args_model()`
+### `Trial$args_model()`
 
 Get, specify or update parameters of covariate, outcome and exclusion
 model. Parameters are set in a named list, and updated when parameter
@@ -171,7 +171,7 @@ names match with existing values in the list.
 
 ------------------------------------------------------------------------
 
-### Method `args_summary()`
+### `Trial$args_summary()`
 
 Get, specify or update the summary.args attribute.
 
@@ -222,7 +222,7 @@ Get, specify or update the summary.args attribute.
 
 ------------------------------------------------------------------------
 
-### Method `estimators()`
+### `Trial$estimators()`
 
 Get, specify or update estimators.
 
@@ -287,7 +287,7 @@ indicates the *n*th added unnamed estimator.
 
 ------------------------------------------------------------------------
 
-### Method [`simulate()`](https://rdrr.io/r/stats/simulate.html)
+### `Trial$simulate()`
 
 Simulate data by applying parameters to the trial model. The method
 samples first from the covariate model. Outcome data sampling follows by
@@ -397,7 +397,7 @@ data.table with `n` rows
 
 ------------------------------------------------------------------------
 
-### Method `run()`
+### `Trial$run()`
 
 Run trial and estimate parameters multiple times
 
@@ -448,7 +448,7 @@ repeat the simulation. The return object is also assigned to the
 
 #### Examples
 
-    \dontrun{ # don't run because of high computational time
+     # don't run because of high computational time
     # future::plan("multicore")
     trial <- Trial$new(
       covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
@@ -480,11 +480,10 @@ repeat the simulation. The return object is also assigned to the
 
     # supplying another estimator
     trial$run(n = 100, R = 50, estimators = est_glm(robust = FALSE))
-    }
 
 ------------------------------------------------------------------------
 
-### Method `estimate_power()`
+### `Trial$estimate_power()`
 
 Estimates statistical power for a specified trial
 
@@ -524,7 +523,7 @@ numeric
 
 #### Examples
 
-    \dontrun{ # don't run because of high computational time
+     # don't run because of high computational time
     # toy examples with small number of Monte-Carlo replicates
     # future::plan("multicore")
     trial <- Trial$new(
@@ -548,11 +547,10 @@ numeric
     # supplying estimators to overrule previously set estimators
     trial$estimate_power(n = 100, R = 20,
      estimators = list(est_glm(), est_adj()))
-    }
 
 ------------------------------------------------------------------------
 
-### Method `estimate_samplesize()`
+### `Trial$estimate_samplesize()`
 
 Estimate the minimum sample-size required to reach a desired statistical
 power with a specified estimator. An initial rough estimate is obtained
@@ -652,7 +650,7 @@ samplesize_estimate S3 object
 
 #### Examples
 
-    \dontrun{ # don't run because of high computational time
+     # don't run because of high computational time
     trial <- Trial$new(
       covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
       outcome = \(data, ate, sd) with(data, rnorm(nrow(data), a * ate, sd)),
@@ -672,11 +670,10 @@ samplesize_estimate S3 object
     # reduce significance level from 0.05 to 0.025, but keep alternative as
     # before
     # trial$estimate_samplesize(summary.args = list(level = 0.025))
-    }
 
 ------------------------------------------------------------------------
 
-### Method [`summary()`](https://rdrr.io/r/base/summary.html)
+### `Trial$summary()`
 
 Summarize Monte Carlo studies of different estimators for the treatment
 effect in a randomized clinical trial. The method reports the power of
@@ -768,7 +765,7 @@ matrix with results of each estimator stored in separate rows
 
 ------------------------------------------------------------------------
 
-### Method [`print()`](https://rdrr.io/r/base/print.html)
+### `Trial$print()`
 
 Print method for Trial objects
 
@@ -804,7 +801,7 @@ Print method for Trial objects
 
 ------------------------------------------------------------------------
 
-### Method `clone()`
+### `Trial$clone()`
 
 The objects of this class are cloneable with this method.
 
@@ -840,7 +837,7 @@ trial$summary()
  # \dontrun{}
 
 ## ------------------------------------------------
-## Method `Trial$args_model`
+## Method `Trial$args_model()`
 ## ------------------------------------------------
 
 trial <- Trial$new(
@@ -883,7 +880,7 @@ trial$args_model(ate = 2, p = 0.5, .reset = TRUE)
 trial$args_model(ate = 5, .reset = "p") # removing p and updating ate
 
 ## ------------------------------------------------
-## Method `Trial$args_summary`
+## Method `Trial$args_summary()`
 ## ------------------------------------------------
 
 trial <- Trial$new(
@@ -937,7 +934,7 @@ trial$args_summary(alternative = "!=", level = 0.05, .reset = TRUE)
 trial$args_summary(level = 0.05, .reset = "alternative")
 
 ## ------------------------------------------------
-## Method `Trial$estimators`
+## Method `Trial$estimators()`
 ## ------------------------------------------------
 
 estimators <- list(marginal = est_glm(), adj = est_glm(covariates = "x"))
@@ -972,7 +969,7 @@ trial$estimators(.reset = "est1")
 trial$estimators(est_glm()) # replaces removed est1
 
 ## ------------------------------------------------
-## Method `Trial$simulate`
+## Method `Trial$simulate()`
 ## ------------------------------------------------
 
 trial <- Trial$new(
@@ -1113,7 +1110,7 @@ trial$simulate(n)
 #> 10:    10     1  0.1075840
 
 ## ------------------------------------------------
-## Method `Trial$run`
+## Method `Trial$run()`
 ## ------------------------------------------------
 
 if (FALSE)  # don't run because of high computational time
@@ -1258,7 +1255,7 @@ trial$run(n = 100, R = 50, estimators = est_glm(robust = FALSE))
  # \dontrun{}
 
 ## ------------------------------------------------
-## Method `Trial$estimate_power`
+## Method `Trial$estimate_power()`
 ## ------------------------------------------------
 
 if (FALSE)  # don't run because of high computational time
@@ -1335,7 +1332,7 @@ trial$estimate_power(n = 100, R = 20,
  # \dontrun{}
 
 ## ------------------------------------------------
-## Method `Trial$estimate_samplesize`
+## Method `Trial$estimate_samplesize()`
 ## ------------------------------------------------
 
 if (FALSE)  # don't run because of high computational time
@@ -1350,8 +1347,8 @@ trial$args_summary(alternative = "<")
 # supply model parameter and estimator to call to overwrite previously
 # set values
 trial$estimate_samplesize(ate = -2, estimator = est_glm())
-#> INFO [2026-07-01 14:34:47] Finding initial sample-size with bisection algorithm
-#> INFO [2026-07-01 14:34:47] Evaluating left point: 50
+#> INFO [2026-07-01 14:36:51] Finding initial sample-size with bisection algorithm
+#> INFO [2026-07-01 14:36:51] Evaluating left point: 50
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
@@ -1453,7 +1450,7 @@ trial$estimate_samplesize(ate = -2, estimator = est_glm())
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> INFO [2026-07-01 14:34:48] Evaluating right point: 10000
+#> INFO [2026-07-01 14:36:53] Evaluating right point: 10000
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
@@ -1555,7 +1552,7 @@ trial$estimate_samplesize(ate = -2, estimator = est_glm())
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> INFO [2026-07-01 14:34:53] Running stochastic approximation algorithm
+#> INFO [2026-07-01 14:36:58] Running stochastic approximation algorithm
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
@@ -2056,7 +2053,7 @@ trial$estimate_samplesize(ate = -2, estimator = est_glm())
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> INFO [2026-07-01 14:35:52] Refining estimate and calculating power
+#> INFO [2026-07-01 14:37:58] Refining estimate and calculating power
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
@@ -3060,7 +3057,7 @@ trial$estimate_samplesize(ate = -2, estimator = est_glm())
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> INFO [2026-07-01 14:36:05] [1/4] - power(10) = 0.941
+#> INFO [2026-07-01 14:38:10] [1/4] - power(10) = 0.941
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
@@ -4063,7 +4060,7 @@ trial$estimate_samplesize(ate = -2, estimator = est_glm())
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> INFO [2026-07-01 14:36:17] [2/4] - power(11) = 0.935
+#> INFO [2026-07-01 14:38:23] [2/4] - power(11) = 0.935
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
@@ -5065,7 +5062,7 @@ trial$estimate_samplesize(ate = -2, estimator = est_glm())
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> INFO [2026-07-01 14:36:29] [3/4] - power(16) = 0.994
+#> INFO [2026-07-01 14:38:36] [3/4] - power(16) = 0.994
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
@@ -6067,8 +6064,8 @@ trial$estimate_samplesize(ate = -2, estimator = est_glm())
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
 #> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> INFO [2026-07-01 14:36:42] [4/4] - power(21) = 0.998
-#> INFO [2026-07-01 14:36:42] Estimated sample size: 10
+#> INFO [2026-07-01 14:38:49] [4/4] - power(21) = 0.998
+#> INFO [2026-07-01 14:38:49] Estimated sample size: 10
 #> ── Estimated sample-size to reach 90% power ── 
 #> 
 #> n = 10 (actual estimated power≈93.94%)
@@ -6083,7 +6080,7 @@ trial$estimate_samplesize(ate = -2, estimator = est_glm())
  # \dontrun{}
 
 ## ------------------------------------------------
-## Method `Trial$summary`
+## Method `Trial$summary()`
 ## ------------------------------------------------
 
 outcome <- function(data, p = c(0.5, 0.25)) {
@@ -6321,7 +6318,7 @@ trial$summary(estimates = res, true.value = 0)
 #> est1 0.01201245 0.09932767 0.1047944  0.07  0 0.01201245 0.1049588     0.85
 
 ## ------------------------------------------------
-## Method `Trial$print`
+## Method `Trial$print()`
 ## ------------------------------------------------
 
 trial <- Trial$new(

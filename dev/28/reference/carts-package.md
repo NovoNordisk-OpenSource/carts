@@ -25,6 +25,8 @@ Useful links:
 
 Authors:
 
+- Benedikt Sommer <benediktsommer92@gmail.com>
+
 - Klaus K. Holst <klaus@holst.it>
 
 - Foroogh Shamsi <foroogh.shamsi1@gmail.com>
