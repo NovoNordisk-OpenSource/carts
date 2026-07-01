@@ -24,7 +24,7 @@ trial$summary()
 }
 
 ## ------------------------------------------------
-## Method `Trial$args_model`
+## Method `Trial$args_model()`
 ## ------------------------------------------------
 
 trial <- Trial$new(
@@ -51,7 +51,7 @@ trial$args_model(ate = 2, p = 0.5, .reset = TRUE)
 trial$args_model(ate = 5, .reset = "p") # removing p and updating ate
 
 ## ------------------------------------------------
-## Method `Trial$args_summary`
+## Method `Trial$args_summary()`
 ## ------------------------------------------------
 
 trial <- Trial$new(
@@ -77,7 +77,7 @@ trial$args_summary(alternative = "!=", level = 0.05, .reset = TRUE)
 trial$args_summary(level = 0.05, .reset = "alternative")
 
 ## ------------------------------------------------
-## Method `Trial$estimators`
+## Method `Trial$estimators()`
 ## ------------------------------------------------
 
 estimators <- list(marginal = est_glm(), adj = est_glm(covariates = "x"))
@@ -109,7 +109,7 @@ trial$estimators(.reset = "est1")
 trial$estimators(est_glm()) # replaces removed est1
 
 ## ------------------------------------------------
-## Method `Trial$simulate`
+## Method `Trial$simulate()`
 ## ------------------------------------------------
 
 trial <- Trial$new(
@@ -166,7 +166,7 @@ trial <- Trial$new(
 trial$simulate(n)
 
 ## ------------------------------------------------
-## Method `Trial$run`
+## Method `Trial$run()`
 ## ------------------------------------------------
 
 \dontrun{ # don't run because of high computational time
@@ -204,7 +204,7 @@ trial$run(n = 100, R = 50, estimators = est_glm(robust = FALSE))
 }
 
 ## ------------------------------------------------
-## Method `Trial$estimate_power`
+## Method `Trial$estimate_power()`
 ## ------------------------------------------------
 
 \dontrun{ # don't run because of high computational time
@@ -234,7 +234,7 @@ trial$estimate_power(n = 100, R = 20,
 }
 
 ## ------------------------------------------------
-## Method `Trial$estimate_samplesize`
+## Method `Trial$estimate_samplesize()`
 ## ------------------------------------------------
 
 \dontrun{ # don't run because of high computational time
@@ -260,7 +260,7 @@ trial$estimate_samplesize(ate = -2, estimator = est_glm())
 }
 
 ## ------------------------------------------------
-## Method `Trial$summary`
+## Method `Trial$summary()`
 ## ------------------------------------------------
 
 outcome <- function(data, p = c(0.5, 0.25)) {
@@ -286,7 +286,7 @@ trial$summary(estimates = res)
 trial$summary(estimates = res, true.value = 0)
 
 ## ------------------------------------------------
-## Method `Trial$print`
+## Method `Trial$print()`
 ## ------------------------------------------------
 
 trial <- Trial$new(
@@ -309,114 +309,110 @@ Benedikt Sommer
 Klaus Kähler Holst
 }
 \section{Public fields}{
-\if{html}{\out{<div class="r6-fields">}}
-\describe{
-\item{\code{info}}{Optional information/name of the model}
+  \if{html}{\out{<div class="r6-fields">}}
+  \describe{
+    \item{\code{info}}{Optional information/name of the model}
 
-\item{\code{covariates}}{covariate generator
+    \item{\code{covariates}}{covariate generator
 (function of sample-size n and optional parameters)}
 
-\item{\code{outcome_model}}{Generator for outcome given covariates
+    \item{\code{outcome_model}}{Generator for outcome given covariates
 (function of covariates x in long format)}
 
-\item{\code{exclusion}}{function defining exclusion criterion}
+    \item{\code{exclusion}}{function defining exclusion criterion}
 
-\item{\code{estimates}}{(\linkS4class{trial.estimates}) Parameter estimates of
+    \item{\code{estimates}}{(\link[=trial.estimates-class]{trial.estimates}) Parameter estimates of
 Monte-Carlo simulations returned by \link[=Trial]{Trial$run()}. The field is
 flushed, i.e. set to its default value \emph{NULL}, when model arguments
 (\link[=Trial]{Trial$args_model()}) or estimators (\link[=Trial]{Trial$estimators()})
 are modified.}
-}
-\if{html}{\out{</div>}}
+  }
+  \if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
-\itemize{
-\item \href{#method-Trial-new}{\code{Trial$new()}}
-\item \href{#method-Trial-args_model}{\code{Trial$args_model()}}
-\item \href{#method-Trial-args_summary}{\code{Trial$args_summary()}}
-\item \href{#method-Trial-estimators}{\code{Trial$estimators()}}
-\item \href{#method-Trial-simulate}{\code{Trial$simulate()}}
-\item \href{#method-Trial-run}{\code{Trial$run()}}
-\item \href{#method-Trial-estimate_power}{\code{Trial$estimate_power()}}
-\item \href{#method-Trial-estimate_samplesize}{\code{Trial$estimate_samplesize()}}
-\item \href{#method-Trial-summary}{\code{Trial$summary()}}
-\item \href{#method-Trial-print}{\code{Trial$print()}}
-\item \href{#method-Trial-clone}{\code{Trial$clone()}}
-}
+  \itemize{
+    \item \href{#method-Trial-initialize}{\code{Trial$new()}}
+    \item \href{#method-Trial-args_model}{\code{Trial$args_model()}}
+    \item \href{#method-Trial-args_summary}{\code{Trial$args_summary()}}
+    \item \href{#method-Trial-estimators}{\code{Trial$estimators()}}
+    \item \href{#method-Trial-simulate}{\code{Trial$simulate()}}
+    \item \href{#method-Trial-run}{\code{Trial$run()}}
+    \item \href{#method-Trial-estimate_power}{\code{Trial$estimate_power()}}
+    \item \href{#method-Trial-estimate_samplesize}{\code{Trial$estimate_samplesize()}}
+    \item \href{#method-Trial-summary}{\code{Trial$summary()}}
+    \item \href{#method-Trial-print}{\code{Trial$print()}}
+    \item \href{#method-Trial-clone}{\code{Trial$clone()}}
+  }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-Trial-new"></a>}}
-\if{latex}{\out{\hypertarget{method-Trial-new}{}}}
-\subsection{Method \code{new()}}{
-Initialize new Trial object
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Trial$new(
+\if{html}{\out{<a id="method-Trial-initialize"></a>}}
+\if{latex}{\out{\hypertarget{method-Trial-initialize}{}}}
+\subsection{\code{Trial$new()}}{
+  Initialize new Trial object
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Trial$new(
   outcome,
   covariates = NULL,
   exclusion = identity,
   estimators = list(),
   summary.args = list(),
   info = NULL
-)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{outcome}}{outcome model given covariates
+)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{outcome}}{outcome model given covariates
 (the first positional argument must be the covariate data)}
-
-\item{\code{covariates}}{covariate simulation function (must have 'n' as first
+      \item{\code{covariates}}{covariate simulation function (must have 'n' as first
 named argument and returns either a list of data.table (data.frame) for
 each observation period or a single data.table (data.frame) in case of a
 single observation period)}
-
-\item{\code{exclusion}}{function describing selection criterion (the first
+      \item{\code{exclusion}}{function describing selection criterion (the first
 positional argument must be the combined covariate and outcome data and
 the function must return the subjects who are included in the trial)}
-
-\item{\code{estimators}}{optional list of estimators or single estimator
+      \item{\code{estimators}}{optional list of estimators or single estimator
 function}
-
-\item{\code{summary.args}}{list of arguments that override default values in
+      \item{\code{summary.args}}{list of arguments that override default values in
 \link[=Trial]{Trial$summary()} when power and sample sizes are
 estimated with \link[=Trial]{Trial$estimate_power()} and
 \link[=Trial]{Trial$estimate_samplesize()}}
+      \item{\code{info}}{optional string describing the model}
+    }
+    \if{html}{\out{</div>}}
+  }
+}
 
-\item{\code{info}}{optional string describing the model}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Trial-args_model"></a>}}
 \if{latex}{\out{\hypertarget{method-Trial-args_model}{}}}
-\subsection{Method \code{args_model()}}{
-Get, specify or update parameters of covariate, outcome and
+\subsection{\code{Trial$args_model()}}{
+  Get, specify or update parameters of covariate, outcome and
 exclusion model. Parameters are set in a named list, and updated when
 parameter names match with existing values in the list.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Trial$args_model(.args = NULL, .reset = FALSE, ...)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{.args}}{(list or character) named list of arguments to update
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Trial$args_model(.args = NULL, .reset = FALSE, ...)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{.args}}{(list or character) named list of arguments to update
 or set. A single or subset of arguments can be retrieved by passing the
 respective argument names as a character or character vector.}
-
-\item{\code{.reset}}{(logical or character) Reset all or a subset of previously
+      \item{\code{.reset}}{(logical or character) Reset all or a subset of previously
 set parameters. Can be combined with setting new parameters.}
-
-\item{\code{...}}{Alternative to using \code{.args} to update or set arguments}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{trial <- Trial$new(
+      \item{\code{...}}{Alternative to using \code{.args} to update or set arguments}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{trial <- Trial$new(
   covariates = function(n, p = 0.5) data.frame(a = rbinom(n, 1, p)),
   outcome = function(data, ate, mu) rnorm(nrow(data), mu + data$a * ate)
 )
@@ -439,37 +435,35 @@ trial$args_model(.reset = TRUE) # remove all parameters
 trial$args_model(ate = 2, p = 0.5, .reset = TRUE)
 trial$args_model(ate = 5, .reset = "p") # removing p and updating ate
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Trial-args_summary"></a>}}
 \if{latex}{\out{\hypertarget{method-Trial-args_summary}{}}}
-\subsection{Method \code{args_summary()}}{
-Get, specify or update the summary.args attribute.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Trial$args_summary(.args = NULL, .reset = FALSE, ...)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{.args}}{(list or character) named list of arguments to update
+\subsection{\code{Trial$args_summary()}}{
+  Get, specify or update the summary.args attribute.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Trial$args_summary(.args = NULL, .reset = FALSE, ...)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{.args}}{(list or character) named list of arguments to update
 or set. A single or subset of arguments can be retrieved by passing the
 respective argument names as a character or character vector.}
-
-\item{\code{.reset}}{(logical or character) Reset all or a subset of previously
+      \item{\code{.reset}}{(logical or character) Reset all or a subset of previously
 set parameters. Can be combined with setting new parameters.}
-
-\item{\code{...}}{Alternative to using \code{.args} to update or set arguments}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{trial <- Trial$new(
+      \item{\code{...}}{Alternative to using \code{.args} to update or set arguments}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{trial <- Trial$new(
   covariates = function(n, p = 0.5) data.frame(a = rbinom(n, 1, p)),
   outcome = function(data, ate, mu) rnorm(nrow(data), mu + data$a * ate)
 )
@@ -491,46 +485,43 @@ trial$args_summary(alternative = "!=", level = 0.05, .reset = TRUE)
 # removing alternative and setting level
 trial$args_summary(level = 0.05, .reset = "alternative")
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Trial-estimators"></a>}}
 \if{latex}{\out{\hypertarget{method-Trial-estimators}{}}}
-\subsection{Method \code{estimators()}}{
-Get, specify or update estimators.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Trial$estimators(.estimators = NULL, .reset = FALSE, ...)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{.estimators}}{(list, function or character) Argument controlling
+\subsection{\code{Trial$estimators()}}{
+  Get, specify or update estimators.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Trial$estimators(.estimators = NULL, .reset = FALSE, ...)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{.estimators}}{(list, function or character) Argument controlling
 the getter or setter behavior. Estimators are set or updated by providing
 a single estimator (function) or list of estimators, and retrieved by
 providing a character (see examples).}
-
-\item{\code{.reset}}{(logical or character) Reset all or a subset of previously
+      \item{\code{.reset}}{(logical or character) Reset all or a subset of previously
 set estimators. Can be combined with setting new estimators.}
-
-\item{\code{...}}{Alternative to \code{.estimators} for updating or setting
+      \item{\code{...}}{Alternative to \code{.estimators} for updating or setting
 estimators.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Details}{
-A name is internally assigned to estimators when calling the
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Details}{
+    A name is internally assigned to estimators when calling the
 method with \code{.estimators} set to a single estimator or a list with
 unnamed elements. The names are a combination of an \emph{est} prefix and an
 integer that indicates the \emph{n}th added unnamed estimator.
-}
-
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{estimators <- list(marginal = est_glm(), adj = est_glm(covariates = "x"))
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{estimators <- list(marginal = est_glm(), adj = est_glm(covariates = "x"))
 trial <- Trial$new(
   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n)),
   outcome = \(data, ate = -0.5) rnorm(nrow(data), data$a * ate),
@@ -558,16 +549,15 @@ trial$estimators(estimators, .reset = TRUE)
 trial$estimators(.reset = "est1")
 trial$estimators(est_glm()) # replaces removed est1
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Trial-simulate"></a>}}
 \if{latex}{\out{\hypertarget{method-Trial-simulate}{}}}
-\subsection{Method \code{simulate()}}{
-Simulate data by applying parameters to the trial model. The
+\subsection{\code{Trial$simulate()}}{
+  Simulate data by applying parameters to the trial model. The
 method samples first from the covariate model. Outcome data sampling
 follows by passing the simulated covariate data to the outcome model. An
 optional exclusion model is applied to the combined covariates and
@@ -594,29 +584,28 @@ argument of this method take precedence over parameters defined via
 \link[=Trial]{Trial$args_model()}. However, parameters that have been set via
 \link[=Trial]{Trial$args_model()} are not updated when optional arguments are
 provided.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Trial$simulate(n, .niter = 500L, ...)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{n}}{(integer) Number of observations (sample size)}
-
-\item{\code{.niter}}{(integer) Maximum number of simulation runs to avoid
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Trial$simulate(n, .niter = 500L, ...)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{n}}{(integer) Number of observations (sample size)}
+      \item{\code{.niter}}{(integer) Maximum number of simulation runs to avoid
 infinite loops for ill defined exclusion functions.}
-
-\item{\code{...}}{Arguments to covariate, outcome and exclusion model
+      \item{\code{...}}{Arguments to covariate, outcome and exclusion model
 functions}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-data.table with \code{n} rows
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{trial <- Trial$new(
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    data.table with \code{n} rows
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{trial <- Trial$new(
   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
   outcome = \(data, ate = 0) with(data, rnorm(nrow(data), a * ate))
 )
@@ -669,16 +658,15 @@ trial <- Trial$new(
 )
 trial$simulate(n)
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Trial-run"></a>}}
 \if{latex}{\out{\hypertarget{method-Trial-run}{}}}
-\subsection{Method \code{run()}}{
-Run trial and estimate parameters multiple times
+\subsection{\code{Trial$run()}}{
+  Run trial and estimate parameters multiple times
 
 The method calls \link[=Trial]{Trial$simulate()} \code{R} times and applies the
 specified estimators to each simulated dataset of sample size \code{n}.
@@ -692,36 +680,34 @@ simulation runs in \link[=Trial]{Trial$simulate()}.
 
 Estimators fail silently in that errors occurring when applying an
 estimator to each simulated dataset will not terminate the method call.
-The returned \linkS4class{trial.estimates} object will instead indicate that
+The returned \link[=trial.estimates-class]{trial.estimates} object will instead indicate that
 estimators failed.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Trial$run(n, R = 100, estimators = NULL, ...)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{n}}{(integer) Number of observations (sample size)}
-
-\item{\code{R}}{(integer) Number of replications}
-
-\item{\code{estimators}}{(list or function) List of estimators or a single unnamed
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Trial$run(n, R = 100, estimators = NULL, ...)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{n}}{(integer) Number of observations (sample size)}
+      \item{\code{R}}{(integer) Number of replications}
+      \item{\code{estimators}}{(list or function) List of estimators or a single unnamed
 estimator}
-
-\item{\code{...}}{Arguments to covariate, outcome and exclusion model
+      \item{\code{...}}{Arguments to covariate, outcome and exclusion model
 functions}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-(invisible) An object of class \linkS4class{trial.estimates}, which
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    (invisible) An object of class \link[=trial.estimates-class]{trial.estimates}, which
 contains the estimates of all estimators and all information to repeat
 the simulation. The return object is also assigned to the \code{estimates}
 field of this Trial class object (see examples).
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{ # don't run because of high computational time
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{ # don't run because of high computational time
 # future::plan("multicore")
 trial <- Trial$new(
   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
@@ -754,50 +740,45 @@ trial$run(n = 100, R = 50, ate = -0.2)
 # supplying another estimator
 trial$run(n = 100, R = 50, estimators = est_glm(robust = FALSE))
 }
+    \if{html}{\out{</div>}}
+  }
 }
-\if{html}{\out{</div>}}
 
-}
-
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Trial-estimate_power"></a>}}
 \if{latex}{\out{\hypertarget{method-Trial-estimate_power}{}}}
-\subsection{Method \code{estimate_power()}}{
-Estimates statistical power for a specified trial
+\subsection{\code{Trial$estimate_power()}}{
+  Estimates statistical power for a specified trial
 
 Convenience method that first runs \link[=Trial]{Trial$run()} and subsequently
 applies \link[=Trial]{Trial$summary()} to derive the power for each
 estimator. The behavior of passing arguments to lower level functions is
 identical to \link[=Trial]{Trial$run()}.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Trial$estimate_power(n, R = 100, estimators = NULL, summary.args = list(), ...)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{n}}{(integer) Number of observations (sample size)}
-
-\item{\code{R}}{(integer) Number of replications}
-
-\item{\code{estimators}}{(list or function) List of estimators or a single unnamed
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Trial$estimate_power(n, R = 100, estimators = NULL, summary.args = list(), ...)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{n}}{(integer) Number of observations (sample size)}
+      \item{\code{R}}{(integer) Number of replications}
+      \item{\code{estimators}}{(list or function) List of estimators or a single unnamed
 estimator}
-
-\item{\code{summary.args}}{(list) Arguments passed to summary method
+      \item{\code{summary.args}}{(list) Arguments passed to summary method
 for decision-making}
-
-\item{\code{...}}{Arguments to covariate, outcome and exclusion model
+      \item{\code{...}}{Arguments to covariate, outcome and exclusion model
 functions}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-numeric
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{ # don't run because of high computational time
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    numeric
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{ # don't run because of high computational time
 # toy examples with small number of Monte-Carlo replicates
 # future::plan("multicore")
 trial <- Trial$new(
@@ -822,17 +803,15 @@ trial$estimate_power(n = 100, R = 20, ate = -100,
 trial$estimate_power(n = 100, R = 20,
  estimators = list(est_glm(), est_adj()))
 }
+    \if{html}{\out{</div>}}
+  }
 }
-\if{html}{\out{</div>}}
 
-}
-
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Trial-estimate_samplesize"></a>}}
 \if{latex}{\out{\hypertarget{method-Trial-estimate_samplesize}{}}}
-\subsection{Method \code{estimate_samplesize()}}{
-Estimate the minimum sample-size required to reach a desired
+\subsection{\code{Trial$estimate_samplesize()}}{
+  Estimate the minimum sample-size required to reach a desired
 statistical power with a specified estimator. An initial rough estimate
 is obtained via bisection, followed by a
 stochastic approximation (Robbins-Monro) algorithm, and finally, a grid
@@ -841,8 +820,9 @@ solution.
 
 Note that the estimation procedure for the sample size will not populate
 the estimates attribute of a trial object.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Trial$estimate_samplesize(
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Trial$estimate_samplesize(
   ...,
   power = 0.9,
   estimator = NULL,
@@ -855,59 +835,48 @@ the estimates attribute of a trial object.
   verbose = TRUE,
   minimum = 10L,
   summary.args = list()
-)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{...}}{Arguments to covariate, outcome and exclusion model
+)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{...}}{Arguments to covariate, outcome and exclusion model
 functions}
-
-\item{\code{power}}{(numeric) Desired statistical power}
-
-\item{\code{estimator}}{(list or function) Estimator (function) to be applied.
+      \item{\code{power}}{(numeric) Desired statistical power}
+      \item{\code{estimator}}{(list or function) Estimator (function) to be applied.
 If NULL, then estimate sample size for all estimators defined via
 \link[=Trial]{Trial$estimators()}. A prefix \emph{est} is used to label unnamed
 estimators.}
-
-\item{\code{interval}}{(integer vector) Interval in which to initially look for
+      \item{\code{interval}}{(integer vector) Interval in which to initially look for
 a solution with the bisection algorithm. Passing an integer will skip the
 bisection algorithm and use the provided integer as the initial solution
 for the stochastic approximation algorithm}
-
-\item{\code{bisection.control}}{(list) Options controlling the bisection
+      \item{\code{bisection.control}}{(list) Options controlling the bisection
 algorithm (\link{bisection}). Default values can also be changed for a
 subset of options only (see examples).}
-
-\item{\code{sa.control}}{(list) Options controlling the stochastic approximation
+      \item{\code{sa.control}}{(list) Options controlling the stochastic approximation
 (Robbins-Monro) algorithm (\link{optim_sa}). Default values can also be
 changed for a subset of options only (see examples).}
-
-\item{\code{refinement}}{(integer vector) Vector to create an interval whose
+      \item{\code{refinement}}{(integer vector) Vector to create an interval whose
 center is the sample size estimate of the Robbins-Monro algorithm.}
-
-\item{\code{R}}{(integer) Number of replications to use in Monte Carlo
+      \item{\code{R}}{(integer) Number of replications to use in Monte Carlo
 simulation of refinement calculations.}
-
-\item{\code{interpolate}}{(logical) If TRUE, a linear interpolation of the
+      \item{\code{interpolate}}{(logical) If TRUE, a linear interpolation of the
 refinement points will be used to estimate the power.}
-
-\item{\code{verbose}}{(logical) If TRUE, additional output will be displayed.}
-
-\item{\code{minimum}}{(integer) Minimum sample size.}
-
-\item{\code{summary.args}}{(list) Arguments passed to summary method
+      \item{\code{verbose}}{(logical) If TRUE, additional output will be displayed.}
+      \item{\code{minimum}}{(integer) Minimum sample size.}
+      \item{\code{summary.args}}{(list) Arguments passed to summary method
 for decision-making}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-samplesize_estimate S3 object
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{ # don't run because of high computational time
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    samplesize_estimate S3 object
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{ # don't run because of high computational time
 trial <- Trial$new(
   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
   outcome = \(data, ate, sd) with(data, rnorm(nrow(data), a * ate, sd)),
@@ -928,23 +897,22 @@ trial$estimate_samplesize(ate = -2, estimator = est_glm())
 # before
 # trial$estimate_samplesize(summary.args = list(level = 0.025))
 }
+    \if{html}{\out{</div>}}
+  }
 }
-\if{html}{\out{</div>}}
 
-}
-
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Trial-summary"></a>}}
 \if{latex}{\out{\hypertarget{method-Trial-summary}{}}}
-\subsection{Method \code{summary()}}{
-Summarize Monte Carlo studies of different estimators for
+\subsection{\code{Trial$summary()}}{
+  Summarize Monte Carlo studies of different estimators for
 the treatment effect in a randomized clinical trial. The method reports
 the power of both superiority tests (one-sided or two-sided) and
 non-inferiority tests, together with summary statistics of the
 different estimators.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Trial$summary(
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Trial$summary(
   level = 0.05,
   null = 0,
   ni.margin = NULL,
@@ -954,43 +922,35 @@ different estimators.
   nominal.coverage = 0.9,
   estimates = NULL,
   ...
-)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{level}}{(numeric) significance level}
-
-\item{\code{null}}{(numeric) null hypothesis to test}
-
-\item{\code{ni.margin}}{(numeric) non-inferiority margin}
-
-\item{\code{alternative}}{alternative hypothesis (not equal !=, less <,
+)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{level}}{(numeric) significance level}
+      \item{\code{null}}{(numeric) null hypothesis to test}
+      \item{\code{ni.margin}}{(numeric) non-inferiority margin}
+      \item{\code{alternative}}{alternative hypothesis (not equal !=, less <,
 greater >)}
-
-\item{\code{reject.function}}{Optional function calculating whether to reject
+      \item{\code{reject.function}}{Optional function calculating whether to reject
 the null hypothesis}
-
-\item{\code{true.value}}{Optional true parameter value}
-
-\item{\code{nominal.coverage}}{Width of confidence limits}
-
-\item{\code{estimates}}{Optional trial.estimates object. When provided, these
+      \item{\code{true.value}}{Optional true parameter value}
+      \item{\code{nominal.coverage}}{Width of confidence limits}
+      \item{\code{estimates}}{Optional trial.estimates object. When provided, these
 estimates will be used instead of the object's stored estimates. This
 allows calculating summaries for different trial results without
 modifying the object's state.}
-
-\item{\code{...}}{additional arguments to lower level functions}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-matrix with results of each estimator stored in separate rows
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{outcome <- function(data, p = c(0.5, 0.25)) {
+      \item{\code{...}}{additional arguments to lower level functions}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    matrix with results of each estimator stored in separate rows
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{outcome <- function(data, p = c(0.5, 0.25)) {
   a <- rbinom(nrow(data), 1, 0.5)
   data.frame(a = a, y = rbinom(nrow(data), 1, p[1] * (1 - a) + p[2] * a)
   )
@@ -1012,34 +972,33 @@ trial$summary(estimates = res)
 # calculate empirical bias, rmse and coverage for true target parameter
 trial$summary(estimates = res, true.value = 0)
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Trial-print"></a>}}
 \if{latex}{\out{\hypertarget{method-Trial-print}{}}}
-\subsection{Method \code{print()}}{
-Print method for Trial objects
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Trial$print(..., verbose = FALSE)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{...}}{Additional arguments to lower level functions (not used).}
-
-\item{\code{verbose}}{(logical) By default, only print the
+\subsection{\code{Trial$print()}}{
+  Print method for Trial objects
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Trial$print(..., verbose = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{...}}{Additional arguments to lower level functions (not used).}
+      \item{\code{verbose}}{(logical) By default, only print the
 function arguments of the covariates, outcome and exclusion models. If
 \emph{TRUE}, then also print the function body.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{trial <- Trial$new(
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{trial <- Trial$new(
   covariates = function(n) data.frame(a = rbinom(n, 1, 0.5)),
   outcome = function(data, sd = 1) rnorm(nrow(data), data$a * -1, sd),
   estimators = list(marginal = est_glm()),
@@ -1051,26 +1010,27 @@ trial$args_summary(level = 0.025)
 print(trial) # only function headers
 print(trial, verbose = TRUE) # also print function bodies
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Trial-clone"></a>}}
 \if{latex}{\out{\hypertarget{method-Trial-clone}{}}}
-\subsection{Method \code{clone()}}{
-The objects of this class are cloneable with this method.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Trial$clone(deep = FALSE)}\if{html}{\out{</div>}}
+\subsection{\code{Trial$clone()}}{
+  The objects of this class are cloneable with this method.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Trial$clone(deep = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{deep}}{Whether to make a deep clone.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{deep}}{Whether to make a deep clone.}
-}
-\if{html}{\out{</div>}}
-}
-}
 }
