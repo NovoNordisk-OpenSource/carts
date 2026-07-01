@@ -13,7 +13,7 @@
 #' @param family (family or character) Exponential family that is supported by
 #' [stats::glm] and [MASS::glm.nb]
 #' @param target.parameter (character) Target parameter from model output
-#' @param ... Additional arguments to [lava::estimate]
+#' @param ... Additional arguments to [lava:::summary.estimate]
 #' @return function
 #' @seealso [Trial]
 #' @aliases est_glm est_gee est_geebin est_glmbin
@@ -85,17 +85,18 @@ est_glm <- function(response = "y",
     } else {
       g <- glm(formula, data = data, family = family)
     }
-    args <- list(g, level = level, keep = target.parameter, ...)
+    args <- list(g, keep = target.parameter)
     if (!is.null(id)) args$id <- data[, id, drop = TRUE]
     e <- tryCatch(do.call(lava::estimate, args),
       error = function(...) {
-        return(lava::estimate(
-          coef = coef(g),
-          vcov = NA, level = level,
-          keep = target.parameter, ...
-        ))
+        return(
+          lava::estimate(
+            coef = coef(g), vcov = NA, keep = target.parameter
+        )
+        )
       }
     )
+    e <- summary(e, level = level, ...)
     return(e)
   }
   return(fun)
@@ -258,7 +259,8 @@ est_adj <- function(response = "y",
       e <- lava::estimate(e, id = data[, id, drop = TRUE])
     }
     return(
-      lava::estimate(e, treatment.effect, labels = nam, level = level)
+      lava::estimate(e, treatment.effect, labels = nam) |>
+        summary(level = level)
     )
   }
   return(fun)
@@ -283,9 +285,10 @@ est_phreg <- function(response = "Surv(time, status)",
   }
   fun <- function(data, ...) {
     e <- mets::phreg(response, data = data)
-    args <- list(level = level, x = e)
+    args <- list(x = e)
     if (!is.null(id)) args[["id"]] <- data[, id, drop = TRUE]
-    return(do.call(lava::estimate, args))
+    est <- do.call(lava::estimate, args)
+    return(summary(est, level = level))
   }
   return(fun)
 }
@@ -312,7 +315,7 @@ adj1 <- function(qmodel, data, treatment = "a", nfolds = 1, ...) {
 
   ce <- targeted::cate(f,
     silent = TRUE, nfolds = nfolds, ...,
-    response.model = qmodel, propensity.model = f, data = data,
+    response.model = qmodel, treatment.model = f, data = data,
     mc.cores = 1
   )
 

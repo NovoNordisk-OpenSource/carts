@@ -61,7 +61,7 @@ run1trial <- function(self, sim.args, estimators) {
   data <- do.call(self$simulate, sim.args)
   est <- lapply(estimators, function(f) {
     res <- f(data)
-    if (inherits(res, "estimate")) {
+    if (inherits(res, "summary.estimate")) {
       res <- lava::parameter(res)[1, , drop = TRUE]
     }
     return(res)
@@ -81,7 +81,7 @@ test_estimators <- function(self, sim.args, estimators) {
   results <- lapply(names(estimators), function(est_name) {
     tryCatch({
       res <- estimators[[est_name]](data)
-      if (inherits(res, "estimate")) {
+      if (inherits(res, "summary.estimate")) {
         res <- lava::parameter(res)[1, , drop = TRUE]
       }
       return(NULL)  # Success case
