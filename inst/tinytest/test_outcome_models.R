@@ -116,7 +116,20 @@ test_outcome_continuous()
 
 test_outcome_phreg <- function() {
   phreg <- mets::phreg
-  phreg.par <- mets::phreg.par
+  # `mets::phreg.par` is deprecated in favour of `mets::phreg_weibull`, which
+  # uses a different parametrization and coefficient order. This shim restores
+  # the `phreg.par` layout `c(scale, shape, covariates)` so the expectations
+  # below stay unchanged. Fall back to `phreg.par` on older mets versions.
+  if (exists("phreg_weibull", where = asNamespace("mets"))) {
+    phreg.par <- function(...) {
+      res <- mets::phreg_weibull(...)
+      np <- length(coef(res))
+      tr <- function(p) c(p[1] / exp(p[np]), p[np], p[-c(1, np)])
+      lava::estimate(res, tr)
+    }
+  } else {
+    phreg.par <- mets::phreg.par
+  }
   Surv <- survival::Surv #nolint
 
   par1 <- list(scale = 1 / 100, shape = 2)
