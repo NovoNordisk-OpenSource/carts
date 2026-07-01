@@ -1,3 +1,4 @@
+# nolint start
 #' @keywords internal
 "_PACKAGE"
 
@@ -37,3 +38,4 @@
 #' trial$summary()
 #' }
 NULL
+# nolint end
