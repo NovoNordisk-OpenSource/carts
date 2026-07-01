@@ -38,7 +38,7 @@ taken when the treatment variable is encoded as a factor (see examples).}
 
 \item{target.parameter}{(character) Target parameter from model output}
 
-\item{...}{Additional arguments to \link[lava:estimate.default]{lava::estimate}}
+\item{...}{Additional arguments to \link[lava:estimate]{lava::estimate}}
 }
 \value{
 function
@@ -47,7 +47,7 @@ function
 Returns an estimator for the estimation of a treatment effect
 with parametric models (\link[stats:glm]{stats::glm} and \link[MASS:glm.nb]{MASS::glm.nb}). The returned
 estimator is a function with a single argument (data) and returns the
-treatment effect estimate, which is estimated with \link[lava:estimate.default]{lava::estimate}
+treatment effect estimate, which is estimated with \link[lava:estimate]{lava::estimate}
 }
 \examples{
 \dontrun{

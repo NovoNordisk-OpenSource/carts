@@ -1,7 +1,7 @@
 Package: carts
 Type: Package
 Title: Simulation-Based Assessment of Covariate Adjustment in Randomized Trials
-Version: 0.1.0
+Version: 0.2.0.9000
 Authors@R: c(person(given = "Benedikt",
                     family = "Sommer",
                     role = c("aut", "cre"),
@@ -52,4 +52,4 @@ VignetteBuilder: knitr
 ByteCompile: yes
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.3
+Config/roxygen2/version: 8.0.0
