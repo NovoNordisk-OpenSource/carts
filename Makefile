@@ -74,10 +74,10 @@ check-cran: build
 
 in: install
 install:
-	@echo 'devtools::install(".", upgrade = "never")' | $(R)
+	@echo 'devtools::install(".", upgrade = FALSE)' | $(R)
 
 upgrade:
-	@echo 'devtools::install(".", upgrade = "always")' | $(R)
+	@echo 'devtools::install(".", upgrade = TRUE)' | $(R)
 
 install-deps:
 	@echo 'devtools::install_deps(".", dependencies = TRUE)' | $(R)
