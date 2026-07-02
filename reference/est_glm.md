@@ -63,7 +63,7 @@ est_glm(
 - ...:
 
   Additional arguments to
-  [lava::estimate](https://kkholst.github.io/lava/reference/estimate.default.html)
+  [lava::summary.estimate](https://kkholst.github.io/lava/reference/summary.estimate.html)
 
 ## Value
 

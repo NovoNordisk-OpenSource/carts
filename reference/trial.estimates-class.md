@@ -54,17 +54,6 @@ trial <- Trial$new(
   outcome = function(data) rnorm(nrow(data), data$a * -1)
  )
 res <- trial$run(n = 100, R = 10, estimators = est_glm())
-#> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
 print(res)
 #> ── trial.estimates ── 
 #> 
@@ -88,27 +77,6 @@ res2 <- do.call(
   res$model$run,
   c(list(R = 20, estimators = res$estimators), res$sim.args)
 )
-#> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
-#> Warning: The 'null', 'contrast', 'type', 'back.transform', 'level' and 'var.adj' arguments of estimate.default() are deprecated and will be removed in version 1.9.3. Use summary(estimate(...), null=, contrast=, type=, transform=,level=, df=, var.adj=) instead.
 print(res2)
 #> ── trial.estimates ── 
 #> 
