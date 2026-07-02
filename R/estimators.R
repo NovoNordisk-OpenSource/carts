@@ -13,7 +13,7 @@
 #' @param family (family or character) Exponential family that is supported by
 #' [stats::glm] and [MASS::glm.nb]
 #' @param target.parameter (character) Target parameter from model output
-#' @param ... Additional arguments to [lava:::summary.estimate]
+#' @param ... Additional arguments to [lava::summary.estimate]
 #' @return function
 #' @seealso [Trial]
 #' @aliases est_glm est_gee est_geebin est_glmbin
@@ -312,10 +312,9 @@ make_formula <- function(treatment = "a",
 
 adj1 <- function(qmodel, data, treatment = "a", nfolds = 1, ...) {
   f <- as.formula(paste0(treatment, "~ 1"))
-
   ce <- targeted::cate(f,
     silent = TRUE, nfolds = nfolds, ...,
-    response.model = qmodel, treatment.model = f, data = data,
+    response.model = qmodel, propensity.model = f, data = data,
     mc.cores = 1
   )
 

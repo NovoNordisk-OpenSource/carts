@@ -38,7 +38,7 @@ taken when the treatment variable is encoded as a factor (see examples).}
 
 \item{target.parameter}{(character) Target parameter from model output}
 
-\item{...}{Additional arguments to \link[lava:estimate]{lava::estimate}}
+\item{...}{Additional arguments to \link[lava:summary.estimate]{lava::summary.estimate}}
 }
 \value{
 function
