@@ -144,6 +144,10 @@ test_est_glm <- function() {
 
   # return NA when standard errors cannot be calculated for target parameter
   dd <- data.frame(a = 1, y = rnorm(10))
-  expect_equal(est_glm()(dd)$coef, c(a=NA_real_))
+  expect_warning(
+    .coef <- est_glm()(dd)$coef,
+    pattern = "Over-parameterized model"
+  )
+  expect_equal(.coef,c(a=NA_real_))
 }
 test_est_glm()

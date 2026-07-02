@@ -8,9 +8,7 @@
 #'   clinical trial designs with a special emphasis on estimators based on
 #'   covariate adjustment.
 #' @name carts-package
-#' @importFrom stats glm poisson binomial gaussian rpois rnbinom pnbinom rbinom
-#'   rgamma nlminb na.omit coef update qnorm model.offset model.frame as.formula
-#'   formula delete.response predict terms model.matrix rnorm lm runif sd time
+#' @importFrom stats glm poisson binomial gaussian rpois rnbinom pnbinom rbinom rgamma nlminb na.omit coef update qnorm model.offset model.frame as.formula formula delete.response predict terms model.matrix rnorm lm runif sd time
 #' @importFrom targeted learner cv learner_glm
 #' @importFrom utils head tail str capture.output
 #' @importFrom rlang abort call_match
