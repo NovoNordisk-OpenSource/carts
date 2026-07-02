@@ -140,11 +140,11 @@ holding the rate parameter 'rate'</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)            a            x  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2.503024     0.657987     0.008428  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     2.50544      0.65458      0.01503  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Degrees of Freedom: 9999 Total (i.e. Null);  9997 Residual</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    212200 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 175400 	AIC: 226100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    213000 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 176600 	AIC: 227200</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># intercept + coef for x default to 0 and regression coef for a takes</span></span></span>
 <span class="r-in"><span><span class="co"># the provided value</span></span></span>
@@ -155,11 +155,11 @@ holding the rate parameter 'rate'</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)            a            x  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    0.010257     0.647325    -0.005481  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0.0187912    0.6359110   -0.0007297  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Degrees of Freedom: 9999 Total (i.e. Null);  9997 Residual</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    27160 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 24240 	AIC: 48180</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    27150 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 24320 	AIC: 48290</span>
 <span class="r-in"><span><span class="co"># trial$simulate(1e4, mean = ~ 1 + a, par = c("(Intercept)" = 1))</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># define mean model that directly works on whole covariate data, incl id and</span></span></span>
@@ -172,23 +172,23 @@ holding the rate parameter 'rate'</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)            a            x  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    0.990683     0.507695    -0.006818  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    0.983436     0.524986    -0.004498  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Degrees of Freedom: 9999 Total (i.e. Null);  9997 Residual</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    47790 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 43310 	AIC: 77360</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    49220 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 44420 	AIC: 78420</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># treatment-dependent exposure times</span></span></span>
 <span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">simulate</span><span class="op">(</span><span class="fl">1e4</span>, exposure <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">dd</span><span class="op">)</span> <span class="fl">1</span> <span class="op">-</span> <span class="fl">0.5</span> <span class="op">*</span> <span class="va">dd</span><span class="op">$</span><span class="va">a</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       id     a           x   num     y exposure</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    &lt;num&gt; &lt;int&gt;       &lt;num&gt; &lt;num&gt; &lt;num&gt;    &lt;num&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1:     1     1 -1.48217765     0    24      0.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2:     2     0 -1.18088521     0    14      1.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3:     3     0  0.08345518     0    14      1.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4:     4     0  1.60456977     0     6      1.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5:     5     1 -1.10279220     0    20      0.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6:     6     0 -0.29483347     0    13      1.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       id     a          x   num     y exposure</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    &lt;num&gt; &lt;int&gt;      &lt;num&gt; &lt;num&gt; &lt;num&gt;    &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1:     1     0 -0.9034504     0    20      1.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2:     2     1 -0.2522925     0     7      0.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3:     3     0 -0.6563022     0     2      1.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4:     4     0  1.0823261     0    16      1.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5:     5     0 -1.9236021     0     3      1.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6:     6     1 -0.1704307     0     2      0.5</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

@@ -112,26 +112,26 @@ subject only.</p>
 <span class="r-in"><span>  x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">7</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">dat</span><span class="op">[</span>, <span class="va">exit</span> <span class="op">:=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/data.table/man/shift.html" class="external-link">shift</a></span><span class="op">(</span><span class="va">entry</span>, <span class="fl">1</span>, type<span class="op">=</span><span class="st">"lead"</span><span class="op">)</span>, by<span class="op">=</span><span class="va">id</span><span class="op">]</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       id      entry status           x       exit</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    &lt;num&gt;     &lt;Date&gt;  &lt;num&gt;       &lt;num&gt;     &lt;Date&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1:     1 2021-01-01      1 -1.41016771 2021-01-20</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2:     1 2021-01-20      1  0.65384109 2021-02-28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3:     1 2021-02-28      1 -0.84543556 2021-06-01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4:     1 2021-06-01      1  2.58267986       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5:     2 2021-01-01      1 -0.02733793 2021-01-14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6:     2 2021-01-14      1  0.08861960 2021-09-01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7:     2 2021-09-01      0  0.05116386       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       id      entry status          x       exit</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    &lt;num&gt;     &lt;Date&gt;  &lt;num&gt;      &lt;num&gt;     &lt;Date&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1:     1 2021-01-01      1 -0.5522281 2021-01-20</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2:     1 2021-01-20      1  0.0161406 2021-02-28</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3:     1 2021-02-28      1 -0.1279783 2021-06-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4:     1 2021-06-01      1  0.3917558       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5:     2 2021-01-01      1  1.7860606 2021-01-14</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6:     2 2021-01-14      1 -1.7503669 2021-09-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7:     2 2021-09-01      0  0.8433364       &lt;NA&gt;</span>
 <span class="r-in"><span><span class="va">dat</span><span class="op">[</span>, <span class="va">exit</span> <span class="op">:=</span> <span class="fu"><a href="https://rdrr.io/r/base/replace.html" class="external-link">replace</a></span><span class="op">(</span><span class="va">exit</span>, <span class="va">.N</span>, <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2021-12-31"</span><span class="op">)</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>     by <span class="op">=</span> <span class="va">id</span><span class="op">]</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       id      entry status           x       exit</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    &lt;num&gt;     &lt;Date&gt;  &lt;num&gt;       &lt;num&gt;     &lt;Date&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1:     1 2021-01-01      1 -1.41016771 2021-01-20</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2:     1 2021-01-20      1  0.65384109 2021-02-28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3:     1 2021-02-28      1 -0.84543556 2021-06-01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4:     1 2021-06-01      1  2.58267986 2021-12-31</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5:     2 2021-01-01      1 -0.02733793 2021-01-14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6:     2 2021-01-14      1  0.08861960 2021-09-01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7:     2 2021-09-01      0  0.05116386 2021-12-31</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       id      entry status          x       exit</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    &lt;num&gt;     &lt;Date&gt;  &lt;num&gt;      &lt;num&gt;     &lt;Date&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1:     1 2021-01-01      1 -0.5522281 2021-01-20</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2:     1 2021-01-20      1  0.0161406 2021-02-28</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3:     1 2021-02-28      1 -0.1279783 2021-06-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4:     1 2021-06-01      1  0.3917558 2021-12-31</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5:     2 2021-01-01      1  1.7860606 2021-01-14</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6:     2 2021-01-14      1 -1.7503669 2021-09-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7:     2 2021-09-01      0  0.8433364 2021-12-31</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu">aggrsurv</span><span class="op">(</span><span class="va">dat</span>,</span></span>
 <span class="r-in"><span>  breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">182</span><span class="op">)</span>,</span></span>
@@ -139,12 +139,12 @@ subject only.</p>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Key: &lt;id&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       id episode entry  exit events exposure           x</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    &lt;num&gt;   &lt;num&gt; &lt;num&gt; &lt;num&gt;  &lt;num&gt;    &lt;num&gt;       &lt;num&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1:     1       1     0   182      3      182 -1.41016771</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2:     1       2   182   364      1      182 -1.41016771</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3:     2       1     0   182      1      182 -0.02733793</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4:     2       2   182   364      1      182 -0.02733793</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       id episode entry  exit events exposure          x</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    &lt;num&gt;   &lt;num&gt; &lt;num&gt; &lt;num&gt;  &lt;num&gt;    &lt;num&gt;      &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1:     1       1     0   182      3      182 -0.5522281</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2:     1       2   182   364      1      182 -0.5522281</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3:     2       1     0   182      1      182  1.7860606</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4:     2       2   182   364      1      182  1.7860606</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

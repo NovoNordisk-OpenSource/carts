@@ -44,7 +44,7 @@ y = as.factor(rbinom(1e3, size = 1, prob=0.1))
 m.est <- estimate_covar_model_full_cond(data)
 y <- sample_covar_parametric_model(1e4, m.est)$y |> as.integer() - 1
 print(mean(y))
-#> [1] 0.1065
+#> [1] 0.1106
 
 # specify distribution of y
 m.est <- estimate_covar_model_full_cond(
@@ -52,5 +52,5 @@ m.est <- estimate_covar_model_full_cond(
 )
 y <- sample_covar_parametric_model(1e4, m.est)$y |> as.integer() - 1
 print(mean(y))
-#> [1] 0.1015
+#> [1] 0.1031
 ```

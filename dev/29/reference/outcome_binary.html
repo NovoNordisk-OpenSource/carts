@@ -120,11 +120,11 @@ not specified).</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)            a  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      1.0038       0.5592  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      1.0008       0.5487  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Degrees of Freedom: 9999 Total (i.e. Null);  9998 Residual</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    10550 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 10420 	AIC: 10430</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    10590 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 10460 	AIC: 10460</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># default behavior is to set all regression coefficients to 0</span></span></span>
 <span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">simulate</span><span class="op">(</span><span class="fl">1e4</span>, mean <span class="op">=</span> <span class="op">~</span> <span class="fl">1</span> <span class="op">+</span> <span class="va">a</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">est</span><span class="op">(</span><span class="op">)</span></span></span>
@@ -133,7 +133,7 @@ not specified).</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)            a  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   -0.003639    -0.007048  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    0.024030    -0.003254  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Degrees of Freedom: 9999 Total (i.e. Null);  9998 Residual</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    13860 </span>
@@ -146,11 +146,11 @@ not specified).</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)            a  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   -0.003622     0.522619  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    -0.01112      0.51808  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Degrees of Freedom: 9999 Total (i.e. Null);  9998 Residual</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    13700 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 13540 	AIC: 13540</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    13720 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 13550 	AIC: 13560</span>
 <span class="r-in"><span><span class="co"># trial$simulate(1e4, mean = ~ 1 + a, par = c("(Intercept)" = 1))</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># define mean model that directly works on whole covariate data, incl id and</span></span></span>
@@ -162,11 +162,11 @@ not specified).</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)            a  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      0.9806       0.4757  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      0.9951       0.4890  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Degrees of Freedom: 9999 Total (i.e. Null);  9998 Residual</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    10830 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 10730 	AIC: 10730</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    10740 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 10630 	AIC: 10640</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># par argument of outcome_binary is not passed on to mean function</span></span></span>
 <span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">simulate</span><span class="op">(</span><span class="fl">1e4</span>,</span></span>
@@ -178,11 +178,11 @@ not specified).</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)            a  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      1.0402       0.7501  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      1.0243       0.7617  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Degrees of Freedom: 9999 Total (i.e. Null);  9998 Residual</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    10050 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 9831 	AIC: 9835</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    10090 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 9866 	AIC: 9870</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

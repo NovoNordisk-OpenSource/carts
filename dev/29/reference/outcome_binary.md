@@ -81,11 +81,11 @@ trial$simulate(1e4, mean = ~ 1 + a, par = c(1, 0.5)) |> est()
 #> 
 #> Coefficients:
 #> (Intercept)            a  
-#>      1.0038       0.5592  
+#>      1.0008       0.5487  
 #> 
 #> Degrees of Freedom: 9999 Total (i.e. Null);  9998 Residual
-#> Null Deviance:       10550 
-#> Residual Deviance: 10420     AIC: 10430
+#> Null Deviance:       10590 
+#> Residual Deviance: 10460     AIC: 10460
 
 # default behavior is to set all regression coefficients to 0
 trial$simulate(1e4, mean = ~ 1 + a) |> est()
@@ -94,7 +94,7 @@ trial$simulate(1e4, mean = ~ 1 + a) |> est()
 #> 
 #> Coefficients:
 #> (Intercept)            a  
-#>   -0.003639    -0.007048  
+#>    0.024030    -0.003254  
 #> 
 #> Degrees of Freedom: 9999 Total (i.e. Null);  9998 Residual
 #> Null Deviance:       13860 
@@ -107,11 +107,11 @@ trial$simulate(1e4, mean = ~ 1 + a, par = c(a = 0.5)) |> est()
 #> 
 #> Coefficients:
 #> (Intercept)            a  
-#>   -0.003622     0.522619  
+#>    -0.01112      0.51808  
 #> 
 #> Degrees of Freedom: 9999 Total (i.e. Null);  9998 Residual
-#> Null Deviance:       13700 
-#> Residual Deviance: 13540     AIC: 13540
+#> Null Deviance:       13720 
+#> Residual Deviance: 13550     AIC: 13560
 # trial$simulate(1e4, mean = ~ 1 + a, par = c("(Intercept)" = 1))
 
 # define mean model that directly works on whole covariate data, incl id and
@@ -123,11 +123,11 @@ trial$simulate(1e4, mean = \(x) with(x, lava::expit(1 + 0.5 * a))) |>
 #> 
 #> Coefficients:
 #> (Intercept)            a  
-#>      0.9806       0.4757  
+#>      0.9951       0.4890  
 #> 
 #> Degrees of Freedom: 9999 Total (i.e. Null);  9998 Residual
-#> Null Deviance:       10830 
-#> Residual Deviance: 10730     AIC: 10730
+#> Null Deviance:       10740 
+#> Residual Deviance: 10630     AIC: 10640
 
 # par argument of outcome_binary is not passed on to mean function
 trial$simulate(1e4,
@@ -139,9 +139,9 @@ trial$simulate(1e4,
 #> 
 #> Coefficients:
 #> (Intercept)            a  
-#>      1.0402       0.7501  
+#>      1.0243       0.7617  
 #> 
 #> Degrees of Freedom: 9999 Total (i.e. Null);  9998 Residual
-#> Null Deviance:       10050 
-#> Residual Deviance: 9831  AIC: 9835
+#> Null Deviance:       10090 
+#> Residual Deviance: 9866  AIC: 9870
 ```

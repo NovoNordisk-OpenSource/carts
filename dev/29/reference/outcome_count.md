@@ -101,11 +101,11 @@ trial$simulate(1e4) |> est()
 #> 
 #> Coefficients:
 #> (Intercept)            a            x  
-#>    2.503024     0.657987     0.008428  
+#>     2.50544      0.65458      0.01503  
 #> 
 #> Degrees of Freedom: 9999 Total (i.e. Null);  9997 Residual
-#> Null Deviance:       212200 
-#> Residual Deviance: 175400    AIC: 226100
+#> Null Deviance:       213000 
+#> Residual Deviance: 176600    AIC: 227200
 
 # intercept + coef for x default to 0 and regression coef for a takes
 # the provided value
@@ -116,11 +116,11 @@ trial$simulate(1e4, par = c(a = 0.65)) |> est()
 #> 
 #> Coefficients:
 #> (Intercept)            a            x  
-#>    0.010257     0.647325    -0.005481  
+#>   0.0187912    0.6359110   -0.0007297  
 #> 
 #> Degrees of Freedom: 9999 Total (i.e. Null);  9997 Residual
-#> Null Deviance:       27160 
-#> Residual Deviance: 24240     AIC: 48180
+#> Null Deviance:       27150 
+#> Residual Deviance: 24320     AIC: 48290
 # trial$simulate(1e4, mean = ~ 1 + a, par = c("(Intercept)" = 1))
 
 # define mean model that directly works on whole covariate data, incl id and
@@ -133,21 +133,21 @@ trial$simulate(1e4, mean = \(x) with(x, exp(1 + 0.5 * a))) |>
 #> 
 #> Coefficients:
 #> (Intercept)            a            x  
-#>    0.990683     0.507695    -0.006818  
+#>    0.983436     0.524986    -0.004498  
 #> 
 #> Degrees of Freedom: 9999 Total (i.e. Null);  9997 Residual
-#> Null Deviance:       47790 
-#> Residual Deviance: 43310     AIC: 77360
+#> Null Deviance:       49220 
+#> Residual Deviance: 44420     AIC: 78420
 
 # treatment-dependent exposure times
 trial$simulate(1e4, exposure = function(dd) 1 - 0.5 * dd$a) |>
   head()
-#>       id     a           x   num     y exposure
-#>    <num> <int>       <num> <num> <num>    <num>
-#> 1:     1     1 -1.48217765     0    24      0.5
-#> 2:     2     0 -1.18088521     0    14      1.0
-#> 3:     3     0  0.08345518     0    14      1.0
-#> 4:     4     0  1.60456977     0     6      1.0
-#> 5:     5     1 -1.10279220     0    20      0.5
-#> 6:     6     0 -0.29483347     0    13      1.0
+#>       id     a          x   num     y exposure
+#>    <num> <int>      <num> <num> <num>    <num>
+#> 1:     1     0 -0.9034504     0    20      1.0
+#> 2:     2     1 -0.2522925     0     7      0.5
+#> 3:     3     0 -0.6563022     0     2      1.0
+#> 4:     4     0  1.0823261     0    16      1.0
+#> 5:     5     0 -1.9236021     0     3      1.0
+#> 6:     6     1 -0.1704307     0     2      0.5
 ```

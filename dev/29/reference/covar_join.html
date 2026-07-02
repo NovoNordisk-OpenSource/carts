@@ -78,11 +78,11 @@ easily add additional covariates to an existing random generator
 <span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">c1</span> <span class="op">%join%</span> <span class="va">c2</span></span></span>
 <span class="r-in"><span><span class="fu">x</span><span class="op">(</span><span class="va">n</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            a          b</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 -0.8437922 -0.3247586</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 -0.0701223 -0.4507634</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  0.3500692 -0.4491302</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 -0.3465585 -0.8723956</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 -0.5338262  2.2914497</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 -1.5869430 -1.0575659</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  0.6758453 -0.3149336</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 -0.4758486  0.5017690</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 -0.4963323  0.3992236</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  0.1729910 -0.5015149</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># adding covariates that remain constant when sampling</span></span></span>
 <span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">c1</span> <span class="op">%join%</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>b <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span></span></span>
@@ -95,12 +95,12 @@ easily add additional covariates to an existing random generator
 <span class="r-in"><span> <span class="op">(</span>\<span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>b <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">%join%</span></span></span>
 <span class="r-in"><span> \<span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>c <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">x</span><span class="op">(</span><span class="va">n</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             a           b         c</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 -0.07372123 -0.04654242 -1.134252</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 -0.70833494  0.47023920  1.555373</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  2.57386464  1.07676514  1.299628</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 -0.16731092  0.59211779 -1.770495</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 -1.21207795  1.33633437 -1.914311</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            a           b           c</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  0.2489909  0.76828520  1.00512123</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 -1.2416351 -1.70602622 -0.01778903</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 -1.2054971  0.13690206  0.24343866</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  0.4802692 -0.08016452  1.06749504</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  0.5917036 -0.76433721  0.60605805</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># multiple periods</span></span></span>
 <span class="r-in"><span><span class="va">base</span> <span class="op">&lt;-</span> <span class="fu"><a href="setargs.html">setargs</a></span><span class="op">(</span><span class="va">covar_loggamma</span>, normal.cor <span class="op">=</span> <span class="fl">.5</span><span class="op">)</span></span></span>
@@ -113,64 +113,64 @@ easily add additional covariates to an existing random generator
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`0`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             z     a</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;num&gt; &lt;int&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1: -0.1458053     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2:  1.1224364     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3: -0.9210082     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4: -1.8092526     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5: -0.3101717     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1:  0.8347324     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2: -0.1030212     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3: -1.1768648     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4: -1.3352554     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5:  0.3196695     1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`1`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             z     a</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;num&gt; &lt;int&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1:  0.4270937     0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2:  1.1440197     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3: -0.6747639     0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4: -0.1704249     0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5: -1.0701348     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1:  0.5220863     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2: -1.9232908     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3: -1.5993146     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4: -0.4414907     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5: -0.5364583     1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># constant covariate</span></span></span>
 <span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">base</span> <span class="op">%join%</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">x</span><span class="op">(</span><span class="va">n</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`0`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               z     a</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;num&gt; &lt;num&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1:  0.476688894     0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2: -0.002701164     0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3: -0.369159008     0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4:  0.221762889     0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5: -1.156739555     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             z     a</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;num&gt; &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1:  0.1596370     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2: -1.4714101     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3:  0.5108381     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4: -0.6095166     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5:  1.0387186     0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`1`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             z     a</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;num&gt; &lt;num&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1: -0.3524553     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2: -0.6021720     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3:  0.6591839     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4: -0.2299671     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5:  0.3291745     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1:  0.4515384     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2: -0.5865852     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3: -0.2889046     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4: -1.4698447     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5: -0.1878039     1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># baseline covariate</span></span></span>
 <span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">base</span> <span class="op">%join%</span> <span class="kw">function</span><span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>w <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">x</span><span class="op">(</span><span class="va">n</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`0`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             z          w</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;num&gt;      &lt;num&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1: -0.1049118 -2.1343549</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2: -0.6793058  0.6233803</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3: -1.9515172  0.2781125</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4: -3.1403259 -0.3549830</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5:  0.8139797  0.8301683</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             z            w</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;num&gt;        &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1:  0.9074631  0.351596615</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2: -3.3398755  0.588027668</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3:  0.1499204 -1.922173391</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4: -1.5436171 -0.897130373</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5:  0.1862902  0.002374843</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`1`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             z          w</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;num&gt;      &lt;num&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1: -1.3955962 -2.1343549</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2:  0.7340489  0.6233803</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3: -1.2564605  0.2781125</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4: -2.9664508 -0.3549830</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5:  0.7023209  0.8301683</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>              z            w</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          &lt;num&gt;        &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1:  0.71434564  0.351596615</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2:  0.04959620  0.588027668</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3:  0.01613242 -1.922173391</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4: -1.08179027 -0.897130373</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5:  0.46177323  0.002374843</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 </code></pre></div>
     </div>

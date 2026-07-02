@@ -1183,7 +1183,8 @@ trial$estimate_power(n = 100, R = 20, ate = -100,
 # supplying estimators to overrule previously set estimators
 trial$estimate_power(n = 100, R = 20,
  estimators = list(est_glm(), est_adj()))
-#> Error: Estimator 'est2' failed: attempt to replicate an object of type 'language'
+#> est1 est2 
+#> 0.05 0.05 
  # \dontrun{}
 
 ## ------------------------------------------------
@@ -1202,22 +1203,22 @@ trial$args_summary(alternative = "<")
 # supply model parameter and estimator to call to overwrite previously
 # set values
 trial$estimate_samplesize(ate = -2, estimator = est_glm())
-#> INFO [2026-07-01 15:08:14] Finding initial sample-size with bisection algorithm
-#> INFO [2026-07-01 15:08:14] Evaluating left point: 50
-#> INFO [2026-07-01 15:08:16] Evaluating right point: 10000
-#> INFO [2026-07-01 15:08:21] Running stochastic approximation algorithm
-#> INFO [2026-07-01 15:09:15] Refining estimate and calculating power
+#> INFO [2026-07-02 08:04:36] Finding initial sample-size with bisection algorithm
+#> INFO [2026-07-02 08:04:36] Evaluating left point: 50
+#> INFO [2026-07-02 08:04:38] Evaluating right point: 10000
+#> INFO [2026-07-02 08:04:43] Running stochastic approximation algorithm
+#> INFO [2026-07-02 08:05:37] Refining estimate and calculating power
 #> Warning: Over-parameterized model (NA parameters). Ignoring NA parameters
 #> Warning: Over-parameterized model (NA parameters). Ignoring NA parameters
+#> INFO [2026-07-02 08:05:49] [1/4] - power(10) = 0.941
 #> Warning: Over-parameterized model (NA parameters). Ignoring NA parameters
-#> INFO [2026-07-01 15:09:28] [1/4] - power(10) = 0.916
-#> INFO [2026-07-01 15:09:41] [2/4] - power(11) = 0.956
-#> INFO [2026-07-01 15:09:53] [3/4] - power(16) = 0.982
-#> INFO [2026-07-01 15:10:06] [4/4] - power(21) = 0.999
-#> INFO [2026-07-01 15:10:06] Estimated sample size: 10
+#> INFO [2026-07-02 08:06:03] [2/4] - power(11) = 0.935
+#> INFO [2026-07-02 08:06:16] [3/4] - power(16) = 0.994
+#> INFO [2026-07-02 08:06:29] [4/4] - power(21) = 0.998
+#> INFO [2026-07-02 08:06:29] Estimated sample size: 10
 #> ── Estimated sample-size to reach 90% power ── 
 #> 
-#> n = 10 (actual estimated power≈93.4%)
+#> n = 10 (actual estimated power≈93.94%)
 
 # reduce number of iterations for bisection step but keep R = 100
 # (default value)
@@ -1243,26 +1244,26 @@ trial$run(n = 100, R = 100)
 # values)
 trial$summary(level = 0.05, alternative = "!=")
 #>        estimate    std.err    std.dev power na
-#> est1 -0.2545003 0.09296944 0.09880371  0.71  0
+#> est1 -0.2586042 0.09297792 0.08489204  0.83  0
 # on-sided test
 trial$summary(level = 0.025, alternative = "<")
 #>        estimate    std.err    std.dev power na
-#> est1 -0.2545003 0.09296944 0.09880371  0.71  0
+#> est1 -0.2586042 0.09297792 0.08489204  0.83  0
 # non-inferiority test
 trial$summary(level = 0.025, ni.margin = -0.5)
 #>        estimate    std.err    std.dev power na
-#> est1 -0.2545003 0.09296944 0.09880371  0.75  0
+#> est1 -0.2586042 0.09297792 0.08489204   0.7  0
 
 # provide simulation results to summary method via estimates argument
 res <- trial$run(n = 100, R = 100, p = c(0.5, 0.5))
 trial$summary(estimates = res)
-#>          estimate    std.err   std.dev power na
-#> est1 -0.004826226 0.09944199 0.1056464  0.08  0
+#>        estimate    std.err   std.dev power na
+#> est1 0.01201245 0.09932767 0.1047944  0.07  0
 
 # calculate empirical bias, rmse and coverage for true target parameter
 trial$summary(estimates = res, true.value = 0)
-#>          estimate    std.err   std.dev power na         bias      rmse coverage
-#> est1 -0.004826226 0.09944199 0.1056464  0.08  0 -0.004826226 0.1052276     0.89
+#>        estimate    std.err   std.dev power na       bias      rmse coverage
+#> est1 0.01201245 0.09932767 0.1047944  0.07  0 0.01201245 0.1049588     0.85
 
 ## ------------------------------------------------
 ## Method `Trial$print()`
