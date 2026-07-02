@@ -1,0 +1,172 @@
+# carts package
+
+The `carts` R package is a simulation tool for exploring various
+estimators within a clinical trial context under differing assumptions.
+The package provides a user-friendly interface for defining a clinical
+trial object with different choices for its design, patient and endpoint
+distributions, and treatment effect estimators. Once a clinical trial
+object is specified, the package provides the functionality for
+estimating the power with Monte Carlo simulations.
+
+## Example
+
+Here we emulate a simple parallel trial design with both observed and
+unobserved covariates. The treatment effect is estimated using an
+estimator based on the efficient influence function (EIF) where we
+adjust for the observed covariate x.
+
+The necessary sample-size to achieve 90% power for a one-sided
+superiority test is estimated using a variation of a bisection and a
+Robbins-Monro stochastic approximation algorithm with parallelized
+computations
+
+``` R
+library("carts")
+
+## Loading required package: lava
+
+library("data.table")
+future::plan(future::multicore)
+## progressr::handlers(global = TRUE)
+## progressr::handlers(progressr::handler_cli)
+
+## Covariates at baseline
+x0 <- function(n, pa = 0.5, gamma.var = 0.7, ...) {
+  data.table(
+    a = rbinom(n, 1, pa), ## Treatment
+    x = rnorm(n), ## Obs.
+    z = log(rgamma(n, shape = 1 / gamma.var, rate = 1 / gamma.var)) ## Unobs.
+  )
+}
+## Outcome model
+outcome <- function(data, b = c(log(2.5), log(0.38)), ...) {
+  X <- model.matrix(~ 1 + a, data)
+  rate <- exp(X %*% b + with(data, x + z))
+  data.table(y = rpois(length(rate), rate))
+}
+
+qmodel  <- targeted::learner_glm(y ~ a * x, family = poisson)
+m <- Trial$new(
+  covariates = x0,
+  outcome = outcome,
+  estimators = list(adj = est_adj(qmodel))
+  )
+
+## Sample-size estimation via Stochastic Approximation
+e <- m$estimate_samplesize(R = 1000)
+print(e)
+
+## ── Estimated sample-size to reach 90% power ── 
+## 
+## n = 98 (actual estimated power≈91.18%)
+```
+
+## Installation
+
+The package can be installed on all unix systems from the command line
+via `make install`. Already installed R packages that are dependencies
+of `carts` will not be upgrade with `make install`. Instead, use the
+`make upgrade` rule to upgrade all dependencies, followed by the
+installation of the package.
+
+## Project organization
+
+We use the `dev` branch for development and the `main` branch for stable
+releases. All releases follow [semantic
+versioning](https://semver.org/), are
+[tagged](https://github.com/NovoNordisk-OpenSource/carts/tags) and
+notable changes are reported in the
+[NEWS.md](https://github.com/NovoNordisk-OpenSource/carts/blob/main/NEWS.md)
+file.
+
+## I Have a Question / I Want to Report a Bug
+
+If you want to ask questions, require help or clarification, or report a
+bug, we recommend to either contact a maintainer directly or the
+following:
+
+- Open an
+  [Issue](https://github.com/NovoNordisk-OpenSource/carts/issues).
+- Provide as much context as you can about what you’re running into.
+- Provide project and platform versions, depending on what seems
+  relevant.
+
+We will then take care of the issue as soon as possible.
+
+## Maintainers
+
+> Benedikt Sommer (<benediktsommer92@gmail.com>)  
+> Klaus Kähler Holst (<klaus@holst.it>)
+
+# Package index
+
+## All functions
+
+- [`Trial`](https://novonordisk-opensource.github.io/carts/reference/Trial.md)
+  : R6 class for power and sample-size calculations for a clinical trial
+- [`aggrsurv()`](https://novonordisk-opensource.github.io/carts/reference/aggrsurv.md)
+  : Aggregate data in counting process format
+- [`` `append<-`( ``*`<list>`*`)`](https://novonordisk-opensource.github.io/carts/reference/append-set-.list.md)
+  : Assignment function to append values to existing list
+- [`bisection()`](https://novonordisk-opensource.github.io/carts/reference/bisection.md)
+  : Root finding by bisection
+- [`covar_add()`](https://novonordisk-opensource.github.io/carts/reference/covar_add.md)
+  : Add additional covariates to existing list of covariates
+- [`covar_bootstrap()`](https://novonordisk-opensource.github.io/carts/reference/covar_bootstrap.md)
+  : Sample from empirical distribution of covariate data
+- [`covar_join()`](https://novonordisk-opensource.github.io/carts/reference/covar_join.md)
+  : Add additional covariates to existing covariate random generator
+- [`covar_loggamma()`](https://novonordisk-opensource.github.io/carts/reference/covar_loggamma.md)
+  : Simulate from a log gamma-gaussian copula distribution
+- [`covar_normal()`](https://novonordisk-opensource.github.io/carts/reference/covar_normal.md)
+  : Simulate from multivariate normal distribution
+- [`derive_covar_distribution()`](https://novonordisk-opensource.github.io/carts/reference/derive_covar_distribution.md)
+  : Derive covariate distribution from covariate data type
+- [`est_adj()`](https://novonordisk-opensource.github.io/carts/reference/est_adj.md)
+  : Construct estimator for the treatment effect in RCT based on
+  covariate adjustment
+- [`est_glm()`](https://novonordisk-opensource.github.io/carts/reference/est_glm.md)
+  : Construct estimator for the treatment effect in RCT
+- [`est_phreg()`](https://novonordisk-opensource.github.io/carts/reference/est_phreg.md)
+  : Marginal Cox proportional hazards model for the treatment effect in
+  RCT
+- [`estimate_covar_model_full_cond()`](https://novonordisk-opensource.github.io/carts/reference/estimate_covar_model_full_cond.md)
+  : Full conditional covariate simulation model
+- [`get_factor_levels()`](https://novonordisk-opensource.github.io/carts/reference/get_factor_levels.md)
+  : Get levels for factor columns in data.table
+- [`optim_sa()`](https://novonordisk-opensource.github.io/carts/reference/optim_sa.md)
+  : Root solver by Stochastic Approximation
+- [`outcome_binary()`](https://novonordisk-opensource.github.io/carts/reference/outcome_binary.md)
+  : Simulate from binary model given covariates
+- [`outcome_continuous()`](https://novonordisk-opensource.github.io/carts/reference/outcome_continuous.md)
+  : Simulate from continuous outcome model given covariates
+- [`outcome_count()`](https://novonordisk-opensource.github.io/carts/reference/outcome_count.md)
+  : Simulate from count model given covariates
+- [`outcome_lp()`](https://novonordisk-opensource.github.io/carts/reference/outcome_lp.md)
+  : Calculate linear predictor from covariates
+- [`outcome_phreg()`](https://novonordisk-opensource.github.io/carts/reference/outcome_phreg.md)
+  : Outcome model for time-to-event end-points (proportional hazards)
+- [`outcome_recurrent()`](https://novonordisk-opensource.github.io/carts/reference/outcome_recurrent.md)
+  : EXPERIMENTAL: Outcome model for recurrent events with terminal
+  events end-points
+- [`outcome_shared`](https://novonordisk-opensource.github.io/carts/reference/outcome_shared.md)
+  : Outcome model
+- [`rmvn()`](https://novonordisk-opensource.github.io/carts/reference/rmvn.md)
+  : Multivariate normal distribution function
+- [`rnb()`](https://novonordisk-opensource.github.io/carts/reference/rnb.md)
+  : Simulate from a negative binomial distribution
+- [`sample_covar_parametric_model()`](https://novonordisk-opensource.github.io/carts/reference/sample_covar_parametric_model.md)
+  : Sample from an estimated parametric covariate model
+- [`setargs()`](https://novonordisk-opensource.github.io/carts/reference/setargs.md)
+  : Set default arguments of a function
+- [`trial.estimates-class`](https://novonordisk-opensource.github.io/carts/reference/trial.estimates-class.md)
+  : trial.estimates class object
+
+# Articles
+
+### All vignettes
+
+- [Getting
+  started](https://novonordisk-opensource.github.io/carts/articles/gettingstarted.md):
+- [Parametrization of the negative binomial and gamma
+  distribution](https://novonordisk-opensource.github.io/carts/articles/param.md):
