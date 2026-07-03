@@ -1,7 +1,7 @@
-# Changelog
+# carts (development version)
 
-All notable changes to this project will be documented in this file.
+- incorporate lava 1.9.2 changes
 
-## [0.1.0] - 2025-10-31
+# carts [0.1.0] - 2025-10-31
 
 Initial stable release.
