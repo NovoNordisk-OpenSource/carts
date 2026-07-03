@@ -49,15 +49,15 @@
 </ul></div>
 <div class="section level2">
 <h2 id="branches-and-branch-prefixes">Branches and branch prefixes<a class="anchor" aria-label="anchor" href="#branches-and-branch-prefixes"></a></h2>
-<p>The package is developed on <code>dev</code> while the latest stable release is made available on <code>main</code>. Releases follow a frequency of about 4 weeks, except for hotfixes or when larger features become available. All feature branches should be created of <code>dev</code>. Branches containing hotfixes should contrary be created of <code>main</code> to avoid merging unfinished features from <code>dev</code> into <code>main</code>.</p>
+<p>The package is developed on <code>main</code>, and all feature branches should be created of this branch (trunk based development).</p>
 <div class="section level3">
 <h3 id="branch-prefixes">Branch prefixes<a class="anchor" aria-label="anchor" href="#branch-prefixes"></a></h3>
-<p>We use prefixes to label branches. A meaningful short description follows the prefix and hyphens (-) are used for separation. For example, <code>feature/new-trial-interface</code> is a valid feature branch name.</p>
+<p>We suggest to use prefixes to label branches. A meaningful short description follows the prefix and hyphens (-) are used for separation. For example, <code>feature/new-trial-interface</code> is a valid feature branch name.</p>
 <p><em>feature/</em>: Branches for developing new features.<br><em>bugfix/</em>: Branches for fixing non-critical bugs.<br><em>hotfix/</em>: Branches for fixing critical bugs.<br><em>docs/</em>: Branches for writing, updating, or fixing documentation.<br><em>develop/</em>: Branches for anything else.</p>
 </div>
 <div class="section level3">
 <h3 id="pull-requests">Pull requests<a class="anchor" aria-label="anchor" href="#pull-requests"></a></h3>
-<p>Except for hotfixes, all pull requests (PRs) must be made on <code>dev</code>. The title of the PR should follow the format of <a href="https://www.conventionalcommits.org/en/v1.0.0/" class="external-link">conventional commits</a> and a summary of the proposed changes must be provided in the body of the PR. This makes it easier for maintainers as title and body can be reused once all commits are squashed before merging the feature branch into <code>dev</code>.</p>
+<p>The title of the PR ideally follows the format of <a href="https://www.conventionalcommits.org/en/v1.0.0/" class="external-link">conventional commits</a> and a summary of the proposed changes is provided in the body of the PR.</p>
 </div>
 </div>
 <div class="section level2">
@@ -75,7 +75,7 @@
 </div>
 <div class="section level2">
 <h2 id="continuous-integration">Continuous integration<a class="anchor" aria-label="anchor" href="#continuous-integration"></a></h2>
-<p>A variety of continuous integration tests are set up in <a href=".github/workflows">.github/workflows</a> to mitigate the risk of committing malfunctioning code in to <code>main</code>. Linting checks (<code>lint-project.yaml</code>), checking synchronicity between Rd files and roxygen code (<code>check-roxygen.yaml</code>), unit tests and rcmdcheck (<code>r-cmd-check.yaml</code>) workflows are triggered for every PR on <code>dev</code> and <code>main</code>. As CI builds are triggered with each new commit to a feature branch, to reduce waiting times and compute costs, slow unit tests (<code>slow-tests.yaml</code>) and building vignettes (<code>vignettes.yaml</code>) are only triggered for PRs that are marked as ready for review. That is, running tests workflows is prevented by submitting pull requests as drafts.</p>
+<p>A variety of continuous integration tests are set up in <a href=".github/workflows">.github/workflows</a>. We aim to reduce waiting times and compute costs by only triggering workflows for slow unit tests and building vignettes for PRs that are marked as ready for review. That is, running tests workflows is prevented by submitting pull requests as drafts.</p>
 </div>
 <div class="section level2">
 <h2 id="attribution">Attribution<a class="anchor" aria-label="anchor" href="#attribution"></a></h2>

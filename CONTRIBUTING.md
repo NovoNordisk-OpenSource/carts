@@ -17,18 +17,15 @@ maintainers and smooth out the experience for all involved.
 
 ## Branches and branch prefixes
 
-The package is developed on `dev` while the latest stable release is
-made available on `main`. Releases follow a frequency of about 4 weeks,
-except for hotfixes or when larger features become available. All
-feature branches should be created of `dev`. Branches containing
-hotfixes should contrary be created of `main` to avoid merging
-unfinished features from `dev` into `main`.
+The package is developed on `main`, and all feature branches should be
+created of this branch (trunk based development).
 
 ### Branch prefixes
 
-We use prefixes to label branches. A meaningful short description
-follows the prefix and hyphens (-) are used for separation. For example,
-`feature/new-trial-interface` is a valid feature branch name.
+We suggest to use prefixes to label branches. A meaningful short
+description follows the prefix and hyphens (-) are used for separation.
+For example, `feature/new-trial-interface` is a valid feature branch
+name.
 
 *feature/*: Branches for developing new features.  
 *bugfix/*: Branches for fixing non-critical bugs.  
@@ -38,12 +35,9 @@ follows the prefix and hyphens (-) are used for separation. For example,
 
 ### Pull requests
 
-Except for hotfixes, all pull requests (PRs) must be made on `dev`. The
-title of the PR should follow the format of [conventional
+The title of the PR ideally follows the format of [conventional
 commits](https://www.conventionalcommits.org/en/v1.0.0/) and a summary
-of the proposed changes must be provided in the body of the PR. This
-makes it easier for maintainers as title and body can be reused once all
-commits are squashed before merging the feature branch into `dev`.
+of the proposed changes is provided in the body of the PR.
 
 ## Style guide
 
@@ -86,16 +80,11 @@ this
 ## Continuous integration
 
 A variety of continuous integration tests are set up in
-[.github/workflows](https://novonordisk-opensource.github.io/carts/.github/workflows)
-to mitigate the risk of committing malfunctioning code in to `main`.
-Linting checks (`lint-project.yaml`), checking synchronicity between Rd
-files and roxygen code (`check-roxygen.yaml`), unit tests and rcmdcheck
-(`r-cmd-check.yaml`) workflows are triggered for every PR on `dev` and
-`main`. As CI builds are triggered with each new commit to a feature
-branch, to reduce waiting times and compute costs, slow unit tests
-(`slow-tests.yaml`) and building vignettes (`vignettes.yaml`) are only
-triggered for PRs that are marked as ready for review. That is, running
-tests workflows is prevented by submitting pull requests as drafts.
+[.github/workflows](https://novonordisk-opensource.github.io/carts/.github/workflows).
+We aim to reduce waiting times and compute costs by only triggering
+workflows for slow unit tests and building vignettes for PRs that are
+marked as ready for review. That is, running tests workflows is
+prevented by submitting pull requests as drafts.
 
 ## Attribution
 
