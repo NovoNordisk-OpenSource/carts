@@ -5,6 +5,7 @@
 template.Rmd$
 ^LICENSE\.md$
 ^CHANGELOG.md$
+^AGENTS.md$
 ^CONTRIBUTING.md$
 ^TODO$
 ^dependencies$
