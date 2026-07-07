@@ -1203,19 +1203,19 @@ trial$args_summary(alternative = "<")
 # supply model parameter and estimator to call to overwrite previously
 # set values
 trial$estimate_samplesize(ate = -2, estimator = est_glm())
-#> INFO [2026-07-07 11:34:40] Finding initial sample-size with bisection algorithm
-#> INFO [2026-07-07 11:34:40] Evaluating left point: 50
-#> INFO [2026-07-07 11:34:42] Evaluating right point: 10000
-#> INFO [2026-07-07 11:34:47] Running stochastic approximation algorithm
-#> INFO [2026-07-07 11:35:46] Refining estimate and calculating power
+#> INFO [2026-07-07 11:40:19] Finding initial sample-size with bisection algorithm
+#> INFO [2026-07-07 11:40:19] Evaluating left point: 50
+#> INFO [2026-07-07 11:40:20] Evaluating right point: 10000
+#> INFO [2026-07-07 11:40:25] Running stochastic approximation algorithm
+#> INFO [2026-07-07 11:41:26] Refining estimate and calculating power
 #> Warning: Over-parameterized model (NA parameters). Ignoring NA parameters
 #> Warning: Over-parameterized model (NA parameters). Ignoring NA parameters
-#> INFO [2026-07-07 11:35:58] [1/4] - power(10) = 0.941
+#> INFO [2026-07-07 11:41:40] [1/4] - power(10) = 0.941
 #> Warning: Over-parameterized model (NA parameters). Ignoring NA parameters
-#> INFO [2026-07-07 11:36:10] [2/4] - power(11) = 0.935
-#> INFO [2026-07-07 11:36:22] [3/4] - power(16) = 0.994
-#> INFO [2026-07-07 11:36:35] [4/4] - power(21) = 0.998
-#> INFO [2026-07-07 11:36:35] Estimated sample size: 10
+#> INFO [2026-07-07 11:41:52] [2/4] - power(11) = 0.935
+#> INFO [2026-07-07 11:42:06] [3/4] - power(16) = 0.994
+#> INFO [2026-07-07 11:42:20] [4/4] - power(21) = 0.998
+#> INFO [2026-07-07 11:42:20] Estimated sample size: 10
 #> ── Estimated sample-size to reach 90% power ── 
 #> 
 #> n = 10 (actual estimated power≈93.94%)
