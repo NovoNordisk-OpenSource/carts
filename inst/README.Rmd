@@ -8,7 +8,7 @@ knitr::opts_chunk$set(echo = TRUE)
 <!-- README.md is generated from inst/README.Rmd. Please edit that file -->
 
 <!-- badges: start -->
-[![complete-checks](https://github.com/NovoNordisk-OpenSource/carts/actions/workflows/r-cmd-check.yaml/badge.svg)](https://github.com/NovoNordisk-OpenSource/carts/actions/workflows/check-package.yaml)
+[![complete-checks](https://github.com/NovoNordisk-OpenSource/carts/actions/workflows/check-package.yaml/badge.svg)](https://github.com/NovoNordisk-OpenSource/carts/actions/workflows/check-package.yaml)
 [![vignettes](https://github.com/NovoNordisk-OpenSource/carts/actions/workflows/vignettes.yaml/badge.svg)](https://github.com/NovoNordisk-OpenSource/carts/actions/workflows/vignettes.yaml)
 [![slowtests](https://github.com/NovoNordisk-OpenSource/carts/actions/workflows/slow-tests.yaml/badge.svg)](https://github.com/NovoNordisk-OpenSource/carts/actions/workflows/slow-tests.yaml)
 <!-- badges: end -->
