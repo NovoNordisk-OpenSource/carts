@@ -2,6 +2,6 @@
 
 - incorporate lava 1.9.2 changes
 
-# carts [0.1.0] - 2025-10-31
+# carts 0.1.0
 
-Initial stable release.
+- Initial stable release.

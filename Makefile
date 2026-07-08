@@ -36,6 +36,7 @@ roxygen:
 doc: documentation
 documentation: roxygen rcpp readme
 
+.PHONY: pkgdown
 pkgdown:
 	@echo 'pkgdown::build_site(override = list(destination = "docs"))' | $(R)
 
@@ -81,3 +82,4 @@ upgrade:
 
 install-deps:
 	@echo 'devtools::install_deps(".", dependencies = TRUE)' | $(R)
+
