@@ -1,6 +1,6 @@
-# carts (development version)
+# carts 0.2.0
 
-- incorporate lava 1.9.2 changes
+Maintenance release
 
 # carts 0.1.0
 
