@@ -1,28 +1,12 @@
-#' @name outcome_shared
-#' @title Outcome model
-#' @param data (data.table) Covariate data, usually the output of the covariate
-#' model of a [Trial] object.
-#' @param par (numeric) Regression coefficients (default zero). Can be given as
-#'   a named list corresponding to the column names of `model.matrix`
-#' @param outcome.name Name of outcome variable ("y")
-#' @param remove Variables that will be removed from input `data` (if formula is
-#'   not specified).
-#' @param mean (formula, function) Either a formula specifying the design from
-#'   'data' or a function that maps `data` to the conditional mean value on the
-#'   link scale (see examples). If NULL all main-effects of the covariates will
-#'   be used, except columns that are defined via the `remove` argument.
-#' @param ... Additional arguments passed to `mean` function (see examples)
-#' @return data.table
-NULL
-
-
-
-#' @inherit outcome_shared
 #' @title Calculate linear predictor from covariates
 #' @description Calculate linear predictor \deqn{\text{par}^\top X} where
 #'   \eqn{X} is the design matrix specified by the formula
+#' @param data (data.table) Covariate data, usually the output of the covariate
+#' model of a [Trial] object.
 #' @param mean formula specifying design from 'data' or a function that maps x
 #'   to the mean value. If NULL all main-effects of the covariates will be used
+#' @param par (numeric) Regression coefficients (default zero). Can be given as
+#'   a named list corresponding to the column names of `model.matrix`
 #' @param model Optional model object ([glm], [mets::phreg], ...)
 #' @param offset Optional offset variable name
 #' @param treatment Optional name of treatment variable
@@ -37,8 +21,11 @@ NULL
 #'   mean is given as a function)
 #' @param remove variables that will be removed from input data (if formula is
 #'   not specified)
+#' @param ... Additional arguments passed to `mean` function (see examples)
+#' @return data.table
 #' @seealso [outcome_count] [outcome_binary] [outcome_continuous]
 #'   [outcome_phreg]
+#' @keywords internal
 outcome_lp <- function(data,
                        mean = NULL,
                        par = NULL,
@@ -108,11 +95,12 @@ outcome_lp <- function(data,
   return(structure(lp, family = family, par = par))
 }
 
-#' @inherit outcome_shared
+#' @inheritParams outcome_lp
 #' @title Simulate from count model given covariates
 #' @description Simulate from count model with intensity \deqn{\lambda =
 #'   \text{exposure-time}\exp(\text{par}^\top X)} where \eqn{X} is the design
 #'   matrix specified by the formula
+#' @param outcome.name Name of outcome variable ("y")
 #' @param exposure Exposure times. Either a scalar, vector or function.
 #' @param zero.inflation vector of probabilities or a function of the covariates
 #'   'x' including an extra column 'rate' with the rate parameter.
@@ -186,7 +174,8 @@ outcome_count <- function(data,
   ))
 }
 
-#' @inherit outcome_shared
+#' @inheritParams outcome_lp
+#' @inheritParams outcome_count outcome.name
 #' @title Simulate from binary model given covariates
 #' @description Simulate from binary model with probability \deqn{\pi =
 #'   g(\text{par}^\top X)} where \eqn{X} is the design matrix specified by the
@@ -239,7 +228,8 @@ outcome_binary <- function(data,
   return(res)
 }
 
-#' @inherit outcome_shared
+#' @inheritParams outcome_lp
+#' @inheritParams outcome_count outcome.name
 #' @title Simulate from continuous outcome model given covariates
 #' @description Simulate from continuous outcome model with mean
 #'   \deqn{g(\text{par}^\top X)} where \eqn{X} is the design matrix specified by
@@ -303,7 +293,7 @@ outcome_continuous <- function(data,
   return(res)
 }
 
-#' @inherit outcome_shared
+#' @inheritParams outcome_lp
 #' @title Outcome model for time-to-event end-points (proportional hazards)
 #' @param lp linear predictor (formula or function)
 #' @param par optional list of model parameter

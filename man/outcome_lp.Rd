@@ -62,3 +62,4 @@ Calculate linear predictor \deqn{\text{par}^\top X} where
 \link{outcome_count} \link{outcome_binary} \link{outcome_continuous}
 \link{outcome_phreg}
 }
+\keyword{internal}

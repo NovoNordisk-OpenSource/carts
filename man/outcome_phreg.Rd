@@ -27,8 +27,8 @@ model of a \link{Trial} object.}
 
 \item{outcome.name}{names of outcome (time and censoring status)}
 
-\item{remove}{Variables that will be removed from input \code{data} (if formula is
-not specified).}
+\item{remove}{variables that will be removed from input data (if formula is
+not specified)}
 
 \item{model}{optional \link[mets:phreg]{mets::phreg} object}
 

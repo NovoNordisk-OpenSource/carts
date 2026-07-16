@@ -20,10 +20,8 @@ outcome_count(
 \item{data}{(data.table) Covariate data, usually the output of the covariate
 model of a \link{Trial} object.}
 
-\item{mean}{(formula, function) Either a formula specifying the design from
-'data' or a function that maps \code{data} to the conditional mean value on the
-link scale (see examples). If NULL all main-effects of the covariates will
-be used, except columns that are defined via the \code{remove} argument.}
+\item{mean}{formula specifying design from 'data' or a function that maps x
+to the mean value. If NULL all main-effects of the covariates will be used}
 
 \item{par}{(numeric) Regression coefficients (default zero). Can be given as
 a named list corresponding to the column names of \code{model.matrix}}
@@ -32,8 +30,8 @@ a named list corresponding to the column names of \code{model.matrix}}
 
 \item{exposure}{Exposure times. Either a scalar, vector or function.}
 
-\item{remove}{Variables that will be removed from input \code{data} (if formula is
-not specified).}
+\item{remove}{variables that will be removed from input data (if formula is
+not specified)}
 
 \item{zero.inflation}{vector of probabilities or a function of the covariates
 'x' including an extra column 'rate' with the rate parameter.}
@@ -43,9 +41,6 @@ vector or a function of the covariates 'x' with an extra column 'rate'
 holding the rate parameter 'rate'}
 
 \item{...}{Additional arguments passed to \code{mean} and \code{exposure} function}
-}
-\value{
-data.table
 }
 \description{
 Simulate from count model with intensity \deqn{\lambda =
