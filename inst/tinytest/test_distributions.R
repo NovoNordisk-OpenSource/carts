@@ -1,5 +1,3 @@
-library("tinytest")
-
 test_rnb <- function() {
   # Check Poisson case
   n <- 100

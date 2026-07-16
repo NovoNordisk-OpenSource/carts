@@ -1,6 +1,5 @@
 # Unit tests for estimators
 
-library("tinytest")
 library("data.table")
 library("lava")
 learner_glm <- targeted::learner_glm

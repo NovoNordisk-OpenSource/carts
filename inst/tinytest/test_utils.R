@@ -1,5 +1,3 @@
-library("tinytest")
-
 test_setargs <- function() {
   foo <- function(x, b, a = 5) c(a=a, b=b, x=x)
 

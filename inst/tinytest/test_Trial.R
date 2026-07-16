@@ -1,5 +1,4 @@
 # Unit tests for 'Trial' trial simulation class
-library("tinytest")
 set.seed(42)
 
 test_estimate_samplesize <- function() {

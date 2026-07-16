@@ -1,6 +1,4 @@
 ### Unit tests for optimization methods
-
-library("tinytest")
 set.seed(1)
 
 test_bisection <- function() {

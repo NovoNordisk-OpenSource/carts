@@ -1,4 +1,3 @@
-library("tinytest")
 set.seed(42)
 
 test_trial_print <- function() {

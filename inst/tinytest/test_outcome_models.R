@@ -1,4 +1,3 @@
-library("tinytest")
 library("lava")
 library("data.table")
 outcome_phreg <- carts:::outcome_phreg
