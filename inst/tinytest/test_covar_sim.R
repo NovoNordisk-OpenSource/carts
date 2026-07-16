@@ -1,7 +1,6 @@
 ### Unit tests for covar_sim
+suppressMessages(library("data.table"))
 
-library("tinytest")
-library("data.table")
 set.seed(42)
 
 test_estimate_covar_model_full_cond <- function() {
