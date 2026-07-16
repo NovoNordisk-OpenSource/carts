@@ -75,11 +75,11 @@ check-cran: build
 
 in: install
 install:
-	@echo 'devtools::install(".", upgrade = FALSE)' | $(R)
+	@echo 'pak::pak(".")' | $(R)
 
-upgrade:
-	@echo 'devtools::install(".", upgrade = TRUE)' | $(R)
+dependencies-upgrade:
+	@echo 'pak::local_install_deps(".", dependencies = TRUE, upgrade = TRUE)' | $(R)
 
-install-deps:
-	@echo 'devtools::install_deps(".", dependencies = TRUE)' | $(R)
+dependencies-install:
+	@echo 'pak::local_install_deps(".", dependencies = TRUE, upgrade = FALSE)' | $(R)
 
