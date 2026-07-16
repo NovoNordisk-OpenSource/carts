@@ -26,7 +26,7 @@ est_adj(
 - response:
 
   (character, formula,
-  [targeted::learner](https://kkholst.github.io/targeted/reference/learner.html))
+  [targeted::learner](https://rdrr.io/pkg/targeted/man/learner.html))
   The default behavior when providing a character is to use a
   [glm](https://rdrr.io/r/stats/glm.html) with treatment-covariate
   interactions for the Q-model. The covariates are specified via the
@@ -35,7 +35,7 @@ est_adj(
   [glm](https://rdrr.io/r/stats/glm.html) is used for the Q-model, where
   the design matrix is specified by the formula. The last option is to
   provide a
-  [targeted::learner](https://kkholst.github.io/targeted/reference/learner.html)
+  [targeted::learner](https://rdrr.io/pkg/targeted/man/learner.html)
   object that specifies the Q-model (see examples).
 
 - treatment:
@@ -86,7 +86,7 @@ est_adj(
 - ...:
 
   Additional arguments to
-  [targeted::learner_glm](https://kkholst.github.io/targeted/reference/learner_glm.html)
+  [targeted::learner_glm](https://rdrr.io/pkg/targeted/man/learner_glm.html)
   when `response` is a character or formula.
 
 ## Value
