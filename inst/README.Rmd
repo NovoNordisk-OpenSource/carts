@@ -34,7 +34,7 @@ is estimated using a variation of a bisection and a Robbins-Monro stochastic
 approximation algorithm with parallelized computations
 ```{r carts1, cache=TRUE, output=FALSE}
 library("carts")
-library("data.table")
+suppressMessages(library("data.table"))
 future::plan(future::multicore)
 ## progressr::handlers(global = TRUE)
 ## progressr::handlers(progressr::handler_cli)
@@ -62,6 +62,7 @@ m <- Trial$new(
   )
 
 ## Sample-size estimation via Stochastic Approximation
+set.seed(42)
 e <- m$estimate_samplesize(R = 1000)
 print(e)
 ```

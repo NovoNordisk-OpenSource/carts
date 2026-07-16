@@ -32,7 +32,7 @@ computations
 
     ## Loading required package: lava
 
-    library("data.table")
+    suppressMessages(library("data.table"))
     future::plan(future::multicore)
     ## progressr::handlers(global = TRUE)
     ## progressr::handlers(progressr::handler_cli)
@@ -60,12 +60,13 @@ computations
       )
 
     ## Sample-size estimation via Stochastic Approximation
+    set.seed(42)
     e <- m$estimate_samplesize(R = 1000)
     print(e)
 
     ## ── Estimated sample-size to reach 90% power ── 
     ## 
-    ## n = 98 (actual estimated power≈91.18%)
+    ## n = 97 (actual estimated power≈91.88%)
 
 ## Installation
 
