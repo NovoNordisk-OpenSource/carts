@@ -1,0 +1,99 @@
+# carts package
+
+The `carts` R package is a simulation tool for exploring various
+estimators within a clinical trial context under differing assumptions.
+The package provides a user-friendly interface for defining a clinical
+trial object with different choices for its design, patient and endpoint
+distributions, and treatment effect estimators. Once a clinical trial
+object is specified, the package provides the functionality for
+estimating the power with Monte Carlo simulations.
+
+## Example
+
+Here we emulate a simple parallel trial design with both observed and
+unobserved covariates. The treatment effect is estimated using an
+estimator based on the efficient influence function (EIF) where we
+adjust for the observed covariate x.
+
+The necessary sample-size to achieve 90% power for a one-sided
+superiority test is estimated using a variation of a bisection and a
+Robbins-Monro stochastic approximation algorithm with parallelized
+computations
+
+``` R
+library("carts")
+
+## Loading required package: lava
+
+library("data.table")
+future::plan(future::multicore)
+## progressr::handlers(global = TRUE)
+## progressr::handlers(progressr::handler_cli)
+
+## Covariates at baseline
+x0 <- function(n, pa = 0.5, gamma.var = 0.7, ...) {
+  data.table(
+    a = rbinom(n, 1, pa), ## Treatment
+    x = rnorm(n), ## Obs.
+    z = log(rgamma(n, shape = 1 / gamma.var, rate = 1 / gamma.var)) ## Unobs.
+  )
+}
+## Outcome model
+outcome <- function(data, b = c(log(2.5), log(0.38)), ...) {
+  X <- model.matrix(~ 1 + a, data)
+  rate <- exp(X %*% b + with(data, x + z))
+  data.table(y = rpois(length(rate), rate))
+}
+
+qmodel  <- targeted::learner_glm(y ~ a * x, family = poisson)
+m <- Trial$new(
+  covariates = x0,
+  outcome = outcome,
+  estimators = list(adj = est_adj(qmodel))
+  )
+
+## Sample-size estimation via Stochastic Approximation
+e <- m$estimate_samplesize(R = 1000)
+print(e)
+
+## ── Estimated sample-size to reach 90% power ── 
+## 
+## n = 98 (actual estimated power≈91.18%)
+```
+
+## Installation
+
+The package can be installed on all unix systems from the command line
+via `make install`. Already installed R packages that are dependencies
+of `carts` will not be upgrade with `make install`. Instead, use the
+`make upgrade` rule to upgrade all dependencies, followed by the
+installation of the package.
+
+## Project organization
+
+We use the `dev` branch for development and the `main` branch for stable
+releases. All releases follow [semantic
+versioning](https://semver.org/), are
+[tagged](https://github.com/NovoNordisk-OpenSource/carts/tags) and
+notable changes are reported in the
+[NEWS.md](https://github.com/NovoNordisk-OpenSource/carts/blob/main/NEWS.md)
+file.
+
+## I Have a Question / I Want to Report a Bug
+
+If you want to ask questions, require help or clarification, or report a
+bug, we recommend to either contact a maintainer directly or the
+following:
+
+- Open an
+  [Issue](https://github.com/NovoNordisk-OpenSource/carts/issues).
+- Provide as much context as you can about what you’re running into.
+- Provide project and platform versions, depending on what seems
+  relevant.
+
+We will then take care of the issue as soon as possible.
+
+## Maintainers
+
+> Benedikt Sommer (<benediktsommer92@gmail.com>)  
+> Klaus Kähler Holst (<klaus@holst.it>)
