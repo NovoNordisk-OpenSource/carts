@@ -42,15 +42,11 @@
   : Simulate from continuous outcome model given covariates
 - [`outcome_count()`](https://novonordisk-opensource.github.io/carts/reference/outcome_count.md)
   : Simulate from count model given covariates
-- [`outcome_lp()`](https://novonordisk-opensource.github.io/carts/reference/outcome_lp.md)
-  : Calculate linear predictor from covariates
 - [`outcome_phreg()`](https://novonordisk-opensource.github.io/carts/reference/outcome_phreg.md)
   : Outcome model for time-to-event end-points (proportional hazards)
 - [`outcome_recurrent()`](https://novonordisk-opensource.github.io/carts/reference/outcome_recurrent.md)
   : EXPERIMENTAL: Outcome model for recurrent events with terminal
   events end-points
-- [`outcome_shared`](https://novonordisk-opensource.github.io/carts/reference/outcome_shared.md)
-  : Outcome model
 - [`rmvn()`](https://novonordisk-opensource.github.io/carts/reference/rmvn.md)
   : Multivariate normal distribution function
 - [`rnb()`](https://novonordisk-opensource.github.io/carts/reference/rnb.md)

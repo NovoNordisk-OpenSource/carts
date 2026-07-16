@@ -31,11 +31,8 @@ outcome_continuous(
 
 - mean:
 
-  (formula, function) Either a formula specifying the design from 'data'
-  or a function that maps `data` to the conditional mean value on the
-  link scale (see examples). If NULL all main-effects of the covariates
-  will be used, except columns that are defined via the `remove`
-  argument.
+  formula specifying design from 'data' or a function that maps x to the
+  mean value. If NULL all main-effects of the covariates will be used
 
 - par:
 
@@ -60,8 +57,8 @@ outcome_continuous(
 
 - remove:
 
-  Variables that will be removed from input `data` (if formula is not
-  specified).
+  variables that will be removed from input data (if formula is not
+  specified)
 
 - family:
 
@@ -70,10 +67,6 @@ outcome_continuous(
 - ...:
 
   Additional arguments passed to `mean` function (see examples)
-
-## Value
-
-data.table
 
 ## See also
 

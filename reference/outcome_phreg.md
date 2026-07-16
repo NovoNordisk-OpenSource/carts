@@ -42,8 +42,8 @@ outcome_phreg(
 
 - remove:
 
-  Variables that will be removed from input `data` (if formula is not
-  specified).
+  variables that will be removed from input data (if formula is not
+  specified)
 
 - model:
 

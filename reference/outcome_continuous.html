@@ -75,10 +75,8 @@ model of a <a href="Trial.html">Trial</a> object.</p></dd>
 
 
 <dt id="arg-mean">mean<a class="anchor" aria-label="anchor" href="#arg-mean"></a></dt>
-<dd><p>(formula, function) Either a formula specifying the design from
-'data' or a function that maps <code>data</code> to the conditional mean value on the
-link scale (see examples). If NULL all main-effects of the covariates will
-be used, except columns that are defined via the <code>remove</code> argument.</p></dd>
+<dd><p>formula specifying design from 'data' or a function that maps x
+to the mean value. If NULL all main-effects of the covariates will be used</p></dd>
 
 
 <dt id="arg-par">par<a class="anchor" aria-label="anchor" href="#arg-par"></a></dt>
@@ -103,8 +101,8 @@ the <code>sd</code> argument.</p></dd>
 
 
 <dt id="arg-remove">remove<a class="anchor" aria-label="anchor" href="#arg-remove"></a></dt>
-<dd><p>Variables that will be removed from input <code>data</code> (if formula is
-not specified).</p></dd>
+<dd><p>variables that will be removed from input data (if formula is
+not specified)</p></dd>
 
 
 <dt id="arg-family">family<a class="anchor" aria-label="anchor" href="#arg-family"></a></dt>
@@ -115,10 +113,6 @@ not specified).</p></dd>
 <dd><p>Additional arguments passed to <code>mean</code> function (see examples)</p></dd>
 
 </dl></div>
-    <div class="section level2">
-    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>data.table</p>
-    </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p><a href="outcome_count.html">outcome_count</a> <a href="outcome_binary.html">outcome_binary</a> <a href="outcome_lp.html">outcome_lp</a></p></div>
