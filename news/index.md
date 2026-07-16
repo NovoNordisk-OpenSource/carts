@@ -1,8 +1,10 @@
 # Changelog
 
-## carts (development version)
+## carts 0.2.0
 
-- incorporate lava 1.9.2 changes
+CRAN release: 2026-07-16
+
+Maintenance release
 
 ## carts 0.1.0
 
