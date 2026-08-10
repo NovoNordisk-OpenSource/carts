@@ -8,7 +8,8 @@ Simulation of RCT with flexible covariates distributions
 simulation.
 }
 \examples{
-\dontrun{ # don't run because of high computational time
+\dontrun{
+# don't run because of high computational time
 trial <- Trial$new(
   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n)),
   outcome = setargs(outcome_count, par = c(1, 0.5, 1), overdispersion = 0.7)
@@ -169,7 +170,8 @@ trial$simulate(n)
 ## Method `Trial$run()`
 ## ------------------------------------------------
 
-\dontrun{ # don't run because of high computational time
+\dontrun{
+# don't run because of high computational time
 # future::plan("multicore")
 trial <- Trial$new(
   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
@@ -207,7 +209,8 @@ trial$run(n = 100, R = 50, estimators = est_glm(robust = FALSE))
 ## Method `Trial$estimate_power()`
 ## ------------------------------------------------
 
-\dontrun{ # don't run because of high computational time
+\dontrun{
+# don't run because of high computational time
 # toy examples with small number of Monte-Carlo replicates
 # future::plan("multicore")
 trial <- Trial$new(
@@ -237,7 +240,8 @@ trial$estimate_power(n = 100, R = 20,
 ## Method `Trial$estimate_samplesize()`
 ## ------------------------------------------------
 
-\dontrun{ # don't run because of high computational time
+\dontrun{
+# don't run because of high computational time
 trial <- Trial$new(
   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
   outcome = \(data, ate, sd) with(data, rnorm(nrow(data), a * ate, sd)),
@@ -707,7 +711,7 @@ field of this Trial class object (see examples).
   }
   \subsection{Examples}{
     \if{html}{\out{<div class="r example copy">}}
-    \preformatted{ # don't run because of high computational time
+    \preformatted{# don't run because of high computational time
 # future::plan("multicore")
 trial <- Trial$new(
   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
@@ -778,7 +782,7 @@ functions}
   }
   \subsection{Examples}{
     \if{html}{\out{<div class="r example copy">}}
-    \preformatted{ # don't run because of high computational time
+    \preformatted{# don't run because of high computational time
 # toy examples with small number of Monte-Carlo replicates
 # future::plan("multicore")
 trial <- Trial$new(
@@ -876,7 +880,7 @@ for decision-making}
   }
   \subsection{Examples}{
     \if{html}{\out{<div class="r example copy">}}
-    \preformatted{ # don't run because of high computational time
+    \preformatted{# don't run because of high computational time
 trial <- Trial$new(
   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
   outcome = \(data, ate, sd) with(data, rnorm(nrow(data), a * ate, sd)),
