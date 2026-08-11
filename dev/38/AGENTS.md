@@ -56,7 +56,8 @@ Depends on `lava`. Imports `data.table`, `R6`, `targeted`, `survival`,
 
 Uses R’s package tooling plus a `Makefile` wrapper.
 
-- Lint: `make lint` (`lintr::lint_package`)
+- Lint: `make lint`
+  ([`lintr::lint_package`](https://lintr.r-lib.org/reference/lint.html))
 - Roxygen docs: `make roxygen`
   ([`devtools::document`](https://devtools.r-lib.org/reference/document.html))
 - Regenerate Rcpp bindings: `make rcpp`

@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   gettingstarted: gettingstarted.html
   param: param.html
-last_built: 2026-08-10T14:20Z
+last_built: 2026-08-11T07:06Z
 urls:
   reference: https://novonordisk-opensource.github.io/carts/reference
   article: https://novonordisk-opensource.github.io/carts/articles
