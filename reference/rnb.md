@@ -44,5 +44,5 @@ with(
 )
 #> Warning: partial argument match of 'var' to 'variance'
 #>     mean      var 
-#> 100.4856 502.7359 
+#> 100.0953 493.0213 
 ```

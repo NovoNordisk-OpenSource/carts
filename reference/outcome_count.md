@@ -94,11 +94,11 @@ trial$simulate(1e4) |> est()
 #> 
 #> Coefficients:
 #> (Intercept)            a            x  
-#>     2.50544      0.65458      0.01503  
+#>    2.506904     0.650294    -0.004953  
 #> 
 #> Degrees of Freedom: 9999 Total (i.e. Null);  9997 Residual
-#> Null Deviance:       213000 
-#> Residual Deviance: 176600    AIC: 227200
+#> Null Deviance:       211800 
+#> Residual Deviance: 175900    AIC: 226600
 
 # intercept + coef for x default to 0 and regression coef for a takes
 # the provided value
@@ -109,11 +109,11 @@ trial$simulate(1e4, par = c(a = 0.65)) |> est()
 #> 
 #> Coefficients:
 #> (Intercept)            a            x  
-#>   0.0187912    0.6359110   -0.0007297  
+#>   -0.023634     0.686864     0.005638  
 #> 
 #> Degrees of Freedom: 9999 Total (i.e. Null);  9997 Residual
-#> Null Deviance:       27150 
-#> Residual Deviance: 24320     AIC: 48290
+#> Null Deviance:       27500 
+#> Residual Deviance: 24250     AIC: 47990
 # trial$simulate(1e4, mean = ~ 1 + a, par = c("(Intercept)" = 1))
 
 # define mean model that directly works on whole covariate data, incl id and
@@ -126,21 +126,21 @@ trial$simulate(1e4, mean = \(x) with(x, exp(1 + 0.5 * a))) |>
 #> 
 #> Coefficients:
 #> (Intercept)            a            x  
-#>    0.983436     0.524986    -0.004498  
+#>    1.016003     0.503870     0.006757  
 #> 
 #> Degrees of Freedom: 9999 Total (i.e. Null);  9997 Residual
-#> Null Deviance:       49220 
-#> Residual Deviance: 44420     AIC: 78420
+#> Null Deviance:       49180 
+#> Residual Deviance: 44670     AIC: 78870
 
 # treatment-dependent exposure times
 trial$simulate(1e4, exposure = function(dd) 1 - 0.5 * dd$a) |>
   head()
 #>       id     a          x   num     y exposure
 #>    <num> <int>      <num> <num> <num>    <num>
-#> 1:     1     0 -0.9034504     0    20      1.0
-#> 2:     2     1 -0.2522925     0     7      0.5
-#> 3:     3     0 -0.6563022     0     2      1.0
-#> 4:     4     0  1.0823261     0    16      1.0
-#> 5:     5     0 -1.9236021     0     3      1.0
-#> 6:     6     1 -0.1704307     0     2      0.5
+#> 1:     1     1 -1.4883673     0     2      0.5
+#> 2:     2     1 -0.9731949     0    20      0.5
+#> 3:     3     0  0.1568903     0    15      1.0
+#> 4:     4     0  0.7359493     0     3      1.0
+#> 5:     5     0  2.0626036     0    25      1.0
+#> 6:     6     0 -1.5535437     0    21      1.0
 ```

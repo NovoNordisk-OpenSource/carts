@@ -36,7 +36,8 @@ Benedikt Sommer, Klaus Holst, Foroogh Shamsi
 ## Examples
 
 ``` r
-if (FALSE)  # don't run because of high computational time
+if (FALSE) { # \dontrun{
+# don't run because of high computational time
 trial <- Trial$new(
   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n)),
   outcome = setargs(outcome_count, par = c(1, 0.5, 1), overdispersion = 0.7)
@@ -46,11 +47,8 @@ trial$estimators(
   unadjusted = est_glm(family = "poisson"),
   adjusted = est_glm(family = "poisson", covariates = "x")
 )
-#> Error: object 'trial' not found
 
 trial$run(n = 200, R = 100)
-#> Error: object 'trial' not found
 trial$summary()
-#> Error: object 'trial' not found
- # \dontrun{}
+} # }
 ```

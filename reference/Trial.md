@@ -448,7 +448,7 @@ repeat the simulation. The return object is also assigned to the
 
 #### Examples
 
-     # don't run because of high computational time
+    # don't run because of high computational time
     # future::plan("multicore")
     trial <- Trial$new(
       covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
@@ -523,7 +523,7 @@ numeric
 
 #### Examples
 
-     # don't run because of high computational time
+    # don't run because of high computational time
     # toy examples with small number of Monte-Carlo replicates
     # future::plan("multicore")
     trial <- Trial$new(
@@ -650,7 +650,7 @@ samplesize_estimate S3 object
 
 #### Examples
 
-     # don't run because of high computational time
+    # don't run because of high computational time
     trial <- Trial$new(
       covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
       outcome = \(data, ate, sd) with(data, rnorm(nrow(data), a * ate, sd)),
@@ -818,7 +818,8 @@ The objects of this class are cloneable with this method.
 ## Examples
 
 ``` r
-if (FALSE)  # don't run because of high computational time
+if (FALSE) { # \dontrun{
+# don't run because of high computational time
 trial <- Trial$new(
   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n)),
   outcome = setargs(outcome_count, par = c(1, 0.5, 1), overdispersion = 0.7)
@@ -828,13 +829,10 @@ trial$estimators(
   unadjusted = est_glm(family = "poisson"),
   adjusted = est_glm(family = "poisson", covariates = "x")
 )
-#> Error: object 'trial' not found
 
 trial$run(n = 200, R = 100)
-#> Error: object 'trial' not found
 trial$summary()
-#> Error: object 'trial' not found
- # \dontrun{}
+} # }
 
 ## ------------------------------------------------
 ## Method `Trial$args_model()`
@@ -1113,7 +1111,8 @@ trial$simulate(n)
 ## Method `Trial$run()`
 ## ------------------------------------------------
 
-if (FALSE)  # don't run because of high computational time
+if (FALSE) { # \dontrun{
+# don't run because of high computational time
 # future::plan("multicore")
 trial <- Trial$new(
   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
@@ -1126,14 +1125,11 @@ trial$args_summary(alternative = "<")
 # the R simulated data sets + all necessary information to re-run the
 # simulation
 res <- trial$run(n = 100, R = 50) # store return object in a new variable
-#> Error in names(estimators) <- paste0("est", seq_along(estimators)): 'names' attribute [1] must be the same length as the vector [0]
 print(trial$estimates) # trial$estimates == res
-#> NULL
 
 # the basic usage is to apply the summary method to the generated
 # trial.estimates object.
 trial$summary()
-#> Error in trial_summary(self = self, level = level, null = null, ni.margin = ni.margin,     alternative = alternative, reject.function = reject.function,     true.value = true.value, nominal.coverage = nominal.coverage,     estimates = estimates, ...): No estimates available. Run trial first.
 
 # combining Trial$run and summary is faster than using
 # Trial$estimate_power when modifying only the parameters of the
@@ -1142,21 +1138,20 @@ sapply(
   c(0, 0.25, 0.5),
   \(ni) trial$summary(ni.margin = ni)[, "power"]
 )
-#> Error in trial_summary(self = self, level = level, null = null, ni.margin = ni.margin,     alternative = alternative, reject.function = reject.function,     true.value = true.value, nominal.coverage = nominal.coverage,     estimates = estimates, ...): No estimates available. Run trial first.
 
 # changing the ate parameter value
 trial$run(n = 100, R = 50, ate = -0.2)
-#> Error in names(estimators) <- paste0("est", seq_along(estimators)): 'names' attribute [1] must be the same length as the vector [0]
 
 # supplying another estimator
 trial$run(n = 100, R = 50, estimators = est_glm(robust = FALSE))
- # \dontrun{}
+} # }
 
 ## ------------------------------------------------
 ## Method `Trial$estimate_power()`
 ## ------------------------------------------------
 
-if (FALSE)  # don't run because of high computational time
+if (FALSE) { # \dontrun{
+# don't run because of high computational time
 # toy examples with small number of Monte-Carlo replicates
 # future::plan("multicore")
 trial <- Trial$new(
@@ -1168,30 +1163,26 @@ trial$args_summary(alternative = "<")
 
 # using previously defined estimators and summary.args
 trial$estimate_power(n = 100, R = 20)
-#> Error in names(estimators) <- paste0("est", seq_along(estimators)): 'names' attribute [1] must be the same length as the vector [0]
 
 # supplying parameters to outcome function
 trial$estimate_power(n = 100, R = 20, ate = -100)
-#> Error in names(estimators) <- paste0("est", seq_along(estimators)): 'names' attribute [1] must be the same length as the vector [0]
 
 # modifying arguments of summary function
 trial$estimate_power(n = 100, R = 20, ate = -100,
  summary.args = list(alternative = ">")
 )
-#> Error in names(estimators) <- paste0("est", seq_along(estimators)): 'names' attribute [1] must be the same length as the vector [0]
 
 # supplying estimators to overrule previously set estimators
 trial$estimate_power(n = 100, R = 20,
  estimators = list(est_glm(), est_adj()))
-#> est1 est2 
-#> 0.05 0.05 
- # \dontrun{}
+} # }
 
 ## ------------------------------------------------
 ## Method `Trial$estimate_samplesize()`
 ## ------------------------------------------------
 
-if (FALSE)  # don't run because of high computational time
+if (FALSE) { # \dontrun{
+# don't run because of high computational time
 trial <- Trial$new(
   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5)),
   outcome = \(data, ate, sd) with(data, rnorm(nrow(data), a * ate, sd)),
@@ -1203,22 +1194,6 @@ trial$args_summary(alternative = "<")
 # supply model parameter and estimator to call to overwrite previously
 # set values
 trial$estimate_samplesize(ate = -2, estimator = est_glm())
-#> INFO [2026-08-10 14:14:16] Finding initial sample-size with bisection algorithm
-#> INFO [2026-08-10 14:14:16] Evaluating left point: 50
-#> INFO [2026-08-10 14:14:17] Evaluating right point: 10000
-#> INFO [2026-08-10 14:14:23] Running stochastic approximation algorithm
-#> INFO [2026-08-10 14:15:24] Refining estimate and calculating power
-#> Warning: Over-parameterized model (NA parameters). Ignoring NA parameters
-#> Warning: Over-parameterized model (NA parameters). Ignoring NA parameters
-#> INFO [2026-08-10 14:15:37] [1/4] - power(10) = 0.941
-#> Warning: Over-parameterized model (NA parameters). Ignoring NA parameters
-#> INFO [2026-08-10 14:15:52] [2/4] - power(11) = 0.935
-#> INFO [2026-08-10 14:16:06] [3/4] - power(16) = 0.994
-#> INFO [2026-08-10 14:16:21] [4/4] - power(21) = 0.998
-#> INFO [2026-08-10 14:16:21] Estimated sample size: 10
-#> ── Estimated sample-size to reach 90% power ── 
-#> 
-#> n = 10 (actual estimated power≈93.94%)
 
 # reduce number of iterations for bisection step but keep R = 100
 # (default value)
@@ -1227,7 +1202,7 @@ trial$estimate_samplesize(ate = -2, estimator = est_glm())
 # reduce significance level from 0.05 to 0.025, but keep alternative as
 # before
 # trial$estimate_samplesize(summary.args = list(level = 0.025))
- # \dontrun{}
+} # }
 
 ## ------------------------------------------------
 ## Method `Trial$summary()`
@@ -1243,27 +1218,27 @@ trial$run(n = 100, R = 100)
 # two-sided test with 0.05 significance level (alpha = 0.05) (default
 # values)
 trial$summary(level = 0.05, alternative = "!=")
-#>        estimate    std.err    std.dev power na
-#> est1 -0.2586042 0.09297792 0.08489204  0.83  0
+#>      estimate    std.err   std.dev power na
+#> est1 -0.24904 0.09234622 0.0873419  0.76  0
 # on-sided test
 trial$summary(level = 0.025, alternative = "<")
-#>        estimate    std.err    std.dev power na
-#> est1 -0.2586042 0.09297792 0.08489204  0.83  0
+#>      estimate    std.err   std.dev power na
+#> est1 -0.24904 0.09234622 0.0873419  0.76  0
 # non-inferiority test
 trial$summary(level = 0.025, ni.margin = -0.5)
-#>        estimate    std.err    std.dev power na
-#> est1 -0.2586042 0.09297792 0.08489204   0.7  0
+#>      estimate    std.err   std.dev power na
+#> est1 -0.24904 0.09234622 0.0873419  0.79  0
 
 # provide simulation results to summary method via estimates argument
 res <- trial$run(n = 100, R = 100, p = c(0.5, 0.5))
 trial$summary(estimates = res)
-#>        estimate    std.err   std.dev power na
-#> est1 0.01201245 0.09932767 0.1047944  0.07  0
+#>         estimate    std.err   std.dev power na
+#> est1 0.003276051 0.09964957 0.1044246  0.06  0
 
 # calculate empirical bias, rmse and coverage for true target parameter
 trial$summary(estimates = res, true.value = 0)
-#>        estimate    std.err   std.dev power na       bias      rmse coverage
-#> est1 0.01201245 0.09932767 0.1047944  0.07  0 0.01201245 0.1049588     0.85
+#>         estimate    std.err   std.dev power na        bias      rmse coverage
+#> est1 0.003276051 0.09964957 0.1044246  0.06  0 0.003276051 0.1039528     0.89
 
 ## ------------------------------------------------
 ## Method `Trial$print()`

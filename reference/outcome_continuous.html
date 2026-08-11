@@ -13,7 +13,7 @@ argument"><meta property="og:image" content="https://novonordisk-opensource.gith
 
     <a class="navbar-brand me-2" href="../index.html">carts</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -131,11 +131,11 @@ not specified)</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)            a            x  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      1.0064       0.4955       1.9950  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      0.9816       0.5331       2.0119  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Degrees of Freedom: 9999 Total (i.e. Null);  9997 Residual</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    50960 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 9979 	AIC: 28370</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    51370 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 10160 	AIC: 28550</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># default behavior is to set all regression coefficients to 0</span></span></span>
 <span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">simulate</span><span class="op">(</span><span class="fl">1e4</span>, mean <span class="op">=</span> <span class="op">~</span> <span class="fl">1</span> <span class="op">+</span> <span class="va">a</span> <span class="op">+</span> <span class="va">x</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">est</span><span class="op">(</span><span class="op">)</span></span></span>
@@ -144,11 +144,11 @@ not specified)</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)            a            x  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   -0.005021     0.016705     0.004762  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     0.01652     -0.01496      0.01026  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Degrees of Freedom: 9999 Total (i.e. Null);  9997 Residual</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    9872 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 9871 	AIC: 28260</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    10130 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 10130 	AIC: 28510</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># intercept defaults to 0 and regression coef for a takes the provided value</span></span></span>
 <span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">simulate</span><span class="op">(</span><span class="fl">1e4</span>, mean <span class="op">=</span> <span class="op">~</span> <span class="fl">1</span> <span class="op">+</span> <span class="va">a</span>, par <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">est</span><span class="op">(</span><span class="op">)</span></span></span>
@@ -157,11 +157,11 @@ not specified)</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)            a            x  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    0.003931     0.510614     0.002516  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  -0.0004711    0.4985070   -0.0028209  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Degrees of Freedom: 9999 Total (i.e. Null);  9997 Residual</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    10650 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 9995 	AIC: 28380</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    10360 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 9734 	AIC: 28120</span>
 <span class="r-in"><span><span class="co"># trial$simulate(1e4, mean = ~ 1 + a, par = c("(Intercept)" = 0.5)) |&gt; est()</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># define mean model that directly works on whole covariate data, incl id and</span></span></span>
@@ -173,11 +173,11 @@ not specified)</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)            a            x  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     -0.9997       2.0088      -2.9909  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      -1.009        2.005       -3.019  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Degrees of Freedom: 9999 Total (i.e. Null);  9997 Residual</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    110700 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 9991 	AIC: 28380</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    110900 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 9956 	AIC: 28340</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># par argument is not passed on to mean function</span></span></span>
 <span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">simulate</span><span class="op">(</span><span class="fl">1e4</span>,</span></span>
@@ -189,11 +189,11 @@ not specified)</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)            a            x  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     0.98324      5.03056      0.01649  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    0.979250     5.016445    -0.008517  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Degrees of Freedom: 9999 Total (i.e. Null);  9997 Residual</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    73120 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 9862 	AIC: 28250</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    73030 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 10120 	AIC: 28510</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

@@ -40,11 +40,11 @@ data <- data.table::data.table(
 m <- estimate_covar_model_full_cond(data)
 samples <- sample_covar_parametric_model(n=10, model = m)
 print(head(samples))
-#>             x y
-#> 1 -0.46762327 1
-#> 2  0.08382695 0
-#> 3  1.54079424 0
-#> 4 -0.06444924 1
-#> 5 -0.67008851 1
-#> 6 -0.14266392 0
+#>            x y
+#> 1 -0.7077978 0
+#> 2  1.4489132 1
+#> 3  0.3109190 0
+#> 4 -0.4915126 0
+#> 5 -1.7206634 0
+#> 6  0.6717264 0
 ```

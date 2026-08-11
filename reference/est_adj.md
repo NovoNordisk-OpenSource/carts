@@ -115,7 +115,8 @@ Klaus Kähler Holst
 ## Examples
 
 ``` r
-if (FALSE)  # don't run because of high computational time
+if (FALSE) { # \dontrun{
+# don't run because of high computational time
 trial <- Trial$new(
     covariates = function(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n)),
     outcome = setargs(outcome_count,
@@ -124,7 +125,6 @@ trial <- Trial$new(
       overdispersion = 2)
 )
 dd <- trial$simulate(1e4)
-#> Error: object 'trial' not found
 
 # equivalent specifications to estimate log(E[Y(1)] / E[Y(0)])
 estimators <- list(
@@ -136,7 +136,6 @@ estimators <- list(
   )
 )
 lapply(estimators, \(est) est(dd))
-#> Error in FUN(X[[i]], ...): object 'dd' not found
 
 
 # now with covariates, estimating E[Y(1)] - E[Y(0)]
@@ -146,28 +145,21 @@ estimators <- list(
   est_adj(response = targeted::learner_glm(y ~ a * x, family = poisson))
 )
 lapply(estimators, \(est) est(dd))
-#> Error in FUN(X[[i]], ...): object 'dd' not found
 
 # custom treatment.effect function
 estimator <- est_adj(response = y ~ a * x, family = poisson,
   treatment.effect = \(x) x[2] - x[1] # x[1] contains the estimate of E[Y(0)]
 )
 estimator(dd)
-#> Error: object 'dd' not found
 
 dd_factor <- dd
-#> Error: object 'dd' not found
 # when using factors, the control/comparator treatment needs to be the first
 # level to estimate the contrasts defined by the `treatment.level` argument
 estimator <- est_adj(response = y ~ a * x, family = poisson)
 dd_factor$a <- factor(dd_factor$a, levels = c(0, 1))
-#> Error: object 'dd_factor' not found
 estimator(dd_factor) # E[Y(1)] - E[Y(0)]
-#> Error: object 'dd_factor' not found
 
 dd_factor$a <- factor(dd_factor$a, levels = c(1, 0))
-#> Error: object 'dd_factor' not found
 estimator(dd_factor) # E[Y(1)] - E[Y(0)]
-#> Error: object 'dd_factor' not found
- # \dontrun{}
+} # }
 ```

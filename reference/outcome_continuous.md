@@ -88,11 +88,11 @@ trial$simulate(1e4, mean = ~ 1 + a + x, par = c(1, 0.5, 2)) |> est()
 #> 
 #> Coefficients:
 #> (Intercept)            a            x  
-#>      1.0064       0.4955       1.9950  
+#>      0.9816       0.5331       2.0119  
 #> 
 #> Degrees of Freedom: 9999 Total (i.e. Null);  9997 Residual
-#> Null Deviance:       50960 
-#> Residual Deviance: 9979  AIC: 28370
+#> Null Deviance:       51370 
+#> Residual Deviance: 10160     AIC: 28550
 
 # default behavior is to set all regression coefficients to 0
 trial$simulate(1e4, mean = ~ 1 + a + x) |> est()
@@ -101,11 +101,11 @@ trial$simulate(1e4, mean = ~ 1 + a + x) |> est()
 #> 
 #> Coefficients:
 #> (Intercept)            a            x  
-#>   -0.005021     0.016705     0.004762  
+#>     0.01652     -0.01496      0.01026  
 #> 
 #> Degrees of Freedom: 9999 Total (i.e. Null);  9997 Residual
-#> Null Deviance:       9872 
-#> Residual Deviance: 9871  AIC: 28260
+#> Null Deviance:       10130 
+#> Residual Deviance: 10130     AIC: 28510
 
 # intercept defaults to 0 and regression coef for a takes the provided value
 trial$simulate(1e4, mean = ~ 1 + a, par = c(a = 0.5)) |> est()
@@ -114,11 +114,11 @@ trial$simulate(1e4, mean = ~ 1 + a, par = c(a = 0.5)) |> est()
 #> 
 #> Coefficients:
 #> (Intercept)            a            x  
-#>    0.003931     0.510614     0.002516  
+#>  -0.0004711    0.4985070   -0.0028209  
 #> 
 #> Degrees of Freedom: 9999 Total (i.e. Null);  9997 Residual
-#> Null Deviance:       10650 
-#> Residual Deviance: 9995  AIC: 28380
+#> Null Deviance:       10360 
+#> Residual Deviance: 9734  AIC: 28120
 # trial$simulate(1e4, mean = ~ 1 + a, par = c("(Intercept)" = 0.5)) |> est()
 
 # define mean model that directly works on whole covariate data, incl id and
@@ -130,11 +130,11 @@ trial$simulate(1e4, mean = \(x) with(x, -1 + a * 2 + x * -3)) |>
 #> 
 #> Coefficients:
 #> (Intercept)            a            x  
-#>     -0.9997       2.0088      -2.9909  
+#>      -1.009        2.005       -3.019  
 #> 
 #> Degrees of Freedom: 9999 Total (i.e. Null);  9997 Residual
-#> Null Deviance:       110700 
-#> Residual Deviance: 9991  AIC: 28380
+#> Null Deviance:       110900 
+#> Residual Deviance: 9956  AIC: 28340
 
 # par argument is not passed on to mean function
 trial$simulate(1e4,
@@ -146,9 +146,9 @@ trial$simulate(1e4,
 #> 
 #> Coefficients:
 #> (Intercept)            a            x  
-#>     0.98324      5.03056      0.01649  
+#>    0.979250     5.016445    -0.008517  
 #> 
 #> Degrees of Freedom: 9999 Total (i.e. Null);  9997 Residual
-#> Null Deviance:       73120 
-#> Residual Deviance: 9862  AIC: 28250
+#> Null Deviance:       73030 
+#> Residual Deviance: 10120     AIC: 28510
 ```

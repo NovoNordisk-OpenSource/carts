@@ -74,11 +74,11 @@ trial$simulate(1e4, mean = ~ 1 + a, par = c(1, 0.5)) |> est()
 #> 
 #> Coefficients:
 #> (Intercept)            a  
-#>      1.0008       0.5487  
+#>      0.9742       0.5561  
 #> 
 #> Degrees of Freedom: 9999 Total (i.e. Null);  9998 Residual
-#> Null Deviance:       10590 
-#> Residual Deviance: 10460     AIC: 10460
+#> Null Deviance:       10670 
+#> Residual Deviance: 10540     AIC: 10540
 
 # default behavior is to set all regression coefficients to 0
 trial$simulate(1e4, mean = ~ 1 + a) |> est()
@@ -87,11 +87,11 @@ trial$simulate(1e4, mean = ~ 1 + a) |> est()
 #> 
 #> Coefficients:
 #> (Intercept)            a  
-#>    0.024030    -0.003254  
+#>    -0.04696      0.07982  
 #> 
 #> Degrees of Freedom: 9999 Total (i.e. Null);  9998 Residual
 #> Null Deviance:       13860 
-#> Residual Deviance: 13860     AIC: 13870
+#> Residual Deviance: 13860     AIC: 13860
 
 # intercept defaults to 0 and regression coef for a takes the provided value
 trial$simulate(1e4, mean = ~ 1 + a, par = c(a = 0.5)) |> est()
@@ -100,11 +100,11 @@ trial$simulate(1e4, mean = ~ 1 + a, par = c(a = 0.5)) |> est()
 #> 
 #> Coefficients:
 #> (Intercept)            a  
-#>    -0.01112      0.51808  
+#>    0.007602     0.449294  
 #> 
 #> Degrees of Freedom: 9999 Total (i.e. Null);  9998 Residual
-#> Null Deviance:       13720 
-#> Residual Deviance: 13550     AIC: 13560
+#> Null Deviance:       13730 
+#> Residual Deviance: 13610     AIC: 13610
 # trial$simulate(1e4, mean = ~ 1 + a, par = c("(Intercept)" = 1))
 
 # define mean model that directly works on whole covariate data, incl id and
@@ -116,11 +116,11 @@ trial$simulate(1e4, mean = \(x) with(x, lava::expit(1 + 0.5 * a))) |>
 #> 
 #> Coefficients:
 #> (Intercept)            a  
-#>      0.9951       0.4890  
+#>      0.9841       0.5388  
 #> 
 #> Degrees of Freedom: 9999 Total (i.e. Null);  9998 Residual
-#> Null Deviance:       10740 
-#> Residual Deviance: 10630     AIC: 10640
+#> Null Deviance:       10670 
+#> Residual Deviance: 10550     AIC: 10550
 
 # par argument of outcome_binary is not passed on to mean function
 trial$simulate(1e4,
@@ -132,9 +132,9 @@ trial$simulate(1e4,
 #> 
 #> Coefficients:
 #> (Intercept)            a  
-#>      1.0243       0.7617  
+#>      1.0033       0.8103  
 #> 
 #> Degrees of Freedom: 9999 Total (i.e. Null);  9998 Residual
-#> Null Deviance:       10090 
-#> Residual Deviance: 9866  AIC: 9870
+#> Null Deviance:       10120 
+#> Residual Deviance: 9859  AIC: 9863
 ```

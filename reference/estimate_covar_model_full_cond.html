@@ -17,7 +17,7 @@ derive_covar_distribution) or specified by cond.dist."><meta property="og:image"
 
     <a class="navbar-brand me-2" href="../index.html">carts</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -93,7 +93,7 @@ distribution of each covariate</p></dd>
 <span class="r-in"><span><span class="va">m.est</span> <span class="op">&lt;-</span> <span class="fu">estimate_covar_model_full_cond</span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="sample_covar_parametric_model.html">sample_covar_parametric_model</a></span><span class="op">(</span><span class="fl">1e4</span>, <span class="va">m.est</span><span class="op">)</span><span class="op">$</span><span class="va">y</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">as.integer</a></span><span class="op">(</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.1106</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.0968</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># specify distribution of y</span></span></span>
 <span class="r-in"><span><span class="va">m.est</span> <span class="op">&lt;-</span> <span class="fu">estimate_covar_model_full_cond</span><span class="op">(</span></span></span>
@@ -101,7 +101,7 @@ distribution of each covariate</p></dd>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="sample_covar_parametric_model.html">sample_covar_parametric_model</a></span><span class="op">(</span><span class="fl">1e4</span>, <span class="va">m.est</span><span class="op">)</span><span class="op">$</span><span class="va">y</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">as.integer</a></span><span class="op">(</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.1031</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.0913</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

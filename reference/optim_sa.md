@@ -105,5 +105,5 @@ Aplikace matematiky, 29(5), 372-383.
 f <- function(x) mean(rexp(10) <= x) - 0.5
 res <- carts:::optim_sa(f, 0, control=list(niter=2000, alpha=.5))
 res$estimate
-#> [1] 0.6813602
+#> [1] 0.6911952
 ```

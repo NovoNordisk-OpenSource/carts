@@ -9,7 +9,7 @@ simulation."><meta property="og:image" content="https://novonordisk-opensource.g
 
     <a class="navbar-brand me-2" href="../index.html">carts</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -455,7 +455,7 @@ the simulation. The return object is also assigned to the <code>estimates</code>
 field of this Trial class object (see examples).</p>
 </div><p></p><div class="section">
 <h4 id="examples-4">Examples<a class="anchor" aria-label="anchor" href="#examples-4"></a></h4>
-<p></p><div class="r example copy"><div class="sourceCode"><pre><code><span> <span class="co"># don't run because of high computational time</span></span>
+<p></p><div class="r example copy"><div class="sourceCode"><pre><code><span><span class="co"># don't run because of high computational time</span></span>
 <span><span class="co"># future::plan("multicore")</span></span>
 <span><span class="va">trial</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/Trial.html">Trial</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
 <span>  covariates <span class="op">=</span> \<span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">rbinom</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">1</span>, <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span>,</span>
@@ -527,7 +527,7 @@ functions</p></dd>
 <p>numeric</p>
 </div><p></p><div class="section">
 <h4 id="examples-5">Examples<a class="anchor" aria-label="anchor" href="#examples-5"></a></h4>
-<p></p><div class="r example copy"><div class="sourceCode"><pre><code><span> <span class="co"># don't run because of high computational time</span></span>
+<p></p><div class="r example copy"><div class="sourceCode"><pre><code><span><span class="co"># don't run because of high computational time</span></span>
 <span><span class="co"># toy examples with small number of Monte-Carlo replicates</span></span>
 <span><span class="co"># future::plan("multicore")</span></span>
 <span><span class="va">trial</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/Trial.html">Trial</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
@@ -640,7 +640,7 @@ for decision-making</p></dd>
 <p>samplesize_estimate S3 object</p>
 </div><p></p><div class="section">
 <h4 id="examples-6">Examples<a class="anchor" aria-label="anchor" href="#examples-6"></a></h4>
-<p></p><div class="r example copy"><div class="sourceCode"><pre><code><span> <span class="co"># don't run because of high computational time</span></span>
+<p></p><div class="r example copy"><div class="sourceCode"><pre><code><span><span class="co"># don't run because of high computational time</span></span>
 <span><span class="va">trial</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/Trial.html">Trial</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
 <span>  covariates <span class="op">=</span> \<span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">rbinom</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">1</span>, <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>  outcome <span class="op">=</span> \<span class="op">(</span><span class="va">data</span>, <span class="va">ate</span>, <span class="va">sd</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/with.html" class="external-link">with</a></span><span class="op">(</span><span class="va">data</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>, <span class="va">a</span> <span class="op">*</span> <span class="va">ate</span>, <span class="va">sd</span><span class="op">)</span><span class="op">)</span>,</span>
@@ -804,7 +804,8 @@ function arguments of the covariates, outcome and exclusion models. If
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span>  <span class="co"># don't run because of high computational time</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span><span class="co"># don't run because of high computational time</span></span></span>
 <span class="r-in"><span><span class="va">trial</span> <span class="op">&lt;-</span> <span class="va">Trial</span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  covariates <span class="op">=</span> \<span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">rbinom</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">1</span>, <span class="fl">0.5</span><span class="op">)</span>, x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  outcome <span class="op">=</span> <span class="fu"><a href="setargs.html">setargs</a></span><span class="op">(</span><span class="va">outcome_count</span>, par <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0.5</span>, <span class="fl">1</span><span class="op">)</span>, overdispersion <span class="op">=</span> <span class="fl">0.7</span><span class="op">)</span></span></span>
@@ -814,13 +815,10 @@ function arguments of the covariates, outcome and exclusion models. If
 <span class="r-in"><span>  unadjusted <span class="op">=</span> <span class="fu"><a href="est_glm.html">est_glm</a></span><span class="op">(</span>family <span class="op">=</span> <span class="st">"poisson"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  adjusted <span class="op">=</span> <span class="fu"><a href="est_glm.html">est_glm</a></span><span class="op">(</span>family <span class="op">=</span> <span class="st">"poisson"</span>, covariates <span class="op">=</span> <span class="st">"x"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'trial' not found</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">run</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">200</span>, R <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'trial' not found</span>
 <span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">summary</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'trial' not found</span>
-<span class="r-in"><span> <span class="co"># \dontrun{}</span></span></span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## ------------------------------------------------</span></span></span>
 <span class="r-in"><span><span class="co">## Method `Trial$args_model()`</span></span></span>
@@ -1099,7 +1097,8 @@ function arguments of the covariates, outcome and exclusion models. If
 <span class="r-in"><span><span class="co">## Method `Trial$run()`</span></span></span>
 <span class="r-in"><span><span class="co">## ------------------------------------------------</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span>  <span class="co"># don't run because of high computational time</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span><span class="co"># don't run because of high computational time</span></span></span>
 <span class="r-in"><span><span class="co"># future::plan("multicore")</span></span></span>
 <span class="r-in"><span><span class="va">trial</span> <span class="op">&lt;-</span> <span class="va">Trial</span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  covariates <span class="op">=</span> \<span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">rbinom</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">1</span>, <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span>,</span></span>
@@ -1112,14 +1111,11 @@ function arguments of the covariates, outcome and exclusion models. If
 <span class="r-in"><span><span class="co"># the R simulated data sets + all necessary information to re-run the</span></span></span>
 <span class="r-in"><span><span class="co"># simulation</span></span></span>
 <span class="r-in"><span><span class="va">res</span> <span class="op">&lt;-</span> <span class="va">trial</span><span class="op">$</span><span class="fu">run</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, R <span class="op">=</span> <span class="fl">50</span><span class="op">)</span> <span class="co"># store return object in a new variable</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in names(estimators) &lt;- paste0("est", seq_along(estimators)):</span> 'names' attribute [1] must be the same length as the vector [0]</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">trial</span><span class="op">$</span><span class="va">estimates</span><span class="op">)</span> <span class="co"># trial$estimates == res</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># the basic usage is to apply the summary method to the generated</span></span></span>
 <span class="r-in"><span><span class="co"># trial.estimates object.</span></span></span>
 <span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">summary</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in trial_summary(self = self, level = level, null = null, ni.margin = ni.margin,     alternative = alternative, reject.function = reject.function,     true.value = true.value, nominal.coverage = nominal.coverage,     estimates = estimates, ...):</span> No estimates available. Run trial first.</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># combining Trial$run and summary is faster than using</span></span></span>
 <span class="r-in"><span><span class="co"># Trial$estimate_power when modifying only the parameters of the</span></span></span>
@@ -1128,21 +1124,20 @@ function arguments of the covariates, outcome and exclusion models. If
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.25</span>, <span class="fl">0.5</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  \<span class="op">(</span><span class="va">ni</span><span class="op">)</span> <span class="va">trial</span><span class="op">$</span><span class="fu">summary</span><span class="op">(</span>ni.margin <span class="op">=</span> <span class="va">ni</span><span class="op">)</span><span class="op">[</span>, <span class="st">"power"</span><span class="op">]</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in trial_summary(self = self, level = level, null = null, ni.margin = ni.margin,     alternative = alternative, reject.function = reject.function,     true.value = true.value, nominal.coverage = nominal.coverage,     estimates = estimates, ...):</span> No estimates available. Run trial first.</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># changing the ate parameter value</span></span></span>
 <span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">run</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, R <span class="op">=</span> <span class="fl">50</span>, ate <span class="op">=</span> <span class="op">-</span><span class="fl">0.2</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in names(estimators) &lt;- paste0("est", seq_along(estimators)):</span> 'names' attribute [1] must be the same length as the vector [0]</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># supplying another estimator</span></span></span>
 <span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">run</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, R <span class="op">=</span> <span class="fl">50</span>, estimators <span class="op">=</span> <span class="fu"><a href="est_glm.html">est_glm</a></span><span class="op">(</span>robust <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span> <span class="co"># \dontrun{}</span></span></span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## ------------------------------------------------</span></span></span>
 <span class="r-in"><span><span class="co">## Method `Trial$estimate_power()`</span></span></span>
 <span class="r-in"><span><span class="co">## ------------------------------------------------</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span>  <span class="co"># don't run because of high computational time</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span><span class="co"># don't run because of high computational time</span></span></span>
 <span class="r-in"><span><span class="co"># toy examples with small number of Monte-Carlo replicates</span></span></span>
 <span class="r-in"><span><span class="co"># future::plan("multicore")</span></span></span>
 <span class="r-in"><span><span class="va">trial</span> <span class="op">&lt;-</span> <span class="va">Trial</span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span></span>
@@ -1154,30 +1149,26 @@ function arguments of the covariates, outcome and exclusion models. If
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># using previously defined estimators and summary.args</span></span></span>
 <span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">estimate_power</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, R <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in names(estimators) &lt;- paste0("est", seq_along(estimators)):</span> 'names' attribute [1] must be the same length as the vector [0]</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># supplying parameters to outcome function</span></span></span>
 <span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">estimate_power</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, R <span class="op">=</span> <span class="fl">20</span>, ate <span class="op">=</span> <span class="op">-</span><span class="fl">100</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in names(estimators) &lt;- paste0("est", seq_along(estimators)):</span> 'names' attribute [1] must be the same length as the vector [0]</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># modifying arguments of summary function</span></span></span>
 <span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">estimate_power</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, R <span class="op">=</span> <span class="fl">20</span>, ate <span class="op">=</span> <span class="op">-</span><span class="fl">100</span>,</span></span>
 <span class="r-in"><span> summary.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>alternative <span class="op">=</span> <span class="st">"&gt;"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in names(estimators) &lt;- paste0("est", seq_along(estimators)):</span> 'names' attribute [1] must be the same length as the vector [0]</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># supplying estimators to overrule previously set estimators</span></span></span>
 <span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">estimate_power</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, R <span class="op">=</span> <span class="fl">20</span>,</span></span>
 <span class="r-in"><span> estimators <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="est_glm.html">est_glm</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="est_adj.html">est_adj</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> est1 est2 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 0.05 0.05 </span>
-<span class="r-in"><span> <span class="co"># \dontrun{}</span></span></span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## ------------------------------------------------</span></span></span>
 <span class="r-in"><span><span class="co">## Method `Trial$estimate_samplesize()`</span></span></span>
 <span class="r-in"><span><span class="co">## ------------------------------------------------</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span>  <span class="co"># don't run because of high computational time</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span><span class="co"># don't run because of high computational time</span></span></span>
 <span class="r-in"><span><span class="va">trial</span> <span class="op">&lt;-</span> <span class="va">Trial</span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  covariates <span class="op">=</span> \<span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">rbinom</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">1</span>, <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  outcome <span class="op">=</span> \<span class="op">(</span><span class="va">data</span>, <span class="va">ate</span>, <span class="va">sd</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/with.html" class="external-link">with</a></span><span class="op">(</span><span class="va">data</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>, <span class="va">a</span> <span class="op">*</span> <span class="va">ate</span>, <span class="va">sd</span><span class="op">)</span><span class="op">)</span>,</span></span>
@@ -1189,22 +1180,6 @@ function arguments of the covariates, outcome and exclusion models. If
 <span class="r-in"><span><span class="co"># supply model parameter and estimator to call to overwrite previously</span></span></span>
 <span class="r-in"><span><span class="co"># set values</span></span></span>
 <span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">estimate_samplesize</span><span class="op">(</span>ate <span class="op">=</span> <span class="op">-</span><span class="fl">2</span>, estimator <span class="op">=</span> <span class="fu"><a href="est_glm.html">est_glm</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> INFO [2026-08-10 14:14:16] Finding initial sample-size with bisection algorithm</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> INFO [2026-08-10 14:14:16] Evaluating left point: 50</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> INFO [2026-08-10 14:14:17] Evaluating right point: 10000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> INFO [2026-08-10 14:14:23] Running stochastic approximation algorithm</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> INFO [2026-08-10 14:15:24] Refining estimate and calculating power</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Over-parameterized model (NA parameters). Ignoring NA parameters</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Over-parameterized model (NA parameters). Ignoring NA parameters</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> INFO [2026-08-10 14:15:37] [1/4] - power(10) = 0.941</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Over-parameterized model (NA parameters). Ignoring NA parameters</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> INFO [2026-08-10 14:15:52] [2/4] - power(11) = 0.935</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> INFO [2026-08-10 14:16:06] [3/4] - power(16) = 0.994</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> INFO [2026-08-10 14:16:21] [4/4] - power(21) = 0.998</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> INFO [2026-08-10 14:16:21] Estimated sample size: 10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ── Estimated sample-size to reach 90% power ── </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> n = 10 (actual estimated power≈93.94%)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># reduce number of iterations for bisection step but keep R = 100</span></span></span>
 <span class="r-in"><span><span class="co"># (default value)</span></span></span>
@@ -1213,7 +1188,7 @@ function arguments of the covariates, outcome and exclusion models. If
 <span class="r-in"><span><span class="co"># reduce significance level from 0.05 to 0.025, but keep alternative as</span></span></span>
 <span class="r-in"><span><span class="co"># before</span></span></span>
 <span class="r-in"><span><span class="co"># trial$estimate_samplesize(summary.args = list(level = 0.025))</span></span></span>
-<span class="r-in"><span> <span class="co"># \dontrun{}</span></span></span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## ------------------------------------------------</span></span></span>
 <span class="r-in"><span><span class="co">## Method `Trial$summary()`</span></span></span>
@@ -1229,27 +1204,27 @@ function arguments of the covariates, outcome and exclusion models. If
 <span class="r-in"><span><span class="co"># two-sided test with 0.05 significance level (alpha = 0.05) (default</span></span></span>
 <span class="r-in"><span><span class="co"># values)</span></span></span>
 <span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">summary</span><span class="op">(</span>level <span class="op">=</span> <span class="fl">0.05</span>, alternative <span class="op">=</span> <span class="st">"!="</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        estimate    std.err    std.dev power na</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> est1 -0.2586042 0.09297792 0.08489204  0.83  0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      estimate    std.err   std.dev power na</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> est1 -0.24904 0.09234622 0.0873419  0.76  0</span>
 <span class="r-in"><span><span class="co"># on-sided test</span></span></span>
 <span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">summary</span><span class="op">(</span>level <span class="op">=</span> <span class="fl">0.025</span>, alternative <span class="op">=</span> <span class="st">"&lt;"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        estimate    std.err    std.dev power na</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> est1 -0.2586042 0.09297792 0.08489204  0.83  0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      estimate    std.err   std.dev power na</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> est1 -0.24904 0.09234622 0.0873419  0.76  0</span>
 <span class="r-in"><span><span class="co"># non-inferiority test</span></span></span>
 <span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">summary</span><span class="op">(</span>level <span class="op">=</span> <span class="fl">0.025</span>, ni.margin <span class="op">=</span> <span class="op">-</span><span class="fl">0.5</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        estimate    std.err    std.dev power na</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> est1 -0.2586042 0.09297792 0.08489204   0.7  0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      estimate    std.err   std.dev power na</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> est1 -0.24904 0.09234622 0.0873419  0.79  0</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># provide simulation results to summary method via estimates argument</span></span></span>
 <span class="r-in"><span><span class="va">res</span> <span class="op">&lt;-</span> <span class="va">trial</span><span class="op">$</span><span class="fu">run</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, R <span class="op">=</span> <span class="fl">100</span>, p <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">summary</span><span class="op">(</span>estimates <span class="op">=</span> <span class="va">res</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        estimate    std.err   std.dev power na</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> est1 0.01201245 0.09932767 0.1047944  0.07  0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         estimate    std.err   std.dev power na</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> est1 0.003276051 0.09964957 0.1044246  0.06  0</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># calculate empirical bias, rmse and coverage for true target parameter</span></span></span>
 <span class="r-in"><span><span class="va">trial</span><span class="op">$</span><span class="fu">summary</span><span class="op">(</span>estimates <span class="op">=</span> <span class="va">res</span>, true.value <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        estimate    std.err   std.dev power na       bias      rmse coverage</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> est1 0.01201245 0.09932767 0.1047944  0.07  0 0.01201245 0.1049588     0.85</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         estimate    std.err   std.dev power na        bias      rmse coverage</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> est1 0.003276051 0.09964957 0.1044246  0.06  0 0.003276051 0.1039528     0.89</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## ------------------------------------------------</span></span></span>
 <span class="r-in"><span><span class="co">## Method `Trial$print()`</span></span></span>
