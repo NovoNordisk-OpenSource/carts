@@ -30,52 +30,66 @@ export(setallargs)
 export(setargs)
 import(data.table)
 importFrom(R6,R6Class)
-importFrom(lava,distribution)
-importFrom(lava,estimate)
-importFrom(lava,lvm)
-importFrom(lava,regression)
-importFrom(lava,sim)
-importFrom(logger,log_error)
-importFrom(logger,log_info)
-importFrom(logger,log_warn)
+importFrom(lava,
+  distribution,
+  estimate,
+  lvm,
+  regression,
+  sim
+)
+importFrom(logger,
+  log_error,
+  log_info,
+  log_warn
+)
 importFrom(methods,formalArgs)
-importFrom(rlang,abort)
-importFrom(rlang,call_match)
-importFrom(stats,as.formula)
-importFrom(stats,binomial)
-importFrom(stats,coef)
-importFrom(stats,delete.response)
-importFrom(stats,formula)
-importFrom(stats,gaussian)
-importFrom(stats,glm)
-importFrom(stats,lm)
-importFrom(stats,model.frame)
-importFrom(stats,model.matrix)
-importFrom(stats,model.offset)
-importFrom(stats,na.omit)
-importFrom(stats,nlminb)
-importFrom(stats,pnbinom)
-importFrom(stats,poisson)
-importFrom(stats,predict)
-importFrom(stats,qnorm)
-importFrom(stats,rbinom)
-importFrom(stats,rgamma)
-importFrom(stats,rnbinom)
-importFrom(stats,rnorm)
-importFrom(stats,rpois)
-importFrom(stats,runif)
-importFrom(stats,sd)
-importFrom(stats,terms)
-importFrom(stats,time)
-importFrom(stats,update)
-importFrom(survival,Surv)
-importFrom(survival,strata)
-importFrom(survival,survSplit)
-importFrom(targeted,cv)
-importFrom(targeted,learner)
-importFrom(targeted,learner_glm)
-importFrom(utils,capture.output)
-importFrom(utils,head)
-importFrom(utils,str)
-importFrom(utils,tail)
+importFrom(rlang,
+  abort,
+  call_match
+)
+importFrom(stats,
+  as.formula,
+  binomial,
+  coef,
+  delete.response,
+  formula,
+  gaussian,
+  glm,
+  lm,
+  model.frame,
+  model.matrix,
+  model.offset,
+  na.omit,
+  nlminb,
+  pnbinom,
+  poisson,
+  predict,
+  qnorm,
+  rbinom,
+  rgamma,
+  rnbinom,
+  rnorm,
+  rpois,
+  runif,
+  sd,
+  terms,
+  time,
+  update
+)
+importFrom(survival,
+  Surv,
+  strata,
+  survSplit
+)
+importFrom(targeted,
+  cv,
+  learner,
+  learner_glm
+)
+importFrom(utils,
+  capture.output,
+  head,
+  str,
+  tail
+)
 useDynLib(carts, .registration=TRUE)

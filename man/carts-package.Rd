@@ -15,7 +15,8 @@ clinical trial designs with a special emphasis on estimators based on
 covariate adjustment.
 }
 \examples{
-\dontrun{ # don't run because of high computational time
+\dontrun{
+# don't run because of high computational time
 trial <- Trial$new(
   covariates = \(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n)),
   outcome = setargs(outcome_count, par = c(1, 0.5, 1), overdispersion = 0.7)
