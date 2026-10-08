@@ -1,0 +1,122 @@
+# Construct estimator for the treatment effect in RCT
+
+Returns an estimator for the estimation of a treatment effect with
+parametric models ([stats::glm](https://rdrr.io/r/stats/glm.html) and
+[MASS::glm.nb](https://rdrr.io/pkg/MASS/man/glm.nb.html)). The returned
+estimator is a function with a single argument (data) and returns the
+treatment effect estimate, which is estimated with
+[lava::estimate](https://kkholst.github.io/lava/reference/estimate.default.html)
+
+## Usage
+
+``` r
+est_glm(
+  response = "y",
+  treatment = "a",
+  covariates = NULL,
+  offset = NULL,
+  id = NULL,
+  level = 0.95,
+  family = gaussian(),
+  target.parameter = treatment,
+  ...
+)
+```
+
+## Arguments
+
+- response:
+
+  (character) Response variable
+
+- treatment:
+
+  (character) Treatment variable. Additional care must be taken when the
+  treatment variable is encoded as a factor (see examples).
+
+- covariates:
+
+  (character; optional) Single or vector of covariates
+
+- offset:
+
+  (character; optional) Model offset
+
+- id:
+
+  (character; optional) Subject id variable
+
+- level:
+
+  (numeric) Confidence interval level
+
+- family:
+
+  (family or character) Exponential family that is supported by
+  [stats::glm](https://rdrr.io/r/stats/glm.html) and
+  [MASS::glm.nb](https://rdrr.io/pkg/MASS/man/glm.nb.html)
+
+- target.parameter:
+
+  (character) Target parameter from model output
+
+- ...:
+
+  Additional arguments to
+  [lava::summary.estimate](https://kkholst.github.io/lava/reference/summary.estimate.html)
+
+## Value
+
+function
+
+## See also
+
+[Trial](https://novonordisk-opensource.github.io/carts/reference/Trial.md)
+
+## Author
+
+Klaus Kähler Holst
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+trial <- Trial$new(
+    covariates = function(n) data.frame(a = rbinom(n, 1, 0.5), x = rnorm(n)),
+    outcome = setargs(outcome_count,
+      mean = ~ 1 + a*x,
+      par = c(1, -0.1, 0.5, 0.2),
+      overdispersion = 2)
+)
+dd <- trial$simulate(3e2)
+
+# crude mean comparison between arms (default behavior; y ~ a)
+est <- est_glm(family = poisson)
+est(dd)
+
+# linear adjustment with one covariate (y ~ a + x)
+est <- est_glm(family = poisson, covariates = "x")
+est(dd)
+
+# return estimates of all linear coefficients (useful for debugging)
+est <- est_glm(family = poisson, covariates = "x", target.parameter = NULL)
+est(dd)
+
+# comparing robust and non-robust standard errors of poisson estimator by
+# passing robust argument via ... to lava::estimate
+estimators <- list(
+  robust = est_glm(family = poisson),
+  non.robust = est_glm(family = poisson, robust = FALSE)
+)
+res <- do.call(rbind, lapply(estimators, \(est) est(dd)$coefmat))
+rownames(res) <- names(estimators)
+res
+
+dd_factor <- dd
+dd_factor$a <- as.factor(dd_factor$a)
+# target parameter needs to be changed because the name of the estimated
+# regression coefficient changes when encoding the treatment variable as a
+# factor
+est_glm(family = poisson, target.parameter = "a1")(dd_factor)
+} # }
+```
